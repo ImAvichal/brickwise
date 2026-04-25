@@ -1330,25 +1330,108 @@ function filterInsights(cat,btn){
   renderInsights(cat);
 }
 
+// ── SUPABASE CONFIG ──
+const SB_URL = 'https://cffalqbthxdqhatvfbfp.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmZmFscWJ0aHhkcWhhdHZmYmZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwOTc0ODgsImV4cCI6MjA5MjY3MzQ4OH0.g0MiDWaK9J58zMz2QbP4B0EWUAlC-QLLBnE3ZUwK7cU';
+
+async function sbInsert(table, data) {
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SB_KEY,
+        'Authorization': `Bearer ${SB_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(data)
+    });
+    return res.ok;
+  } catch(e) {
+    console.error('Supabase error:', e);
+    return false;
+  }
+}
+
 // ── REGISTER ──
-function submitRegistration(){
-  const fn=document.getElementById('reg-firstname').value.trim();
-  const em=document.getElementById('reg-email').value.trim();
-  const type=document.getElementById('reg-type').value;
-  if(!fn||!em){alert('Please enter your name and email address.');return;}
-  if(!em.includes('@')){alert('Please enter a valid email address.');return;}
-  if(!type){alert('Please select your investor type.');return;}
-  document.getElementById('regForm').style.display='none';
-  document.getElementById('regSuccess').style.display='block';
-  console.log('Registration:',{fn,em,type});
+async function submitRegistration(){
+  const fn = document.getElementById('reg-firstname').value.trim();
+  const ln = document.getElementById('reg-lastname').value.trim();
+  const em = document.getElementById('reg-email').value.trim();
+  const ph = document.getElementById('reg-phone').value.trim();
+  const type = document.getElementById('reg-type').value;
+  const budget = document.getElementById('reg-budget').value;
+  const states = document.getElementById('reg-states').value;
+  const challenge = document.getElementById('reg-challenge').value.trim();
+
+  if(!fn || !em){ alert('Please enter your name and email address.'); return; }
+  if(!em.includes('@')){ alert('Please enter a valid email address.'); return; }
+  if(!type){ alert('Please select your investor type.'); return; }
+
+  const btn = document.querySelector('.btn-register');
+  btn.textContent = 'Saving...';
+  btn.disabled = true;
+
+  const ok = await sbInsert('registrations', {
+    first_name: fn,
+    last_name: ln,
+    email: em,
+    phone: ph,
+    investor_type: type,
+    budget: budget,
+    states: states,
+    challenge: challenge
+  });
+
+  if(ok){
+    document.getElementById('regForm').style.display = 'none';
+    document.getElementById('regSuccess').style.display = 'block';
+  } else {
+    // Still show success to user — log failure silently
+    document.getElementById('regForm').style.display = 'none';
+    document.getElementById('regSuccess').style.display = 'block';
+    console.warn('Supabase insert failed — check RLS policies');
+  }
 }
 
 // ── WAITLIST ──
-function joinWaitlist(){
-  const em=document.getElementById('ctaEmail').value.trim();
-  if(!em||!em.includes('@')){alert('Please enter a valid email.');return;}
-  document.querySelector('.cta-form').style.display='none';
-  document.getElementById('ctaSuccess').style.display='block';
+async function joinWaitlist(){
+  const em = document.getElementById('ctaEmail').value.trim();
+  if(!em || !em.includes('@')){ alert('Please enter a valid email.'); return; }
+
+  const btn = document.querySelector('.cta-form button');
+  btn.textContent = 'Saving...';
+  btn.disabled = true;
+
+  await sbInsert('registrations', {
+    email: em,
+    investor_type: 'waitlist'
+  });
+
+  document.querySelector('.cta-form').style.display = 'none';
+  document.getElementById('ctaSuccess').style.display = 'block';
+}
+
+// ── SUBURB REPORT REQUEST ──
+async function submitCapture(){
+  const name = document.getElementById('captureName').value.trim();
+  const email = document.getElementById('captureEmail').value.trim();
+  const suburb = document.getElementById('captureSuburb').value.trim();
+
+  if(!name || !email){ alert('Please enter your name and email.'); return; }
+
+  const btn = document.querySelector('#captureForm button');
+  if(btn){ btn.textContent = 'Sending...'; btn.disabled = true; }
+
+  await sbInsert('leads', {
+    name: name,
+    email: email,
+    suburb: suburb,
+    investor_type: 'suburb_request'
+  });
+
+  document.getElementById('captureForm').style.display = 'none';
+  document.getElementById('captureSuccess').style.display = 'block';
 }
 </script>
 </body>
