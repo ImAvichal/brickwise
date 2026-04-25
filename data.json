@@ -1,12 +1,16 @@
 {
   "meta": {
-    "version": "1.0",
+    "version": "2.0",
     "generated": "2026-04-25T00:00:00Z",
     "refresh_frequency": "daily",
     "suburb_count": 39,
-    "states": ["NSW", "QLD", "VIC", "WA"]
+    "states": [
+      "NSW",
+      "QLD",
+      "VIC",
+      "WA"
+    ]
   },
-
   "picks": {
     "sweet_spot": {
       "label": "🔥 The Sweet Spot",
@@ -23,15 +27,7 @@
           "growth12m": 12.4,
           "medianHouse": 580000,
           "vacancyRate": 1.0,
-          "teaser": "Strong infrastructure pipeline, sub-1% vacancy, and affordable entry make Ipswich the standout pick in this tier. Rental demand driven by south-east QLD population inflow and proximity to Springfield employment hub.",
-          "insight": {
-            "summary": "Ipswich continues to outperform QLD benchmarks driven by significant infrastructure investment across the Ipswich Motorway corridor and the booming Springfield employment precinct. Population inflow from Brisbane is accelerating, creating sustained rental demand with vacancy at structural lows.",
-            "drivers": ["Ipswich Motorway and rail corridor upgrades", "Springfield employment hub driving tenant demand", "Population inflow from Brisbane priced out of inner ring", "Sub-$600K entry price attracting strong investor activity"],
-            "risks": ["Supply pipeline in outer Ipswich corridors to monitor", "Interest rate sensitivity at this price point", "Flood zone considerations in some pockets — check individual properties"],
-            "recommendation": "BUY",
-            "rec_text": "Strong fundamentals across all five Brickometer dimensions. Ideal for buy-and-hold investors seeking positive cash flow from day one with meaningful 5-year equity upside.",
-            "profiles": ["Buy and Hold", "Cash Flow Investor", "First-time Investor"]
-          }
+          "teaser": "Strong infrastructure pipeline, sub-1% vacancy, and affordable entry make Ipswich the standout pick in this tier."
         },
         {
           "name": "Armadale",
@@ -43,15 +39,7 @@
           "growth12m": 17.4,
           "medianHouse": 490000,
           "vacancyRate": 0.8,
-          "teaser": "Perth's hottest corridor delivers the highest yield in our dataset alongside 17%+ growth — rare at this price point. Low vacancy reflects structural undersupply across the southern corridor.",
-          "insight": {
-            "summary": "Armadale is experiencing a demand surge driven by Perth's broader affordability crunch pushing buyers south. The Thornlie-Cockburn Link rail extension is transforming connectivity, while population growth from interstate migration is keeping vacancy at record lows. At sub-$500K with a 6%+ yield, the risk-adjusted case is exceptional.",
-            "drivers": ["Thornlie-Cockburn Link rail extension lifting connectivity", "Perth interstate migration driving housing demand", "Sub-$500K entry attracting strong owner-occupier and investor demand", "Record low vacancy reflecting structural undersupply"],
-            "risks": ["Rapid price growth reducing future affordability upside", "Distance from Perth CBD limits some tenant profiles", "Concentration of investor stock in some pockets"],
-            "recommendation": "BUY",
-            "rec_text": "Highest Brickometer score in the sub-$700K tier. The combination of yield, growth, and low vacancy is rare — act before affordability closes the window.",
-            "profiles": ["Buy and Hold", "Cash Flow Investor", "Growth Investor"]
-          }
+          "teaser": "Perth's hottest corridor delivers the highest yield alongside 17%+ growth — rare at this price point."
         },
         {
           "name": "Toowoomba",
@@ -63,22 +51,14 @@
           "growth12m": 10.1,
           "medianHouse": 520000,
           "vacancyRate": 1.1,
-          "teaser": "Regional QLD powerhouse with strong agricultural and logistics employment base. Consistently strong yields, rising rents, and limited new stock create a compelling cash flow case.",
-          "insight": {
-            "summary": "Toowoomba's diversified economy — spanning agriculture, logistics, healthcare, and education — provides a resilient rental demand base that coastal cities can't match. The Inland Rail project is transforming the city's economic profile, and with rents rising faster than purchase prices, yields are improving in real terms.",
-            "drivers": ["Inland Rail project creating significant employment and population growth", "Diversified economy — agriculture, logistics, healthcare, education", "Low new dwelling supply keeping vacancy tight", "Rising rents improving yield trajectory"],
-            "risks": ["Regional market liquidity lower than capital cities", "Drought cycles can impact agricultural employment", "Limited upside from gentrification compared to metro suburbs"],
-            "recommendation": "BUY",
-            "rec_text": "A solid regional play for cash flow focused investors. The Inland Rail catalyst is still underpriced by the market — early movers will benefit most.",
-            "profiles": ["Cash Flow Investor", "Regional Investor", "Buy and Hold"]
-          }
+          "teaser": "Regional QLD powerhouse with diversified economy, strong yields and rising rents."
         }
       ]
     },
     "growth_play": {
       "label": "📈 The Growth Play",
       "range": "$700K – $1M",
-      "description": "Balanced growth and yield for the confident investor. These suburbs offer a compelling combination of capital growth trajectory and solid rental returns in the $700K–$1M range.",
+      "description": "Balanced growth and yield for the confident investor.",
       "suburbs": [
         {
           "name": "Ellenbrook",
@@ -90,15 +70,7 @@
           "growth12m": 15.1,
           "medianHouse": 570000,
           "vacancyRate": 0.8,
-          "teaser": "Ellenbrook benefits from Perth's northward infrastructure expansion, strong family demand, growing amenity, and a yield profile that punches well above its price point.",
-          "insight": {
-            "summary": "Ellenbrook's transformation from a master-planned community into a fully established suburb with strong amenity is attracting growing owner-occupier demand, while investors benefit from exceptional yields rarely seen at this price point. The northern corridor infrastructure program is accelerating both connectivity and price growth.",
-            "drivers": ["Northern corridor infrastructure investment improving connectivity", "Strong family demographic driving owner-occupier demand", "High amenity levels — schools, retail, parks — supporting sustained tenant demand", "5.5% yield with 15%+ growth is a rare combination in any market"],
-            "risks": ["High investor concentration in some estates", "Distance from Perth CBD limits professional tenant profiles", "Supply of new land still available in outer corridors"],
-            "recommendation": "BUY",
-            "rec_text": "Top pick in the growth play tier. The yield-growth combination at this price point is exceptional and unlikely to persist as the market reprices the corridor.",
-            "profiles": ["Buy and Hold", "Growth Investor", "Cash Flow Investor"]
-          }
+          "teaser": "Ellenbrook benefits from Perth's northward infrastructure expansion with a yield that punches above its price point."
         },
         {
           "name": "Campbelltown",
@@ -110,15 +82,7 @@
           "growth12m": 8.3,
           "medianHouse": 820000,
           "vacancyRate": 1.4,
-          "teaser": "Sydney's South West corridor continues to attract strong tenant demand. Western Sydney Airport infrastructure and new employment zones underpin solid long-term growth fundamentals.",
-          "insight": {
-            "summary": "Campbelltown sits in the direct beneficiary zone of the Western Sydney Airport development at Badgerys Creek. The Aerotropolis employment precinct is expected to create over 200,000 jobs over the next two decades, and Campbelltown's affordability relative to inner Sydney makes it a logical destination for workers priced out of closer suburbs.",
-            "drivers": ["Western Sydney Airport Aerotropolis employment precinct — 200K+ jobs forecast", "Metro rail extension improving CBD connectivity", "Relative affordability vs inner-Sydney driving sustained demand", "Large tenant pool from health, education and defence sectors"],
-            "risks": ["Airport timeline delays could defer growth catalyst", "Higher vacancy than other picks — monitor leasing times", "Interest rate sensitivity at $820K price point"],
-            "recommendation": "BUY",
-            "rec_text": "A long-term structural play on Western Sydney's transformation. Best suited to investors with a 7–10 year horizon who want to get ahead of the Aerotropolis employment wave.",
-            "profiles": ["Long-term Buy and Hold", "Growth Investor", "Infrastructure Play"]
-          }
+          "teaser": "Sydney's South West corridor with Western Sydney Airport underpinning solid long-term growth fundamentals."
         },
         {
           "name": "Coomera",
@@ -130,22 +94,14 @@
           "growth12m": 11.4,
           "medianHouse": 740000,
           "vacancyRate": 1.0,
-          "teaser": "Gold Coast's northern growth corridor with strong infrastructure investment, population inflow from Brisbane, and a diverse tenant base supporting consistent rental demand.",
-          "insight": {
-            "summary": "Coomera is the fastest-growing suburb on the Gold Coast, benefiting from a perfect storm of affordability (relative to Broadbeach and Surfers), major infrastructure investment, and population inflow from both Brisbane and interstate. The Coomera Town Centre development is transforming local amenity and employment.",
-            "drivers": ["Coomera Town Centre creating 5,000+ local jobs and significant retail amenity", "Population inflow from Brisbane and interstate migrants", "M1 corridor upgrades improving travel time to Brisbane CBD", "Strong school catchment driving family demand"],
-            "risks": ["High new dwelling supply in master-planned estates", "Flood mapping in low-lying areas — check individual properties", "Growth dependent on continued QLD interstate migration"],
-            "recommendation": "BUY",
-            "rec_text": "Strong fundamentals with a clear employment and amenity catalyst. Best suited to investors targeting the family rental market with a 5–7 year hold.",
-            "profiles": ["Buy and Hold", "Family Market", "Growth Investor"]
-          }
+          "teaser": "Gold Coast's northern growth corridor with strong infrastructure and population inflow from Brisbane."
         }
       ]
     },
     "premium": {
       "label": "💎 Premium Market",
       "range": "$1M+",
-      "description": "Capital growth and long-term wealth creation for the experienced investor. Premium suburbs with strong owner-occupier appeal, proven infrastructure, and equity track records.",
+      "description": "Capital growth and long-term wealth creation for the experienced investor.",
       "suburbs": [
         {
           "name": "Doncaster",
@@ -157,15 +113,7 @@
           "growth12m": 7.9,
           "medianHouse": 1350000,
           "vacancyRate": 0.9,
-          "teaser": "Melbourne's premium eastern corridor with high owner-occupier demand, excellent school catchments, and proximity to the CBD underpinning strong long-term capital growth.",
-          "insight": {
-            "summary": "Doncaster's investment case rests on scarcity, quality, and institutional demand. The suburb's position within the Doncaster Hill Activity Centre precinct, combined with consistently strong school catchments and sub-1% vacancy, makes it one of Melbourne's most resilient property markets across cycles.",
-            "drivers": ["Doncaster Hill Activity Centre precinct driving density and amenity uplift", "Top-tier school catchments driving persistent owner-occupier demand", "Sub-1% vacancy reflecting genuine housing scarcity", "Premium tenant profile — professionals and families with high income stability"],
-            "risks": ["3.4% yield requires strong borrowing capacity to service", "Entry price of $1.35M limits buyer pool for future resale", "Victoria land tax implications for investors to model carefully"],
-            "recommendation": "HOLD",
-            "rec_text": "A wealth preservation and steady growth play rather than a yield investment. Best suited to experienced investors seeking capital protection with reliable 7–8% annual growth over a long horizon.",
-            "profiles": ["Wealth Preservation", "Long-term Hold", "Experienced Investor"]
-          }
+          "teaser": "Melbourne's premium eastern corridor with top school catchments and sub-1% vacancy underpinning long-term growth."
         },
         {
           "name": "Fremantle",
@@ -177,15 +125,7 @@
           "growth12m": 12.8,
           "medianHouse": 1100000,
           "vacancyRate": 1.1,
-          "teaser": "Fremantle offers a rare premium combination — lifestyle appeal, above-average yield for its price point, and strong growth driven by Perth's broader market momentum.",
-          "insight": {
-            "summary": "Fremantle is undergoing a significant lifestyle and cultural renaissance, attracting high-income professionals, creative industries, and hospitality workers who are driving rental demand for quality stock. At 4.4% yield for a $1.1M median, the income profile is exceptional for a premium suburb — and Perth's structural undersupply means growth has further to run.",
-            "drivers": ["Cultural and lifestyle renaissance attracting high-income professional tenants", "Perth structural undersupply — building approvals well below population growth", "4.4% yield exceptional for premium price point", "Port expansion and Fremantle waterfront investment lifting profile"],
-            "risks": ["Premium market more sensitive to interest rate movements", "WA economy has commodity cycle exposure", "Some heritage overlay areas restrict renovation and development upside"],
-            "recommendation": "BUY",
-            "rec_text": "The strongest premium pick on both yield and growth metrics. Perth's undersupply story has further to run and Fremantle sits at the lifestyle premium end of that equation.",
-            "profiles": ["Premium Investor", "Growth Investor", "Lifestyle Market"]
-          }
+          "teaser": "Lifestyle appeal, above-average yield, and strong growth driven by Perth's broader market momentum."
         },
         {
           "name": "Parramatta",
@@ -197,60 +137,5197 @@
           "growth12m": 6.4,
           "medianHouse": 1250000,
           "vacancyRate": 1.5,
-          "teaser": "Sydney's second CBD with significant commercial investment and population density growth. Strong long-term fundamentals though entry price requires solid borrowing capacity.",
-          "insight": {
-            "summary": "Parramatta's long-term investment case is built on its transformation into Sydney's second CBD — a deliberate state government strategy backed by billions in commercial, transport, and cultural infrastructure. However the near-term picture is more nuanced, with elevated vacancy from new apartment supply and slower growth than outer corridors.",
-            "drivers": ["Second CBD commercial investment — banks, government agencies, major corporates", "Parramatta Light Rail Stage 2 improving connectivity across the precinct", "Population density and employment concentration supporting long-term rental demand", "Strong international student and professional tenant pool"],
-            "risks": ["Elevated vacancy from new apartment supply pipeline — buy houses not units", "1.5% vacancy above ideal threshold", "Entry price of $1.25M requires significant borrowing capacity", "Unit oversupply in high-rise zones depressing some rental returns"],
-            "recommendation": "MONITOR",
-            "rec_text": "Sound long-term fundamentals but near-term headwinds from supply. Focus on houses over units and wait for vacancy to tighten before committing — or negotiate hard on price.",
-            "profiles": ["Experienced Investor", "Long-term Hold", "CBD Play"]
-          }
+          "teaser": "Sydney's second CBD with significant commercial investment and population density growth."
         }
       ]
     }
   },
-
   "suburbs": [
-    { "name": "Marsden Park", "state": "NSW", "postcode": "2765", "medianHouse": 870000, "medianUnit": 620000, "grossYield": 3.9, "vacancyRate": 1.1, "growth12m": 9.2, "growth3yr": 7.8, "growth5yr": 7.1, "demand": "High", "brickometer": 71, "rating": "Strong" },
-    { "name": "Riverstone", "state": "NSW", "postcode": "2765", "medianHouse": 920000, "medianUnit": 680000, "grossYield": 3.8, "vacancyRate": 1.0, "growth12m": 8.6, "growth3yr": 7.4, "growth5yr": 6.8, "demand": "High", "brickometer": 69, "rating": "Balanced" },
-    { "name": "Schofields", "state": "NSW", "postcode": "2762", "medianHouse": 1050000, "medianUnit": 740000, "grossYield": 3.6, "vacancyRate": 0.9, "growth12m": 7.8, "growth3yr": 6.9, "growth5yr": 6.4, "demand": "High", "brickometer": 67, "rating": "Balanced" },
-    { "name": "Parramatta", "state": "NSW", "postcode": "2150", "medianHouse": 1250000, "medianUnit": 680000, "grossYield": 4.1, "vacancyRate": 1.5, "growth12m": 6.4, "growth3yr": 5.8, "growth5yr": 6.2, "demand": "High", "brickometer": 68, "rating": "Balanced" },
-    { "name": "Liverpool", "state": "NSW", "postcode": "2170", "medianHouse": 960000, "medianUnit": 590000, "grossYield": 4.2, "vacancyRate": 1.3, "growth12m": 7.1, "growth3yr": 6.4, "growth5yr": 6.0, "demand": "High", "brickometer": 70, "rating": "Strong" },
-    { "name": "Campbelltown", "state": "NSW", "postcode": "2560", "medianHouse": 820000, "medianUnit": 520000, "grossYield": 4.5, "vacancyRate": 1.4, "growth12m": 8.3, "growth3yr": 7.1, "growth5yr": 6.5, "demand": "High", "brickometer": 72, "rating": "Strong" },
-    { "name": "Penrith", "state": "NSW", "postcode": "2750", "medianHouse": 890000, "medianUnit": 580000, "grossYield": 4.3, "vacancyRate": 1.2, "growth12m": 7.9, "growth3yr": 6.8, "growth5yr": 6.3, "demand": "High", "brickometer": 71, "rating": "Strong" },
-    { "name": "Blacktown", "state": "NSW", "postcode": "2148", "medianHouse": 950000, "medianUnit": 610000, "grossYield": 4.0, "vacancyRate": 1.1, "growth12m": 7.5, "growth3yr": 6.5, "growth5yr": 6.1, "demand": "High", "brickometer": 69, "rating": "Balanced" },
-    { "name": "South Wentworthville", "state": "NSW", "postcode": "2145", "medianHouse": 1080000, "medianUnit": 700000, "grossYield": 3.8, "vacancyRate": 1.0, "growth12m": 8.1, "growth3yr": 7.0, "growth5yr": 6.5, "demand": "High", "brickometer": 70, "rating": "Strong" },
-    { "name": "Newcastle", "state": "NSW", "postcode": "2300", "medianHouse": 880000, "medianUnit": 600000, "grossYield": 4.3, "vacancyRate": 1.3, "growth12m": 7.4, "growth3yr": 6.6, "growth5yr": 6.2, "demand": "High", "brickometer": 70, "rating": "Strong" },
-    { "name": "Maitland", "state": "NSW", "postcode": "2320", "medianHouse": 690000, "medianUnit": 460000, "grossYield": 4.8, "vacancyRate": 1.4, "growth12m": 8.0, "growth3yr": 6.8, "growth5yr": 6.1, "demand": "Emerging", "brickometer": 70, "rating": "Strong" },
-    { "name": "Wollongong", "state": "NSW", "postcode": "2500", "medianHouse": 920000, "medianUnit": 640000, "grossYield": 4.1, "vacancyRate": 1.2, "growth12m": 6.8, "growth3yr": 6.0, "growth5yr": 5.8, "demand": "Medium", "brickometer": 67, "rating": "Balanced" },
-    { "name": "Ipswich", "state": "QLD", "postcode": "4305", "medianHouse": 580000, "medianUnit": 380000, "grossYield": 5.2, "vacancyRate": 1.0, "growth12m": 12.4, "growth3yr": 10.1, "growth5yr": 8.8, "demand": "High", "brickometer": 78, "rating": "Strong" },
-    { "name": "Logan", "state": "QLD", "postcode": "4114", "medianHouse": 640000, "medianUnit": 420000, "grossYield": 5.0, "vacancyRate": 1.1, "growth12m": 11.8, "growth3yr": 9.6, "growth5yr": 8.4, "demand": "High", "brickometer": 76, "rating": "Strong" },
-    { "name": "Caboolture", "state": "QLD", "postcode": "4510", "medianHouse": 610000, "medianUnit": 410000, "grossYield": 4.9, "vacancyRate": 1.0, "growth12m": 11.2, "growth3yr": 9.1, "growth5yr": 8.0, "demand": "High", "brickometer": 75, "rating": "Strong" },
-    { "name": "Springfield", "state": "QLD", "postcode": "4300", "medianHouse": 670000, "medianUnit": 450000, "grossYield": 4.8, "vacancyRate": 0.9, "growth12m": 10.5, "growth3yr": 8.8, "growth5yr": 7.9, "demand": "High", "brickometer": 76, "rating": "Strong" },
-    { "name": "Toowoomba", "state": "QLD", "postcode": "4350", "medianHouse": 520000, "medianUnit": 340000, "grossYield": 5.4, "vacancyRate": 1.1, "growth12m": 10.1, "growth3yr": 8.4, "growth5yr": 7.5, "demand": "High", "brickometer": 75, "rating": "Strong" },
-    { "name": "Sunshine Coast", "state": "QLD", "postcode": "4558", "medianHouse": 980000, "medianUnit": 640000, "grossYield": 4.2, "vacancyRate": 1.3, "growth12m": 8.4, "growth3yr": 7.2, "growth5yr": 6.8, "demand": "High", "brickometer": 70, "rating": "Strong" },
-    { "name": "Gold Coast", "state": "QLD", "postcode": "4217", "medianHouse": 1100000, "medianUnit": 720000, "grossYield": 4.0, "vacancyRate": 1.4, "growth12m": 9.1, "growth3yr": 7.8, "growth5yr": 7.1, "demand": "High", "brickometer": 69, "rating": "Balanced" },
-    { "name": "Coomera", "state": "QLD", "postcode": "4209", "medianHouse": 740000, "medianUnit": 490000, "grossYield": 4.6, "vacancyRate": 1.0, "growth12m": 11.4, "growth3yr": 9.2, "growth5yr": 8.1, "demand": "High", "brickometer": 77, "rating": "Strong" },
-    { "name": "North Lakes", "state": "QLD", "postcode": "4509", "medianHouse": 780000, "medianUnit": 520000, "grossYield": 4.5, "vacancyRate": 1.0, "growth12m": 10.2, "growth3yr": 8.6, "growth5yr": 7.7, "demand": "High", "brickometer": 74, "rating": "Strong" },
-    { "name": "Hervey Bay", "state": "QLD", "postcode": "4655", "medianHouse": 560000, "medianUnit": 380000, "grossYield": 5.1, "vacancyRate": 1.3, "growth12m": 9.6, "growth3yr": 7.9, "growth5yr": 7.0, "demand": "Emerging", "brickometer": 72, "rating": "Strong" },
-    { "name": "Tarneit", "state": "VIC", "postcode": "3029", "medianHouse": 680000, "medianUnit": 460000, "grossYield": 4.2, "vacancyRate": 1.3, "growth12m": 6.8, "growth3yr": 5.9, "growth5yr": 5.6, "demand": "High", "brickometer": 67, "rating": "Balanced" },
-    { "name": "Werribee", "state": "VIC", "postcode": "3030", "medianHouse": 660000, "medianUnit": 440000, "grossYield": 4.3, "vacancyRate": 1.2, "growth12m": 7.1, "growth3yr": 6.1, "growth5yr": 5.8, "demand": "High", "brickometer": 68, "rating": "Balanced" },
-    { "name": "Cranbourne", "state": "VIC", "postcode": "3977", "medianHouse": 710000, "medianUnit": 480000, "grossYield": 4.1, "vacancyRate": 1.1, "growth12m": 6.5, "growth3yr": 5.7, "growth5yr": 5.4, "demand": "High", "brickometer": 67, "rating": "Balanced" },
-    { "name": "Doncaster", "state": "VIC", "postcode": "3108", "medianHouse": 1350000, "medianUnit": 820000, "grossYield": 3.4, "vacancyRate": 0.9, "growth12m": 7.9, "growth3yr": 7.0, "growth5yr": 6.6, "demand": "High", "brickometer": 74, "rating": "Strong" },
-    { "name": "Epping", "state": "VIC", "postcode": "3076", "medianHouse": 820000, "medianUnit": 560000, "grossYield": 4.0, "vacancyRate": 1.2, "growth12m": 6.2, "growth3yr": 5.5, "growth5yr": 5.2, "demand": "Medium", "brickometer": 65, "rating": "Balanced" },
-    { "name": "Melton", "state": "VIC", "postcode": "3337", "medianHouse": 580000, "medianUnit": 390000, "grossYield": 4.7, "vacancyRate": 1.1, "growth12m": 7.3, "growth3yr": 6.2, "growth5yr": 5.8, "demand": "Emerging", "brickometer": 69, "rating": "Balanced" },
-    { "name": "Point Cook", "state": "VIC", "postcode": "3030", "medianHouse": 780000, "medianUnit": 530000, "grossYield": 4.0, "vacancyRate": 1.0, "growth12m": 6.7, "growth3yr": 5.9, "growth5yr": 5.6, "demand": "High", "brickometer": 68, "rating": "Balanced" },
-    { "name": "Geelong", "state": "VIC", "postcode": "3220", "medianHouse": 680000, "medianUnit": 460000, "grossYield": 4.5, "vacancyRate": 1.2, "growth12m": 6.1, "growth3yr": 5.5, "growth5yr": 5.3, "demand": "Medium", "brickometer": 67, "rating": "Balanced" },
-    { "name": "Frankston", "state": "VIC", "postcode": "3199", "medianHouse": 720000, "medianUnit": 490000, "grossYield": 4.3, "vacancyRate": 1.3, "growth12m": 5.9, "growth3yr": 5.3, "growth5yr": 5.1, "demand": "Medium", "brickometer": 65, "rating": "Balanced" },
-    { "name": "Baldivis", "state": "WA", "postcode": "6171", "medianHouse": 560000, "medianUnit": 380000, "grossYield": 5.8, "vacancyRate": 0.8, "growth12m": 16.2, "growth3yr": 12.4, "growth5yr": 10.1, "demand": "High", "brickometer": 83, "rating": "Strong" },
-    { "name": "Rockingham", "state": "WA", "postcode": "6168", "medianHouse": 520000, "medianUnit": 360000, "grossYield": 5.9, "vacancyRate": 0.9, "growth12m": 15.4, "growth3yr": 11.8, "growth5yr": 9.6, "demand": "High", "brickometer": 82, "rating": "Strong" },
-    { "name": "Mandurah", "state": "WA", "postcode": "6210", "medianHouse": 490000, "medianUnit": 340000, "grossYield": 6.0, "vacancyRate": 1.0, "growth12m": 14.8, "growth3yr": 11.2, "growth5yr": 9.1, "demand": "High", "brickometer": 81, "rating": "Strong" },
-    { "name": "Armadale", "state": "WA", "postcode": "6112", "medianHouse": 490000, "medianUnit": 330000, "grossYield": 6.1, "vacancyRate": 0.8, "growth12m": 17.4, "growth3yr": 13.1, "growth5yr": 10.6, "demand": "High", "brickometer": 82, "rating": "Strong" },
-    { "name": "Ellenbrook", "state": "WA", "postcode": "6069", "medianHouse": 570000, "medianUnit": 390000, "grossYield": 5.5, "vacancyRate": 0.8, "growth12m": 15.1, "growth3yr": 11.6, "growth5yr": 9.4, "demand": "High", "brickometer": 81, "rating": "Strong" },
-    { "name": "Joondalup", "state": "WA", "postcode": "6027", "medianHouse": 680000, "medianUnit": 460000, "grossYield": 5.2, "vacancyRate": 0.9, "growth12m": 13.6, "growth3yr": 10.4, "growth5yr": 8.6, "demand": "High", "brickometer": 79, "rating": "Strong" },
-    { "name": "Kwinana", "state": "WA", "postcode": "6167", "medianHouse": 470000, "medianUnit": 320000, "grossYield": 6.2, "vacancyRate": 0.9, "growth12m": 16.0, "growth3yr": 12.2, "growth5yr": 9.9, "demand": "High", "brickometer": 82, "rating": "Strong" },
-    { "name": "Wanneroo", "state": "WA", "postcode": "6065", "medianHouse": 620000, "medianUnit": 420000, "grossYield": 5.3, "vacancyRate": 0.8, "growth12m": 15.6, "growth3yr": 11.9, "growth5yr": 9.7, "demand": "High", "brickometer": 81, "rating": "Strong" },
-    { "name": "Gosnells", "state": "WA", "postcode": "6110", "medianHouse": 500000, "medianUnit": 340000, "grossYield": 6.0, "vacancyRate": 0.9, "growth12m": 16.4, "growth3yr": 12.6, "growth5yr": 10.2, "demand": "High", "brickometer": 82, "rating": "Strong" }
+    {
+      "name": "Marsden Park",
+      "state": "NSW",
+      "postcode": "2765",
+      "medianHouse": 870000,
+      "medianUnit": 620000,
+      "grossYield": 3.9,
+      "vacancyRate": 1.1,
+      "growth12m": 9.2,
+      "growth3yr": 7.8,
+      "growth5yr": 7.1,
+      "daysOnMarket": 22,
+      "salesVolume12m": 680,
+      "demand": "High",
+      "brickometer": 71,
+      "rating": "Strong",
+      "summary": "Marsden Park is one of Sydney's fastest-growing north-west corridor suburbs, benefiting from major infrastructure investment and a rapidly expanding population base. Strong family rental demand, good school catchments, and proximity to the North West Metro make this a resilient long-term holding.",
+      "strengths": [
+        "North West Metro access boosting connectivity to Sydney CBD",
+        "Strong family rental demand from growing population",
+        "Good school catchments driving tenant and owner-occupier appeal",
+        "Ongoing infrastructure investment in retail and community amenity"
+      ],
+      "watchouts": [
+        "Yield of 3.9% requires strong serviceability — positive gearing is unlikely",
+        "Large new housing supply pipeline may moderate price growth",
+        "High entry price limits future buyer pool growth"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Long-term Growth",
+        "Family Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 55,
+        "growth": 78,
+        "vacancy": 88,
+        "affordability": 58,
+        "infrastructure": 75,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 680000
+        },
+        {
+          "year": "2022",
+          "value": 740000
+        },
+        {
+          "year": "2023",
+          "value": 780000
+        },
+        {
+          "year": "2024",
+          "value": 800000
+        },
+        {
+          "year": "2025",
+          "value": 870000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.5
+        },
+        {
+          "year": "2022",
+          "value": 3.6
+        },
+        {
+          "year": "2023",
+          "value": 3.7
+        },
+        {
+          "year": "2024",
+          "value": 3.8
+        },
+        {
+          "year": "2025",
+          "value": 3.9
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.2
+        },
+        {
+          "year": "2025",
+          "value": 1.1
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 8,
+          "nearest_km": 0.6,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.8
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.9
+        },
+        "parks": {
+          "count": 7,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Norwest Business Park",
+          "Marsden Park Industrial Estate"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "North West Metro Extension",
+          "type": "transport",
+          "status": "completed",
+          "completionDate": "2019",
+          "distanceKm": 3.2,
+          "impact": "positive",
+          "impactNote": "Completed metro connection has transformed access to Sydney CBD and is a key driver of ongoing demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Riverstone",
+      "state": "NSW",
+      "postcode": "2765",
+      "medianHouse": 920000,
+      "medianUnit": 680000,
+      "grossYield": 3.8,
+      "vacancyRate": 1.0,
+      "growth12m": 8.6,
+      "growth3yr": 7.4,
+      "growth5yr": 6.8,
+      "daysOnMarket": 20,
+      "salesVolume12m": 560,
+      "demand": "High",
+      "brickometer": 69,
+      "rating": "Balanced",
+      "summary": "Riverstone sits in Sydney's north-west growth corridor with excellent metro connectivity and consistent family rental demand. Its lower vacancy rate reflects genuine housing scarcity, though yield remains below the threshold for positive gearing.",
+      "strengths": [
+        "Sub-1% vacancy reflecting tight rental market",
+        "North West Metro access driving commuter demand",
+        "Strong population growth sustaining tenant demand",
+        "Established suburb with good community infrastructure"
+      ],
+      "watchouts": [
+        "3.8% yield makes positive gearing challenging at current prices",
+        "Entry price above $900K limits future buyer pool",
+        "Competing supply from Marsden Park and Schofields nearby"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Long-term Growth"
+      ],
+      "scoreBreakdown": {
+        "yield": 52,
+        "growth": 75,
+        "vacancy": 100,
+        "affordability": 55,
+        "infrastructure": 72,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 720000
+        },
+        {
+          "year": "2022",
+          "value": 790000
+        },
+        {
+          "year": "2023",
+          "value": 830000
+        },
+        {
+          "year": "2024",
+          "value": 850000
+        },
+        {
+          "year": "2025",
+          "value": 920000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.4
+        },
+        {
+          "year": "2022",
+          "value": 3.5
+        },
+        {
+          "year": "2023",
+          "value": 3.6
+        },
+        {
+          "year": "2024",
+          "value": 3.7
+        },
+        {
+          "year": "2025",
+          "value": 3.8
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.7
+        },
+        {
+          "year": "2022",
+          "value": 1.4
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.1
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 6,
+          "nearest_km": 0.7,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 1.1
+        },
+        "shoppingCentres": {
+          "count": 2,
+          "nearest_km": 1.4
+        },
+        "parks": {
+          "count": 5,
+          "nearest_km": 0.4
+        },
+        "employmentHubs": [
+          "Norwest Business Park",
+          "Richmond RAAF Base"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "North West Metro — Richmond Extension",
+          "type": "transport",
+          "status": "proposed",
+          "completionDate": "2030-Q4",
+          "distanceKm": 2.1,
+          "impact": "positive",
+          "impactNote": "Proposed extension would further improve connectivity and support sustained demand. Subject to government approval. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Schofields",
+      "state": "NSW",
+      "postcode": "2762",
+      "medianHouse": 1050000,
+      "medianUnit": 740000,
+      "grossYield": 3.6,
+      "vacancyRate": 0.9,
+      "growth12m": 7.8,
+      "growth3yr": 6.9,
+      "growth5yr": 6.4,
+      "daysOnMarket": 18,
+      "salesVolume12m": 490,
+      "demand": "High",
+      "brickometer": 67,
+      "rating": "Balanced",
+      "summary": "Schofields is a well-established north-west suburb with exceptional metro access and one of the lowest vacancy rates in the corridor. Premium family housing stock attracts quality tenants, but the entry price above $1M requires careful cash flow modelling.",
+      "strengths": [
+        "Very low vacancy at 0.9% — strong and consistent rental demand",
+        "Direct metro access to Sydney CBD in under 50 minutes",
+        "Premium housing stock attracting high-income professional tenants",
+        "Excellent school catchments"
+      ],
+      "watchouts": [
+        "At $1M+, positive gearing is very difficult to achieve",
+        "3.6% yield is the lowest in the corridor",
+        "Large competing supply in surrounding new estates"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Wealth Preservation",
+        "Premium Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 48,
+        "growth": 72,
+        "vacancy": 100,
+        "affordability": 48,
+        "infrastructure": 78,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 820000
+        },
+        {
+          "year": "2022",
+          "value": 890000
+        },
+        {
+          "year": "2023",
+          "value": 940000
+        },
+        {
+          "year": "2024",
+          "value": 975000
+        },
+        {
+          "year": "2025",
+          "value": 1050000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.2
+        },
+        {
+          "year": "2022",
+          "value": 3.3
+        },
+        {
+          "year": "2023",
+          "value": 3.4
+        },
+        {
+          "year": "2024",
+          "value": 3.5
+        },
+        {
+          "year": "2025",
+          "value": 3.6
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.6
+        },
+        {
+          "year": "2022",
+          "value": 1.3
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 9,
+          "nearest_km": 0.4,
+          "rating": "Very Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.8
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.7
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Norwest Business Park",
+          "Bella Vista Commercial Precinct"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Schofields Town Centre Activation",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2026-Q4",
+          "distanceKm": 0.5,
+          "impact": "positive",
+          "impactNote": "New retail and commercial precinct expected to improve local amenity and support sustained tenant demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Parramatta",
+      "state": "NSW",
+      "postcode": "2150",
+      "medianHouse": 1250000,
+      "medianUnit": 680000,
+      "grossYield": 4.1,
+      "vacancyRate": 1.5,
+      "growth12m": 6.4,
+      "growth3yr": 5.8,
+      "growth5yr": 6.2,
+      "daysOnMarket": 28,
+      "salesVolume12m": 920,
+      "demand": "High",
+      "brickometer": 68,
+      "rating": "Balanced",
+      "summary": "Parramatta is Sydney's second CBD and a major long-term structural investment. Government and corporate investment is significant, with major organisations relocating. Near-term headwinds from apartment oversupply require careful stock selection — focus on houses, not units.",
+      "strengths": [
+        "Second CBD investment driving sustained employment demand",
+        "Parramatta Light Rail improving connectivity across western Sydney",
+        "Strong international student and professional tenant pool",
+        "Long-term infrastructure spend underpinning a 10+ year growth thesis"
+      ],
+      "watchouts": [
+        "Elevated vacancy at 1.5% from apartment oversupply — avoid units",
+        "Entry price of $1.25M requires significant borrowing capacity",
+        "Slower growth profile than outer corridor suburbs"
+      ],
+      "investorProfiles": [
+        "Long-term Buy and Hold",
+        "Experienced Investor",
+        "CBD Play"
+      ],
+      "scoreBreakdown": {
+        "yield": 62,
+        "growth": 64,
+        "vacancy": 72,
+        "affordability": 45,
+        "infrastructure": 85,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 1050000
+        },
+        {
+          "year": "2022",
+          "value": 1120000
+        },
+        {
+          "year": "2023",
+          "value": 1140000
+        },
+        {
+          "year": "2024",
+          "value": 1175000
+        },
+        {
+          "year": "2025",
+          "value": 1250000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.6
+        },
+        {
+          "year": "2022",
+          "value": 3.8
+        },
+        {
+          "year": "2023",
+          "value": 3.9
+        },
+        {
+          "year": "2024",
+          "value": 4.0
+        },
+        {
+          "year": "2025",
+          "value": 4.1
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.1
+        },
+        {
+          "year": "2022",
+          "value": 1.9
+        },
+        {
+          "year": "2023",
+          "value": 1.7
+        },
+        {
+          "year": "2024",
+          "value": 1.6
+        },
+        {
+          "year": "2025",
+          "value": 1.5
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.3,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 3,
+          "nearest_km": 0.4
+        },
+        "shoppingCentres": {
+          "count": 6,
+          "nearest_km": 0.2
+        },
+        "parks": {
+          "count": 6,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Parramatta CBD",
+          "Westmead Health Precinct",
+          "Norwest Business Park"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.1
+        },
+        "universities": {
+          "count": 2,
+          "nearest_km": 1.4
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Parramatta Light Rail Stage 2",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2027-Q3",
+          "distanceKm": 0.6,
+          "impact": "positive",
+          "impactNote": "Extended light rail expected to improve cross-suburb connectivity and support demand for well-located stock. Indicative only."
+        },
+        {
+          "name": "Powerhouse Museum Parramatta",
+          "type": "education",
+          "status": "under_construction",
+          "completionDate": "2025-Q4",
+          "distanceKm": 0.8,
+          "impact": "positive",
+          "impactNote": "Major cultural precinct expected to enhance liveability and attract higher-income residents. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Liverpool",
+      "state": "NSW",
+      "postcode": "2170",
+      "medianHouse": 960000,
+      "medianUnit": 590000,
+      "grossYield": 4.2,
+      "vacancyRate": 1.3,
+      "growth12m": 7.1,
+      "growth3yr": 6.4,
+      "growth5yr": 6.0,
+      "daysOnMarket": 25,
+      "salesVolume12m": 740,
+      "demand": "High",
+      "brickometer": 70,
+      "rating": "Strong",
+      "summary": "Liverpool is south-west Sydney's regional CBD and a direct beneficiary of the Western Sydney Airport. Major health, education, and government employment anchors provide a resilient tenant base.",
+      "strengths": [
+        "Western Sydney Airport proximity driving long-term employment growth",
+        "Liverpool Hospital and Western Sydney University anchoring tenant demand",
+        "Good yield for the Sydney metro context at 4.2%",
+        "Significant government investment in civic and transport infrastructure"
+      ],
+      "watchouts": [
+        "Airport employment benefits are 5–10 years away for some precincts",
+        "Vacancy at 1.3% — monitor leasing times",
+        "Unit oversupply in parts of Liverpool CBD"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Infrastructure Play",
+        "Long-term Growth"
+      ],
+      "scoreBreakdown": {
+        "yield": 64,
+        "growth": 70,
+        "vacancy": 80,
+        "affordability": 52,
+        "infrastructure": 82,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 760000
+        },
+        {
+          "year": "2022",
+          "value": 830000
+        },
+        {
+          "year": "2023",
+          "value": 870000
+        },
+        {
+          "year": "2024",
+          "value": 896000
+        },
+        {
+          "year": "2025",
+          "value": 960000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.7
+        },
+        {
+          "year": "2022",
+          "value": 3.8
+        },
+        {
+          "year": "2023",
+          "value": 4.0
+        },
+        {
+          "year": "2024",
+          "value": 4.1
+        },
+        {
+          "year": "2025",
+          "value": 4.2
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.0
+        },
+        {
+          "year": "2022",
+          "value": 1.7
+        },
+        {
+          "year": "2023",
+          "value": 1.5
+        },
+        {
+          "year": "2024",
+          "value": 1.4
+        },
+        {
+          "year": "2025",
+          "value": 1.3
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 16,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.7
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Liverpool CBD",
+          "Western Sydney Airport Aerotropolis",
+          "Moorebank Logistics Precinct"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.2
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 1.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Western Sydney Airport — Badgerys Creek",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q4",
+          "distanceKm": 14.5,
+          "impact": "positive",
+          "impactNote": "Transformational infrastructure expected to create over 200,000 jobs in the corridor over 20 years. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Campbelltown",
+      "state": "NSW",
+      "postcode": "2560",
+      "medianHouse": 820000,
+      "medianUnit": 520000,
+      "grossYield": 4.5,
+      "vacancyRate": 1.4,
+      "growth12m": 8.3,
+      "growth3yr": 7.1,
+      "growth5yr": 6.5,
+      "daysOnMarket": 24,
+      "salesVolume12m": 768,
+      "demand": "High",
+      "brickometer": 72,
+      "rating": "Strong",
+      "summary": "Campbelltown sits in the direct beneficiary zone of the Western Sydney Airport Aerotropolis, forecast to create over 200,000 jobs. Its affordability relative to inner Sydney and improving transport links make it a compelling long-term play.",
+      "strengths": [
+        "Western Sydney Airport Aerotropolis — 200K+ jobs forecast over 20 years",
+        "Metro rail extension improving CBD connectivity significantly",
+        "Strong tenant pool from health, education and defence employment",
+        "Relative affordability vs inner-Sydney sustaining demand"
+      ],
+      "watchouts": [
+        "Airport timeline delays could defer key growth catalysts",
+        "Vacancy at 1.4% is above ideal — monitor leasing times",
+        "Interest rate sensitivity at $820K entry"
+      ],
+      "investorProfiles": [
+        "Long-term Buy and Hold",
+        "Growth Investor",
+        "Infrastructure Play"
+      ],
+      "scoreBreakdown": {
+        "yield": 70,
+        "growth": 74,
+        "vacancy": 72,
+        "affordability": 65,
+        "infrastructure": 80,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 620000
+        },
+        {
+          "year": "2022",
+          "value": 710000
+        },
+        {
+          "year": "2023",
+          "value": 740000
+        },
+        {
+          "year": "2024",
+          "value": 757000
+        },
+        {
+          "year": "2025",
+          "value": 820000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.8
+        },
+        {
+          "year": "2022",
+          "value": 4.0
+        },
+        {
+          "year": "2023",
+          "value": 4.2
+        },
+        {
+          "year": "2024",
+          "value": 4.4
+        },
+        {
+          "year": "2025",
+          "value": 4.5
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.5
+        },
+        {
+          "year": "2024",
+          "value": 1.4
+        },
+        {
+          "year": "2025",
+          "value": 1.4
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 16,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.9
+        },
+        "shoppingCentres": {
+          "count": 5,
+          "nearest_km": 0.7
+        },
+        "parks": {
+          "count": 9,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Campbelltown CBD",
+          "Macarthur Health Precinct",
+          "Western Sydney Aerotropolis"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.4
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 2.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "South West Metro Rail",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2028-Q2",
+          "distanceKm": 2.1,
+          "impact": "positive",
+          "impactNote": "Rail extension expected to reduce commute time to Sydney CBD, broadening tenant and buyer appeal. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Penrith",
+      "state": "NSW",
+      "postcode": "2750",
+      "medianHouse": 890000,
+      "medianUnit": 580000,
+      "grossYield": 4.3,
+      "vacancyRate": 1.2,
+      "growth12m": 7.9,
+      "growth3yr": 6.8,
+      "growth5yr": 6.3,
+      "daysOnMarket": 21,
+      "salesVolume12m": 820,
+      "demand": "High",
+      "brickometer": 71,
+      "rating": "Strong",
+      "summary": "Penrith is the gateway to the Blue Mountains and a major western Sydney regional centre. Strong rental demand from a diverse employment base supports consistent yields, and its position as the outer west hub provides long-term structural demand.",
+      "strengths": [
+        "Direct train access to Sydney CBD in under 60 minutes",
+        "Penrith CBD growth as a major western Sydney service hub",
+        "Strong family rental demand from growing west Sydney population",
+        "Affordable entry relative to mid-ring Sydney suburbs"
+      ],
+      "watchouts": [
+        "Slower growth profile than outer greenfield corridors",
+        "High summer temperatures reduce appeal for some tenant profiles",
+        "Some flood risk in low-lying areas near the Nepean River"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Cash Flow Investor",
+        "Family Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 66,
+        "growth": 73,
+        "vacancy": 84,
+        "affordability": 60,
+        "infrastructure": 72,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 700000
+        },
+        {
+          "year": "2022",
+          "value": 770000
+        },
+        {
+          "year": "2023",
+          "value": 800000
+        },
+        {
+          "year": "2024",
+          "value": 825000
+        },
+        {
+          "year": "2025",
+          "value": 890000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.8
+        },
+        {
+          "year": "2022",
+          "value": 3.9
+        },
+        {
+          "year": "2023",
+          "value": 4.1
+        },
+        {
+          "year": "2024",
+          "value": 4.2
+        },
+        {
+          "year": "2025",
+          "value": 4.3
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.3
+        },
+        {
+          "year": "2025",
+          "value": 1.2
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 18,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.6
+        },
+        "shoppingCentres": {
+          "count": 5,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 10,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Penrith CBD",
+          "Penrith Lakes Precinct",
+          "St Marys Employment Area"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.6
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 2.2
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Penrith City Centre Revitalisation",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2027-Q1",
+          "distanceKm": 0.8,
+          "impact": "positive",
+          "impactNote": "Major CBD investment expected to drive employment growth and lift amenity for tenants and owner-occupiers. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Blacktown",
+      "state": "NSW",
+      "postcode": "2148",
+      "medianHouse": 950000,
+      "medianUnit": 610000,
+      "grossYield": 4.0,
+      "vacancyRate": 1.1,
+      "growth12m": 7.5,
+      "growth3yr": 6.5,
+      "growth5yr": 6.1,
+      "daysOnMarket": 22,
+      "salesVolume12m": 1040,
+      "demand": "High",
+      "brickometer": 69,
+      "rating": "Balanced",
+      "summary": "Blacktown is one of Sydney's most populous LGAs and offers strong fundamentals for the patient investor. High population density, good transit access, and a diverse employment base create consistent rental demand.",
+      "strengths": [
+        "High population density creating persistent rental demand",
+        "Good train access — multiple lines connecting to Sydney CBD",
+        "Diverse employment base reducing economic concentration risk",
+        "Established infrastructure and community amenity"
+      ],
+      "watchouts": [
+        "At $950K, positive gearing is challenging at 4.0% yield",
+        "Some precincts experiencing higher vacancy due to unit supply",
+        "Competition from nearby Marsden Park and Schofields"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Long-term Growth"
+      ],
+      "scoreBreakdown": {
+        "yield": 60,
+        "growth": 71,
+        "vacancy": 88,
+        "affordability": 53,
+        "infrastructure": 74,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 740000
+        },
+        {
+          "year": "2022",
+          "value": 820000
+        },
+        {
+          "year": "2023",
+          "value": 860000
+        },
+        {
+          "year": "2024",
+          "value": 880000
+        },
+        {
+          "year": "2025",
+          "value": 950000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.6
+        },
+        {
+          "year": "2022",
+          "value": 3.7
+        },
+        {
+          "year": "2023",
+          "value": 3.8
+        },
+        {
+          "year": "2024",
+          "value": 3.9
+        },
+        {
+          "year": "2025",
+          "value": 4.0
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.7
+        },
+        {
+          "year": "2022",
+          "value": 1.4
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.2
+        },
+        {
+          "year": "2025",
+          "value": 1.1
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 22,
+          "nearest_km": 0.3,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 3,
+          "nearest_km": 0.5
+        },
+        "shoppingCentres": {
+          "count": 6,
+          "nearest_km": 0.4
+        },
+        "parks": {
+          "count": 12,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Blacktown CBD",
+          "Seven Hills Business Park",
+          "Norwest Business Park"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 2.1
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 3.4
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Sydney Metro West — Blacktown Extension",
+          "type": "transport",
+          "status": "proposed",
+          "completionDate": "2031-Q2",
+          "distanceKm": 4.5,
+          "impact": "positive",
+          "impactNote": "If approved, metro connection would transform travel times. Subject to government confirmation. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "South Wentworthville",
+      "state": "NSW",
+      "postcode": "2145",
+      "medianHouse": 1080000,
+      "medianUnit": 700000,
+      "grossYield": 3.8,
+      "vacancyRate": 1.0,
+      "growth12m": 8.1,
+      "growth3yr": 7.0,
+      "growth5yr": 6.5,
+      "daysOnMarket": 19,
+      "salesVolume12m": 380,
+      "demand": "High",
+      "brickometer": 70,
+      "rating": "Strong",
+      "summary": "South Wentworthville is a well-established suburb in Sydney's Parramatta corridor offering excellent transit access and a tight rental market. Proximity to Westmead Health Precinct creates a strong professional tenant base, while sub-1% vacancy reflects genuine housing scarcity.",
+      "strengths": [
+        "Sub-1% vacancy — one of the tightest rental markets in western Sydney",
+        "Proximity to Westmead Health Precinct driving professional tenant demand",
+        "Direct train access to both Parramatta and Sydney CBD",
+        "Established suburb with quality housing stock and limited new supply"
+      ],
+      "watchouts": [
+        "At $1.08M, entry requires strong borrowing capacity",
+        "3.8% yield makes positive gearing difficult",
+        "Limited new supply means growth is tied to broader market sentiment"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Wealth Preservation",
+        "Premium Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 52,
+        "growth": 74,
+        "vacancy": 100,
+        "affordability": 48,
+        "infrastructure": 80,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 860000
+        },
+        {
+          "year": "2022",
+          "value": 940000
+        },
+        {
+          "year": "2023",
+          "value": 975000
+        },
+        {
+          "year": "2024",
+          "value": 1000000
+        },
+        {
+          "year": "2025",
+          "value": 1080000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.4
+        },
+        {
+          "year": "2022",
+          "value": 3.5
+        },
+        {
+          "year": "2023",
+          "value": 3.6
+        },
+        {
+          "year": "2024",
+          "value": 3.7
+        },
+        {
+          "year": "2025",
+          "value": 3.8
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.5
+        },
+        {
+          "year": "2022",
+          "value": 1.3
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 7,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 0.8
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 5,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Westmead Health Precinct",
+          "Parramatta CBD",
+          "Norwest Business Park"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.4
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 2.0
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Parramatta Light Rail Stage 2",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2027-Q3",
+          "distanceKm": 2.2,
+          "impact": "positive",
+          "impactNote": "Extended light rail network expected to improve local connectivity and support ongoing tenant demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Newcastle",
+      "state": "NSW",
+      "postcode": "2300",
+      "medianHouse": 880000,
+      "medianUnit": 600000,
+      "grossYield": 4.3,
+      "vacancyRate": 1.3,
+      "growth12m": 7.4,
+      "growth3yr": 6.6,
+      "growth5yr": 6.2,
+      "daysOnMarket": 24,
+      "salesVolume12m": 890,
+      "demand": "High",
+      "brickometer": 70,
+      "rating": "Strong",
+      "summary": "Newcastle has undergone a remarkable transformation from a post-industrial city to one of Australia's most liveable regional centres. The CBD renewal, world-class light rail, and growing University of Newcastle campus are driving consistent rental demand.",
+      "strengths": [
+        "Major urban renewal lifting Newcastle CBD profile significantly",
+        "University of Newcastle driving strong student rental demand",
+        "Good affordability relative to Sydney with strong lifestyle appeal",
+        "Diversifying economy reducing reliance on manufacturing"
+      ],
+      "watchouts": [
+        "Some flood risk in low-lying suburbs — check specific addresses",
+        "Slower capital growth than Sydney outer corridors",
+        "Unit supply in CBD areas creating some vacancy pressure"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Lifestyle Market",
+        "Cash Flow Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 66,
+        "growth": 70,
+        "vacancy": 80,
+        "affordability": 62,
+        "infrastructure": 74,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 680000
+        },
+        {
+          "year": "2022",
+          "value": 760000
+        },
+        {
+          "year": "2023",
+          "value": 790000
+        },
+        {
+          "year": "2024",
+          "value": 820000
+        },
+        {
+          "year": "2025",
+          "value": 880000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.8
+        },
+        {
+          "year": "2022",
+          "value": 4.0
+        },
+        {
+          "year": "2023",
+          "value": 4.1
+        },
+        {
+          "year": "2024",
+          "value": 4.2
+        },
+        {
+          "year": "2025",
+          "value": 4.3
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.0
+        },
+        {
+          "year": "2022",
+          "value": 1.7
+        },
+        {
+          "year": "2023",
+          "value": 1.5
+        },
+        {
+          "year": "2024",
+          "value": 1.4
+        },
+        {
+          "year": "2025",
+          "value": 1.3
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 20,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 3,
+          "nearest_km": 0.5
+        },
+        "shoppingCentres": {
+          "count": 6,
+          "nearest_km": 0.4
+        },
+        "parks": {
+          "count": 14,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Newcastle CBD",
+          "Hunter Medical Research Institute",
+          "Williamtown RAAF Base"
+        ],
+        "hospitals": {
+          "count": 2,
+          "nearest_km": 1.0
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 1.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Newcastle Inner City Bypass Completion",
+          "type": "transport",
+          "status": "completed",
+          "completionDate": "2022",
+          "distanceKm": 1.8,
+          "impact": "positive",
+          "impactNote": "Completed bypass has improved traffic flow and supported continued CBD revival. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Maitland",
+      "state": "NSW",
+      "postcode": "2320",
+      "medianHouse": 690000,
+      "medianUnit": 460000,
+      "grossYield": 4.8,
+      "vacancyRate": 1.4,
+      "growth12m": 8.0,
+      "growth3yr": 6.8,
+      "growth5yr": 6.1,
+      "daysOnMarket": 26,
+      "salesVolume12m": 620,
+      "demand": "Emerging",
+      "brickometer": 70,
+      "rating": "Strong",
+      "summary": "Maitland is the Hunter Valley's fastest-growing city offering affordability, strong yields, and improving infrastructure. Proximity to Newcastle and a growing services economy make it attractive for investors seeking entry-level prices with above-average income potential.",
+      "strengths": [
+        "Affordable entry below $700K with above-average 4.8% yield",
+        "Strong population growth driving sustained housing demand",
+        "Proximity to Newcastle providing employment diversity",
+        "Maitland CBD renewal improving local amenity"
+      ],
+      "watchouts": [
+        "Vacancy at 1.4% — above ideal, monitor leasing times",
+        "Flood risk in some areas near the Hunter River",
+        "Liquidity lower than metro markets on resale"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Emerging Market",
+        "First-time Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 75,
+        "growth": 73,
+        "vacancy": 72,
+        "affordability": 78,
+        "infrastructure": 58,
+        "riskPenalty": -5
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 520000
+        },
+        {
+          "year": "2022",
+          "value": 580000
+        },
+        {
+          "year": "2023",
+          "value": 610000
+        },
+        {
+          "year": "2024",
+          "value": 639000
+        },
+        {
+          "year": "2025",
+          "value": 690000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.2
+        },
+        {
+          "year": "2022",
+          "value": 4.4
+        },
+        {
+          "year": "2023",
+          "value": 4.5
+        },
+        {
+          "year": "2024",
+          "value": 4.6
+        },
+        {
+          "year": "2025",
+          "value": 4.8
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.1
+        },
+        {
+          "year": "2022",
+          "value": 1.8
+        },
+        {
+          "year": "2023",
+          "value": 1.6
+        },
+        {
+          "year": "2024",
+          "value": 1.5
+        },
+        {
+          "year": "2025",
+          "value": 1.4
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 1.2
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Maitland CBD",
+          "Hunter Valley Industrial Estates",
+          "Newcastle Employment Corridor"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 2.0
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Maitland CBD Revitalisation Stage 2",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2026-Q3",
+          "distanceKm": 1.0,
+          "impact": "positive",
+          "impactNote": "Continued CBD investment expected to improve amenity and drive population retention. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Wollongong",
+      "state": "NSW",
+      "postcode": "2500",
+      "medianHouse": 920000,
+      "medianUnit": 640000,
+      "grossYield": 4.1,
+      "vacancyRate": 1.2,
+      "growth12m": 6.8,
+      "growth3yr": 6.0,
+      "growth5yr": 5.8,
+      "daysOnMarket": 25,
+      "salesVolume12m": 760,
+      "demand": "Medium",
+      "brickometer": 67,
+      "rating": "Balanced",
+      "summary": "Wollongong offers Sydney commuters an affordable alternative with lifestyle appeal, a strong university presence, and a diversifying economy. The Illawarra is undergoing a quiet economic renaissance, though growth remains moderate compared to QLD and WA counterparts.",
+      "strengths": [
+        "University of Wollongong driving strong student rental demand",
+        "Lifestyle appeal attracting remote workers and professionals from Sydney",
+        "Coastal location with genuine scarcity premium",
+        "iAccelerate tech hub diversifying the local economy"
+      ],
+      "watchouts": [
+        "Growth at 6.8% is moderate compared to interstate alternatives",
+        "Yield of 4.1% unlikely to achieve positive gearing",
+        "Some areas exposed to coastal erosion and storm risk"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Lifestyle Market",
+        "Long-term Growth"
+      ],
+      "scoreBreakdown": {
+        "yield": 62,
+        "growth": 66,
+        "vacancy": 84,
+        "affordability": 55,
+        "infrastructure": 68,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 740000
+        },
+        {
+          "year": "2022",
+          "value": 820000
+        },
+        {
+          "year": "2023",
+          "value": 840000
+        },
+        {
+          "year": "2024",
+          "value": 862000
+        },
+        {
+          "year": "2025",
+          "value": 920000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.6
+        },
+        {
+          "year": "2022",
+          "value": 3.8
+        },
+        {
+          "year": "2023",
+          "value": 3.9
+        },
+        {
+          "year": "2024",
+          "value": 4.0
+        },
+        {
+          "year": "2025",
+          "value": 4.1
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.9
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.4
+        },
+        {
+          "year": "2024",
+          "value": 1.3
+        },
+        {
+          "year": "2025",
+          "value": 1.2
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 18,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.6
+        },
+        "shoppingCentres": {
+          "count": 5,
+          "nearest_km": 0.4
+        },
+        "parks": {
+          "count": 12,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Wollongong CBD",
+          "iAccelerate Innovation Hub",
+          "Port Kembla Industrial Precinct"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.8
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 2.4
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Port Kembla Gas Terminal",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2025-Q3",
+          "distanceKm": 6.2,
+          "impact": "uncertain",
+          "impactNote": "Energy infrastructure creating local employment. Long-term amenity impact uncertain. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Ipswich",
+      "state": "QLD",
+      "postcode": "4305",
+      "medianHouse": 580000,
+      "medianUnit": 380000,
+      "grossYield": 5.2,
+      "vacancyRate": 1.0,
+      "growth12m": 12.4,
+      "growth3yr": 10.1,
+      "growth5yr": 8.8,
+      "daysOnMarket": 18,
+      "salesVolume12m": 842,
+      "demand": "High",
+      "brickometer": 78,
+      "rating": "Strong",
+      "summary": "Ipswich is one of south-east Queensland's strongest investment markets right now. Low vacancy, solid rental yields, and a busy infrastructure pipeline are driving both tenant demand and capital growth. Particularly well suited to investors looking for cash flow from day one.",
+      "strengths": [
+        "Very low vacancy — properties leasing quickly with minimal downtime",
+        "Strong rental yield above the Queensland average",
+        "Significant government investment in roads, schools, and transport",
+        "Affordable entry price relative to Brisbane"
+      ],
+      "watchouts": [
+        "Some areas near the Bremer River carry flood risk — always check individual addresses",
+        "New housing supply in outer corridors may soften growth in coming years",
+        "Rapid price growth may be reducing future affordability upside"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "First-time Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 85,
+        "growth": 82,
+        "vacancy": 100,
+        "affordability": 80,
+        "infrastructure": 65,
+        "riskPenalty": -5
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 380000
+        },
+        {
+          "year": "2022",
+          "value": 435000
+        },
+        {
+          "year": "2023",
+          "value": 490000
+        },
+        {
+          "year": "2024",
+          "value": 516000
+        },
+        {
+          "year": "2025",
+          "value": 580000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.2
+        },
+        {
+          "year": "2022",
+          "value": 4.5
+        },
+        {
+          "year": "2023",
+          "value": 4.8
+        },
+        {
+          "year": "2024",
+          "value": 5.0
+        },
+        {
+          "year": "2025",
+          "value": 5.2
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.1
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.1
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 12,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 3,
+          "nearest_km": 1.2
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.8
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Ipswich CBD",
+          "Springfield Employment Precinct",
+          "Yamanto Industrial Estate"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 2.1
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 3.5
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Ipswich Motorway Upgrade — Stage 3",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2027-Q2",
+          "distanceKm": 1.4,
+          "impact": "positive",
+          "impactNote": "Improved travel time to Brisbane CBD expected to increase commuter tenant demand and support prices in nearby streets. Indicative only."
+        },
+        {
+          "name": "Springfield Town Centre Expansion",
+          "type": "commercial",
+          "status": "approved",
+          "completionDate": "2026-Q4",
+          "distanceKm": 4.2,
+          "impact": "positive",
+          "impactNote": "Additional employment and retail amenity expected to sustain tenant demand in the broader corridor. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Logan",
+      "state": "QLD",
+      "postcode": "4114",
+      "medianHouse": 640000,
+      "medianUnit": 420000,
+      "grossYield": 5.0,
+      "vacancyRate": 1.1,
+      "growth12m": 11.8,
+      "growth3yr": 9.6,
+      "growth5yr": 8.4,
+      "daysOnMarket": 19,
+      "salesVolume12m": 960,
+      "demand": "High",
+      "brickometer": 76,
+      "rating": "Strong",
+      "summary": "Logan sits between Brisbane and the Gold Coast, making it one of SEQ's most strategically located investment markets. Strong tenant demand from a young, growing population and good transit links continue to drive performance.",
+      "strengths": [
+        "Strategic location between Brisbane and Gold Coast driving demand",
+        "Strong population growth from young families and first home buyers",
+        "Good transit links with direct access to both Brisbane and Gold Coast",
+        "Above-average yield for the SEQ corridor at 5.0%"
+      ],
+      "watchouts": [
+        "Some areas have higher crime statistics — research specific suburbs within Logan LGA",
+        "Vacancy slightly elevated at 1.1% — select properties carefully",
+        "Supply pipeline in outer Logan corridors to monitor"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Family Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 80,
+        "growth": 80,
+        "vacancy": 88,
+        "affordability": 76,
+        "infrastructure": 62,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 420000
+        },
+        {
+          "year": "2022",
+          "value": 490000
+        },
+        {
+          "year": "2023",
+          "value": 550000
+        },
+        {
+          "year": "2024",
+          "value": 572000
+        },
+        {
+          "year": "2025",
+          "value": 640000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.4
+        },
+        {
+          "year": "2022",
+          "value": 4.6
+        },
+        {
+          "year": "2023",
+          "value": 4.8
+        },
+        {
+          "year": "2024",
+          "value": 4.9
+        },
+        {
+          "year": "2025",
+          "value": 5.0
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.0
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.2
+        },
+        {
+          "year": "2025",
+          "value": 1.1
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 18,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 4,
+          "nearest_km": 1.0
+        },
+        "shoppingCentres": {
+          "count": 6,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 10,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Logan Central",
+          "Richlands Industrial Estate",
+          "Yatala Enterprise Area"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 3.2
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 4.5
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Logan Enhancement Project — M1 Upgrade",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q2",
+          "distanceKm": 3.5,
+          "impact": "positive",
+          "impactNote": "Motorway upgrade reducing travel times to both Brisbane and Gold Coast expected to increase commuter tenant demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Caboolture",
+      "state": "QLD",
+      "postcode": "4510",
+      "medianHouse": 610000,
+      "medianUnit": 410000,
+      "grossYield": 4.9,
+      "vacancyRate": 1.0,
+      "growth12m": 11.2,
+      "growth3yr": 9.1,
+      "growth5yr": 8.0,
+      "daysOnMarket": 20,
+      "salesVolume12m": 710,
+      "demand": "High",
+      "brickometer": 75,
+      "rating": "Strong",
+      "summary": "Caboolture is north Brisbane's fastest-growing satellite city, offering affordability alongside strong yields and tight vacancy. Its position at the gateway to the Sunshine Coast and direct rail to Brisbane CBD make it compelling.",
+      "strengths": [
+        "Direct rail access to Brisbane CBD — major commuter catchment",
+        "Strong population growth from sea-change and affordability-driven migration",
+        "Very low vacancy reflecting genuine housing scarcity",
+        "Affordable entry below $620K with strong yield profile"
+      ],
+      "watchouts": [
+        "Distance from Brisbane CBD — 50km is a deterrent for some tenant profiles",
+        "Infrastructure still catching up to population growth pace",
+        "New estate supply in Morayfield and surrounds may compete"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 78,
+        "growth": 78,
+        "vacancy": 100,
+        "affordability": 78,
+        "infrastructure": 60,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 400000
+        },
+        {
+          "year": "2022",
+          "value": 460000
+        },
+        {
+          "year": "2023",
+          "value": 520000
+        },
+        {
+          "year": "2024",
+          "value": 549000
+        },
+        {
+          "year": "2025",
+          "value": 610000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.2
+        },
+        {
+          "year": "2022",
+          "value": 4.4
+        },
+        {
+          "year": "2023",
+          "value": 4.6
+        },
+        {
+          "year": "2024",
+          "value": 4.8
+        },
+        {
+          "year": "2025",
+          "value": 4.9
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.9
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.1
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.0
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.7
+        },
+        "parks": {
+          "count": 7,
+          "nearest_km": 0.4
+        },
+        "employmentHubs": [
+          "Caboolture CBD",
+          "Morayfield Industrial Estate",
+          "Sunshine Coast Corridor"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 2.4
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Bruce Highway Upgrade — Caboolture to Sunshine Coast",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q4",
+          "distanceKm": 2.0,
+          "impact": "positive",
+          "impactNote": "Highway improvements reducing travel time to Sunshine Coast expected to broaden tenant and buyer appeal. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Springfield",
+      "state": "QLD",
+      "postcode": "4300",
+      "medianHouse": 670000,
+      "medianUnit": 450000,
+      "grossYield": 4.8,
+      "vacancyRate": 0.9,
+      "growth12m": 10.5,
+      "growth3yr": 8.8,
+      "growth5yr": 7.9,
+      "daysOnMarket": 17,
+      "salesVolume12m": 680,
+      "demand": "High",
+      "brickometer": 76,
+      "rating": "Strong",
+      "summary": "Springfield is Australia's largest master-planned city and one of SEQ's best-planned investment markets. The Springfield Central employment and education precinct — home to the University of Southern Queensland and a major private hospital — creates a captive, high-quality tenant market.",
+      "strengths": [
+        "Master-planned city with high-quality infrastructure and amenity",
+        "University of Southern Queensland and Mater Private Hospital driving professional demand",
+        "Sub-1% vacancy — extremely tight rental market",
+        "Direct rail to Brisbane CBD in under 45 minutes"
+      ],
+      "watchouts": [
+        "Some repetition of housing stock in master-planned estates",
+        "Premium pricing within Springfield Lakes vs broader Springfield",
+        "Growth may moderate as the precinct reaches maturity"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Professional Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 75,
+        "growth": 77,
+        "vacancy": 100,
+        "affordability": 74,
+        "infrastructure": 82,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 450000
+        },
+        {
+          "year": "2022",
+          "value": 510000
+        },
+        {
+          "year": "2023",
+          "value": 570000
+        },
+        {
+          "year": "2024",
+          "value": 607000
+        },
+        {
+          "year": "2025",
+          "value": 670000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.2
+        },
+        {
+          "year": "2022",
+          "value": 4.4
+        },
+        {
+          "year": "2023",
+          "value": 4.5
+        },
+        {
+          "year": "2024",
+          "value": 4.7
+        },
+        {
+          "year": "2025",
+          "value": 4.8
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.4
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 11,
+          "nearest_km": 0.4,
+          "rating": "Very Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.6
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 9,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Springfield Central Employment Precinct",
+          "Orion Business Park",
+          "Ipswich Employment Corridor"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.4
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 0.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Springfield to Redbank Plains Rail Extension",
+          "type": "transport",
+          "status": "proposed",
+          "completionDate": "2030-Q2",
+          "distanceKm": 1.8,
+          "impact": "positive",
+          "impactNote": "Proposed extension would expand the catchment and reduce car dependency. Subject to approval. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Toowoomba",
+      "state": "QLD",
+      "postcode": "4350",
+      "medianHouse": 520000,
+      "medianUnit": 340000,
+      "grossYield": 5.4,
+      "vacancyRate": 1.1,
+      "growth12m": 10.1,
+      "growth3yr": 8.4,
+      "growth5yr": 7.5,
+      "daysOnMarket": 22,
+      "salesVolume12m": 1024,
+      "demand": "High",
+      "brickometer": 75,
+      "rating": "Strong",
+      "summary": "Toowoomba's diversified economy — spanning agriculture, logistics, healthcare, and education — provides a resilient rental demand base. The Inland Rail project is transforming the city's economic profile, and rising rents are improving yields in real terms.",
+      "strengths": [
+        "Diversified economy reducing reliance on a single sector",
+        "Strong yield consistently above the Queensland average",
+        "Inland Rail project creating significant new employment",
+        "Rising rents improving yield trajectory year on year"
+      ],
+      "watchouts": [
+        "Regional market — lower liquidity than capital cities on resale",
+        "Drought cycles can impact agricultural employment indirectly",
+        "Limited gentrification upside compared to metro suburbs"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Regional Investor",
+        "Buy and Hold"
+      ],
+      "scoreBreakdown": {
+        "yield": 88,
+        "growth": 76,
+        "vacancy": 88,
+        "affordability": 85,
+        "infrastructure": 62,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 340000
+        },
+        {
+          "year": "2022",
+          "value": 390000
+        },
+        {
+          "year": "2023",
+          "value": 430000
+        },
+        {
+          "year": "2024",
+          "value": 473000
+        },
+        {
+          "year": "2025",
+          "value": 520000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.6
+        },
+        {
+          "year": "2022",
+          "value": 4.9
+        },
+        {
+          "year": "2023",
+          "value": 5.1
+        },
+        {
+          "year": "2024",
+          "value": 5.2
+        },
+        {
+          "year": "2025",
+          "value": 5.4
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.2
+        },
+        {
+          "year": "2025",
+          "value": 1.1
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 18,
+          "nearest_km": 0.4,
+          "rating": "Very Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 2.1
+        },
+        "shoppingCentres": {
+          "count": 6,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 12,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Toowoomba CBD",
+          "Wellcamp Business and Industrial Park",
+          "Charlton Wellcamp Enterprise Area"
+        ],
+        "hospitals": {
+          "count": 2,
+          "nearest_km": 1.8
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 1.2
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Inland Rail — Toowoomba to Brisbane",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2027-Q4",
+          "distanceKm": 4.5,
+          "impact": "positive",
+          "impactNote": "Transformational freight rail project expected to significantly expand employment and population growth. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Coomera",
+      "state": "QLD",
+      "postcode": "4209",
+      "medianHouse": 740000,
+      "medianUnit": 490000,
+      "grossYield": 4.6,
+      "vacancyRate": 1.0,
+      "growth12m": 11.4,
+      "growth3yr": 9.2,
+      "growth5yr": 8.1,
+      "daysOnMarket": 19,
+      "salesVolume12m": 740,
+      "demand": "High",
+      "brickometer": 77,
+      "rating": "Strong",
+      "summary": "Coomera is the fastest-growing suburb on the Gold Coast, benefiting from affordability relative to Broadbeach and Surfers Paradise, major infrastructure investment, and strong population inflow from Brisbane.",
+      "strengths": [
+        "Coomera Town Centre creating significant local employment and retail amenity",
+        "Population inflow from Brisbane and interstate migrants driving demand",
+        "M1 corridor upgrades improving travel time to Brisbane CBD",
+        "Strong school catchment driving sustained family rental demand"
+      ],
+      "watchouts": [
+        "High new dwelling supply in master-planned estates may moderate growth",
+        "Flood mapping in some low-lying areas — check individual addresses",
+        "Growth dependent on continued QLD interstate migration trends"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Family Market",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 73,
+        "growth": 80,
+        "vacancy": 100,
+        "affordability": 72,
+        "infrastructure": 74,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 490000
+        },
+        {
+          "year": "2022",
+          "value": 570000
+        },
+        {
+          "year": "2023",
+          "value": 630000
+        },
+        {
+          "year": "2024",
+          "value": 665000
+        },
+        {
+          "year": "2025",
+          "value": 740000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.9
+        },
+        {
+          "year": "2022",
+          "value": 4.1
+        },
+        {
+          "year": "2023",
+          "value": 4.3
+        },
+        {
+          "year": "2024",
+          "value": 4.5
+        },
+        {
+          "year": "2025",
+          "value": 4.6
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.9
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.1
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 10,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.1
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.8
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Coomera Town Centre",
+          "Yatala Enterprise Area",
+          "Dreamworld Tourism Precinct"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 3.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Coomera Town Centre Stage 2",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2026-Q3",
+          "distanceKm": 0.7,
+          "impact": "positive",
+          "impactNote": "Major mixed-use development adding retail, employment, and community infrastructure expected to sustain demand growth. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "North Lakes",
+      "state": "QLD",
+      "postcode": "4509",
+      "medianHouse": 780000,
+      "medianUnit": 520000,
+      "grossYield": 4.5,
+      "vacancyRate": 1.0,
+      "growth12m": 10.2,
+      "growth3yr": 8.6,
+      "growth5yr": 7.7,
+      "daysOnMarket": 20,
+      "salesVolume12m": 680,
+      "demand": "High",
+      "brickometer": 74,
+      "rating": "Strong",
+      "summary": "North Lakes is a well-established master-planned community north of Brisbane with excellent amenity, strong family demographics, and consistent rental demand. One of Queensland's most reliable investment markets.",
+      "strengths": [
+        "Excellent amenity — one of SEQ's most complete master-planned communities",
+        "Strong family demographic creating stable, long-term rental demand",
+        "Direct access to Bruce Highway and proximity to Sunshine Coast",
+        "Consistent track record of steady capital growth"
+      ],
+      "watchouts": [
+        "Yield of 4.5% unlikely to achieve positive gearing at $780K",
+        "Maturity of the estate means less dramatic growth than emerging corridors",
+        "Some competing supply in Mango Hill and surrounds"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Family Market",
+        "Steady Growth"
+      ],
+      "scoreBreakdown": {
+        "yield": 72,
+        "growth": 76,
+        "vacancy": 100,
+        "affordability": 68,
+        "infrastructure": 76,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 520000
+        },
+        {
+          "year": "2022",
+          "value": 600000
+        },
+        {
+          "year": "2023",
+          "value": 660000
+        },
+        {
+          "year": "2024",
+          "value": 708000
+        },
+        {
+          "year": "2025",
+          "value": 780000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.9
+        },
+        {
+          "year": "2022",
+          "value": 4.1
+        },
+        {
+          "year": "2023",
+          "value": 4.3
+        },
+        {
+          "year": "2024",
+          "value": 4.4
+        },
+        {
+          "year": "2025",
+          "value": 4.5
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.4
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.1
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 13,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 2.2
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 11,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "North Lakes Business Park",
+          "Westfield North Lakes Employment",
+          "Sunshine Coast Corridor"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 2.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Moreton Bay Rail Link — Kippa-Ring Extension",
+          "type": "transport",
+          "status": "completed",
+          "completionDate": "2016",
+          "distanceKm": 3.8,
+          "impact": "positive",
+          "impactNote": "Completed rail link has permanently improved connectivity and underpins the suburb's consistent demand profile. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Tarneit",
+      "state": "VIC",
+      "postcode": "3029",
+      "medianHouse": 680000,
+      "medianUnit": 460000,
+      "grossYield": 4.2,
+      "vacancyRate": 1.3,
+      "growth12m": 6.8,
+      "growth3yr": 5.9,
+      "growth5yr": 5.6,
+      "daysOnMarket": 28,
+      "salesVolume12m": 892,
+      "demand": "High",
+      "brickometer": 67,
+      "rating": "Balanced",
+      "summary": "Tarneit is a large, established growth corridor suburb in Melbourne's west with a strong family renter profile. Fundamentals are solid rather than exceptional — yield and growth are moderate, but consistent rental demand from a growing population makes it a reliable performer.",
+      "strengths": [
+        "High rental demand from growing family demographic",
+        "Affordable entry for Melbourne metro at sub-$700K",
+        "Established infrastructure — schools, shopping, and train access",
+        "Strong population growth underpinning long-term demand"
+      ],
+      "watchouts": [
+        "Yield of 4.2% is below the threshold for positively geared investing",
+        "Large supply of new dwellings constraining price growth",
+        "Higher days on market than interstate alternatives"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Long-term Investor",
+        "Family Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 62,
+        "growth": 65,
+        "vacancy": 80,
+        "affordability": 72,
+        "infrastructure": 68,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 580000
+        },
+        {
+          "year": "2022",
+          "value": 640000
+        },
+        {
+          "year": "2023",
+          "value": 620000
+        },
+        {
+          "year": "2024",
+          "value": 650000
+        },
+        {
+          "year": "2025",
+          "value": 680000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.8
+        },
+        {
+          "year": "2022",
+          "value": 4.0
+        },
+        {
+          "year": "2023",
+          "value": 4.1
+        },
+        {
+          "year": "2024",
+          "value": 4.1
+        },
+        {
+          "year": "2025",
+          "value": 4.2
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.4
+        },
+        {
+          "year": "2024",
+          "value": 1.4
+        },
+        {
+          "year": "2025",
+          "value": 1.3
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.4
+        },
+        "shoppingCentres": {
+          "count": 5,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 11,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Truganina Industrial Precinct",
+          "Laverton North Employment",
+          "Werribee Employment Corridor"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Tarneit Station Precinct Development",
+          "type": "commercial",
+          "status": "approved",
+          "completionDate": "2027-Q1",
+          "distanceKm": 1.6,
+          "impact": "positive",
+          "impactNote": "Mixed-use development around station expected to add employment and retail amenity. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Werribee",
+      "state": "VIC",
+      "postcode": "3030",
+      "medianHouse": 660000,
+      "medianUnit": 440000,
+      "grossYield": 4.3,
+      "vacancyRate": 1.2,
+      "growth12m": 7.1,
+      "growth3yr": 6.1,
+      "growth5yr": 5.8,
+      "daysOnMarket": 26,
+      "salesVolume12m": 810,
+      "demand": "High",
+      "brickometer": 68,
+      "rating": "Balanced",
+      "summary": "Werribee is Melbourne's western corridor anchor, combining good affordability with established infrastructure and consistent rental demand. The Werribee precinct includes healthcare, open space, and retail amenity that makes it more liveable than newer estates.",
+      "strengths": [
+        "Established suburb with genuine amenity — not a blank greenfield site",
+        "Good yield at 4.3% for Melbourne metro",
+        "Solid train access to Melbourne CBD",
+        "Diverse employment base from Werribee and Laverton North industrial precincts"
+      ],
+      "watchouts": [
+        "Supply from surrounding new estates creating competition",
+        "Growth of 7.1% moderate compared to QLD and WA counterparts",
+        "Some industrial odour impact in certain pockets"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Family Market",
+        "Cash Flow Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 65,
+        "growth": 67,
+        "vacancy": 84,
+        "affordability": 74,
+        "infrastructure": 70,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 555000
+        },
+        {
+          "year": "2022",
+          "value": 610000
+        },
+        {
+          "year": "2023",
+          "value": 600000
+        },
+        {
+          "year": "2024",
+          "value": 618000
+        },
+        {
+          "year": "2025",
+          "value": 660000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.9
+        },
+        {
+          "year": "2022",
+          "value": 4.0
+        },
+        {
+          "year": "2023",
+          "value": 4.1
+        },
+        {
+          "year": "2024",
+          "value": 4.2
+        },
+        {
+          "year": "2025",
+          "value": 4.3
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.9
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.4
+        },
+        {
+          "year": "2024",
+          "value": 1.3
+        },
+        {
+          "year": "2025",
+          "value": 1.2
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 12,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.9
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 9,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Werribee Employment Precinct",
+          "Laverton North Industrial",
+          "Avalon Airport Precinct"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 3.2
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 4.1
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "West Gate Tunnel Project",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2025-Q4",
+          "distanceKm": 14.2,
+          "impact": "positive",
+          "impactNote": "Major tunnel project expected to reduce travel time to Melbourne CBD by up to 20 minutes for western corridor residents. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Doncaster",
+      "state": "VIC",
+      "postcode": "3108",
+      "medianHouse": 1350000,
+      "medianUnit": 820000,
+      "grossYield": 3.4,
+      "vacancyRate": 0.9,
+      "growth12m": 7.9,
+      "growth3yr": 7.0,
+      "growth5yr": 6.6,
+      "daysOnMarket": 21,
+      "salesVolume12m": 480,
+      "demand": "High",
+      "brickometer": 74,
+      "rating": "Strong",
+      "summary": "Doncaster's investment case rests on scarcity, quality, and institutional demand. The suburb's position within the Doncaster Hill Activity Centre, combined with consistently strong school catchments and sub-1% vacancy, makes it one of Melbourne's most resilient property markets.",
+      "strengths": [
+        "Sub-1% vacancy reflecting genuine housing scarcity",
+        "Top-tier school catchments driving persistent owner-occupier and tenant demand",
+        "Doncaster Hill Activity Centre driving density and amenity uplift",
+        "Premium tenant profile with high income stability"
+      ],
+      "watchouts": [
+        "3.4% yield requires strong borrowing capacity — not suitable for cash flow investors",
+        "Entry price of $1.35M limits future buyer pool",
+        "Victoria land tax implications should be modelled carefully"
+      ],
+      "investorProfiles": [
+        "Wealth Preservation",
+        "Long-term Hold",
+        "Experienced Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 45,
+        "growth": 73,
+        "vacancy": 100,
+        "affordability": 42,
+        "infrastructure": 76,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 1100000
+        },
+        {
+          "year": "2022",
+          "value": 1180000
+        },
+        {
+          "year": "2023",
+          "value": 1200000
+        },
+        {
+          "year": "2024",
+          "value": 1251000
+        },
+        {
+          "year": "2025",
+          "value": 1350000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.0
+        },
+        {
+          "year": "2022",
+          "value": 3.1
+        },
+        {
+          "year": "2023",
+          "value": 3.2
+        },
+        {
+          "year": "2024",
+          "value": 3.3
+        },
+        {
+          "year": "2025",
+          "value": 3.4
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.3
+        },
+        {
+          "year": "2022",
+          "value": 1.1
+        },
+        {
+          "year": "2023",
+          "value": 1.0
+        },
+        {
+          "year": "2024",
+          "value": 0.9
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 10,
+          "nearest_km": 0.4,
+          "rating": "Excellent"
+        },
+        "trainStations": {
+          "count": 0,
+          "nearest_km": 4.2
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Doncaster Hill Activity Centre",
+          "Templestowe Business Park",
+          "Box Hill Activity Centre"
+        ],
+        "universities": {
+          "count": 1,
+          "nearest_km": 5.2
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Doncaster Rail Corridor Study",
+          "type": "transport",
+          "status": "proposed",
+          "completionDate": "2035-Q4",
+          "distanceKm": 0.8,
+          "impact": "positive",
+          "impactNote": "Long-planned rail connection remains subject to government commitment. If delivered, would significantly lift values. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Melton",
+      "state": "VIC",
+      "postcode": "3337",
+      "medianHouse": 580000,
+      "medianUnit": 390000,
+      "grossYield": 4.7,
+      "vacancyRate": 1.1,
+      "growth12m": 7.3,
+      "growth3yr": 6.2,
+      "growth5yr": 5.8,
+      "daysOnMarket": 26,
+      "salesVolume12m": 740,
+      "demand": "Emerging",
+      "brickometer": 69,
+      "rating": "Balanced",
+      "summary": "Melton is Melbourne's fastest-growing outer-west suburb and one of Australia's highest population growth areas. Its affordability and improving infrastructure make it an emerging investment market, though yields remain modest and infrastructure is still developing.",
+      "strengths": [
+        "One of Australia's fastest-growing population corridors",
+        "Affordable entry below $600K — accessible first-purchase price point",
+        "Improving amenity as suburb matures and new facilities open",
+        "Government commitment to infrastructure investment in the corridor"
+      ],
+      "watchouts": [
+        "4.7% yield is moderate — positive gearing will be challenging",
+        "Infrastructure still lagging behind population growth pace",
+        "Long commute to Melbourne CBD (60+ minutes) limiting professional tenant pool"
+      ],
+      "investorProfiles": [
+        "First-time Investor",
+        "Emerging Market",
+        "Buy and Hold"
+      ],
+      "scoreBreakdown": {
+        "yield": 74,
+        "growth": 68,
+        "vacancy": 88,
+        "affordability": 78,
+        "infrastructure": 55,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 480000
+        },
+        {
+          "year": "2022",
+          "value": 530000
+        },
+        {
+          "year": "2023",
+          "value": 515000
+        },
+        {
+          "year": "2024",
+          "value": 540000
+        },
+        {
+          "year": "2025",
+          "value": 580000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.2
+        },
+        {
+          "year": "2022",
+          "value": 4.4
+        },
+        {
+          "year": "2023",
+          "value": 4.5
+        },
+        {
+          "year": "2024",
+          "value": 4.6
+        },
+        {
+          "year": "2025",
+          "value": 4.7
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.2
+        },
+        {
+          "year": "2025",
+          "value": 1.1
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 10,
+          "nearest_km": 0.6,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 2.4
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.8
+        },
+        "parks": {
+          "count": 7,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Melton CBD",
+          "Caroline Springs Commercial",
+          "Ravenhall Industrial Precinct"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 4.6
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Melton Rail Duplication",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2027-Q2",
+          "distanceKm": 1.8,
+          "impact": "positive",
+          "impactNote": "Rail duplication expected to improve service frequency and reliability, reducing commute unpredictability. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Point Cook",
+      "state": "VIC",
+      "postcode": "3030",
+      "medianHouse": 780000,
+      "medianUnit": 530000,
+      "grossYield": 4.0,
+      "vacancyRate": 1.0,
+      "growth12m": 6.7,
+      "growth3yr": 5.9,
+      "growth5yr": 5.6,
+      "daysOnMarket": 24,
+      "salesVolume12m": 820,
+      "demand": "High",
+      "brickometer": 68,
+      "rating": "Balanced",
+      "summary": "Point Cook is one of Melbourne's most established master-planned communities, offering excellent family amenity, good schools, and a consistent rental market. Professional families who stay long term reduce vacancy and turnover risk.",
+      "strengths": [
+        "Excellent family amenity — one of Melbourne's best master-planned communities",
+        "Strong school catchment driving owner-occupier and tenant demand",
+        "Low vacancy at 1.0% reflecting consistent rental demand",
+        "Lifestyle appeal supporting premium rental rates"
+      ],
+      "watchouts": [
+        "Growth of 6.7% moderate compared to QLD and WA markets",
+        "4.0% yield is below positive gearing threshold at $780K",
+        "Some traffic congestion issues in peak hours"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Family Market",
+        "Wealth Preservation"
+      ],
+      "scoreBreakdown": {
+        "yield": 60,
+        "growth": 66,
+        "vacancy": 100,
+        "affordability": 65,
+        "infrastructure": 72,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 650000
+        },
+        {
+          "year": "2022",
+          "value": 720000
+        },
+        {
+          "year": "2023",
+          "value": 710000
+        },
+        {
+          "year": "2024",
+          "value": 730000
+        },
+        {
+          "year": "2025",
+          "value": 780000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.6
+        },
+        {
+          "year": "2022",
+          "value": 3.7
+        },
+        {
+          "year": "2023",
+          "value": 3.8
+        },
+        {
+          "year": "2024",
+          "value": 3.9
+        },
+        {
+          "year": "2025",
+          "value": 4.0
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.6
+        },
+        {
+          "year": "2022",
+          "value": 1.3
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 13,
+          "nearest_km": 0.4,
+          "rating": "Very Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 2.8
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 12,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Laverton North Industrial",
+          "Williams Landing Employment Centre",
+          "Werribee Employment Precinct"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "West Gate Tunnel Project",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2025-Q4",
+          "distanceKm": 12.4,
+          "impact": "positive",
+          "impactNote": "Tunnel will reduce travel time to Melbourne CBD for western corridor estate residents. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Geelong",
+      "state": "VIC",
+      "postcode": "3220",
+      "medianHouse": 680000,
+      "medianUnit": 460000,
+      "grossYield": 4.5,
+      "vacancyRate": 1.2,
+      "growth12m": 6.1,
+      "growth3yr": 5.5,
+      "growth5yr": 5.3,
+      "daysOnMarket": 28,
+      "salesVolume12m": 1040,
+      "demand": "Medium",
+      "brickometer": 67,
+      "rating": "Balanced",
+      "summary": "Geelong is Victoria's second city and an increasingly popular destination for Melbourne sea-changers. The Deakin University hub, strong health and education employment, and improving waterfront amenity create a diverse tenant market.",
+      "strengths": [
+        "Strong university and health employment providing diverse tenant base",
+        "Lifestyle appeal for remote workers and sea-changers from Melbourne",
+        "Good yield at 4.5% for a VIC metro-adjacent market",
+        "Geelong CBD waterfront revitalisation lifting liveability"
+      ],
+      "watchouts": [
+        "Growth has moderated from the pandemic-era highs",
+        "Some industrial exposure in certain precincts",
+        "60-minute commute to Melbourne CBD limits some professional tenant profiles"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Lifestyle Market",
+        "Cash Flow Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 70,
+        "growth": 62,
+        "vacancy": 84,
+        "affordability": 74,
+        "infrastructure": 68,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 570000
+        },
+        {
+          "year": "2022",
+          "value": 640000
+        },
+        {
+          "year": "2023",
+          "value": 635000
+        },
+        {
+          "year": "2024",
+          "value": 642000
+        },
+        {
+          "year": "2025",
+          "value": 680000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.0
+        },
+        {
+          "year": "2022",
+          "value": 4.2
+        },
+        {
+          "year": "2023",
+          "value": 4.3
+        },
+        {
+          "year": "2024",
+          "value": 4.4
+        },
+        {
+          "year": "2025",
+          "value": 4.5
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 1.8
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.3
+        },
+        {
+          "year": "2025",
+          "value": 1.2
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 20,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 3,
+          "nearest_km": 0.6
+        },
+        "shoppingCentres": {
+          "count": 7,
+          "nearest_km": 0.4
+        },
+        "parks": {
+          "count": 14,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Geelong CBD",
+          "Deakin University Waurn Ponds",
+          "North Geelong Industrial Precinct"
+        ],
+        "hospitals": {
+          "count": 2,
+          "nearest_km": 1.2
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 2.1
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Geelong Fast Rail Upgrade",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2029-Q2",
+          "distanceKm": 3.2,
+          "impact": "positive",
+          "impactNote": "Faster rail to Melbourne CBD expected to improve liveability for commuters and support sustained demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Frankston",
+      "state": "VIC",
+      "postcode": "3199",
+      "medianHouse": 720000,
+      "medianUnit": 490000,
+      "grossYield": 4.3,
+      "vacancyRate": 1.3,
+      "growth12m": 5.9,
+      "growth3yr": 5.3,
+      "growth5yr": 5.1,
+      "daysOnMarket": 30,
+      "salesVolume12m": 880,
+      "demand": "Medium",
+      "brickometer": 65,
+      "rating": "Balanced",
+      "summary": "Frankston is undergoing a genuine urban transformation with significant government and private investment lifting its profile. The Frankston Hospital expansion, new arts precinct, and improving beach amenity are attracting a more professional tenant demographic.",
+      "strengths": [
+        "Major hospital expansion driving healthcare employment and tenant demand",
+        "Beach lifestyle appeal attracting professionals and families",
+        "Improving suburb profile through significant government investment",
+        "Direct Frankston train line to Melbourne CBD"
+      ],
+      "watchouts": [
+        "Historically lower socioeconomic profile limiting premium tenant pool",
+        "Slower growth at 5.9% compared to QLD and WA alternatives",
+        "Some precincts still in transition — research specific streets"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Value Play",
+        "Lifestyle Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 65,
+        "growth": 60,
+        "vacancy": 80,
+        "affordability": 70,
+        "infrastructure": 66,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 600000
+        },
+        {
+          "year": "2022",
+          "value": 660000
+        },
+        {
+          "year": "2023",
+          "value": 655000
+        },
+        {
+          "year": "2024",
+          "value": 678000
+        },
+        {
+          "year": "2025",
+          "value": 720000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 3.8
+        },
+        {
+          "year": "2022",
+          "value": 4.0
+        },
+        {
+          "year": "2023",
+          "value": 4.1
+        },
+        {
+          "year": "2024",
+          "value": 4.2
+        },
+        {
+          "year": "2025",
+          "value": 4.3
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.0
+        },
+        {
+          "year": "2022",
+          "value": 1.7
+        },
+        {
+          "year": "2023",
+          "value": 1.5
+        },
+        {
+          "year": "2024",
+          "value": 1.4
+        },
+        {
+          "year": "2025",
+          "value": 1.3
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.7
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.5
+        },
+        "parks": {
+          "count": 10,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Frankston CBD",
+          "Monash Peninsula Health Precinct",
+          "Carrum Downs Industrial"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.8
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 3.4
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Frankston Hospital Redevelopment Stage 3",
+          "type": "health",
+          "status": "under_construction",
+          "completionDate": "2026-Q2",
+          "distanceKm": 1.2,
+          "impact": "positive",
+          "impactNote": "Major hospital expansion creating significant employment and reinforcing Frankston as a regional health hub. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Baldivis",
+      "state": "WA",
+      "postcode": "6171",
+      "medianHouse": 560000,
+      "medianUnit": 380000,
+      "grossYield": 5.8,
+      "vacancyRate": 0.8,
+      "growth12m": 16.2,
+      "growth3yr": 12.4,
+      "growth5yr": 10.1,
+      "daysOnMarket": 12,
+      "salesVolume12m": 614,
+      "demand": "High",
+      "brickometer": 83,
+      "rating": "Strong",
+      "summary": "Baldivis is Perth's southern growth powerhouse — delivering exceptional yields and remarkable capital growth driven by structural undersupply and strong family demand. One of the strongest risk-adjusted opportunities in WA, combining sub-$600K entry with yields above 5.5% and 16%+ capital growth.",
+      "strengths": [
+        "Lowest vacancy rate in our WA dataset at 0.8% — extreme rental demand",
+        "6%+ gross yield is rare at any price point",
+        "16%+ capital growth driven by Perth's structural undersupply",
+        "Affordable sub-$600K entry for strong investor competition"
+      ],
+      "watchouts": [
+        "High investor concentration in some estates — ensure quality tenant management",
+        "Distance from Perth CBD (45km) limits professional commuter tenant profiles",
+        "Rapid growth may be closing the affordability window for future buyers"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 95,
+        "growth": 95,
+        "vacancy": 100,
+        "affordability": 82,
+        "infrastructure": 58,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 350000
+        },
+        {
+          "year": "2022",
+          "value": 390000
+        },
+        {
+          "year": "2023",
+          "value": 430000
+        },
+        {
+          "year": "2024",
+          "value": 482000
+        },
+        {
+          "year": "2025",
+          "value": 560000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.5
+        },
+        {
+          "year": "2022",
+          "value": 5.0
+        },
+        {
+          "year": "2023",
+          "value": 5.4
+        },
+        {
+          "year": "2024",
+          "value": 5.6
+        },
+        {
+          "year": "2025",
+          "value": 5.8
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.0
+        },
+        {
+          "year": "2022",
+          "value": 1.4
+        },
+        {
+          "year": "2023",
+          "value": 1.0
+        },
+        {
+          "year": "2024",
+          "value": 0.9
+        },
+        {
+          "year": "2025",
+          "value": 0.8
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 8,
+          "nearest_km": 0.6,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 3.2
+        },
+        "shoppingCentres": {
+          "count": 2,
+          "nearest_km": 1.1
+        },
+        "parks": {
+          "count": 6,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Kwinana Industrial Strip",
+          "Rockingham City Centre",
+          "Naval Base Industrial Area"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Thornlie-Cockburn Link Rail Extension",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q3",
+          "distanceKm": 8.1,
+          "impact": "positive",
+          "impactNote": "New rail link connecting southern suburbs to Perth network expected to lift connectivity and commuter tenant demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Rockingham",
+      "state": "WA",
+      "postcode": "6168",
+      "medianHouse": 520000,
+      "medianUnit": 360000,
+      "grossYield": 5.9,
+      "vacancyRate": 0.9,
+      "growth12m": 15.4,
+      "growth3yr": 11.8,
+      "growth5yr": 9.6,
+      "daysOnMarket": 13,
+      "salesVolume12m": 580,
+      "demand": "High",
+      "brickometer": 82,
+      "rating": "Strong",
+      "summary": "Rockingham is a coastal industrial city south of Perth delivering exceptional investment metrics — 5.9% yield, 15%+ growth, and sub-1% vacancy — driven by HMAS Stirling Naval Base, Kwinana Industrial Strip employment, and rapidly improving city centre amenity.",
+      "strengths": [
+        "HMAS Stirling Naval Base providing stable defence sector tenant demand",
+        "Kwinana Industrial Strip employment supporting diverse tenant base",
+        "Coastal lifestyle appeal driving additional owner-occupier demand",
+        "Sub-$550K entry with outstanding yield and growth combination"
+      ],
+      "watchouts": [
+        "Industrial land use adjacent to some residential precincts",
+        "Some coastal areas exposed to storm and erosion risk",
+        "Distance from Perth CBD limits professional commuter tenant market"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Defence Sector Play"
+      ],
+      "scoreBreakdown": {
+        "yield": 96,
+        "growth": 92,
+        "vacancy": 100,
+        "affordability": 85,
+        "infrastructure": 60,
+        "riskPenalty": -5
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 325000
+        },
+        {
+          "year": "2022",
+          "value": 365000
+        },
+        {
+          "year": "2023",
+          "value": 410000
+        },
+        {
+          "year": "2024",
+          "value": 450000
+        },
+        {
+          "year": "2025",
+          "value": 520000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.7
+        },
+        {
+          "year": "2022",
+          "value": 5.1
+        },
+        {
+          "year": "2023",
+          "value": 5.4
+        },
+        {
+          "year": "2024",
+          "value": 5.7
+        },
+        {
+          "year": "2025",
+          "value": 5.9
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.2
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 10,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.4
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.8
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "HMAS Stirling Naval Base",
+          "Kwinana Industrial Strip",
+          "Rockingham City Centre"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 3.6
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Rockingham City Centre Revitalisation",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2026-Q2",
+          "distanceKm": 0.8,
+          "impact": "positive",
+          "impactNote": "Major investment in Rockingham's city centre expected to lift liveability and support long-term demand. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Mandurah",
+      "state": "WA",
+      "postcode": "6210",
+      "medianHouse": 490000,
+      "medianUnit": 340000,
+      "grossYield": 6.0,
+      "vacancyRate": 1.0,
+      "growth12m": 14.8,
+      "growth3yr": 11.2,
+      "growth5yr": 9.1,
+      "daysOnMarket": 15,
+      "salesVolume12m": 560,
+      "demand": "High",
+      "brickometer": 81,
+      "rating": "Strong",
+      "summary": "Mandurah is Perth's southern satellite city offering the highest gross yield in our comparable cohort at 6.0%, combined with 14.8% capital growth and direct rail access to Perth CBD. Lifestyle retirees, defence workers, and young families all drive consistent rental demand.",
+      "strengths": [
+        "6.0% gross yield — exceptional for a metro-adjacent city",
+        "Direct Mandurah Rail Line to Perth CBD in under 75 minutes",
+        "Strong lifestyle appeal drawing retirees and sea-changers from Perth",
+        "Sub-$500K entry combining affordability with strong fundamentals"
+      ],
+      "watchouts": [
+        "Retiree-heavy demographic may create seasonal rental demand fluctuations",
+        "Some flood risk in low-lying canal areas — check specific addresses",
+        "Growth may moderate as Perth's broader cycle matures"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Lifestyle Market"
+      ],
+      "scoreBreakdown": {
+        "yield": 97,
+        "growth": 88,
+        "vacancy": 100,
+        "affordability": 88,
+        "infrastructure": 65,
+        "riskPenalty": -5
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 310000
+        },
+        {
+          "year": "2022",
+          "value": 350000
+        },
+        {
+          "year": "2023",
+          "value": 395000
+        },
+        {
+          "year": "2024",
+          "value": 427000
+        },
+        {
+          "year": "2025",
+          "value": 490000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.8
+        },
+        {
+          "year": "2022",
+          "value": 5.2
+        },
+        {
+          "year": "2023",
+          "value": 5.5
+        },
+        {
+          "year": "2024",
+          "value": 5.8
+        },
+        {
+          "year": "2025",
+          "value": 6.0
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.4
+        },
+        {
+          "year": "2022",
+          "value": 1.8
+        },
+        {
+          "year": "2023",
+          "value": 1.3
+        },
+        {
+          "year": "2024",
+          "value": 1.1
+        },
+        {
+          "year": "2025",
+          "value": 1.0
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 3,
+          "nearest_km": 0.9
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.6
+        },
+        "parks": {
+          "count": 10,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Mandurah City Centre",
+          "Peel Health Campus",
+          "Rockingham Employment Corridor"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 2.4
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 4.8
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Mandurah Waterfront Revitalisation",
+          "type": "commercial",
+          "status": "under_construction",
+          "completionDate": "2026-Q1",
+          "distanceKm": 0.4,
+          "impact": "positive",
+          "impactNote": "Major waterfront investment expected to enhance Mandurah's lifestyle profile and lift demand for nearby residential stock. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Armadale",
+      "state": "WA",
+      "postcode": "6112",
+      "medianHouse": 490000,
+      "medianUnit": 330000,
+      "grossYield": 6.1,
+      "vacancyRate": 0.8,
+      "growth12m": 17.4,
+      "growth3yr": 13.1,
+      "growth5yr": 10.6,
+      "daysOnMarket": 11,
+      "salesVolume12m": 521,
+      "demand": "High",
+      "brickometer": 82,
+      "rating": "Strong",
+      "summary": "Armadale delivers the highest Brickometer score in our sub-$500K cohort — combining a 6.1% yield with 17%+ capital growth, driven by Perth's structural undersupply and strong migration inflows. Vacancy at 0.8% reflects structural undersupply.",
+      "strengths": [
+        "Highest yield in our dataset at this price point — 6.1%",
+        "17.4% capital growth — Perth's fastest-growing southern corridor",
+        "Vacancy at 0.8% — near structural minimum",
+        "Sub-$500K entry with exceptional risk-adjusted return profile"
+      ],
+      "watchouts": [
+        "Distance from Perth CBD limits premium professional tenant market",
+        "Concentration of investor stock in some estates",
+        "Entry pricing advantage may narrow quickly given growth trajectory"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 100,
+        "growth": 95,
+        "vacancy": 100,
+        "affordability": 88,
+        "infrastructure": 52,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 290000
+        },
+        {
+          "year": "2022",
+          "value": 335000
+        },
+        {
+          "year": "2023",
+          "value": 375000
+        },
+        {
+          "year": "2024",
+          "value": 418000
+        },
+        {
+          "year": "2025",
+          "value": 490000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.8
+        },
+        {
+          "year": "2022",
+          "value": 5.2
+        },
+        {
+          "year": "2023",
+          "value": 5.6
+        },
+        {
+          "year": "2024",
+          "value": 5.9
+        },
+        {
+          "year": "2025",
+          "value": 6.1
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.3
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 0.9
+        },
+        {
+          "year": "2025",
+          "value": 0.8
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 10,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.8
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.9
+        },
+        "parks": {
+          "count": 9,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Armadale CBD",
+          "Kelmscott Industrial Area",
+          "Kwinana Industrial Strip"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 4.2
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Thornlie-Cockburn Link Rail Extension",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q3",
+          "distanceKm": 5.4,
+          "impact": "positive",
+          "impactNote": "Improved rail connectivity expected to increase tenant demand from commuters and lift suburb profile. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Ellenbrook",
+      "state": "WA",
+      "postcode": "6069",
+      "medianHouse": 570000,
+      "medianUnit": 390000,
+      "grossYield": 5.5,
+      "vacancyRate": 0.8,
+      "growth12m": 15.1,
+      "growth3yr": 11.6,
+      "growth5yr": 9.4,
+      "daysOnMarket": 13,
+      "salesVolume12m": 590,
+      "demand": "High",
+      "brickometer": 81,
+      "rating": "Strong",
+      "summary": "Ellenbrook benefits from Perth's northward infrastructure expansion, strong family demand, and a yield profile that punches well above its price point. The suburb's transformation from isolated community to well-connected, fully-amenitised suburb is underpinning remarkable sustained growth.",
+      "strengths": [
+        "5.5% yield with 15%+ growth is a rare combination in any market",
+        "Northern corridor infrastructure investment improving connectivity significantly",
+        "Strong family demographic driving sustained owner-occupier and rental demand",
+        "High amenity levels — schools, retail, parks supporting tenant demand"
+      ],
+      "watchouts": [
+        "High investor concentration in some estates worth monitoring",
+        "Distance from Perth CBD limits professional tenant profiles",
+        "Supply of new land still available in outer northern corridors"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Growth Investor",
+        "Cash Flow Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 90,
+        "growth": 90,
+        "vacancy": 100,
+        "affordability": 83,
+        "infrastructure": 62,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 355000
+        },
+        {
+          "year": "2022",
+          "value": 400000
+        },
+        {
+          "year": "2023",
+          "value": 448000
+        },
+        {
+          "year": "2024",
+          "value": 496000
+        },
+        {
+          "year": "2025",
+          "value": 570000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.3
+        },
+        {
+          "year": "2022",
+          "value": 4.7
+        },
+        {
+          "year": "2023",
+          "value": 5.1
+        },
+        {
+          "year": "2024",
+          "value": 5.3
+        },
+        {
+          "year": "2025",
+          "value": 5.5
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.1
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.0
+        },
+        {
+          "year": "2024",
+          "value": 0.9
+        },
+        {
+          "year": "2025",
+          "value": 0.8
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 11,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 0,
+          "nearest_km": 4.8
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.7
+        },
+        "parks": {
+          "count": 9,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Ellenbrook Town Centre",
+          "Malaga Industrial Precinct",
+          "Perth Airport Employment Zone"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Ellenbrook Rail Line",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2028-Q4",
+          "distanceKm": 1.2,
+          "impact": "positive",
+          "impactNote": "Long-awaited rail connection to Perth CBD approved and funded. Expected to transform connectivity and significantly lift values on completion. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Joondalup",
+      "state": "WA",
+      "postcode": "6027",
+      "medianHouse": 680000,
+      "medianUnit": 460000,
+      "grossYield": 5.2,
+      "vacancyRate": 0.9,
+      "growth12m": 13.6,
+      "growth3yr": 10.4,
+      "growth5yr": 8.6,
+      "daysOnMarket": 14,
+      "salesVolume12m": 620,
+      "demand": "High",
+      "brickometer": 79,
+      "rating": "Strong",
+      "summary": "Joondalup is Perth's northern CBD — a fully established regional city with direct rail to Perth CBD, major hospital, university, and retail precinct. Its complete amenity profile and professional tenant base make it Perth's most reliable mid-range investment market.",
+      "strengths": [
+        "Established city centre with complete amenity — hospital, university, retail",
+        "Direct rail to Perth CBD in under 45 minutes",
+        "Professional tenant base from healthcare, education, and government employment",
+        "5.2% yield with 13.6% growth — outstanding for an established city"
+      ],
+      "watchouts": [
+        "Entry at $680K is above the sub-$600K threshold for peak cash flow",
+        "Unit supply in CBD areas creating some vacancy pressure in that segment",
+        "Vacancy at 0.9% is excellent but monitor for any softening"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Professional Market",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 84,
+        "growth": 86,
+        "vacancy": 100,
+        "affordability": 74,
+        "infrastructure": 82,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 435000
+        },
+        {
+          "year": "2022",
+          "value": 490000
+        },
+        {
+          "year": "2023",
+          "value": 548000
+        },
+        {
+          "year": "2024",
+          "value": 599000
+        },
+        {
+          "year": "2025",
+          "value": 680000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.4
+        },
+        {
+          "year": "2022",
+          "value": 4.7
+        },
+        {
+          "year": "2023",
+          "value": 4.9
+        },
+        {
+          "year": "2024",
+          "value": 5.1
+        },
+        {
+          "year": "2025",
+          "value": 5.2
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.0
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.1
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 14,
+          "nearest_km": 0.4,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 0.6
+        },
+        "shoppingCentres": {
+          "count": 4,
+          "nearest_km": 0.4
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.2
+        },
+        "employmentHubs": [
+          "Joondalup City Centre",
+          "Joondalup Health Campus",
+          "Osborne Park Industrial"
+        ],
+        "hospitals": {
+          "count": 1,
+          "nearest_km": 1.2
+        },
+        "universities": {
+          "count": 1,
+          "nearest_km": 1.4
+        }
+      },
+      "infrastructure": [
+        {
+          "name": "Joondalup CBD Expansion — Stage 3",
+          "type": "commercial",
+          "status": "approved",
+          "completionDate": "2027-Q1",
+          "distanceKm": 0.3,
+          "impact": "positive",
+          "impactNote": "Continued CBD investment expected to strengthen Joondalup's position as northern Perth's employment and lifestyle hub. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Kwinana",
+      "state": "WA",
+      "postcode": "6167",
+      "medianHouse": 470000,
+      "medianUnit": 320000,
+      "grossYield": 6.2,
+      "vacancyRate": 0.9,
+      "growth12m": 16.0,
+      "growth3yr": 12.2,
+      "growth5yr": 9.9,
+      "daysOnMarket": 12,
+      "salesVolume12m": 480,
+      "demand": "High",
+      "brickometer": 82,
+      "rating": "Strong",
+      "summary": "Kwinana is Perth's industrial powerhouse suburb delivering the highest gross yield in our dataset at 6.2%, with 16% capital growth and a stable industrial employment base. The Kwinana Industrial Strip provides one of WA's most resilient employment anchors.",
+      "strengths": [
+        "Highest gross yield in our WA dataset at 6.2%",
+        "Kwinana Industrial Strip — one of WA's most stable employment anchors",
+        "Sub-$500K entry with outstanding income potential",
+        "16%+ growth driven by Perth's structural undersupply story"
+      ],
+      "watchouts": [
+        "Industrial proximity affects lifestyle appeal for some tenant profiles",
+        "Some areas have industrial odour and noise issues",
+        "Tenant pool skewed toward blue-collar and industrial workers"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Industrial Market",
+        "High Yield Focus"
+      ],
+      "scoreBreakdown": {
+        "yield": 100,
+        "growth": 93,
+        "vacancy": 100,
+        "affordability": 90,
+        "infrastructure": 55,
+        "riskPenalty": -5
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 295000
+        },
+        {
+          "year": "2022",
+          "value": 335000
+        },
+        {
+          "year": "2023",
+          "value": 375000
+        },
+        {
+          "year": "2024",
+          "value": 405000
+        },
+        {
+          "year": "2025",
+          "value": 470000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 5.0
+        },
+        {
+          "year": "2022",
+          "value": 5.4
+        },
+        {
+          "year": "2023",
+          "value": 5.7
+        },
+        {
+          "year": "2024",
+          "value": 6.0
+        },
+        {
+          "year": "2025",
+          "value": 6.2
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.2
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 8,
+          "nearest_km": 0.6,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 2.8
+        },
+        "shoppingCentres": {
+          "count": 2,
+          "nearest_km": 1.2
+        },
+        "parks": {
+          "count": 6,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Kwinana Industrial Strip",
+          "CSBP Chemical Complex",
+          "BP Refinery Precinct"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Kwinana Freeway Extension — Southern Link",
+          "type": "transport",
+          "status": "approved",
+          "completionDate": "2027-Q3",
+          "distanceKm": 1.4,
+          "impact": "positive",
+          "impactNote": "Improved freeway access expected to reduce commute times and support broader growth in the Kwinana corridor. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Wanneroo",
+      "state": "WA",
+      "postcode": "6065",
+      "medianHouse": 620000,
+      "medianUnit": 420000,
+      "grossYield": 5.3,
+      "vacancyRate": 0.8,
+      "growth12m": 15.6,
+      "growth3yr": 11.9,
+      "growth5yr": 9.7,
+      "daysOnMarket": 13,
+      "salesVolume12m": 560,
+      "demand": "High",
+      "brickometer": 81,
+      "rating": "Strong",
+      "summary": "Wanneroo is Perth's northern growth corridor delivering strong fundamentals across all five Brickometer dimensions. Family demographics, improving amenity, proximity to Joondalup employment, and outstanding yield-growth metrics make it a compelling all-round investment.",
+      "strengths": [
+        "Outstanding yield-growth combination — 5.3% yield with 15.6% growth",
+        "Lowest vacancy rate in our dataset at 0.8% — extreme rental demand",
+        "Strong family demographic with excellent school catchments",
+        "Proximity to Joondalup employment and retail precinct"
+      ],
+      "watchouts": [
+        "Rapid growth may be closing the affordability window for future buyers",
+        "Infrastructure still developing in outer northern corridors",
+        "Some areas are speculative land releases without proven demand"
+      ],
+      "investorProfiles": [
+        "Buy and Hold",
+        "Cash Flow Investor",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 86,
+        "growth": 93,
+        "vacancy": 100,
+        "affordability": 80,
+        "infrastructure": 64,
+        "riskPenalty": 0
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 390000
+        },
+        {
+          "year": "2022",
+          "value": 440000
+        },
+        {
+          "year": "2023",
+          "value": 490000
+        },
+        {
+          "year": "2024",
+          "value": 536000
+        },
+        {
+          "year": "2025",
+          "value": 620000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.3
+        },
+        {
+          "year": "2022",
+          "value": 4.7
+        },
+        {
+          "year": "2023",
+          "value": 5.0
+        },
+        {
+          "year": "2024",
+          "value": 5.2
+        },
+        {
+          "year": "2025",
+          "value": 5.3
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.1
+        },
+        {
+          "year": "2022",
+          "value": 1.5
+        },
+        {
+          "year": "2023",
+          "value": 1.0
+        },
+        {
+          "year": "2024",
+          "value": 0.9
+        },
+        {
+          "year": "2025",
+          "value": 0.8
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 10,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 1,
+          "nearest_km": 3.6
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.8
+        },
+        "parks": {
+          "count": 8,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Joondalup Employment Precinct",
+          "Malaga Industrial Area",
+          "Wangara Industrial Estate"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Wanneroo Road Duplication — Northern Corridor",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q1",
+          "distanceKm": 1.8,
+          "impact": "positive",
+          "impactNote": "Road duplication improving access to Joondalup and Perth CBD expected to support continued demand growth. Indicative only."
+        }
+      ]
+    },
+    {
+      "name": "Gosnells",
+      "state": "WA",
+      "postcode": "6110",
+      "medianHouse": 500000,
+      "medianUnit": 340000,
+      "grossYield": 6.0,
+      "vacancyRate": 0.9,
+      "growth12m": 16.4,
+      "growth3yr": 12.6,
+      "growth5yr": 10.2,
+      "daysOnMarket": 12,
+      "salesVolume12m": 520,
+      "demand": "High",
+      "brickometer": 82,
+      "rating": "Strong",
+      "summary": "Gosnells is Perth's south-east growth star, combining 6.0% gross yield with 16.4% capital growth and a vacancy rate of just 0.9%. Its position on the Armadale train line provides direct CBD access, while proximity to the Kwinana Industrial Strip provides employment diversity.",
+      "strengths": [
+        "6.0% gross yield with 16.4% growth — top-tier metrics across the full dataset",
+        "Direct Armadale train line to Perth CBD",
+        "Proximity to Kwinana Industrial employment creating diverse tenant base",
+        "Sub-$510K entry — excellent affordability with outstanding income potential"
+      ],
+      "watchouts": [
+        "Some areas with higher density of social housing may affect tenant profile",
+        "Industrial proximity in some precincts reduces lifestyle appeal",
+        "Rapid growth may price out future entry-level buyers"
+      ],
+      "investorProfiles": [
+        "Cash Flow Investor",
+        "Buy and Hold",
+        "Growth Investor"
+      ],
+      "scoreBreakdown": {
+        "yield": 97,
+        "growth": 94,
+        "vacancy": 100,
+        "affordability": 87,
+        "infrastructure": 58,
+        "riskPenalty": -3
+      },
+      "priceTrend": [
+        {
+          "year": "2021",
+          "value": 310000
+        },
+        {
+          "year": "2022",
+          "value": 355000
+        },
+        {
+          "year": "2023",
+          "value": 395000
+        },
+        {
+          "year": "2024",
+          "value": 430000
+        },
+        {
+          "year": "2025",
+          "value": 500000
+        }
+      ],
+      "yieldTrend": [
+        {
+          "year": "2021",
+          "value": 4.9
+        },
+        {
+          "year": "2022",
+          "value": 5.2
+        },
+        {
+          "year": "2023",
+          "value": 5.6
+        },
+        {
+          "year": "2024",
+          "value": 5.8
+        },
+        {
+          "year": "2025",
+          "value": 6.0
+        }
+      ],
+      "vacancyTrend": [
+        {
+          "year": "2021",
+          "value": 2.2
+        },
+        {
+          "year": "2022",
+          "value": 1.6
+        },
+        {
+          "year": "2023",
+          "value": 1.2
+        },
+        {
+          "year": "2024",
+          "value": 1.0
+        },
+        {
+          "year": "2025",
+          "value": 0.9
+        }
+      ],
+      "amenities": {
+        "schools": {
+          "count": 9,
+          "nearest_km": 0.5,
+          "rating": "Good"
+        },
+        "trainStations": {
+          "count": 2,
+          "nearest_km": 1.4
+        },
+        "shoppingCentres": {
+          "count": 3,
+          "nearest_km": 0.7
+        },
+        "parks": {
+          "count": 7,
+          "nearest_km": 0.3
+        },
+        "employmentHubs": [
+          "Kwinana Industrial Strip",
+          "Maddington Industrial Area",
+          "Perth Airport Employment Zone"
+        ]
+      },
+      "infrastructure": [
+        {
+          "name": "Thornlie-Cockburn Link Rail Extension",
+          "type": "transport",
+          "status": "under_construction",
+          "completionDate": "2026-Q3",
+          "distanceKm": 4.8,
+          "impact": "positive",
+          "impactNote": "New rail connection to Perth's southern network expected to improve connectivity and lift demand in the corridor. Indicative only."
+        }
+      ]
+    }
   ]
 }
