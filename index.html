@@ -698,137 +698,304 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 
 
 <!-- ══════════════════════════════════════ -->
-<!-- BRICKOMETER PAGE -->
+<!-- BRICKOMETER PAGE — v2 embedded -->
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-brickometer">
-  <section style="background:var(--ink);padding:60px 5% 48px;">
-    <div class="section-label" style="color:var(--lime);">Scoring Engine</div>
-    <h2 class="section-title" style="color:var(--white);max-width:640px;">The Brickometer.</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.45);">Enter any suburb and property details. Get a score out of 100, full breakdown, strengths, risks, and a clear recommendation.</p>
-  </section>
 
-  <section style="background:var(--light);padding:48px 5%;">
-    <div class="brickometer-layout">
-      <!-- Inputs -->
-      <div class="bm-inputs">
-        <div class="input-section-title">Suburb Details</div>
-        <div class="input-row">
-          <div class="ig"><label>Suburb</label><input type="text" id="bm-suburb" placeholder="e.g. Ipswich"></div>
-          <div class="ig"><label>State</label><select id="bm-state"><option>QLD</option><option>NSW</option><option>VIC</option><option>WA</option><option>SA</option><option>TAS</option><option>ACT</option></select></div>
-        </div>
-        <div class="input-row">
-          <div class="ig"><label>12m Growth %</label><input type="number" id="bm-growth1" placeholder="10.5" value="10.5" step="0.5"></div>
-          <div class="ig"><label>3yr CAGR %</label><input type="number" id="bm-growth3" placeholder="8.2" value="8.2" step="0.5"></div>
-        </div>
-        <div class="input-row">
-          <div class="ig"><label>5yr CAGR %</label><input type="number" id="bm-growth5" placeholder="7.0" value="7.0" step="0.5"></div>
-          <div class="ig"><label>Vacancy Rate %</label><input type="number" id="bm-vacancy" placeholder="1.0" value="1.0" step="0.1"></div>
-        </div>
+  <!-- Search Zone -->
+  <div id="bm-search-zone" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem;background:var(--ink);position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 30% 40%,rgba(200,244,0,0.07),transparent 70%),radial-gradient(ellipse 40% 40% at 80% 70%,rgba(56,189,248,0.05),transparent 60%);"></div>
+    <div style="position:relative;z-index:1;width:100%;max-width:600px;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:0.8rem;">
+        <span style="flex:1;height:1px;background:rgba(255,255,255,0.08);"></span>
+        BrickWise <span style="color:var(--lime);">Brickometer</span>
+        <span style="flex:1;height:1px;background:rgba(255,255,255,0.08);"></span>
+      </div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.05;color:var(--white);margin-bottom:0.7rem;">What suburb are you <span style="color:var(--lime);">considering?</span></h2>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.65;margin-bottom:2rem;max-width:460px;margin-left:auto;margin-right:auto;">Enter a suburb name or postcode. We'll score it across five investment dimensions and show you exactly what the data says.</p>
 
-        <div class="input-section-title">Property Details</div>
-        <div class="input-row">
-          <div class="ig"><label>Purchase Price</label><input type="number" id="bm-price" placeholder="580000" value="580000"></div>
-          <div class="ig"><label>Weekly Rent ($)</label><input type="number" id="bm-rent" placeholder="550" value="550"></div>
+      <!-- Search box -->
+      <div style="position:relative;margin-bottom:1rem;">
+        <div id="bm2-box" style="display:flex;background:#1e1e1e;border-radius:14px;border:1.5px solid rgba(255,255,255,0.12);overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;">
+          <input type="text" id="bm2-input" placeholder="e.g. Ipswich, Baldivis, 4305..."
+            style="flex:1;background:transparent;border:none;outline:none;padding:1rem 1.2rem;color:white;font-family:'DM Sans',sans-serif;font-size:0.95rem;"
+            oninput="bm2HandleInput(this.value)"
+            onkeydown="bm2HandleKey(event)">
+          <button onclick="bm2Trigger()" id="bm2-btn"
+            style="background:var(--lime);color:var(--ink);border:none;padding:0 1.6rem;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;white-space:nowrap;">
+            Analyse →
+          </button>
         </div>
-        <div class="input-row">
-          <div class="ig"><label>Median Suburb Price</label><input type="number" id="bm-medprice" placeholder="580000" value="580000"></div>
-          <div class="ig"><label>Median Household Income</label><input type="number" id="bm-income" placeholder="95000" value="95000"></div>
-        </div>
-        <div class="input-row">
-          <div class="ig"><label>Infrastructure Score (0–100)</label><input type="number" id="bm-infra" placeholder="65" value="65" min="0" max="100"></div>
-          <div class="ig"><label>Risk Score (1–25)</label><input type="number" id="bm-risk" placeholder="6" value="6" min="1" max="25"></div>
-        </div>
-        <div class="input-row">
-          <div class="ig"><label>Strata / Body Corp (annual)</label><input type="number" id="bm-strata" placeholder="0" value="0"></div>
-          <div class="ig"><label>Property Type</label><select id="bm-proptype"><option>House</option><option>Unit</option><option>Townhouse</option><option>Duplex</option></select></div>
-        </div>
-        <button class="btn-calc" onclick="runBrickometer()">Calculate Brickometer Score →</button>
+        <!-- Dropdown -->
+        <div id="bm2-dropdown" style="display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:50;background:#1e1e1e;border-radius:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 32px rgba(0,0,0,0.4);overflow:hidden;"></div>
       </div>
 
-      <!-- Results -->
-      <div class="bm-results" id="bm-results">
-        <div class="bm-results-placeholder" id="bm-placeholder">
-          <div style="font-size:3rem;">⬡</div>
-          <p>Enter suburb and property details,<br>then click Calculate.</p>
-        </div>
-        <div id="bm-output" style="display:none;">
-          <div class="big-score-wrap">
-            <svg class="big-gauge" viewBox="0 0 180 100">
-              <path d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="12" stroke-linecap="round"/>
-              <path id="bm-gauge-arc" d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="url(#bmGrad)" stroke-width="12" stroke-linecap="round" stroke-dasharray="219.9" stroke-dashoffset="110"/>
-              <defs><linearGradient id="bmGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#C8F400"/><stop offset="100%" stop-color="#4ade80"/></linearGradient></defs>
-            </svg>
-            <div class="big-score-num" id="bm-score-num">—</div>
-            <div class="big-score-rating" id="bm-score-rating">—</div>
-          </div>
-          <div class="component-bars" id="bm-component-bars"></div>
-          <div class="strengths-risks">
-            <div><div class="sr-title sr-green">Strengths</div><div id="bm-strengths"></div></div>
-            <div><div class="sr-title sr-red">Watch-Outs</div><div id="bm-watchouts"></div></div>
-          </div>
-          <div class="rec-panel" id="bm-rec-panel">
-            <div class="rec-verdict" id="bm-rec-verdict">—</div>
-            <div class="rec-text" id="bm-rec-text">—</div>
-          </div>
-          <div class="bm-disclaimer">BrickWise provides general information only. The Brickometer score is an indicative decision-support tool and should not be relied upon as the sole basis for investment decisions. Seek advice from a qualified property professional.</div>
-        </div>
+      <!-- Quick pills -->
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem;">
+        <span onclick="bm2Select('Ipswich','QLD','4305')" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);">Ipswich QLD</span>
+        <span onclick="bm2Select('Baldivis','WA','6171')" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);">Baldivis WA</span>
+        <span onclick="bm2Select('Tarneit','VIC','3029')" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);">Tarneit VIC</span>
+        <span onclick="bm2Select('Toowoomba','QLD','4350')" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);">Toowoomba QLD</span>
+        <span onclick="bm2Select('Campbelltown','NSW','2560')" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);">Campbelltown NSW</span>
+        <span onclick="bm2Select('Armadale','WA','6112')" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);">Armadale WA</span>
+      </div>
+      <div id="bm2-counter" style="font-size:0.7rem;color:rgba(255,255,255,0.25);font-family:monospace;"></div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div id="bm2-loading" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:4rem;gap:1rem;background:var(--ink);">
+    <div style="width:44px;height:44px;border:3px solid rgba(255,255,255,0.08);border-top-color:var(--lime);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+    <div style="font-size:0.88rem;color:rgba(255,255,255,0.4);">Reading the data on <span id="bm2-loading-name" style="color:var(--lime);font-weight:500;">—</span>…</div>
+  </div>
+
+  <!-- Not Found -->
+  <div id="bm2-notfound" style="display:none;background:var(--ink);padding:3rem 1.5rem;min-height:60vh;display:none;align-items:center;justify-content:center;">
+    <div style="background:#1a1a1a;border-radius:20px;padding:2.5rem;max-width:480px;width:100%;border:1px solid rgba(255,255,255,0.08);text-align:center;">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">📍</div>
+      <div id="bm2-nf-title" style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:white;margin-bottom:0.5rem;"></div>
+      <p style="font-size:0.86rem;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;line-height:1.65;">Leave your details and we'll research it and send a full suburb report within 48 hours — at no cost.</p>
+      <div id="bm2-nf-form" style="display:flex;flex-direction:column;gap:0.7rem;max-width:340px;margin:0 auto;">
+        <input id="bm2-nf-name" type="text" placeholder="Your name" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1rem;color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;">
+        <input id="bm2-nf-email" type="email" placeholder="Your email" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1rem;color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;">
+        <input id="bm2-nf-suburb" type="text" placeholder="Suburb" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1rem;color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;">
+        <button onclick="bm2SubmitNF()" style="background:var(--lime);color:var(--ink);border:none;padding:0.85rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;">Request My Suburb Report →</button>
+      </div>
+      <div id="bm2-nf-success" style="display:none;color:var(--lime);font-size:0.88rem;font-weight:500;margin-top:1rem;">✓ Request received! Your suburb report will be in your inbox within 48 hours.</div>
+      <button onclick="bm2Reset()" style="margin-top:1.5rem;background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:0.5rem 1.2rem;border-radius:100px;font-size:0.78rem;cursor:pointer;font-family:'DM Sans',sans-serif;">← Search another suburb</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="bm2-results" style="display:none;background:var(--ink);padding:1.5rem 4% 4rem;max-width:960px;margin:0 auto;">
+
+    <!-- Topbar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;gap:0.8rem;">
+      <button onclick="bm2Reset()" style="background:transparent;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.5);padding:0.45rem 1rem;border-radius:100px;font-size:0.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;">← New search</button>
+      <span id="bm2-freshness" style="font-size:0.68rem;color:rgba(255,255,255,0.2);font-family:monospace;">Data updated daily</span>
+    </div>
+
+    <!-- Score Hero -->
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;background:#1a1a1a;border-radius:20px;padding:2rem;border:1px solid rgba(255,255,255,0.08);margin-bottom:1rem;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <svg width="160" height="95" viewBox="0 0 160 95" overflow="visible">
+          <path d="M 18 88 A 62 62 0 0 1 142 88" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="10" stroke-linecap="round"/>
+          <path id="bm2-arc" d="M 18 88 A 62 62 0 0 1 142 88" fill="none" stroke="url(#bm2grad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="194.8"/>
+          <defs><linearGradient id="bm2grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF5C3A"/><stop offset="40%" stop-color="#F5A623"/><stop offset="70%" stop-color="#C8F400"/><stop offset="100%" stop-color="#4ade80"/></linearGradient></defs>
+        </svg>
+        <div id="bm2-score-num" style="font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:white;text-align:center;margin-top:-0.5rem;line-height:1;">—</div>
+        <div id="bm2-rating" style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-align:center;margin-top:0.3rem;color:var(--lime);">—</div>
+      </div>
+      <div>
+        <div id="bm2-suburb-name" style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;color:white;"></div>
+        <div id="bm2-suburb-state" style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:0.15rem;margin-bottom:0.9rem;font-family:monospace;"></div>
+        <div id="bm2-summary" style="font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;max-width:480px;"></div>
       </div>
     </div>
 
-    <!-- Rating Guide -->
-    <div style="margin-top:3rem;max-width:600px;">
-      <div class="section-label">Score Guide</div>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem;">
-        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(74,222,128,0.1);border-radius:10px;border:1px solid rgba(74,222,128,0.2);">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;color:#4ade80;">85–100</span>
-          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:#4ade80;">Excellent</span>
-          <span style="font-size:0.8rem;color:var(--mid);">Strong opportunity — proceed to deeper due diligence.</span>
-        </div>
-        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(200,244,0,0.08);border-radius:10px;border:1px solid rgba(200,244,0,0.2);">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--lime-dark);">70–84</span>
-          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:var(--lime-dark);">Strong</span>
-          <span style="font-size:0.8rem;color:var(--mid);">Attractive — validate assumptions before committing.</span>
-        </div>
-        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(245,166,35,0.08);border-radius:10px;border:1px solid rgba(245,166,35,0.2);">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--gold);">55–69</span>
-          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:var(--gold);">Balanced</span>
-          <span style="font-size:0.8rem;color:var(--mid);">Mixed — depends on your strategy and entry price.</span>
-        </div>
-        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(251,146,60,0.08);border-radius:10px;border:1px solid rgba(251,146,60,0.2);">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;color:#fb923c;">40–54</span>
-          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:#fb923c;">Caution</span>
-          <span style="font-size:0.8rem;color:var(--mid);">Several weaknesses — negotiate hard or reassess.</span>
-        </div>
-        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(255,92,58,0.08);border-radius:10px;border:1px solid rgba(255,92,58,0.2);">
-          <span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--coral);">0–39</span>
-          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:var(--coral);">High Risk</span>
-          <span style="font-size:0.8rem;color:var(--mid);">Avoid unless there is a specific strategic reason.</span>
-        </div>
+    <!-- Key Stats -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.7rem;margin-bottom:1rem;" id="bm2-stats">
+      <div style="background:#1a1a1a;border-radius:13px;padding:1rem;border:1px solid rgba(255,255,255,0.07);"><div id="bm2-s-median" style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:white;">—</div><div style="font-size:0.62rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.2rem;">Median House</div></div>
+      <div style="background:#1a1a1a;border-radius:13px;padding:1rem;border:1px solid rgba(255,255,255,0.07);"><div id="bm2-s-yield" style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--lime);">—</div><div style="font-size:0.62rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.2rem;">Gross Yield</div></div>
+      <div style="background:#1a1a1a;border-radius:13px;padding:1rem;border:1px solid rgba(255,255,255,0.07);"><div id="bm2-s-growth" style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--lime);">—</div><div style="font-size:0.62rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.2rem;">12m Growth</div></div>
+      <div style="background:#1a1a1a;border-radius:13px;padding:1rem;border:1px solid rgba(255,255,255,0.07);"><div id="bm2-s-vacancy" style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:white;">—</div><div style="font-size:0.62rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.2rem;">Vacancy Rate</div></div>
+      <div style="background:#1a1a1a;border-radius:13px;padding:1rem;border:1px solid rgba(255,255,255,0.07);"><div id="bm2-s-dom" style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:white;">—</div><div style="font-size:0.62rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.04em;margin-top:0.2rem;">Days on Market</div></div>
+    </div>
+
+    <!-- Score Breakdown -->
+    <div style="background:#1a1a1a;border-radius:16px;padding:1.6rem;border:1px solid rgba(255,255,255,0.07);margin-bottom:1rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.1rem;">Score Breakdown</div>
+      <div id="bm2-bars" style="display:flex;flex-direction:column;gap:0.8rem;"></div>
+    </div>
+
+    <!-- Strengths + Watchouts -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+      <div style="background:#1a1a1a;border-radius:16px;padding:1.4rem;border:1px solid rgba(255,255,255,0.07);border-top:2px solid rgba(74,222,128,0.4);">
+        <div style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4ade80;margin-bottom:0.9rem;">What's working in its favour</div>
+        <div id="bm2-strengths"></div>
+      </div>
+      <div style="background:#1a1a1a;border-radius:16px;padding:1.4rem;border:1px solid rgba(255,255,255,0.07);border-top:2px solid rgba(245,166,35,0.4);">
+        <div style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem;">Things to be aware of</div>
+        <div id="bm2-watchouts"></div>
       </div>
     </div>
-  </section>
+
+    <!-- Sparklines -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem;">
+      <div style="background:#1a1a1a;border-radius:14px;padding:1.2rem;border:1px solid rgba(255,255,255,0.07);">
+        <div style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.06em;">Price Trend</div>
+        <div id="bm2-sp-price" style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:white;margin:0.3rem 0 0.7rem;">—</div>
+        <svg id="bm2-spark-price" width="100%" height="44" viewBox="0 0 200 44"></svg>
+      </div>
+      <div style="background:#1a1a1a;border-radius:14px;padding:1.2rem;border:1px solid rgba(255,255,255,0.07);">
+        <div style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.06em;">Yield Trend</div>
+        <div id="bm2-sp-yield" style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:white;margin:0.3rem 0 0.7rem;">—</div>
+        <svg id="bm2-spark-yield" width="100%" height="44" viewBox="0 0 200 44"></svg>
+      </div>
+      <div style="background:#1a1a1a;border-radius:14px;padding:1.2rem;border:1px solid rgba(255,255,255,0.07);">
+        <div style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.06em;">Vacancy Trend</div>
+        <div id="bm2-sp-vacancy" style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:white;margin:0.3rem 0 0.7rem;">—</div>
+        <svg id="bm2-spark-vacancy" width="100%" height="44" viewBox="0 0 200 44"></svg>
+      </div>
+    </div>
+
+    <!-- Investor Profiles -->
+    <div style="background:#1a1a1a;border-radius:14px;padding:1.4rem;border:1px solid rgba(255,255,255,0.07);margin-bottom:1rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.8rem;">This suburb may suit investors looking for...</div>
+      <div id="bm2-profiles" style="display:flex;gap:0.6rem;flex-wrap:wrap;"></div>
+    </div>
+
+    <!-- Amenities -->
+    <div style="background:#1a1a1a;border-radius:16px;padding:1.6rem;border:1px solid rgba(255,255,255,0.07);margin-bottom:1rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1rem;">Nearby Amenities</div>
+      <div id="bm2-amenities" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.7rem;"></div>
+      <div style="margin-top:0.7rem;font-size:0.65rem;color:rgba(255,255,255,0.18);">Amenity proximity sourced from public data. Verify independently before making decisions.</div>
+    </div>
+
+    <!-- Infrastructure -->
+    <div style="background:#1a1a1a;border-radius:16px;padding:1.6rem;border:1px solid rgba(255,255,255,0.07);margin-bottom:1rem;">
+      <div style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1rem;">Upcoming Infrastructure & Development</div>
+      <div id="bm2-infra"></div>
+      <div style="margin-top:1rem;font-size:0.68rem;color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.03);border-radius:8px;padding:0.7rem 0.9rem;border:1px solid rgba(255,255,255,0.05);line-height:1.5;">⚠ Infrastructure insights are indicative only. Potential property value and rental demand impacts are not guaranteed. Project timelines and outcomes may change. Always verify with relevant state and local authorities before making investment decisions.</div>
+    </div>
+
+    <!-- Action Bar -->
+    <div style="background:#1a1a1a;border-radius:16px;padding:1.6rem 2rem;border:1px solid rgba(200,244,0,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:white;margin-bottom:0.2rem;">Ready to run the numbers?</div>
+        <div id="bm2-action-label" style="font-size:0.82rem;color:rgba(255,255,255,0.4);"></div>
+      </div>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+        <button onclick="bm2GoToDeal()" style="background:var(--lime);color:var(--ink);border:none;padding:0.75rem 1.5rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;" id="bm2-deal-btn">Run Deal Analyser →</button>
+        <button onclick="bm2Reset()" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.12);padding:0.75rem 1.5rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;">Search another suburb</button>
+      </div>
+    </div>
+
+  </div><!-- /bm2-results -->
+
+  <!-- Gate Modal -->
+  <div id="bm2-gate" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1.5rem;">
+    <div style="background:#1a1a1a;border-radius:24px;padding:2.5rem;max-width:420px;width:100%;border:1px solid rgba(255,255,255,0.1);text-align:center;">
+      <div style="font-size:2.2rem;margin-bottom:0.8rem;">⬡</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:1rem;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block;"></span>
+        2 of 2 free searches used
+      </div>
+      <div style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:white;margin-bottom:0.5rem;">You've discovered BrickWise.</div>
+      <div style="font-size:0.86rem;color:rgba(255,255,255,0.4);line-height:1.65;margin-bottom:1.5rem;">Register free to unlock unlimited suburb scores, full insights, and the Deal Analyser with pre-filled data.</div>
+      <div style="display:flex;flex-direction:column;gap:0.7rem;">
+        <input id="bm2-gate-name" type="text" placeholder="Your name" style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);border-radius:12px;padding:0.85rem 1.1rem;color:white;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;">
+        <input id="bm2-gate-email" type="email" placeholder="Your email address" style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);border-radius:12px;padding:0.85rem 1.1rem;color:white;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;">
+        <button onclick="bm2SubmitGate()" style="background:var(--lime);color:var(--ink);border:none;padding:1rem;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.92rem;cursor:pointer;">Create My Free Account →</button>
+      </div>
+      <div style="font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:0.8rem;">No credit card. No spam. Unsubscribe anytime.</div>
+    </div>
+  </div>
+
 </div><!-- /brickometer -->
 
 
 <!-- ══════════════════════════════════════ -->
-<!-- MARKET INTEL PAGE (renamed blog) -->
+<!-- MARKET INTEL PAGE -->
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-insights">
-  <div class="insights-hero">
-    <div class="section-label">Market Intel</div>
-    <h2 class="section-title">Property intelligence.<br>Investor perspective.</h2>
-    <p class="section-sub">Data-led suburb analysis, market trends, and investment strategy — from the BrickWise research desk.</p>
-    <div class="filter-row">
-      <button class="filter-btn active" onclick="filterInsights('all',this)">All</button>
-      <button class="filter-btn" onclick="filterInsights('market',this)">Market Trends</button>
-      <button class="filter-btn" onclick="filterInsights('suburb',this)">Suburb Spotlight</button>
-      <button class="filter-btn" onclick="filterInsights('strategy',this)">Strategy</button>
-      <button class="filter-btn" onclick="filterInsights('data',this)">Data & Research</button>
+
+  <!-- Article Reader (hidden by default) -->
+  <div id="article-reader" style="display:none;background:var(--light);min-height:100vh;">
+    <div style="background:var(--white);border-bottom:1px solid var(--border-light);padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;">
+      <button onclick="closeArticle()" style="display:flex;align-items:center;gap:0.5rem;background:transparent;border:1.5px solid var(--border-light);color:var(--mid);padding:0.5rem 1.1rem;border-radius:100px;font-size:0.78rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;">← Back to Market Intel</button>
+      <div style="display:flex;gap:0.8rem;align-items:center;">
+        <span id="ar-category" style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime-dark);"></span>
+        <span style="color:var(--border-light);">·</span>
+        <span id="ar-read-time" style="font-size:0.78rem;color:var(--mid);"></span>
+      </div>
+    </div>
+    <div style="max-width:740px;margin:0 auto;padding:3rem 5% 5rem;">
+      <h1 id="ar-title" style="font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-0.025em;line-height:1.1;color:var(--ink);margin-bottom:1.2rem;"></h1>
+      <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border-light);">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.7rem;color:var(--lime);">BW</div>
+        <div>
+          <div style="font-size:0.85rem;font-weight:500;color:var(--ink);">BrickWise Research</div>
+          <div id="ar-date" style="font-size:0.75rem;color:var(--mid);"></div>
+        </div>
+      </div>
+      <div id="ar-body" style="font-size:0.97rem;line-height:1.85;color:#333;"></div>
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border-light);">
+        <div style="background:var(--ink);border-radius:16px;padding:2rem;text-align:center;">
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.4rem;">Want to score this suburb yourself?</div>
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;">Run any suburb through the Brickometer — free for registered members.</div>
+          <button onclick="closeArticle();showPage('brickometer')" style="background:var(--lime);color:var(--ink);border:none;padding:0.75rem 1.8rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;">Try the Brickometer →</button>
+        </div>
+      </div>
     </div>
   </div>
-  <section style="padding:48px 5%;background:var(--light);">
-    <div class="insights-grid" id="insightsGrid"></div>
-  </section>
+
+  <!-- Market Intel Main -->
+  <div id="intel-main">
+    <!-- Hero -->
+    <div class="insights-hero">
+      <div class="section-label">Market Intel</div>
+      <h2 class="section-title">Property intelligence.<br>Investor perspective.</h2>
+      <p class="section-sub">Data-led suburb analysis, market trends, and investment strategy — from the BrickWise research desk.</p>
+      <div class="filter-row" style="margin-top:1.5rem;">
+        <button class="filter-btn active" onclick="filterInsights('all',this)">All</button>
+        <button class="filter-btn" onclick="filterInsights('market',this)">Market Trends</button>
+        <button class="filter-btn" onclick="filterInsights('suburb',this)">Suburb Spotlight</button>
+        <button class="filter-btn" onclick="filterInsights('strategy',this)">Strategy</button>
+        <button class="filter-btn" onclick="filterInsights('data',this)">Data & Research</button>
+      </div>
+    </div>
+
+    <!-- Featured Articles -->
+    <section style="padding:48px 5% 32px;background:var(--light);" id="featured-section">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:1.2rem;">Featured</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" id="featuredGrid">
+
+        <!-- Featured Article 1 -->
+        <div onclick="openArticle('professionals')" style="background:var(--white);border-radius:20px;overflow:hidden;border:1.5px solid var(--border-light);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;grid-column:1;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="height:200px;background:linear-gradient(135deg,#0D0D0D 0%,#1a1a1a 50%,#2a2a2a 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,244,0,0.15),transparent 60%);"></div>
+            <div style="font-size:3.5rem;position:relative;z-index:1;">🤝</div>
+            <div style="position:absolute;top:1rem;left:1rem;background:rgba(200,244,0,0.15);color:var(--lime);border:1px solid rgba(200,244,0,0.3);padding:0.25rem 0.7rem;border-radius:100px;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Strategy</div>
+          </div>
+          <div style="padding:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);line-height:1.3;margin-bottom:0.7rem;">The 3 Key Professionals Every Property Investor Needs — And How They Work Together</div>
+            <p style="font-size:0.83rem;color:var(--mid);line-height:1.65;margin-bottom:1.1rem;">Your buyer's agent, mortgage broker, and accountant aren't just individual advisors — they're a team. Here's how to build yours, brief them correctly, and make sure they're working in sync.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.72rem;color:rgba(0,0,0,0.3);">Apr 2026 · 7 min read</span>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--lime-dark);">Read article →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Article 2 -->
+        <div onclick="openArticle('global')" style="background:var(--white);border-radius:20px;overflow:hidden;border:1.5px solid var(--border-light);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="height:200px;background:linear-gradient(135deg,#0a1628 0%,#0d2044 50%,#0f2d5e 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(56,189,248,0.2),transparent 60%);"></div>
+            <div style="font-size:3.5rem;position:relative;z-index:1;">🌏</div>
+            <div style="position:absolute;top:1rem;left:1rem;background:rgba(56,189,248,0.15);color:var(--sky);border:1px solid rgba(56,189,248,0.3);padding:0.25rem 0.7rem;border-radius:100px;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Market Trends</div>
+          </div>
+          <div style="padding:1.5rem;">
+            <div style="font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink);line-height:1.3;margin-bottom:0.7rem;">How Global Events Are Shaping the Australian Property Market in 2026</div>
+            <p style="font-size:0.83rem;color:var(--mid);line-height:1.65;margin-bottom:1.1rem;">From US trade policy to Chinese capital flows and rising geopolitical risk — the forces reshaping Australian property prices are no longer purely domestic. Here's what investors need to understand.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.72rem;color:rgba(0,0,0,0.3);">Apr 2026 · 8 min read</span>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--lime-dark);">Read article →</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Latest Articles + Coming Soon -->
+    <section style="padding:0 5% 72px;background:var(--light);">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem;">Latest Articles</div>
+      <div class="insights-grid" id="insightsGrid"></div>
+    </section>
+  </div>
+
 </div><!-- /insights -->
 
 
@@ -1063,6 +1230,7 @@ function showPage(name) {
   document.getElementById('tab-'+name).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   if(name==='explore') renderGrid();
+  if(name==='brickometer') bm2UpdateCounter();
 }
 
 // ── NAV ──
@@ -1334,26 +1502,427 @@ function renderPicks() {
   });
 }
 
-// ── INSIGHTS ──
-function renderInsights(cat){
-  const data=cat==='all'?insights:insights.filter(i=>i.cat===cat);
-  document.getElementById('insightsGrid').innerHTML=data.map(i=>`
-    <div class="insight-card">
+// ── BRICKOMETER V2 ──
+let bm2SearchCount = parseInt(localStorage.getItem('bw_search_count')||'0');
+let bm2Registered = localStorage.getItem('bw_registered')==='true';
+let bm2Current = null;
+const BM2_LIMIT = 2;
+
+function bm2UpdateCounter(){
+  const el = document.getElementById('bm2-counter');
+  if(!el) return;
+  if(bm2Registered){ el.innerHTML='✓ Registered — unlimited searches'; return; }
+  const rem = Math.max(0, BM2_LIMIT - bm2SearchCount);
+  el.innerHTML = `<span style="color:var(--lime)">${rem}</span> free ${rem===1?'search':'searches'} remaining`;
+}
+
+function bm2HandleInput(val){
+  const q = val.trim().toLowerCase();
+  const dd = document.getElementById('bm2-dropdown');
+  if(!dd) return;
+  if(q.length < 2){ dd.style.display='none'; return; }
+  const matches = suburbs.filter(s => s.name.toLowerCase().includes(q)||s.postcode.includes(q)).slice(0,6);
+  if(!matches.length){ dd.style.display='none'; return; }
+  dd.innerHTML = matches.map(s=>`
+    <div onclick="bm2Select('${s.name}','${s.state}','${s.postcode}')"
+      style="padding:0.85rem 1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;"
+      onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background=''">
+      <span style="font-size:0.9rem;color:white;font-weight:500;">${s.name}</span>
+      <span style="font-size:0.72rem;color:rgba(255,255,255,0.3);font-family:monospace;">${s.state} · ${s.postcode}</span>
+    </div>`).join('');
+  dd.style.display='block';
+}
+
+function bm2HandleKey(e){
+  if(e.key==='Enter') bm2Trigger();
+  if(e.key==='Escape'){ const dd=document.getElementById('bm2-dropdown'); if(dd) dd.style.display='none'; }
+}
+
+function bm2Select(name,state,postcode){
+  const inp = document.getElementById('bm2-input');
+  if(inp) inp.value = `${name}, ${state}`;
+  const dd = document.getElementById('bm2-dropdown');
+  if(dd) dd.style.display='none';
+  bm2Trigger(name,state,postcode);
+}
+
+function bm2Trigger(name,state,postcode){
+  const q = name || (document.getElementById('bm2-input')||{}).value?.trim();
+  if(!q) return;
+  if(!bm2Registered && bm2SearchCount >= BM2_LIMIT){
+    const gate = document.getElementById('bm2-gate');
+    if(gate){ gate.style.display='flex'; } return;
+  }
+  const dd = document.getElementById('bm2-dropdown');
+  if(dd) dd.style.display='none';
+  let suburb = null;
+  if(name){ suburb = suburbs.find(s=>s.name===name&&s.state===state); }
+  else {
+    const ql = q.toLowerCase();
+    suburb = suburbs.find(s=>s.name.toLowerCase()===ql||s.postcode===q||`${s.name.toLowerCase()}, ${s.state.toLowerCase()}`===ql)
+          || suburbs.find(s=>s.name.toLowerCase().includes(ql)||s.postcode.includes(q));
+  }
+  if(!suburb){ bm2ShowNotFound(q); return; }
+  if(!bm2Registered){ bm2SearchCount++; localStorage.setItem('bw_search_count',bm2SearchCount); bm2UpdateCounter(); }
+  bm2ShowResults(suburb);
+}
+
+function bm2ShowResults(s){
+  bm2Current = s;
+  const sz=document.getElementById('bm-search-zone'), nf=document.getElementById('bm2-notfound'), ld=document.getElementById('bm2-loading'), rs=document.getElementById('bm2-results');
+  if(sz) sz.style.display='none';
+  if(nf) nf.style.display='none';
+  if(rs) rs.style.display='none';
+  if(ld){ ld.style.display='flex'; document.getElementById('bm2-loading-name').textContent=s.name; }
+  setTimeout(()=>{
+    if(ld) ld.style.display='none';
+    bm2Render(s);
+    if(rs) rs.style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }, 900);
+}
+
+function bm2Render(s){
+  const fmtM = n => '$'+Math.round(n).toLocaleString('en-AU');
+  const fmtP = n => n.toFixed(1)+'%';
+  // Hero
+  bm2AnimateGauge(s.brickometer, s.rating);
+  document.getElementById('bm2-suburb-name').textContent = s.name;
+  document.getElementById('bm2-suburb-state').textContent = `${s.state} · ${s.postcode}`;
+  document.getElementById('bm2-summary').textContent = s.summary || 'Summary not available.';
+  // Stats
+  document.getElementById('bm2-s-median').textContent = fmtM(s.medianHouse);
+  document.getElementById('bm2-s-yield').textContent = fmtP(s.grossYield);
+  document.getElementById('bm2-s-growth').textContent = '▲'+fmtP(s.growth12m);
+  document.getElementById('bm2-s-vacancy').textContent = fmtP(s.vacancyRate);
+  document.getElementById('bm2-s-dom').textContent = s.daysOnMarket ? s.daysOnMarket+' days' : 'N/A';
+  // Breakdown bars
+  const bd = s.scoreBreakdown||{};
+  const dims=[{l:'Rental Income',k:'yield',c:'#C8F400'},{l:'Capital Growth',k:'growth',c:'#38BDF8'},{l:'Rental Demand',k:'vacancy',c:'#4ade80'},{l:'Affordability',k:'affordability',c:'#F5A623'},{l:'Infrastructure',k:'infrastructure',c:'#a78bfa'}];
+  document.getElementById('bm2-bars').innerHTML = dims.map(d=>`
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+      <span style="font-size:0.75rem;color:rgba(255,255,255,0.5);width:130px;flex-shrink:0;">${d.l}</span>
+      <div style="flex:1;height:5px;background:rgba(255,255,255,0.07);border-radius:5px;overflow:hidden;">
+        <div style="height:100%;border-radius:5px;background:${d.c};width:0%;transition:width 0.9s ease;" data-w="${bd[d.k]||0}"></div>
+      </div>
+      <span style="font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;width:24px;text-align:right;">${bd[d.k]||0}</span>
+    </div>`).join('');
+  setTimeout(()=>{ document.querySelectorAll('#bm2-bars [data-w]').forEach(el=>{ el.style.width=el.dataset.w+'%'; }); },100);
+  // Strengths/watchouts
+  document.getElementById('bm2-strengths').innerHTML=(s.strengths||['Data not available']).map(t=>`<div style="display:flex;gap:0.55rem;align-items:flex-start;margin-bottom:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;"><span style="color:#4ade80;font-size:0.55rem;margin-top:0.35rem;flex-shrink:0;">●</span><span>${t}</span></div>`).join('');
+  document.getElementById('bm2-watchouts').innerHTML=(s.watchouts||['Data not available']).map(t=>`<div style="display:flex;gap:0.55rem;align-items:flex-start;margin-bottom:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;"><span style="color:#F5A623;font-size:0.55rem;margin-top:0.35rem;flex-shrink:0;">●</span><span>${t}</span></div>`).join('');
+  // Sparklines
+  if(s.priceTrend) bm2Spark('bm2-spark-price',s.priceTrend.map(d=>d.value),'bm2-sp-price',fmtM(s.medianHouse),'#C8F400');
+  if(s.yieldTrend) bm2Spark('bm2-spark-yield',s.yieldTrend.map(d=>d.value),'bm2-sp-yield',fmtP(s.grossYield),'#38BDF8');
+  if(s.vacancyTrend) bm2Spark('bm2-spark-vacancy',s.vacancyTrend.map(d=>d.value),'bm2-sp-vacancy',fmtP(s.vacancyRate),'#4ade80');
+  // Profiles
+  document.getElementById('bm2-profiles').innerHTML=(s.investorProfiles||[]).map(p=>`<span style="background:rgba(200,244,0,0.1);color:var(--lime);border:1px solid rgba(200,244,0,0.25);padding:0.38rem 0.9rem;border-radius:100px;font-size:0.76rem;font-weight:600;">${p}</span>`).join('');
+  // Amenities
+  bm2RenderAmenities(s.amenities);
+  // Infra
+  bm2RenderInfra(s.infrastructure);
+  // Action bar
+  document.getElementById('bm2-action-label').textContent = `Use ${s.name} data in the Deal Analyser`;
+  document.getElementById('bm2-deal-btn').textContent = `Run Deal Analyser for ${s.name} →`;
+}
+
+function bm2AnimateGauge(score, rating){
+  const arc=document.getElementById('bm2-arc'), num=document.getElementById('bm2-score-num'), rat=document.getElementById('bm2-rating');
+  if(!arc||!num||!rat) return;
+  const colours={'Excellent':'#4ade80','Strong':'#C8F400','Balanced':'#F5A623','Watchlist':'#fb923c','Higher Risk':'#FF5C3A'};
+  rat.style.color = colours[rating]||'#C8F400'; rat.textContent = rating;
+  const total=194.8; let n=0; const step=score/40;
+  const t=setInterval(()=>{ n=Math.min(n+step,score); num.textContent=Math.round(n); arc.style.strokeDashoffset=total-(total*(n/100)); if(n>=score) clearInterval(t); },20);
+}
+
+function bm2Spark(svgId, values, labelId, current, colour){
+  document.getElementById(labelId).textContent = current;
+  const svg=document.getElementById(svgId); if(!svg) return;
+  const w=200,h=44,pad=3,mn=Math.min(...values),mx=Math.max(...values),range=mx-mn||1;
+  const pts=values.map((v,i)=>{ const x=pad+(i/(values.length-1))*(w-pad*2); const y=h-pad-((v-mn)/range)*(h-pad*2); return `${x},${y}`; });
+  const last=pts[pts.length-1].split(',');
+  svg.innerHTML=`<polyline points="${pts.join(' ')}" fill="none" stroke="${colour}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/><circle cx="${last[0]}" cy="${last[1]}" r="3" fill="${colour}"/><text x="${pad}" y="${h}" font-size="8" fill="rgba(255,255,255,0.25)" font-family="monospace">${values[0]}</text><text x="${w-pad}" y="${h}" font-size="8" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="end">${values[values.length-1]}</text>`;
+}
+
+function bm2RenderAmenities(am){
+  const el=document.getElementById('bm2-amenities'); if(!el) return;
+  if(!am){ el.innerHTML='<div style="grid-column:1/-1;background:rgba(255,255,255,0.03);border-radius:10px;padding:1rem;text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.25);">Data not available for this suburb</div>'; return; }
+  const items=[
+    {icon:'🏫',label:'Schools',val:am.schools?(am.schools.count+' within area · '+am.schools.nearest_km+'km'):null},
+    {icon:'🚉',label:'Train',val:am.trainStations?(am.trainStations.count+' station'+(am.trainStations.count!==1?'s':'')+' · '+am.trainStations.nearest_km+'km'):null},
+    {icon:'🛍️',label:'Shopping',val:am.shoppingCentres?(am.shoppingCentres.count+' centre'+(am.shoppingCentres.count!==1?'s':'')+' · '+am.shoppingCentres.nearest_km+'km'):null},
+    {icon:'🏥',label:'Hospital',val:am.hospitals&&am.hospitals.count>0?(am.hospitals.count+' hospital · '+am.hospitals.nearest_km+'km'):null},
+    {icon:'🌿',label:'Parks',val:am.parks?(am.parks.count+' parks · '+am.parks.nearest_km+'km'):null},
+    {icon:'🎓',label:'University',val:am.universities&&am.universities.count>0?(am.universities.count+' · '+am.universities.nearest_km+'km'):null},
+    {icon:'💼',label:'Employment',val:am.employmentHubs?am.employmentHubs.slice(0,2).join(', '):null},
+    {icon:'🚌',label:'Bus Routes',val:null},
+  ];
+  el.innerHTML=items.map(item=>`<div style="background:rgba(255,255,255,0.03);border-radius:11px;padding:0.85rem;border:1px solid rgba(255,255,255,0.05);text-align:center;"><div style="font-size:1.3rem;margin-bottom:0.3rem;">${item.icon}</div><div style="font-size:0.62rem;color:rgba(255,255,255,0.35);margin-bottom:0.2rem;text-transform:uppercase;letter-spacing:0.04em;">${item.label}</div><div style="font-size:0.7rem;font-weight:600;color:${item.val?'#4ade80':'rgba(255,255,255,0.2)'};">${item.val||'Data not available'}</div></div>`).join('');
+}
+
+function bm2RenderInfra(infra){
+  const el=document.getElementById('bm2-infra'); if(!el) return;
+  if(!infra||!infra.length){ el.innerHTML='<div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:1rem;text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.25);">No infrastructure data available for this suburb yet.</div>'; return; }
+  const sClass={under_construction:'rgba(56,189,248,0.15)',approved:'rgba(200,244,0,0.12)',proposed:'rgba(245,166,35,0.12)',completed:'rgba(74,222,128,0.12)'};
+  const sCol={under_construction:'#38BDF8',approved:'#C8F400',proposed:'#F5A623',completed:'#4ade80'};
+  const sLabel={under_construction:'Under Construction',approved:'Approved',proposed:'Proposed',completed:'Completed'};
+  const iCol={positive:'#4ade80',uncertain:'#F5A623',neutral:'rgba(255,255,255,0.4)'};
+  el.innerHTML=infra.map(p=>`<div style="background:rgba(255,255,255,0.03);border-radius:12px;padding:1rem 1.1rem;border:1px solid rgba(255,255,255,0.05);margin-bottom:0.7rem;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.4rem;">
+      <span style="font-size:0.86rem;font-weight:500;color:white;">${p.name}</span>
+      <div style="display:flex;gap:0.4rem;">
+        <span style="background:${sClass[p.status]||'rgba(255,255,255,0.06)'};color:${sCol[p.status]||'rgba(255,255,255,0.4)'};font-size:0.6rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:100px;">${sLabel[p.status]||p.status}</span>
+        <span style="color:${iCol[p.impact]||'rgba(255,255,255,0.4)'};font-size:0.6rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:100px;background:rgba(255,255,255,0.04);">${p.impact}</span>
+      </div>
+    </div>
+    <div style="font-size:0.7rem;color:rgba(255,255,255,0.28);margin-bottom:0.35rem;font-family:monospace;">${p.type} · Est. ${p.completionDate} · ${p.distanceKm}km away</div>
+    <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.55;font-style:italic;">${p.impactNote}</div>
+  </div>`).join('');
+}
+
+function bm2ShowNotFound(q){
+  document.getElementById('bm-search-zone').style.display='none';
+  document.getElementById('bm2-loading').style.display='none';
+  document.getElementById('bm2-results').style.display='none';
+  document.getElementById('bm2-nf-title').textContent=`We don't have data on "${q}" yet.`;
+  document.getElementById('bm2-nf-suburb').value=q;
+  const nf=document.getElementById('bm2-notfound'); nf.style.display='flex';
+}
+
+async function bm2SubmitNF(){
+  const n=document.getElementById('bm2-nf-name').value.trim();
+  const e=document.getElementById('bm2-nf-email').value.trim();
+  const s=document.getElementById('bm2-nf-suburb').value.trim();
+  if(!n||!e){alert('Please enter your name and email.');return;}
+  await sbInsert('leads',{name:n,email:e,suburb:s,investor_type:'suburb_request'});
+  document.getElementById('bm2-nf-form').style.display='none';
+  document.getElementById('bm2-nf-success').style.display='block';
+}
+
+async function bm2SubmitGate(){
+  const n=document.getElementById('bm2-gate-name').value.trim();
+  const e=document.getElementById('bm2-gate-email').value.trim();
+  if(!n||!e){alert('Please enter your name and email.');return;}
+  await sbInsert('registrations',{first_name:n,email:e,investor_type:'brickometer_gate'});
+  bm2Registered=true; localStorage.setItem('bw_registered','true');
+  document.getElementById('bm2-gate').style.display='none';
+  bm2UpdateCounter();
+  bm2Trigger();
+}
+
+function bm2GoToDeal(){
+  if(!bm2Current) return;
+  const s=bm2Current;
+  localStorage.setItem('bw_dealanalyser_prefill',JSON.stringify({suburb:s.name,state:s.state,medianHouse:s.medianHouse,weeklyRent:Math.round((s.medianHouse*(s.grossYield/100))/52)}));
+  showPage('explore'); setTimeout(()=>{ if(typeof showExplore==='function') showExplore('deal'); },150);
+}
+
+function bm2Reset(){
+  document.getElementById('bm-search-zone').style.display='flex';
+  document.getElementById('bm2-results').style.display='none';
+  document.getElementById('bm2-notfound').style.display='none';
+  document.getElementById('bm2-loading').style.display='none';
+  const inp=document.getElementById('bm2-input'); if(inp) inp.value='';
+  bm2Current=null; window.scrollTo({top:0});
+  bm2UpdateCounter();
+  if(!bm2Registered && bm2SearchCount>=BM2_LIMIT){
+    document.getElementById('bm2-gate').style.display='flex';
+  }
+}
+
+// ── ARTICLES DATA ──
+const articles = {
+  professionals: {
+    title: 'The 3 Key Professionals Every Property Investor Needs — And How They Work Together',
+    category: 'Strategy',
+    date: 'April 2026',
+    readTime: '7 min read',
+    body: `
+      <p style="font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.7;margin-bottom:1.5rem;">Most property investors know they need a broker, an accountant, and maybe a buyer's agent. What fewer investors understand is that these three professionals only deliver their full value when they're working as a coordinated team — not in isolation.</p>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">The Core Three</h2>
+
+      <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:1.5rem 0 0.6rem;">1. The Mortgage Broker</h3>
+      <p style="margin-bottom:1rem;">Your mortgage broker is not just there to get you a loan. A good broker maps out your full borrowing capacity across your entire portfolio — not just the next purchase — and structures each loan in a way that preserves your ability to borrow again. This means thinking carefully about interest-only vs. principal-and-interest periods, which lenders to use in which sequence, and how to structure offsets and cross-collateralisation.</p>
+      <p style="margin-bottom:1rem;">The mistake most investors make is using their bank's home lending specialist. A specialist broker has access to 30–40 lenders and knows which ones will assess rental income most favourably for your serviceability situation. That difference can mean tens of thousands of dollars in borrowing capacity — and whether your third property purchase is possible at all.</p>
+      <p style="margin-bottom:1.5rem;"><strong style="color:var(--ink);">What to look for:</strong> A broker who works regularly with property investors (not just owner-occupiers), who can articulate a multi-purchase strategy, and who proactively manages your loan structure across your whole portfolio.</p>
+
+      <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:1.5rem 0 0.6rem;">2. The Accountant (Property-Specialist)</h3>
+      <p style="margin-bottom:1rem;">Not all accountants are created equal. A general tax accountant will file your return correctly. A property-specialist accountant will structure your ownership entities, depreciation schedules, and cash flow in a way that legally minimises your tax exposure — often by tens of thousands of dollars over a five-year hold period.</p>
+      <p style="margin-bottom:1rem;">Key areas where a specialist accountant adds value: depreciation schedules (a quality quantity surveyor report can generate $8,000–$15,000 in deductions in year one alone), trust and company structures for asset protection, CGT planning when you decide to sell, and negative gearing modelling to understand your real after-tax cash flow position.</p>
+      <p style="margin-bottom:1.5rem;"><strong style="color:var(--ink);">What to look for:</strong> An accountant who proactively connects with your broker to model scenarios. If your accountant and broker have never spoken to each other, you're leaving money on the table.</p>
+
+      <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:1.5rem 0 0.6rem;">3. The Buyer's Agent</h3>
+      <p style="margin-bottom:1rem;">A buyer's agent is the professional most investors skip — and the one whose absence costs them the most. In a market where quality stock sells before it's publicly listed, and where negotiation and due diligence can be the difference between a good and a great deal, trying to navigate this yourself is an expensive economy.</p>
+      <p style="margin-bottom:1rem;">A good buyer's agent sources off-market stock, conducts due diligence, negotiates price and terms, and coordinates with your solicitor through settlement. Their fee — typically $10,000–$20,000 depending on the market — is routinely recovered through better purchase price alone, before the ongoing advantages of a well-chosen property are even considered.</p>
+      <p style="margin-bottom:1.5rem;"><strong style="color:var(--ink);">What to look for:</strong> A buyer's agent who specialises in investment properties (not owner-occupier purchases), who has a clear research methodology, and who is genuinely independent — not receiving referral fees from developers or sales agents.</p>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">How They Work Together</h2>
+      <p style="margin-bottom:1rem;">The three-professional model only delivers its full value when these specialists are communicating with each other around your strategy. Here's how a well-coordinated team operates in practice:</p>
+
+      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--lime-dark);">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Before purchase:</strong> Your broker confirms borrowing capacity. Your accountant confirms the optimal ownership structure and models the after-tax cash flow. Your buyer's agent sources the property within those parameters.</p>
+      </div>
+      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--sky);">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>At purchase:</strong> Your buyer's agent negotiates. Your broker has the finance ready. Your accountant has confirmed the depreciation profile and holding cost model.</p>
+      </div>
+      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--gold);">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>After purchase:</strong> Your broker reviews the loan structure annually. Your accountant optimises your tax position each year. Your buyer's agent monitors the market for your next purchase.</p>
+      </div>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">The BrickWise Approach</h2>
+      <p style="margin-bottom:1rem;">BrickWise is built to complement your professional team — not replace it. The Brickometer gives you a data-driven starting point before you engage your buyer's agent, so you can have a more informed conversation about which suburbs align with your strategy. The Deal Analyser gives you the cash flow and equity numbers you need to brief your broker and accountant accurately.</p>
+      <p style="margin-bottom:1rem;">Intelligence first. Professionals second. That's the sequence that puts you in control of the conversation.</p>
+
+      <div style="background:rgba(200,244,0,0.08);border:1px solid rgba(200,244,0,0.25);border-radius:12px;padding:1.2rem 1.4rem;margin-top:2rem;">
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:0.4rem;">Disclaimer</div>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;">This article is for general information purposes only and does not constitute financial, legal, or investment advice. Always seek advice from qualified professionals before making property investment decisions. BrickWise · brickwise.com.au</p>
+      </div>
+    `
+  },
+  global: {
+    title: 'How Global Events Are Shaping the Australian Property Market in 2026',
+    category: 'Market Trends',
+    date: 'April 2026',
+    readTime: '8 min read',
+    body: `
+      <p style="font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.7;margin-bottom:1.5rem;">Australian property has long been thought of as a domestic market — driven by local supply, local demand, and local policy. That assumption is increasingly outdated. In 2026, the forces shaping prices in Perth, Brisbane, and Sydney are as likely to originate in Washington, Beijing, or Frankfurt as they are in Canberra.</p>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">1. US Trade Policy and the Commodity Ripple</h2>
+      <p style="margin-bottom:1rem;">The reimposition of broad US tariffs in 2025 has had a complex knock-on effect for Australian property. On one hand, higher global trade friction has pushed commodity prices — particularly iron ore and LNG — into a period of uncertainty. WA, which had been experiencing its strongest property market in a decade, is now navigating a more cautious environment as mining sector confidence wavers.</p>
+      <p style="margin-bottom:1rem;">On the other hand, Australia's relative geopolitical stability and trade diversification are attracting capital from investors seeking safe-haven assets. Institutional interest in Australian commercial and residential property has increased noticeably over the past twelve months, particularly from South-East Asian family offices.</p>
+      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--coral);">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Investor implication:</strong> WA's extraordinary growth cycle may be moderating. Investors who purchased in Perth's southern corridor in 2023–2024 are well positioned. New entrants should model for more conservative growth assumptions in 2026–2027.</p>
+      </div>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">2. Chinese Capital and the Overseas Investment Debate</h2>
+      <p style="margin-bottom:1rem;">Chinese capital flows into Australian residential property have been a persistent feature of the market for over a decade. The regulatory environment has tightened significantly — FIRB approval requirements, stamp duty surcharges for foreign buyers, and vacancy fees have all been expanded. Yet capital continues to find its way into the market through legal channels, including via permanent residents and citizen family members.</p>
+      <p style="margin-bottom:1rem;">The broader geopolitical context matters here. As Australia-China relations navigate ongoing trade and strategic tensions, the sentiment around capital flows shifts. In 2025 and into 2026, the trend has been toward Melbourne and Sydney prestige markets — with properties in good school catchments and near CBD activity centres seeing sustained demand from this cohort.</p>
+      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--sky);">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Investor implication:</strong> Premium Melbourne eastern suburbs and inner Sydney markets continue to benefit from a structural demand floor. These markets are less accessible to cash flow investors but remain strong for long-term capital growth strategies.</p>
+      </div>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">3. Interest Rate Cycles and the RBA's Global Constraints</h2>
+      <p style="margin-bottom:1rem;">The RBA does not set interest rates in a vacuum. While it operates independently, its decisions are heavily influenced by the US Federal Reserve's rate cycle, global inflation dynamics, and the AUD exchange rate. After a period of aggressive tightening through 2023–2024, the RBA began its easing cycle in early 2025 — but the pace has been constrained by sticky services inflation and the AUD's response to global uncertainty.</p>
+      <p style="margin-bottom:1rem;">For property investors, the practical implication is that variable rate relief has been slower than many models predicted. Borrowers who fixed in 2021–2022 are rolling off onto rates that are still materially higher than their fixed periods. This is contributing to elevated listings in some middle-ring Sydney and Melbourne markets as investors assess serviceability.</p>
+      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--lime-dark);">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Investor implication:</strong> Markets with strong rental yield — particularly in QLD and WA — are better positioned to withstand rate pressure than low-yield capital growth plays. The spread between yield and mortgage rate is the number to watch.</p>
+      </div>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">4. Migration and the Population Wildcard</h2>
+      <p style="margin-bottom:1rem;">Australia's net overseas migration hit record levels in 2023 and remains historically elevated in 2024–2025. This is the single most significant driver of structural housing demand — and it is a direct product of global events: post-pandemic catch-up, international student recovery, skilled visa programs, and humanitarian intake.</p>
+      <p style="margin-bottom:1rem;">The geographic distribution of migrants matters enormously for investors. Sydney and Melbourne absorb the largest absolute numbers, but Brisbane, Perth, and Adelaide have seen proportionally larger increases in their migration intake. The inner and middle rings of these cities — with access to employment, education, and transport — are absorbing demand that the outer suburbs cannot match for this cohort.</p>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">5. Climate Risk and Insurance Repricing</h2>
+      <p style="margin-bottom:1rem;">This is the slow-moving global force that most Australian property investors have yet to fully price into their models. As global temperatures rise and extreme weather events become more frequent, the insurance industry is repricing risk in real time — and in some areas, withdrawing coverage entirely.</p>
+      <p style="margin-bottom:1rem;">Northern Queensland, coastal NSW, and flood-prone corridors in Victoria are already experiencing insurance premium increases of 30–80% over three years. In some postcodes, standard home and landlord insurance is becoming difficult to obtain at any price. This is a material risk factor for investment properties that has no parallel in Australian property history.</p>
+      <div style="background:rgba(255,92,58,0.06);border:1px solid rgba(255,92,58,0.2);border-radius:14px;padding:1.5rem;margin:1.5rem 0;">
+        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong style="color:var(--coral);">Risk flag:</strong> Before purchasing in any regional, coastal, or low-lying area, verify current insurance availability and premium levels — not just flood mapping. The Brickometer's risk overlay flags known flood and bushfire zones, but always verify at the individual property level with an insurer directly.</p>
+      </div>
+
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">What This Means for Your Strategy</h2>
+      <p style="margin-bottom:1rem;">The Australian property market in 2026 is more globally connected than at any previous point. Investors who treat it as a purely local game — reading only domestic headlines and talking only to local agents — are working with an incomplete picture.</p>
+      <p style="margin-bottom:1.5rem;">The investors who outperform in this environment are those who understand the macro forces at work, model their cash flow conservatively, and focus on suburbs with structural demand drivers that are resilient across multiple scenarios — strong employment diversity, good infrastructure, genuine housing scarcity, and manageable climate risk profiles.</p>
+
+      <div style="background:rgba(200,244,0,0.08);border:1px solid rgba(200,244,0,0.25);border-radius:12px;padding:1.2rem 1.4rem;margin-top:2rem;">
+        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:0.4rem;">Disclaimer</div>
+        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;">This article is for general information purposes only and does not constitute financial, legal, or investment advice. Market conditions, interest rates, and regulatory environments change frequently. Always seek advice from qualified professionals before making property investment decisions. BrickWise · brickwise.com.au</p>
+      </div>
+    `
+  }
+};
+
+// ── INSIGHTS CARDS DATA ──
+const insights = [
+  {cat:'market',emoji:'📈',bg:'#e8f5e9',title:'Why Perth Is Outperforming Every Other Capital City in 2025',date:'Mar 2026',read:'5 min read',desc:'WA suburbs are posting growth rates not seen since the mining boom. We break down what is driving it and how long it can last.',status:'coming'},
+  {cat:'suburb',emoji:'🏘',bg:'#fff8e1',title:'Ipswich Deep Dive: Why This QLD Suburb Scores 78 on the Brickometer',date:'Mar 2026',read:'7 min read',desc:'Infrastructure investment, population inflow, and sub-$600K entry prices — Ipswich ticks all the boxes. Here is the full data picture.',status:'coming'},
+  {cat:'strategy',emoji:'🧮',bg:'#e3f2fd',title:'Positively Geared vs Negatively Geared: What the Numbers Actually Say',date:'Feb 2026',read:'6 min read',desc:'A data-led comparison of cash flow strategies across 20 Australian suburbs, factoring in tax offsets and 5-year equity projections.',status:'coming'},
+  {cat:'data',emoji:'📊',bg:'#f3e5f5',title:'Vacancy Rates Explained: The Most Underrated Metric in Property Investment',date:'Feb 2026',read:'4 min read',desc:'Most investors overlook vacancy rates until they have an empty property. Here is how to use this metric to screen suburbs before you buy.',status:'coming'},
+  {cat:'suburb',emoji:'🌏',bg:'#e8eaf6',title:'Tarneit vs Melton: Which VIC Growth Corridor Wins on the Brickometer?',date:'Jan 2026',read:'6 min read',desc:'Two of Melbourne\'s fastest-growing western suburbs go head to head. Yield, growth, affordability, and infrastructure — all compared.',status:'coming'},
+  {cat:'strategy',emoji:'🎯',bg:'#fce4ec',title:'The 5-Year Equity Play: How to Choose Suburbs That Build Wealth Quietly',date:'Jan 2026',read:'5 min read',desc:'Capital growth investors have a different playbook to yield hunters. We model out what a 7% CAGR actually means for your equity over time.',status:'coming'},
+];
+
+// ── ARTICLE FUNCTIONS ──
+function openArticle(id) {
+  const art = articles[id];
+  if(!art) return;
+  document.getElementById('intel-main').style.display = 'none';
+  const reader = document.getElementById('article-reader');
+  reader.style.display = 'block';
+  document.getElementById('ar-title').textContent = art.title;
+  document.getElementById('ar-category').textContent = art.category;
+  document.getElementById('ar-date').textContent = art.date;
+  document.getElementById('ar-read-time').textContent = art.readTime;
+  document.getElementById('ar-body').innerHTML = art.body;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function closeArticle() {
+  document.getElementById('article-reader').style.display = 'none';
+  document.getElementById('intel-main').style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── RENDER INSIGHTS GRID ──
+function renderInsights(cat) {
+  const data = cat==='all' ? insights : insights.filter(i=>i.cat===cat);
+  document.getElementById('insightsGrid').innerHTML = data.map(i => `
+    <div class="insight-card" onclick="openComingSoon('${i.title.replace(/'/g,"\\'")}')">
       <div class="insight-img" style="background:${i.bg}">${i.emoji}</div>
       <div class="insight-body">
         <div class="insight-tag">${i.cat==='market'?'Market Trends':i.cat==='suburb'?'Suburb Spotlight':i.cat==='strategy'?'Strategy':'Data & Research'}</div>
         <h3>${i.title}</h3>
         <p>${i.desc}</p>
-        <div class="insight-meta"><span>${i.date} · ${i.read}</span><span class="insight-read">Read →</span></div>
+        <div class="insight-meta">
+          <span>${i.date} · ${i.read}</span>
+          <span style="background:rgba(0,0,0,0.06);color:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;border-radius:100px;font-size:0.68rem;font-weight:600;">Coming soon</span>
+        </div>
       </div>
     </div>`).join('');
 }
-renderInsights('all');
+
+function openComingSoon(title) {
+  // Show a subtle coming-soon modal
+  const existing = document.getElementById('cs-modal');
+  if(existing) existing.remove();
+  const modal = document.createElement('div');
+  modal.id = 'cs-modal';
+  modal.style.cssText = 'position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;';
+  modal.innerHTML = `
+    <div style="background:var(--white);border-radius:20px;padding:2.5rem;max-width:440px;width:100%;text-align:center;animation:fadeUp 0.3s ease both;">
+      <div style="font-size:2rem;margin-bottom:0.8rem;">📬</div>
+      <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:0.5rem;">Coming soon</div>
+      <p style="font-size:0.85rem;color:var(--mid);line-height:1.65;margin-bottom:1.5rem;">This article is being prepared by the BrickWise research team. Leave your email and we'll notify you the moment it goes live.</p>
+      <div style="display:flex;gap:0.6rem;max-width:340px;margin:0 auto;">
+        <input id="cs-email" type="email" placeholder="your@email.com" style="flex:1;background:var(--light);border:1.5px solid var(--border-light);border-radius:10px;padding:0.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);outline:none;">
+        <button onclick="submitCSEmail()" style="background:var(--ink);color:var(--lime);border:none;padding:0.75rem 1.1rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;white-space:nowrap;">Notify me</button>
+      </div>
+      <div id="cs-success" style="display:none;color:var(--lime-dark);font-size:0.85rem;font-weight:500;margin-top:0.8rem;">✓ Done — we'll email you when this goes live.</div>
+      <button onclick="document.getElementById('cs-modal').remove()" style="margin-top:1.2rem;background:transparent;border:none;color:var(--mid);font-size:0.78rem;cursor:pointer;font-family:'DM Sans',sans-serif;">No thanks</button>
+    </div>`;
+  modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+
+async function submitCSEmail(){
+  const em = document.getElementById('cs-email').value.trim();
+  if(!em||!em.includes('@')){ alert('Please enter a valid email.'); return; }
+  await sbInsert('registrations',{email:em,investor_type:'content_notify'});
+  document.getElementById('cs-success').style.display='block';
+  document.getElementById('cs-email').style.display='none';
+  document.querySelector('#cs-modal button[onclick="submitCSEmail()"]').style.display='none';
+}
+
 function filterInsights(cat,btn){
   document.querySelectorAll('#page-insights .filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderInsights(cat);
+  // Show/hide featured based on filter
+  const feat = document.getElementById('featured-section');
+  if(feat) feat.style.display = (cat==='all'||cat==='strategy'||cat==='market') ? '' : 'none';
 }
+
+renderInsights('all');
 
 // ── SUPABASE CONFIG ──
 const SB_URL = 'https://cffalqbthxdqhatvfbfp.supabase.co';
