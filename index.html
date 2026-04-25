@@ -1059,10 +1059,10 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
       <div class="reg-form" id="regForm">
         <h3>Create your free account</h3>
         <div class="reg-row">
-          <div class="reg-ig"><label>First Name</label><input type="text" id="reg-firstname" placeholder="Avi"></div>
-          <div class="reg-ig"><label>Last Name</label><input type="text" id="reg-lastname" placeholder="Sharma"></div>
+          <div class="reg-ig"><label>First Name</label><input type="text" id="reg-firstname" placeholder="e.g. Sarah"></div>
+          <div class="reg-ig"><label>Last Name</label><input type="text" id="reg-lastname" placeholder="e.g. Thompson"></div>
         </div>
-        <div class="reg-ig"><label>Email Address</label><input type="email" id="reg-email" placeholder="avi@email.com"></div>
+        <div class="reg-ig"><label>Email Address</label><input type="email" id="reg-email" placeholder="your@email.com"></div>
         <div class="reg-ig"><label>Phone (optional)</label><input type="tel" id="reg-phone" placeholder="0400 000 000"></div>
         <div class="reg-ig"><label>I am a...</label>
           <select id="reg-type">
@@ -1210,17 +1210,225 @@ function loadFallbackData() {
 
 loadData();
 
-// ── INSIGHTS DATA ──
+// ── ARTICLES DATA ──
+const articles = {
+  professionals: {
+    title: 'The 3 Key Professionals Every Property Investor Needs — And How They Work Together',
+    category: 'Strategy',
+    date: 'April 2026',
+    readTime: '7 min read',
+    body: `
+      <p style="font-size:1.05rem;font-weight:500;color:#222;line-height:1.75;margin-bottom:1.5rem;">Most property investors spend weeks researching suburbs, comparing data, and agonising over whether to offer $10,000 above or below the asking price. Very few spend equivalent time building the professional team that determines whether the deal is actually a good one.</p>
+      <p style="margin-bottom:1.2rem;line-height:1.75;color:#333;">The professionals you surround yourself with — and how well they collaborate — will have more impact on your long-term results than almost any individual property decision you make. In Australia's market, three professionals are non-negotiable.</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">1. The Accountant — Your Tax and Structure Strategist</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">Many investors treat their accountant as someone who files their tax return. A good property accountant does something far more valuable: they structure your investments from the beginning so that tax outcomes are as efficient as possible across the life of your portfolio.</p>
+      <p style="margin-bottom:0.5rem;font-weight:600;color:#222;">What a property accountant actually does:</p>
+      <ul style="margin:0 0 1.2rem 1.5rem;color:#444;line-height:1.8;">
+        <li><strong>Tax structuring</strong> — deciding whether to own in your own name, a trust, a company, or an SMSF, each with different tax, asset protection, and succession implications.</li>
+        <li><strong>Negative gearing</strong> — modelling the real after-tax cost of a property running at a cash flow loss.</li>
+        <li><strong>Capital gains tax (CGT)</strong> — planning disposals to minimise CGT exposure, including the 50% CGT discount for properties held over 12 months.</li>
+        <li><strong>Depreciation</strong> — a quality quantity surveyor report can generate $8,000–$15,000 in deductions in year one on a new property.</li>
+        <li><strong>Long-term wealth strategy</strong> — structuring ownership to support inter-generational wealth transfer and retirement income.</li>
+      </ul>
+      <div style="background:#f5f5f0;border-left:3px solid #a8d000;padding:1.2rem 1.4rem;margin:1.5rem 0;border-radius:0 10px 10px 0;">
+        <p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>Example:</strong> An investor purchasing in their own name rather than a trust may save on entry costs but lose access to asset protection and income-splitting benefits. A specialist accountant identifies this before settlement — not after.</p>
+      </div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">2. The Financial Adviser — Your Whole-of-Life Strategist</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">The financial adviser is often the most misunderstood professional in the property investment context. They are not there to tell you which property to buy. What they do is ensure that your property investments fit coherently within your broader financial life — retirement planning, risk management, insurance, and asset allocation.</p>
+      <p style="margin-bottom:0.5rem;font-weight:600;color:#222;">What a financial adviser actually does:</p>
+      <ul style="margin:0 0 1.2rem 1.5rem;color:#444;line-height:1.8;">
+        <li><strong>Overall financial plan</strong> — mapping property into the context of your income, super, insurance, and life goals.</li>
+        <li><strong>Risk management</strong> — ensuring you are not over-exposed to property as a single asset class.</li>
+        <li><strong>Asset allocation</strong> — balancing property with other investments like shares and cash to manage volatility.</li>
+        <li><strong>Retirement alignment</strong> — modelling whether your property portfolio will generate the income you need in retirement.</li>
+        <li><strong>Insurance review</strong> — ensuring income protection and life insurance adequately covers your mortgage obligations.</li>
+      </ul>
+      <div style="background:#f5f5f0;border-left:3px solid #38BDF8;padding:1.2rem 1.4rem;margin:1.5rem 0;border-radius:0 10px 10px 0;">
+        <p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>Note:</strong> In Australia, financial advisers must hold an Australian Financial Services Licence (AFSL) or operate under one. Always verify credentials on the ASIC financial advisers register before engaging.</p>
+      </div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">3. The Mortgage Broker — Your Lending Strategist</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">Your mortgage broker is not just there to get you a loan. A good broker maps out your full borrowing capacity across your entire portfolio — not just the next purchase — and structures each loan in a way that preserves your ability to borrow again.</p>
+      <p style="margin-bottom:0.5rem;font-weight:600;color:#222;">What a mortgage broker actually does:</p>
+      <ul style="margin:0 0 1.2rem 1.5rem;color:#444;line-height:1.8;">
+        <li><strong>Loan structuring</strong> — deciding on interest-only vs P&amp;I periods, offset accounts, and cross-collateralisation based on your strategy.</li>
+        <li><strong>Borrowing capacity</strong> — access to 30–40 lenders means knowing which ones assess rental income most favourably for your serviceability.</li>
+        <li><strong>Lender selection</strong> — matching each purchase to the right lender in the right sequence to preserve future borrowing power.</li>
+        <li><strong>Multi-property strategy</strong> — structuring a loan portfolio that supports properties 2, 3, and 4, not just the current one.</li>
+      </ul>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">How They Work Together</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">The three-professional model only delivers its full value when these specialists are communicating with each other around your strategy. Here is how a well-coordinated team operates in practice:</p>
+      <div style="background:#f5f5f0;border-left:3px solid #a8d000;padding:1.1rem 1.4rem;margin:1rem 0;border-radius:0 10px 10px 0;"><p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>Before purchase:</strong> Your broker confirms borrowing capacity. Your accountant confirms the optimal ownership structure and models after-tax cash flow. Your financial adviser confirms the purchase fits your overall plan. Your buyer's agent sources the property within those parameters.</p></div>
+      <div style="background:#f5f5f0;border-left:3px solid #38BDF8;padding:1.1rem 1.4rem;margin:1rem 0;border-radius:0 10px 10px 0;"><p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>At purchase:</strong> Your broker has the finance approved and structured. Your accountant has confirmed the depreciation profile and tax position. Your financial adviser has reviewed the impact on your overall portfolio risk.</p></div>
+      <div style="background:#f5f5f0;border-left:3px solid #F5A623;padding:1.1rem 1.4rem;margin:1rem 0;border-radius:0 10px 10px 0;"><p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>After purchase:</strong> Your broker reviews the loan structure annually. Your accountant optimises your tax position each year. Your financial adviser tracks the property's contribution to your overall financial plan.</p></div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Common Mistakes When These Roles Are Not Aligned</h2>
+      <ul style="margin:0 0 1.5rem 1.5rem;color:#444;line-height:1.8;">
+        <li>Purchasing in the wrong ownership structure and triggering avoidable stamp duty or CGT on restructuring later.</li>
+        <li>Overextending borrowing capacity because the broker did not know the full financial plan.</li>
+        <li>Missing depreciation deductions because the accountant was engaged after settlement rather than before.</li>
+        <li>Building a property portfolio that undermines super and retirement goals because the financial adviser was not involved.</li>
+        <li>Receiving conflicting advice from professionals who have never spoken to each other about your specific situation.</li>
+      </ul>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Practical Tips</h2>
+      <p style="margin-bottom:0.5rem;font-weight:600;color:#222;">How to choose each professional:</p>
+      <ul style="margin:0 0 1.2rem 1.5rem;color:#444;line-height:1.8;">
+        <li>Look for <strong>specialisation in property investment</strong>, not just general practice.</li>
+        <li>Ask for referrals from other investors with portfolios similar to what you are building.</li>
+        <li>Verify credentials — accountants with a CPA or CA designation, advisers on the ASIC register, brokers with an ACL.</li>
+      </ul>
+      <p style="margin-bottom:0.5rem;font-weight:600;color:#222;">Questions to ask each professional:</p>
+      <ul style="margin:0 0 1.5rem 1.5rem;color:#444;line-height:1.8;">
+        <li>How many property investors do you currently advise, and at what stage of their portfolio?</li>
+        <li>Are you willing to speak directly with my other advisers when structuring a purchase?</li>
+        <li>Can you walk me through how you would approach my specific situation?</li>
+      </ul>
+      <div style="background:#f8f8f4;border:1px solid #e0e0d8;border-radius:12px;padding:1.2rem 1.4rem;margin-top:2rem;">
+        <p style="font-size:0.78rem;color:#888;line-height:1.6;margin:0;"><strong>Disclaimer:</strong> This article is for general information purposes only and does not constitute financial, legal, or investment advice. Always seek advice from appropriately qualified professionals before making property investment decisions. BrickWise · brickwise.com.au</p>
+      </div>`
+  },
+  global: {
+    title: 'How Global Events Are Shaping the Australian Property Market in 2026',
+    category: 'Market Trends',
+    date: 'April 2026',
+    readTime: '8 min read',
+    body: `
+      <p style="font-size:1.05rem;font-weight:500;color:#222;line-height:1.75;margin-bottom:1.5rem;">Property prices don't just move because of local supply and demand. Global forces play a bigger role in the Australian property market than most everyday investors realise — and in 2026, those forces are more complex, and more interconnected, than at any point in the past decade.</p>
+      <p style="margin-bottom:1.2rem;line-height:1.75;color:#333;">Understanding the macro picture won't tell you which suburb to buy in. But it will help you understand <em>why</em> the market is moving the way it is — and make better decisions as a result.</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Interest Rates and the Global Inflation Cycle</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">The RBA does not set interest rates in a vacuum. Its decisions are heavily influenced by what central banks in the US, Europe, and the UK are doing. When the US Federal Reserve raised rates aggressively in 2022–2023, Australia followed — because if it did not, capital would flow out of Australian assets and the AUD would weaken, importing inflation.</p>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">The easing cycle that began in 2025 has been slower than many investors hoped. Sticky services inflation in major economies has kept central banks cautious. For Australian property investors, this means variable rate relief has arrived gradually — and borrowing capacity remains constrained compared to the 2020–2021 era.</p>
+      <div style="background:#f5f5f0;border-left:3px solid #a8d000;padding:1.2rem 1.4rem;margin:1.5rem 0;border-radius:0 10px 10px 0;">
+        <p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>Simple example:</strong> A 1% reduction in the cash rate typically adds roughly $50,000–$80,000 in borrowing capacity for a median-income household. When that reduction comes in 0.25% increments over 18 months rather than quickly, its impact on buyer demand — and therefore prices — is gradual rather than explosive.</p>
+      </div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">US Trade Policy and the Commodity Ripple</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">The reimposition of broad US tariffs has created uncertainty in global trade flows that flows through to Australia in specific ways. Higher global trade friction affects commodity prices — particularly iron ore and LNG — which directly impacts the WA economy and, by extension, WA property markets.</p>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">At the same time, Australia's relative geopolitical stability is attracting capital seeking safe-haven assets. Institutional interest in Australian commercial and residential property has increased from South-East Asian family offices and investors diversifying away from higher-risk markets.</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Migration and the Population Driver</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">Australia's net overseas migration hit record levels in 2023 and remains historically elevated. This is the single most significant driver of structural housing demand — and it is a direct product of global events: post-pandemic catch-up, international student recovery, skilled visa programs, and humanitarian intake.</p>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">The geographic distribution matters for investors. Sydney and Melbourne absorb the largest absolute numbers, but Brisbane, Perth, and Adelaide have seen proportionally larger increases in their intake. The inner and middle rings of these cities — with access to employment, education, and transport — are absorbing demand that outer suburbs cannot match for this cohort.</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Supply Chain Pressures and Construction Costs</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">Global supply chain disruptions that began during the pandemic have not fully resolved. Materials costs for residential construction in Australia remain elevated — which is constraining new housing supply at exactly the moment demand is highest. Fewer new dwellings completed means existing stock is more valuable, particularly in established suburbs with good infrastructure.</p>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">This is one reason why the rental market has remained extremely tight despite higher interest rates. Investors who own existing stock in the right locations are benefiting from rising rents driven by both migration and constrained new supply.</p>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Climate Risk and Insurance Repricing</h2>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">This is the slow-moving global force most Australian investors have yet to fully price in. As global temperatures rise and extreme weather events become more frequent, the insurance industry is repricing risk — and in some areas, withdrawing coverage entirely.</p>
+      <p style="margin-bottom:1rem;line-height:1.75;color:#333;">Coastal NSW, northern Queensland, and some flood-prone Victorian corridors are already experiencing insurance premium increases of 30–80% over three years. This is a material risk for investment properties that has no historical parallel in Australian property.</p>
+      <div style="background:#fff0ed;border-left:3px solid #FF5C3A;padding:1.2rem 1.4rem;margin:1.5rem 0;border-radius:0 10px 10px 0;">
+        <p style="font-size:0.9rem;color:#333;line-height:1.7;margin:0;"><strong>Risk flag:</strong> Before purchasing in any regional, coastal, or low-lying area, verify current insurance availability and premium levels at the specific address — not just flood mapping. The Brickometer flags known risk zones, but always verify at the individual property level.</p>
+      </div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">What This Means for Different Investor Types</h2>
+      <ul style="margin:0 0 1.5rem 1.5rem;color:#444;line-height:1.8;">
+        <li><strong>Long-term investors:</strong> Global macro uncertainty actually reinforces the case for patient, fundamentals-driven investing. Suburb selection matters more, not less.</li>
+        <li><strong>First-time investors:</strong> A higher-rate environment rewards buying at the right price in the right suburb rather than stretching to maximise borrowing.</li>
+        <li><strong>Yield-focused investors:</strong> QLD and WA markets continue to offer strong yield profiles driven by structural undersupply and migration inflows.</li>
+        <li><strong>Developers:</strong> Construction cost pressures are squeezing feasibility on marginal sites. Only projects with strong fundamentals and pre-sales are proceeding.</li>
+      </ul>
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#0D0D0D;margin:2rem 0 0.8rem;letter-spacing:-0.01em;">Practical Takeaways</h2>
+      <ul style="margin:0 0 1.5rem 1.5rem;color:#444;line-height:1.8;">
+        <li>Focus on suburbs with structural demand drivers — employment diversity, infrastructure investment, genuine housing scarcity — that are resilient across multiple scenarios.</li>
+        <li>Model cash flow conservatively. Use current interest rates, not hoped-for future rates.</li>
+        <li>Think in five-to-ten-year horizons. Global noise creates short-term volatility; fundamentals drive long-term returns.</li>
+        <li>Do not ignore climate risk in your suburb selection. It is a permanent structural shift, not a temporary concern.</li>
+        <li>Global trends set the backdrop, but suburb-level analysis determines your actual result. Use tools like the Brickometer to evaluate specific markets before committing.</li>
+      </ul>
+      <div style="background:#f8f8f4;border:1px solid #e0e0d8;border-radius:12px;padding:1.2rem 1.4rem;margin-top:2rem;">
+        <p style="font-size:0.78rem;color:#888;line-height:1.6;margin:0;"><strong>Disclaimer:</strong> This article is for general information purposes only and does not constitute financial, legal, or investment advice. Market conditions, interest rates, and regulatory environments change frequently. Always seek advice from qualified professionals before making investment decisions. BrickWise · brickwise.com.au</p>
+      </div>`
+  }
+};
+
+// ── INSIGHTS CARDS ──
 const insights = [
-  {cat:'market',emoji:'📈',bg:'#e8f5e9',title:'Why Perth Is Outperforming Every Other Capital City in 2025',date:'Apr 2025',read:'5 min read',desc:'WA suburbs are posting growth rates not seen since the mining boom. We break down what is driving it and how long it can last.'},
-  {cat:'suburb',emoji:'🏘',bg:'#fff8e1',title:'Ipswich Deep Dive: Why This QLD Suburb Scores 78 on the Brickometer',date:'Apr 2025',read:'7 min read',desc:'Infrastructure investment, population inflow, and sub-$600K entry prices — Ipswich ticks all the boxes. Here is the full data picture.'},
-  {cat:'strategy',emoji:'🧮',bg:'#e3f2fd',title:'Positively Geared vs Negatively Geared: What the Numbers Actually Say',date:'Mar 2025',read:'6 min read',desc:'A data-led comparison of cash flow strategies across 20 Australian suburbs, factoring in tax offsets and 5-year equity projections.'},
-  {cat:'data',emoji:'📊',bg:'#f3e5f5',title:'Vacancy Rates Explained: The Most Underrated Metric in Property Investment',date:'Mar 2025',read:'4 min read',desc:'Most investors overlook vacancy rates until they have an empty property. Here is how to use this metric to screen suburbs before you buy.'},
-  {cat:'suburb',emoji:'🌏',bg:'#e8eaf6',title:'Tarneit vs Melton: Which VIC Growth Corridor Wins on the Brickometer?',date:'Feb 2025',read:'6 min read',desc:'Two of Melbourne\'s fastest-growing western suburbs go head to head. Yield, growth, affordability, and infrastructure — all compared.'},
-  {cat:'strategy',emoji:'🎯',bg:'#fce4ec',title:'The 5-Year Equity Play: How to Choose Suburbs That Build Wealth Quietly',date:'Feb 2025',read:'5 min read',desc:'Capital growth investors have a different playbook to yield hunters. We model out what a 7% CAGR actually means for your equity over time.'},
-  {cat:'market',emoji:'🏦',bg:'#e0f7fa',title:'Interest Rate Impact on Property: What Investors Need to Know in 2025',date:'Jan 2025',read:'5 min read',desc:'Rate movements affect borrowing capacity, sentiment, and yield calculations. Here is how smart investors are repositioning their approach.'},
-  {cat:'data',emoji:'🔍',bg:'#f1f8e9',title:'How the Brickometer Score Is Calculated — Full Methodology Explained',date:'Jan 2025',read:'8 min read',desc:'A transparent look at every component, weighting, and threshold behind the Brickometer — so you know exactly what the score means.'},
+  {cat:'market',emoji:'📈',bg:'#e8f5e9',title:'Why Perth Is Outperforming Every Other Capital City in 2026',date:'Mar 2026',read:'5 min read',desc:'WA suburbs are posting growth rates not seen since the mining boom. We break down what is driving it and how long it can last.'},
+  {cat:'suburb',emoji:'🏘',bg:'#fff8e1',title:'Ipswich Deep Dive: Why This QLD Suburb Scores 78 on the Brickometer',date:'Mar 2026',read:'7 min read',desc:'Infrastructure investment, population inflow, and sub-$600K entry prices — Ipswich ticks all the boxes. Here is the full data picture.'},
+  {cat:'strategy',emoji:'🧮',bg:'#e3f2fd',title:'Positively Geared vs Negatively Geared: What the Numbers Actually Say',date:'Feb 2026',read:'6 min read',desc:'A data-led comparison of cash flow strategies across 20 Australian suburbs, factoring in tax offsets and 5-year equity projections.'},
+  {cat:'data',emoji:'📊',bg:'#f3e5f5',title:'Vacancy Rates Explained: The Most Underrated Metric in Property Investment',date:'Feb 2026',read:'4 min read',desc:'Most investors overlook vacancy rates until they have an empty property. Here is how to use this metric to screen suburbs before you buy.'},
+  {cat:'suburb',emoji:'🌏',bg:'#e8eaf6',title:'Tarneit vs Melton: Which VIC Growth Corridor Wins on the Brickometer?',date:'Jan 2026',read:'6 min read',desc:'Two of Melbourne\'s fastest-growing western suburbs go head to head. Yield, growth, affordability, and infrastructure — all compared.'},
+  {cat:'strategy',emoji:'🎯',bg:'#fce4ec',title:'The 5-Year Equity Play: How to Choose Suburbs That Build Wealth Quietly',date:'Jan 2026',read:'5 min read',desc:'Capital growth investors have a different playbook to yield hunters. We model out what a 7% CAGR actually means for your equity over time.'},
 ];
+
+// ── ARTICLE READER FUNCTIONS ──
+function openArticle(id) {
+  const art = articles[id];
+  if(!art) return;
+  document.getElementById('intel-main').style.display = 'none';
+  const reader = document.getElementById('article-reader');
+  reader.style.display = 'block';
+  document.getElementById('ar-title').textContent = art.title;
+  document.getElementById('ar-category').textContent = art.category;
+  document.getElementById('ar-date').textContent = art.date;
+  document.getElementById('ar-read-time').textContent = art.readTime;
+  document.getElementById('ar-body').innerHTML = art.body;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function closeArticle() {
+  document.getElementById('article-reader').style.display = 'none';
+  document.getElementById('intel-main').style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openComingSoon(title) {
+  const existing = document.getElementById('cs-modal');
+  if(existing) existing.remove();
+  const modal = document.createElement('div');
+  modal.id = 'cs-modal';
+  modal.style.cssText = 'position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;';
+  modal.innerHTML = `
+    <div style="background:var(--white);border-radius:20px;padding:2.5rem;max-width:440px;width:100%;text-align:center;animation:fadeUp 0.3s ease both;">
+      <div style="font-size:2rem;margin-bottom:0.8rem;">📬</div>
+      <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:0.5rem;">Coming soon</div>
+      <p style="font-size:0.85rem;color:var(--mid);line-height:1.65;margin-bottom:1.5rem;">This article is being prepared by the BrickWise research team. Leave your email and we'll notify you the moment it goes live.</p>
+      <div style="display:flex;gap:0.6rem;max-width:340px;margin:0 auto;">
+        <input id="cs-email" type="email" placeholder="your@email.com" style="flex:1;background:var(--light);border:1.5px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);outline:none;">
+        <button onclick="submitCSEmail()" style="background:var(--ink);color:var(--lime);border:none;padding:0.75rem 1.1rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;white-space:nowrap;">Notify me</button>
+      </div>
+      <div id="cs-success" style="display:none;color:var(--lime-dark);font-size:0.85rem;font-weight:500;margin-top:0.8rem;">✓ Done — we'll email you when this goes live.</div>
+      <button onclick="document.getElementById('cs-modal').remove()" style="margin-top:1.2rem;background:transparent;border:none;color:var(--mid);font-size:0.78rem;cursor:pointer;font-family:'DM Sans',sans-serif;">No thanks</button>
+    </div>`;
+  modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+
+async function submitCSEmail(){
+  const em = document.getElementById('cs-email')?.value.trim();
+  if(!em||!em.includes('@')){ alert('Please enter a valid email.'); return; }
+  await sbInsert('registrations',{email:em,investor_type:'content_notify'});
+  const s=document.getElementById('cs-success');
+  const inp=document.getElementById('cs-email');
+  const btn=document.querySelector('#cs-modal button[onclick="submitCSEmail()"]');
+  if(s) s.style.display='block';
+  if(inp) inp.style.display='none';
+  if(btn) btn.style.display='none';
+}
+
+// ── INSIGHTS RENDER & FILTER ──
+function renderInsights(cat) {
+  const data = cat==='all' ? insights : insights.filter(i=>i.cat===cat);
+  const grid = document.getElementById('insightsGrid');
+  if(!grid) return;
+  grid.innerHTML = data.map(i => `
+    <div class="insight-card" onclick="openComingSoon('${i.title.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">
+      <div class="insight-img" style="background:${i.bg}">${i.emoji}</div>
+      <div class="insight-body">
+        <div class="insight-tag">${i.cat==='market'?'Market Trends':i.cat==='suburb'?'Suburb Spotlight':i.cat==='strategy'?'Strategy':'Data & Research'}</div>
+        <h3>${i.title}</h3>
+        <p>${i.desc}</p>
+        <div class="insight-meta">
+          <span>${i.date} · ${i.read}</span>
+          <span style="background:rgba(0,0,0,0.06);color:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;border-radius:100px;font-size:0.68rem;font-weight:600;">Coming soon</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterInsights(cat, btn) {
+  document.querySelectorAll('#page-insights .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderInsights(cat);
+  const feat = document.getElementById('featured-section');
+  if(feat) feat.style.display = (cat==='all'||cat==='strategy'||cat==='market') ? '' : 'none';
+}
+
+renderInsights('all');
 
 // ── PAGE NAVIGATION ──
 function showPage(name) {
@@ -1379,96 +1587,6 @@ function calcDeal(){
   sv('r-totalReturn',fmt(Math.round(totalReturn)),'positive');
   const vd=document.getElementById('r-verdict');
   if(vd){vd.innerHTML=cf>=0?`<div class="verdict-box"><div class="verdict-title">✓ Positively Geared</div><div class="verdict-text">Generates ${fmt(Math.round(cf))}/yr net cash flow. Total projected return over ${yrs} years: ${fmt(Math.round(totalReturn))}.</div></div>`:`<div class="verdict-box neutral"><div class="verdict-title">⚡ Negatively Geared</div><div class="verdict-text">Costs ${fmt(Math.abs(Math.round(cf)))}/yr to hold. Projected equity gain of ${fmt(Math.round(projV-price))} over ${yrs} years may offset the shortfall.</div></div>`;}
-}
-
-// ── BRICKOMETER ENGINE ──
-const WEIGHTS={yield:0.30,growth:0.25,vacancy:0.20,affordability:0.15,infrastructure:0.10};
-function clamp(v,mn=0,mx=100){return Math.max(mn,Math.min(mx,v));}
-function scoreYield(y){if(y>=6.5)return 100;if(y>=5.5)return 85;if(y>=4.5)return 70;if(y>=3.5)return 50;if(y>=2.5)return 30;return 10;}
-function scoreVacancy(v){if(v<=1.0)return 100;if(v<=1.5)return 90;if(v<=2.0)return 75;if(v<=2.5)return 60;if(v<=3.5)return 40;return 20;}
-function scoreAffordability(r){if(r<5)return 100;if(r<6.5)return 80;if(r<8)return 65;if(r<10)return 45;if(r<12)return 30;return 15;}
-function normGrowth(g){if(g>=10)return 100;if(g>=7)return 85;if(g>=4)return 70;if(g>=1)return 55;if(g>=-2)return 40;return 20;}
-function scoreGrowth(g1,g3,g5){return clamp(normGrowth(g1)*0.35+normGrowth(g3)*0.40+normGrowth(g5)*0.25);}
-function riskPenalty(rs){if(rs>=16)return 15;if(rs>=11)return 8;if(rs>=6)return 3;return 0;}
-function getRating(s){if(s>=85)return['Excellent','rating-excellent'];if(s>=70)return['Strong','rating-strong'];if(s>=55)return['Balanced','rating-balanced'];if(s>=40)return['Caution','rating-caution'];return['High Risk','rating-highrisk'];}
-
-function runBrickometer(){
-  const price=parseFloat(document.getElementById('bm-price').value)||580000;
-  const rent=parseFloat(document.getElementById('bm-rent').value)||550;
-  const medprice=parseFloat(document.getElementById('bm-medprice').value)||580000;
-  const income=parseFloat(document.getElementById('bm-income').value)||95000;
-  const g1=parseFloat(document.getElementById('bm-growth1').value)||10;
-  const g3=parseFloat(document.getElementById('bm-growth3').value)||8;
-  const g5=parseFloat(document.getElementById('bm-growth5').value)||7;
-  const vac=parseFloat(document.getElementById('bm-vacancy').value)||1.0;
-  const infra=parseFloat(document.getElementById('bm-infra').value)||65;
-  const risk=parseFloat(document.getElementById('bm-risk').value)||6;
-  const strata=parseFloat(document.getElementById('bm-strata').value)||0;
-  const suburb=document.getElementById('bm-suburb').value||'Unknown';
-  const state=document.getElementById('bm-state').value;
-
-  const gy=(rent*52/price)*100;
-  const ptr=medprice/income;
-  let yScore=scoreYield(gy);
-  if(strata>5000)yScore=clamp(yScore-10);
-  const gScore=scoreGrowth(g1,g3,g5);
-  const vScore=scoreVacancy(vac);
-  const aScore=scoreAffordability(ptr);
-  const iScore=clamp(infra);
-  const base=yScore*WEIGHTS.yield+gScore*WEIGHTS.growth+vScore*WEIGHTS.vacancy+aScore*WEIGHTS.affordability+iScore*WEIGHTS.infrastructure;
-  const rp=riskPenalty(risk);
-  const final=clamp(Math.round(base-rp));
-  const [rating,ratingClass]=getRating(final);
-
-  // Gauge
-  const arc=document.getElementById('bm-gauge-arc');
-  const dashTotal=219.9;
-  const dashOffset=dashTotal-(dashTotal*(final/100));
-  arc.style.strokeDashoffset=dashOffset;
-
-  document.getElementById('bm-score-num').textContent=final;
-  const ratingEl=document.getElementById('bm-score-rating');
-  ratingEl.textContent=rating;
-  ratingEl.className='big-score-rating '+ratingClass;
-
-  // Bars
-  const comps=[
-    {label:'Yield (30%)',score:Math.round(yScore),weighted:Math.round(yScore*WEIGHTS.yield)},
-    {label:'Growth (25%)',score:Math.round(gScore),weighted:Math.round(gScore*WEIGHTS.growth)},
-    {label:'Vacancy (20%)',score:Math.round(vScore),weighted:Math.round(vScore*WEIGHTS.vacancy)},
-    {label:'Affordability (15%)',score:Math.round(aScore),weighted:Math.round(aScore*WEIGHTS.affordability)},
-    {label:'Infrastructure (10%)',score:Math.round(iScore),weighted:Math.round(iScore*WEIGHTS.infrastructure)},
-  ];
-  document.getElementById('bm-component-bars').innerHTML=comps.map(c=>`
-    <div class="cb-row">
-      <span class="cb-label">${c.label}</span>
-      <div class="cb-track"><div class="cb-fill" style="width:${c.score}%"></div></div>
-      <span class="cb-val">${c.score}</span>
-    </div>`).join('');
-
-  // Strengths / watchouts
-  const strengths=[];const watchouts=[];
-  if(yScore>=70)strengths.push('Strong rental yield relative to purchase price');else watchouts.push('Rental yield below ideal — review holding costs');
-  if(gScore>=70)strengths.push('Solid growth momentum across 1, 3, and 5-year periods');else watchouts.push('Growth momentum is moderate — validate with recent sales data');
-  if(vScore>=80)strengths.push('Very low vacancy rate — strong tenant demand');else if(vScore<60)watchouts.push('Vacancy rate is elevated — leasing risk to monitor');
-  if(aScore>=65)strengths.push('Suburb remains relatively affordable vs household income');else watchouts.push('Affordability is stretched — limits future buyer pool');
-  if(iScore>=60)strengths.push('Infrastructure investment supports long-term demand');else watchouts.push('Infrastructure score is low — limited amenity uplift near-term');
-  if(rp>0)watchouts.push(`Risk penalty applied: -${rp} points (risk score: ${risk})`);
-  if(strata>5000)watchouts.push('Strata/body corporate costs reduce effective net yield');
-
-  document.getElementById('bm-strengths').innerHTML=strengths.map(s=>`<div class="sr-item">${s}</div>`).join('');
-  document.getElementById('bm-watchouts').innerHTML=watchouts.map(w=>`<div class="sr-item">${w}</div>`).join('');
-
-  // Recommendation
-  const rec=document.getElementById('bm-rec-panel');
-  const verdict=document.getElementById('bm-rec-verdict');
-  const recText=document.getElementById('bm-rec-text');
-  if(final>=70){rec.className='rec-panel';verdict.textContent='✓ PROCEED TO DUE DILIGENCE';recText.textContent=`${suburb}, ${state} scores ${final}/100 — a ${rating.toLowerCase()} result. The fundamentals support further investigation. Validate yield assumptions, inspect the property, and compare against 2–3 alternative suburbs before committing.`;}
-  else if(final>=55){rec.className='rec-panel caution';verdict.textContent='⚡ MONITOR CLOSELY';recText.textContent=`${suburb}, ${state} scores ${final}/100 — a balanced result with mixed signals. Consider whether entry price, rental upside, or a specific strategy justifies the trade-offs highlighted above.`;}
-  else{rec.className='rec-panel avoid';verdict.textContent='⚠ REASSESS OR AVOID';recText.textContent=`${suburb}, ${state} scores ${final}/100. Several key metrics are below threshold. Unless you have a specific strategic reason to proceed, consider alternative suburbs with stronger fundamentals.`;}
-
-  document.getElementById('bm-placeholder').style.display='none';
-  document.getElementById('bm-output').style.display='block';
 }
 
 // ── RENDER PICKS FROM DATA.JSON ──
@@ -1729,200 +1847,6 @@ function bm2Reset(){
     document.getElementById('bm2-gate').style.display='flex';
   }
 }
-
-// ── ARTICLES DATA ──
-const articles = {
-  professionals: {
-    title: 'The 3 Key Professionals Every Property Investor Needs — And How They Work Together',
-    category: 'Strategy',
-    date: 'April 2026',
-    readTime: '7 min read',
-    body: `
-      <p style="font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.7;margin-bottom:1.5rem;">Most property investors know they need a broker, an accountant, and maybe a buyer's agent. What fewer investors understand is that these three professionals only deliver their full value when they're working as a coordinated team — not in isolation.</p>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">The Core Three</h2>
-
-      <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:1.5rem 0 0.6rem;">1. The Mortgage Broker</h3>
-      <p style="margin-bottom:1rem;">Your mortgage broker is not just there to get you a loan. A good broker maps out your full borrowing capacity across your entire portfolio — not just the next purchase — and structures each loan in a way that preserves your ability to borrow again. This means thinking carefully about interest-only vs. principal-and-interest periods, which lenders to use in which sequence, and how to structure offsets and cross-collateralisation.</p>
-      <p style="margin-bottom:1rem;">The mistake most investors make is using their bank's home lending specialist. A specialist broker has access to 30–40 lenders and knows which ones will assess rental income most favourably for your serviceability situation. That difference can mean tens of thousands of dollars in borrowing capacity — and whether your third property purchase is possible at all.</p>
-      <p style="margin-bottom:1.5rem;"><strong style="color:var(--ink);">What to look for:</strong> A broker who works regularly with property investors (not just owner-occupiers), who can articulate a multi-purchase strategy, and who proactively manages your loan structure across your whole portfolio.</p>
-
-      <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:1.5rem 0 0.6rem;">2. The Accountant (Property-Specialist)</h3>
-      <p style="margin-bottom:1rem;">Not all accountants are created equal. A general tax accountant will file your return correctly. A property-specialist accountant will structure your ownership entities, depreciation schedules, and cash flow in a way that legally minimises your tax exposure — often by tens of thousands of dollars over a five-year hold period.</p>
-      <p style="margin-bottom:1rem;">Key areas where a specialist accountant adds value: depreciation schedules (a quality quantity surveyor report can generate $8,000–$15,000 in deductions in year one alone), trust and company structures for asset protection, CGT planning when you decide to sell, and negative gearing modelling to understand your real after-tax cash flow position.</p>
-      <p style="margin-bottom:1.5rem;"><strong style="color:var(--ink);">What to look for:</strong> An accountant who proactively connects with your broker to model scenarios. If your accountant and broker have never spoken to each other, you're leaving money on the table.</p>
-
-      <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);margin:1.5rem 0 0.6rem;">3. The Buyer's Agent</h3>
-      <p style="margin-bottom:1rem;">A buyer's agent is the professional most investors skip — and the one whose absence costs them the most. In a market where quality stock sells before it's publicly listed, and where negotiation and due diligence can be the difference between a good and a great deal, trying to navigate this yourself is an expensive economy.</p>
-      <p style="margin-bottom:1rem;">A good buyer's agent sources off-market stock, conducts due diligence, negotiates price and terms, and coordinates with your solicitor through settlement. Their fee — typically $10,000–$20,000 depending on the market — is routinely recovered through better purchase price alone, before the ongoing advantages of a well-chosen property are even considered.</p>
-      <p style="margin-bottom:1.5rem;"><strong style="color:var(--ink);">What to look for:</strong> A buyer's agent who specialises in investment properties (not owner-occupier purchases), who has a clear research methodology, and who is genuinely independent — not receiving referral fees from developers or sales agents.</p>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">How They Work Together</h2>
-      <p style="margin-bottom:1rem;">The three-professional model only delivers its full value when these specialists are communicating with each other around your strategy. Here's how a well-coordinated team operates in practice:</p>
-
-      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--lime-dark);">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Before purchase:</strong> Your broker confirms borrowing capacity. Your accountant confirms the optimal ownership structure and models the after-tax cash flow. Your buyer's agent sources the property within those parameters.</p>
-      </div>
-      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--sky);">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>At purchase:</strong> Your buyer's agent negotiates. Your broker has the finance ready. Your accountant has confirmed the depreciation profile and holding cost model.</p>
-      </div>
-      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--gold);">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>After purchase:</strong> Your broker reviews the loan structure annually. Your accountant optimises your tax position each year. Your buyer's agent monitors the market for your next purchase.</p>
-      </div>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">The BrickWise Approach</h2>
-      <p style="margin-bottom:1rem;">BrickWise is built to complement your professional team — not replace it. The Brickometer gives you a data-driven starting point before you engage your buyer's agent, so you can have a more informed conversation about which suburbs align with your strategy. The Deal Analyser gives you the cash flow and equity numbers you need to brief your broker and accountant accurately.</p>
-      <p style="margin-bottom:1rem;">Intelligence first. Professionals second. That's the sequence that puts you in control of the conversation.</p>
-
-      <div style="background:rgba(200,244,0,0.08);border:1px solid rgba(200,244,0,0.25);border-radius:12px;padding:1.2rem 1.4rem;margin-top:2rem;">
-        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:0.4rem;">Disclaimer</div>
-        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;">This article is for general information purposes only and does not constitute financial, legal, or investment advice. Always seek advice from qualified professionals before making property investment decisions. BrickWise · brickwise.com.au</p>
-      </div>
-    `
-  },
-  global: {
-    title: 'How Global Events Are Shaping the Australian Property Market in 2026',
-    category: 'Market Trends',
-    date: 'April 2026',
-    readTime: '8 min read',
-    body: `
-      <p style="font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.7;margin-bottom:1.5rem;">Australian property has long been thought of as a domestic market — driven by local supply, local demand, and local policy. That assumption is increasingly outdated. In 2026, the forces shaping prices in Perth, Brisbane, and Sydney are as likely to originate in Washington, Beijing, or Frankfurt as they are in Canberra.</p>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">1. US Trade Policy and the Commodity Ripple</h2>
-      <p style="margin-bottom:1rem;">The reimposition of broad US tariffs in 2025 has had a complex knock-on effect for Australian property. On one hand, higher global trade friction has pushed commodity prices — particularly iron ore and LNG — into a period of uncertainty. WA, which had been experiencing its strongest property market in a decade, is now navigating a more cautious environment as mining sector confidence wavers.</p>
-      <p style="margin-bottom:1rem;">On the other hand, Australia's relative geopolitical stability and trade diversification are attracting capital from investors seeking safe-haven assets. Institutional interest in Australian commercial and residential property has increased noticeably over the past twelve months, particularly from South-East Asian family offices.</p>
-      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--coral);">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Investor implication:</strong> WA's extraordinary growth cycle may be moderating. Investors who purchased in Perth's southern corridor in 2023–2024 are well positioned. New entrants should model for more conservative growth assumptions in 2026–2027.</p>
-      </div>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">2. Chinese Capital and the Overseas Investment Debate</h2>
-      <p style="margin-bottom:1rem;">Chinese capital flows into Australian residential property have been a persistent feature of the market for over a decade. The regulatory environment has tightened significantly — FIRB approval requirements, stamp duty surcharges for foreign buyers, and vacancy fees have all been expanded. Yet capital continues to find its way into the market through legal channels, including via permanent residents and citizen family members.</p>
-      <p style="margin-bottom:1rem;">The broader geopolitical context matters here. As Australia-China relations navigate ongoing trade and strategic tensions, the sentiment around capital flows shifts. In 2025 and into 2026, the trend has been toward Melbourne and Sydney prestige markets — with properties in good school catchments and near CBD activity centres seeing sustained demand from this cohort.</p>
-      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--sky);">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Investor implication:</strong> Premium Melbourne eastern suburbs and inner Sydney markets continue to benefit from a structural demand floor. These markets are less accessible to cash flow investors but remain strong for long-term capital growth strategies.</p>
-      </div>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">3. Interest Rate Cycles and the RBA's Global Constraints</h2>
-      <p style="margin-bottom:1rem;">The RBA does not set interest rates in a vacuum. While it operates independently, its decisions are heavily influenced by the US Federal Reserve's rate cycle, global inflation dynamics, and the AUD exchange rate. After a period of aggressive tightening through 2023–2024, the RBA began its easing cycle in early 2025 — but the pace has been constrained by sticky services inflation and the AUD's response to global uncertainty.</p>
-      <p style="margin-bottom:1rem;">For property investors, the practical implication is that variable rate relief has been slower than many models predicted. Borrowers who fixed in 2021–2022 are rolling off onto rates that are still materially higher than their fixed periods. This is contributing to elevated listings in some middle-ring Sydney and Melbourne markets as investors assess serviceability.</p>
-      <div style="background:var(--light);border-radius:14px;padding:1.5rem;margin:1.5rem 0;border-left:3px solid var(--lime-dark);">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong>Investor implication:</strong> Markets with strong rental yield — particularly in QLD and WA — are better positioned to withstand rate pressure than low-yield capital growth plays. The spread between yield and mortgage rate is the number to watch.</p>
-      </div>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">4. Migration and the Population Wildcard</h2>
-      <p style="margin-bottom:1rem;">Australia's net overseas migration hit record levels in 2023 and remains historically elevated in 2024–2025. This is the single most significant driver of structural housing demand — and it is a direct product of global events: post-pandemic catch-up, international student recovery, skilled visa programs, and humanitarian intake.</p>
-      <p style="margin-bottom:1rem;">The geographic distribution of migrants matters enormously for investors. Sydney and Melbourne absorb the largest absolute numbers, but Brisbane, Perth, and Adelaide have seen proportionally larger increases in their migration intake. The inner and middle rings of these cities — with access to employment, education, and transport — are absorbing demand that the outer suburbs cannot match for this cohort.</p>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">5. Climate Risk and Insurance Repricing</h2>
-      <p style="margin-bottom:1rem;">This is the slow-moving global force that most Australian property investors have yet to fully price into their models. As global temperatures rise and extreme weather events become more frequent, the insurance industry is repricing risk in real time — and in some areas, withdrawing coverage entirely.</p>
-      <p style="margin-bottom:1rem;">Northern Queensland, coastal NSW, and flood-prone corridors in Victoria are already experiencing insurance premium increases of 30–80% over three years. In some postcodes, standard home and landlord insurance is becoming difficult to obtain at any price. This is a material risk factor for investment properties that has no parallel in Australian property history.</p>
-      <div style="background:rgba(255,92,58,0.06);border:1px solid rgba(255,92,58,0.2);border-radius:14px;padding:1.5rem;margin:1.5rem 0;">
-        <p style="font-size:0.9rem;color:var(--ink);line-height:1.7;"><strong style="color:var(--coral);">Risk flag:</strong> Before purchasing in any regional, coastal, or low-lying area, verify current insurance availability and premium levels — not just flood mapping. The Brickometer's risk overlay flags known flood and bushfire zones, but always verify at the individual property level with an insurer directly.</p>
-      </div>
-
-      <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink);margin:2rem 0 0.8rem;letter-spacing:-0.01em;">What This Means for Your Strategy</h2>
-      <p style="margin-bottom:1rem;">The Australian property market in 2026 is more globally connected than at any previous point. Investors who treat it as a purely local game — reading only domestic headlines and talking only to local agents — are working with an incomplete picture.</p>
-      <p style="margin-bottom:1.5rem;">The investors who outperform in this environment are those who understand the macro forces at work, model their cash flow conservatively, and focus on suburbs with structural demand drivers that are resilient across multiple scenarios — strong employment diversity, good infrastructure, genuine housing scarcity, and manageable climate risk profiles.</p>
-
-      <div style="background:rgba(200,244,0,0.08);border:1px solid rgba(200,244,0,0.25);border-radius:12px;padding:1.2rem 1.4rem;margin-top:2rem;">
-        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:0.4rem;">Disclaimer</div>
-        <p style="font-size:0.78rem;color:var(--mid);line-height:1.6;">This article is for general information purposes only and does not constitute financial, legal, or investment advice. Market conditions, interest rates, and regulatory environments change frequently. Always seek advice from qualified professionals before making property investment decisions. BrickWise · brickwise.com.au</p>
-      </div>
-    `
-  }
-};
-
-// ── INSIGHTS CARDS DATA ──
-const insights = [
-  {cat:'market',emoji:'📈',bg:'#e8f5e9',title:'Why Perth Is Outperforming Every Other Capital City in 2025',date:'Mar 2026',read:'5 min read',desc:'WA suburbs are posting growth rates not seen since the mining boom. We break down what is driving it and how long it can last.',status:'coming'},
-  {cat:'suburb',emoji:'🏘',bg:'#fff8e1',title:'Ipswich Deep Dive: Why This QLD Suburb Scores 78 on the Brickometer',date:'Mar 2026',read:'7 min read',desc:'Infrastructure investment, population inflow, and sub-$600K entry prices — Ipswich ticks all the boxes. Here is the full data picture.',status:'coming'},
-  {cat:'strategy',emoji:'🧮',bg:'#e3f2fd',title:'Positively Geared vs Negatively Geared: What the Numbers Actually Say',date:'Feb 2026',read:'6 min read',desc:'A data-led comparison of cash flow strategies across 20 Australian suburbs, factoring in tax offsets and 5-year equity projections.',status:'coming'},
-  {cat:'data',emoji:'📊',bg:'#f3e5f5',title:'Vacancy Rates Explained: The Most Underrated Metric in Property Investment',date:'Feb 2026',read:'4 min read',desc:'Most investors overlook vacancy rates until they have an empty property. Here is how to use this metric to screen suburbs before you buy.',status:'coming'},
-  {cat:'suburb',emoji:'🌏',bg:'#e8eaf6',title:'Tarneit vs Melton: Which VIC Growth Corridor Wins on the Brickometer?',date:'Jan 2026',read:'6 min read',desc:'Two of Melbourne\'s fastest-growing western suburbs go head to head. Yield, growth, affordability, and infrastructure — all compared.',status:'coming'},
-  {cat:'strategy',emoji:'🎯',bg:'#fce4ec',title:'The 5-Year Equity Play: How to Choose Suburbs That Build Wealth Quietly',date:'Jan 2026',read:'5 min read',desc:'Capital growth investors have a different playbook to yield hunters. We model out what a 7% CAGR actually means for your equity over time.',status:'coming'},
-];
-
-// ── ARTICLE FUNCTIONS ──
-function openArticle(id) {
-  const art = articles[id];
-  if(!art) return;
-  document.getElementById('intel-main').style.display = 'none';
-  const reader = document.getElementById('article-reader');
-  reader.style.display = 'block';
-  document.getElementById('ar-title').textContent = art.title;
-  document.getElementById('ar-category').textContent = art.category;
-  document.getElementById('ar-date').textContent = art.date;
-  document.getElementById('ar-read-time').textContent = art.readTime;
-  document.getElementById('ar-body').innerHTML = art.body;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function closeArticle() {
-  document.getElementById('article-reader').style.display = 'none';
-  document.getElementById('intel-main').style.display = 'block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// ── RENDER INSIGHTS GRID ──
-function renderInsights(cat) {
-  const data = cat==='all' ? insights : insights.filter(i=>i.cat===cat);
-  document.getElementById('insightsGrid').innerHTML = data.map(i => `
-    <div class="insight-card" onclick="openComingSoon('${i.title.replace(/'/g,"\\'")}')">
-      <div class="insight-img" style="background:${i.bg}">${i.emoji}</div>
-      <div class="insight-body">
-        <div class="insight-tag">${i.cat==='market'?'Market Trends':i.cat==='suburb'?'Suburb Spotlight':i.cat==='strategy'?'Strategy':'Data & Research'}</div>
-        <h3>${i.title}</h3>
-        <p>${i.desc}</p>
-        <div class="insight-meta">
-          <span>${i.date} · ${i.read}</span>
-          <span style="background:rgba(0,0,0,0.06);color:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;border-radius:100px;font-size:0.68rem;font-weight:600;">Coming soon</span>
-        </div>
-      </div>
-    </div>`).join('');
-}
-
-function openComingSoon(title) {
-  // Show a subtle coming-soon modal
-  const existing = document.getElementById('cs-modal');
-  if(existing) existing.remove();
-  const modal = document.createElement('div');
-  modal.id = 'cs-modal';
-  modal.style.cssText = 'position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;';
-  modal.innerHTML = `
-    <div style="background:var(--white);border-radius:20px;padding:2.5rem;max-width:440px;width:100%;text-align:center;animation:fadeUp 0.3s ease both;">
-      <div style="font-size:2rem;margin-bottom:0.8rem;">📬</div>
-      <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:0.5rem;">Coming soon</div>
-      <p style="font-size:0.85rem;color:var(--mid);line-height:1.65;margin-bottom:1.5rem;">This article is being prepared by the BrickWise research team. Leave your email and we'll notify you the moment it goes live.</p>
-      <div style="display:flex;gap:0.6rem;max-width:340px;margin:0 auto;">
-        <input id="cs-email" type="email" placeholder="your@email.com" style="flex:1;background:var(--light);border:1.5px solid var(--border-light);border-radius:10px;padding:0.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);outline:none;">
-        <button onclick="submitCSEmail()" style="background:var(--ink);color:var(--lime);border:none;padding:0.75rem 1.1rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;white-space:nowrap;">Notify me</button>
-      </div>
-      <div id="cs-success" style="display:none;color:var(--lime-dark);font-size:0.85rem;font-weight:500;margin-top:0.8rem;">✓ Done — we'll email you when this goes live.</div>
-      <button onclick="document.getElementById('cs-modal').remove()" style="margin-top:1.2rem;background:transparent;border:none;color:var(--mid);font-size:0.78rem;cursor:pointer;font-family:'DM Sans',sans-serif;">No thanks</button>
-    </div>`;
-  modal.addEventListener('click', e => { if(e.target===modal) modal.remove(); });
-  document.body.appendChild(modal);
-}
-
-async function submitCSEmail(){
-  const em = document.getElementById('cs-email').value.trim();
-  if(!em||!em.includes('@')){ alert('Please enter a valid email.'); return; }
-  await sbInsert('registrations',{email:em,investor_type:'content_notify'});
-  document.getElementById('cs-success').style.display='block';
-  document.getElementById('cs-email').style.display='none';
-  document.querySelector('#cs-modal button[onclick="submitCSEmail()"]').style.display='none';
-}
-
-function filterInsights(cat,btn){
-  document.querySelectorAll('#page-insights .filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderInsights(cat);
-  // Show/hide featured based on filter
-  const feat = document.getElementById('featured-section');
-  if(feat) feat.style.display = (cat==='all'||cat==='strategy'||cat==='market') ? '' : 'none';
-}
-
-renderInsights('all');
 
 // ── SUPABASE CONFIG ──
 const SB_URL = 'https://cffalqbthxdqhatvfbfp.supabase.co';
