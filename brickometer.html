@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brickometer — BrickWise</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lime:#C8F400; --lime-dark:#a8d000; --ink:#0D0D0D; --ink2:#141414;
+  --ink3:#1e1e1e; --mid:#777; --light:#f5f5f0; --white:#fff;
+  --coral:#FF5C3A; --sky:#38BDF8; --gold:#F5A623; --green:#4ade80;
+  --border:rgba(255,255,255,0.08); --border-light:#e8e8e0;
+  --shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);min-height:100vh;overflow-x:hidden;}
+
+/* ── SEARCH ZONE ── */
+.search-zone{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;padding:2rem;position:relative;overflow:hidden;
+}
+.search-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%,rgba(200,244,0,0.07) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 70%,rgba(56,189,248,0.05) 0%,transparent 60%);
+}
+.search-noise{
+  position:absolute;inset:0;z-index:0;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+.search-inner{position:relative;z-index:1;width:100%;max-width:640px;text-align:center;}
+
+.bm-wordmark{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:0.78rem;
+  letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);
+  margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:0.8rem;
+}
+.bm-wordmark::before,.bm-wordmark::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.08);}
+.bm-wordmark span{color:var(--lime);}
+
+.search-headline{
+  font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);
+  font-weight:800;letter-spacing:-0.03em;line-height:1.05;
+  color:var(--white);margin-bottom:0.8rem;
+}
+.search-headline em{font-style:normal;color:var(--lime);}
+.search-sub{
+  font-size:1rem;color:rgba(255,255,255,0.4);font-weight:300;
+  line-height:1.65;margin-bottom:2.2rem;max-width:480px;margin-left:auto;margin-right:auto;
+}
+
+/* Search box */
+.bm-search-wrap{position:relative;margin-bottom:1.2rem;}
+.bm-search-box{
+  display:flex;background:var(--ink3);border-radius:16px;
+  border:1.5px solid rgba(255,255,255,0.12);overflow:hidden;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.bm-search-box:focus-within{
+  border-color:var(--lime);
+  box-shadow:0 0 0 4px rgba(200,244,0,0.1);
+}
+.bm-search-box input{
+  flex:1;background:transparent;border:none;outline:none;
+  padding:1.1rem 1.4rem;color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:1rem;
+}
+.bm-search-box input::placeholder{color:rgba(255,255,255,0.25);}
+.bm-search-btn{
+  background:var(--lime);color:var(--ink);border:none;
+  padding:0 1.8rem;font-family:'Syne',sans-serif;font-weight:700;
+  font-size:0.85rem;cursor:pointer;transition:background 0.2s;white-space:nowrap;
+}
+.bm-search-btn:hover{background:var(--lime-dark);}
+.bm-search-btn:disabled{opacity:0.5;cursor:not-allowed;}
+
+/* Autocomplete dropdown */
+.bm-dropdown{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:50;
+  background:var(--ink3);border-radius:12px;border:1px solid var(--border);
+  box-shadow:var(--shadow);overflow:hidden;display:none;
+}
+.bm-dropdown.open{display:block;animation:fadeUp 0.2s ease both;}
+.bm-drop-item{
+  padding:0.9rem 1.2rem;cursor:pointer;display:flex;
+  justify-content:space-between;align-items:center;
+  transition:background 0.15s;border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.bm-drop-item:last-child{border-bottom:none;}
+.bm-drop-item:hover{background:rgba(255,255,255,0.05);}
+.bm-drop-name{font-weight:500;color:var(--white);font-size:0.92rem;}
+.bm-drop-meta{font-size:0.75rem;color:rgba(255,255,255,0.35);font-family:'DM Mono',monospace;}
+
+/* Quick pills */
+.quick-pills{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;}
+.qpill{
+  background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45);
+  padding:0.38rem 0.9rem;border-radius:100px;font-size:0.75rem;
+  cursor:pointer;border:1px solid rgba(255,255,255,0.1);transition:all 0.2s;
+}
+.qpill:hover{background:rgba(200,244,0,0.12);color:var(--lime);border-color:rgba(200,244,0,0.3);}
+
+/* Search counter */
+.search-counter{
+  margin-top:1.5rem;font-size:0.72rem;color:rgba(255,255,255,0.25);
+  font-family:'DM Mono',monospace;letter-spacing:0.04em;
+}
+.search-counter span{color:var(--lime);}
+
+/* ── LOADING ── */
+.bm-loading{
+  display:none;flex-direction:column;align-items:center;
+  justify-content:center;padding:4rem 2rem;gap:1rem;
+}
+.bm-loading.show{display:flex;}
+.loading-ring{
+  width:48px;height:48px;border:3px solid rgba(255,255,255,0.08);
+  border-top-color:var(--lime);border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:0.88rem;color:rgba(255,255,255,0.45);font-weight:300;}
+.loading-text span{color:var(--lime);font-weight:500;}
+
+/* ── RESULTS ── */
+.bm-results{display:none;max-width:900px;margin:0 auto;padding:0 1.5rem 5rem;}
+.bm-results.show{display:block;animation:fadeUp 0.5s ease both;}
+
+/* Results header bar */
+.results-topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 0;margin-bottom:2rem;
+  border-bottom:1px solid var(--border);flex-wrap:wrap;gap:0.8rem;
+}
+.results-back{
+  display:flex;align-items:center;gap:0.5rem;background:transparent;
+  border:1px solid var(--border);color:rgba(255,255,255,0.5);
+  padding:0.5rem 1rem;border-radius:100px;font-size:0.78rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.2s;
+}
+.results-back:hover{border-color:rgba(255,255,255,0.3);color:var(--white);}
+.results-freshness{font-size:0.7rem;color:rgba(255,255,255,0.25);font-family:'DM Mono',monospace;}
+
+/* ── ZONE B: SCORE HERO ── */
+.score-hero{
+  display:grid;grid-template-columns:auto 1fr;gap:2.5rem;
+  align-items:center;background:var(--ink2);border-radius:20px;
+  padding:2rem 2.5rem;margin-bottom:1.5rem;
+  border:1px solid var(--border);
+  animation:fadeUp 0.4s 0.1s ease both;opacity:0;animation-fill-mode:forwards;
+}
+@media(max-width:600px){.score-hero{grid-template-columns:1fr;gap:1.5rem;padding:1.5rem;}}
+
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;}
+.gauge-svg{width:160px;height:95px;overflow:visible;}
+.gauge-score-num{
+  font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;
+  color:var(--white);text-align:center;line-height:1;margin-top:-0.3rem;
+}
+.gauge-rating{
+  font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;text-align:center;
+  margin-top:0.3rem;
+}
+
+.hero-right{}
+.hero-suburb{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;color:var(--white);line-height:1;}
+.hero-state{font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;margin-bottom:1rem;font-family:'DM Mono',monospace;}
+.hero-summary{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;max-width:480px;}
+
+/* ── ZONE C: KEY STATS ── */
+.stats-row{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0.8rem;
+  margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.2s ease both;opacity:0;animation-fill-mode:forwards;
+}
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:400px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+.stat-card{
+  background:var(--ink2);border-radius:14px;padding:1.1rem 1rem;
+  border:1px solid var(--border);
+}
+.stat-val{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;}
+.stat-val.up{color:var(--lime);}
+.stat-val.warn{color:var(--gold);}
+.stat-label{font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:0.04em;text-transform:uppercase;}
+
+/* ── ZONE D: SCORE BREAKDOWN ── */
+.breakdown-card{
+  background:var(--ink2);border-radius:20px;padding:1.8rem 2rem;
+  border:1px solid var(--border);margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.25s ease both;opacity:0;animation-fill-mode:forwards;
+}
+.zone-title{font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.2rem;}
+.breakdown-bars{display:flex;flex-direction:column;gap:0.9rem;}
+.bb-row{display:flex;align-items:center;gap:1rem;}
+.bb-label{font-size:0.78rem;color:rgba(255,255,255,0.55);width:140px;flex-shrink:0;}
+@media(max-width:500px){.bb-label{width:90px;font-size:0.7rem;}}
+.bb-track{flex:1;height:6px;background:rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;}
+.bb-fill{height:100%;border-radius:6px;transition:width 1s ease;}
+.bb-score{font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.5);width:28px;text-align:right;}
+
+/* ── ZONE E: STRENGTHS & WATCHOUTS ── */
+.sw-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.3s ease both;opacity:0;animation-fill-mode:forwards;
+}
+@media(max-width:600px){.sw-grid{grid-template-columns:1fr;}}
+.sw-card{background:var(--ink2);border-radius:16px;padding:1.4rem 1.6rem;border:1px solid var(--border);}
+.sw-card.strengths{border-top:2px solid rgba(74,222,128,0.4);}
+.sw-card.watchouts{border-top:2px solid rgba(245,166,35,0.4);}
+.sw-title{font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+.sw-card.strengths .sw-title{color:var(--green);}
+.sw-card.watchouts .sw-title{color:var(--gold);}
+.sw-item{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.7rem;font-size:0.84rem;color:rgba(255,255,255,0.65);line-height:1.5;}
+.sw-item:last-child{margin-bottom:0;}
+.sw-dot{font-size:0.6rem;margin-top:0.35rem;flex-shrink:0;}
+.sw-card.strengths .sw-dot{color:var(--green);}
+.sw-card.watchouts .sw-dot{color:var(--gold);}
+
+/* ── ZONE F: SPARKLINES ── */
+.sparklines-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.35s ease both;opacity:0;animation-fill-mode:forwards;
+}
+@media(max-width:600px){.sparklines-row{grid-template-columns:1fr;}}
+.spark-card{background:var(--ink2);border-radius:16px;padding:1.2rem 1.4rem;border:1px solid var(--border);}
+.spark-label{font-size:0.7rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.4rem;}
+.spark-current{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:0.8rem;}
+.spark-svg{width:100%;height:48px;overflow:visible;}
+
+/* ── ZONE G: INVESTOR PROFILES ── */
+.profiles-card{
+  background:var(--ink2);border-radius:16px;padding:1.4rem 1.6rem;
+  border:1px solid var(--border);margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.38s ease both;opacity:0;animation-fill-mode:forwards;
+}
+.profile-tags{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.8rem;}
+.profile-tag{
+  background:rgba(200,244,0,0.1);color:var(--lime);
+  border:1px solid rgba(200,244,0,0.25);
+  padding:0.4rem 1rem;border-radius:100px;font-size:0.78rem;font-weight:600;
+}
+
+/* ── ZONE H: AMENITIES ── */
+.amenities-card{
+  background:var(--ink2);border-radius:20px;padding:1.8rem 2rem;
+  border:1px solid var(--border);margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.4s ease both;opacity:0;animation-fill-mode:forwards;
+}
+.amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-top:1rem;}
+@media(max-width:600px){.amenities-grid{grid-template-columns:repeat(2,1fr);}}
+.amenity-item{
+  background:rgba(255,255,255,0.03);border-radius:12px;padding:0.9rem;
+  border:1px solid rgba(255,255,255,0.05);text-align:center;
+}
+.amenity-icon{font-size:1.4rem;margin-bottom:0.4rem;}
+.amenity-name{font-size:0.68rem;color:rgba(255,255,255,0.4);margin-bottom:0.2rem;text-transform:uppercase;letter-spacing:0.05em;}
+.amenity-detail{font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;}
+.amenity-good{color:var(--green);}
+.amenity-ok{color:var(--gold);}
+.amenity-na{color:rgba(255,255,255,0.25);}
+
+/* ── ZONE I: INFRASTRUCTURE ── */
+.infra-card{
+  background:var(--ink2);border-radius:20px;padding:1.8rem 2rem;
+  border:1px solid var(--border);margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.43s ease both;opacity:0;animation-fill-mode:forwards;
+}
+.infra-disclaimer{
+  font-size:0.7rem;color:rgba(255,255,255,0.25);line-height:1.5;
+  background:rgba(255,255,255,0.03);border-radius:8px;padding:0.7rem 0.9rem;
+  margin-top:1rem;border:1px solid rgba(255,255,255,0.05);
+}
+.infra-list{display:flex;flex-direction:column;gap:0.8rem;margin-top:1rem;}
+.infra-item{
+  background:rgba(255,255,255,0.03);border-radius:12px;padding:1rem 1.2rem;
+  border:1px solid rgba(255,255,255,0.05);
+}
+.infra-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;}
+.infra-name{font-size:0.88rem;font-weight:500;color:var(--white);}
+.infra-badges{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.infra-badge{font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;}
+.badge-construction{background:rgba(56,189,248,0.15);color:var(--sky);}
+.badge-approved{background:rgba(200,244,0,0.12);color:var(--lime);}
+.badge-proposed{background:rgba(245,166,35,0.12);color:var(--gold);}
+.badge-completed{background:rgba(74,222,128,0.12);color:var(--green);}
+.badge-positive{background:rgba(74,222,128,0.1);color:var(--green);}
+.badge-uncertain{background:rgba(245,166,35,0.1);color:var(--gold);}
+.badge-neutral{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);}
+.infra-meta{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-bottom:0.4rem;font-family:'DM Mono',monospace;}
+.infra-note{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.55;font-style:italic;}
+
+/* ── ZONE J: ACTION BAR ── */
+.action-bar{
+  background:var(--ink2);border-radius:20px;padding:1.8rem 2rem;
+  border:1px solid rgba(200,244,0,0.15);margin-bottom:1.5rem;
+  animation:fadeUp 0.4s 0.46s ease both;opacity:0;animation-fill-mode:forwards;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.action-bar-left h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem;}
+.action-bar-left p{font-size:0.82rem;color:rgba(255,255,255,0.4);}
+.action-bar-right{display:flex;gap:0.8rem;flex-wrap:wrap;}
+.btn-action{
+  padding:0.75rem 1.5rem;border-radius:100px;font-family:'Syne',sans-serif;
+  font-weight:700;font-size:0.82rem;cursor:pointer;border:none;transition:all 0.2s;
+  white-space:nowrap;
+}
+.btn-action.primary{background:var(--lime);color:var(--ink);}
+.btn-action.primary:hover{background:var(--lime-dark);transform:translateY(-1px);}
+.btn-action.ghost{background:transparent;color:rgba(255,255,255,0.6);border:1px solid var(--border);}
+.btn-action.ghost:hover{border-color:rgba(255,255,255,0.3);color:var(--white);}
+
+/* ── GATE MODAL ── */
+.gate-overlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:1.5rem;
+}
+.gate-overlay.open{display:flex;animation:fadeIn 0.25s ease both;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.gate-box{
+  background:var(--ink2);border-radius:24px;padding:2.5rem;
+  max-width:440px;width:100%;border:1px solid rgba(255,255,255,0.1);
+  position:relative;animation:slideUp 0.3s ease both;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.gate-icon{font-size:2.5rem;margin-bottom:1rem;text-align:center;}
+.gate-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-0.02em;color:var(--white);margin-bottom:0.5rem;text-align:center;}
+.gate-sub{font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.65;text-align:center;margin-bottom:1.8rem;}
+.gate-form{display:flex;flex-direction:column;gap:0.8rem;}
+.gate-input{
+  background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:12px;padding:0.85rem 1.1rem;color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;
+  transition:border-color 0.2s;
+}
+.gate-input:focus{border-color:var(--lime);}
+.gate-input::placeholder{color:rgba(255,255,255,0.2);}
+.gate-btn{
+  background:var(--lime);color:var(--ink);border:none;
+  padding:1rem;border-radius:12px;font-family:'Syne',sans-serif;
+  font-weight:700;font-size:0.92rem;cursor:pointer;transition:background 0.2s;
+}
+.gate-btn:hover{background:var(--lime-dark);}
+.gate-note{font-size:0.7rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:0.5rem;line-height:1.5;}
+.gate-used{
+  display:flex;align-items:center;justify-content:center;gap:0.5rem;
+  font-size:0.72rem;color:rgba(255,255,255,0.2);margin-bottom:1.2rem;
+}
+.gate-used-dot{width:8px;height:8px;border-radius:50%;background:var(--lime);}
+
+/* ── NOT FOUND ── */
+.not-found-card{
+  display:none;background:var(--ink2);border-radius:20px;padding:2.5rem;
+  border:1px solid var(--border);text-align:center;max-width:520px;margin:0 auto;
+}
+.not-found-card.show{display:block;animation:fadeUp 0.4s ease both;}
+.nf-icon{font-size:2.5rem;margin-bottom:1rem;}
+.nf-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.nf-sub{font-size:0.88rem;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;line-height:1.6;}
+.nf-form{display:flex;flex-direction:column;gap:0.7rem;max-width:360px;margin:0 auto;}
+.nf-input{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;padding:0.75rem 1rem;color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;
+}
+.nf-input::placeholder{color:rgba(255,255,255,0.2);}
+.nf-btn{
+  background:var(--lime);color:var(--ink);border:none;padding:0.85rem;
+  border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;
+}
+.nf-success{display:none;color:var(--lime);font-size:0.88rem;font-weight:500;margin-top:0.5rem;}
+
+/* ── DATA NOT AVAILABLE ── */
+.dna-box{
+  background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.1);
+  border-radius:10px;padding:1rem;text-align:center;
+  font-size:0.8rem;color:rgba(255,255,255,0.25);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════ -->
+<!-- SEARCH ZONE -->
+<!-- ════════════════════════════════════ -->
+<div class="search-zone" id="searchZone">
+  <div class="search-bg"></div>
+  <div class="search-noise"></div>
+  <div class="search-inner">
+
+    <div class="bm-wordmark">BrickWise <span>Brickometer</span></div>
+
+    <h1 class="search-headline">What suburb are you<br><em>considering?</em></h1>
+    <p class="search-sub">Enter a suburb name or postcode. We'll score it across five investment dimensions and show you exactly what the data says.</p>
+
+    <div class="bm-search-wrap">
+      <div class="bm-search-box">
+        <input
+          type="text"
+          id="bmInput"
+          placeholder="e.g. Ipswich, Baldivis, 4305..."
+          autocomplete="off"
+          oninput="handleInput(this.value)"
+          onkeydown="handleKeydown(event)"
+        >
+        <button class="bm-search-btn" id="bmBtn" onclick="triggerSearch()">Analyse →</button>
+      </div>
+      <div class="bm-dropdown" id="bmDropdown"></div>
+    </div>
+
+    <div class="quick-pills">
+      <span class="qpill" onclick="selectSuburb('Ipswich','QLD','4305')">Ipswich QLD</span>
+      <span class="qpill" onclick="selectSuburb('Baldivis','WA','6171')">Baldivis WA</span>
+      <span class="qpill" onclick="selectSuburb('Tarneit','VIC','3029')">Tarneit VIC</span>
+      <span class="qpill" onclick="selectSuburb('Toowoomba','QLD','4350')">Toowoomba QLD</span>
+      <span class="qpill" onclick="selectSuburb('Campbelltown','NSW','2560')">Campbelltown NSW</span>
+      <span class="qpill" onclick="selectSuburb('Armadale','WA','6112')">Armadale WA</span>
+    </div>
+
+    <div class="search-counter" id="searchCounter"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- LOADING -->
+<!-- ════════════════════════════════════ -->
+<div class="bm-loading" id="bmLoading">
+  <div class="loading-ring"></div>
+  <div class="loading-text">Reading the data on <span id="loadingSuburb">—</span>…</div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- NOT FOUND -->
+<!-- ════════════════════════════════════ -->
+<div style="padding:3rem 1.5rem;" id="notFoundWrap">
+  <div class="not-found-card" id="notFoundCard">
+    <div class="nf-icon">📍</div>
+    <div class="nf-title" id="nfTitle">We don't have data on this suburb yet.</div>
+    <div class="nf-sub">Leave your details and we'll research it and send a full suburb report within 48 hours — at no cost.</div>
+    <div class="nf-form" id="nfForm">
+      <input class="nf-input" type="text" id="nfName" placeholder="Your name">
+      <input class="nf-input" type="email" id="nfEmail" placeholder="Your email address">
+      <input class="nf-input" type="text" id="nfSuburb" placeholder="Suburb">
+      <button class="nf-btn" onclick="submitNF()">Request My Suburb Report →</button>
+    </div>
+    <div class="nf-success" id="nfSuccess">✓ Request received! Your suburb report will be in your inbox within 48 hours.</div>
+    <div style="margin-top:1.5rem;">
+      <button class="btn-action ghost" onclick="resetSearch()" style="font-size:0.8rem;">← Search another suburb</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ -->
+<!-- RESULTS -->
+<!-- ════════════════════════════════════ -->
+<div class="bm-results" id="bmResults">
+
+  <!-- Top bar -->
+  <div class="results-topbar">
+    <button class="results-back" onclick="resetSearch()">← New search</button>
+    <div class="results-freshness" id="resultsFreshness">Data updated — · Refreshed daily</div>
+  </div>
+
+  <!-- ZONE B: Score Hero -->
+  <div class="score-hero" id="zoneB">
+    <div class="gauge-wrap">
+      <svg class="gauge-svg" viewBox="0 0 160 95">
+        <path d="M 18 88 A 62 62 0 0 1 142 88" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="10" stroke-linecap="round"/>
+        <path id="gaugeArc" d="M 18 88 A 62 62 0 0 1 142 88" fill="none" stroke="url(#gaugeGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="194.8"/>
+        <defs>
+          <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF5C3A"/>
+            <stop offset="40%" stop-color="#F5A623"/>
+            <stop offset="70%" stop-color="#C8F400"/>
+            <stop offset="100%" stop-color="#4ade80"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="gauge-score-num" id="gaugeNum">—</div>
+      <div class="gauge-rating" id="gaugeRating">—</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-suburb" id="heroSuburb">—</div>
+      <div class="hero-state" id="heroState">—</div>
+      <div class="hero-summary" id="heroSummary">—</div>
+    </div>
+  </div>
+
+  <!-- ZONE C: Key Stats -->
+  <div class="stats-row" id="zoneC">
+    <div class="stat-card"><div class="stat-val" id="s-medHouse">—</div><div class="stat-label">Median House</div></div>
+    <div class="stat-card"><div class="stat-val up" id="s-yield">—</div><div class="stat-label">Gross Yield</div></div>
+    <div class="stat-card"><div class="stat-val up" id="s-growth">—</div><div class="stat-label">12m Growth</div></div>
+    <div class="stat-card"><div class="stat-val" id="s-vacancy">—</div><div class="stat-label">Vacancy Rate</div></div>
+    <div class="stat-card"><div class="stat-val" id="s-dom">—</div><div class="stat-label">Days on Market</div></div>
+  </div>
+
+  <!-- ZONE D: Score Breakdown -->
+  <div class="breakdown-card" id="zoneD">
+    <div class="zone-title">Score Breakdown — what's driving the number</div>
+    <div class="breakdown-bars" id="breakdownBars"></div>
+  </div>
+
+  <!-- ZONE E: Strengths & Watchouts -->
+  <div class="sw-grid" id="zoneE">
+    <div class="sw-card strengths">
+      <div class="sw-title">What's working in this suburb's favour</div>
+      <div id="strengthsList"></div>
+    </div>
+    <div class="sw-card watchouts">
+      <div class="sw-title">Things to be aware of before you buy</div>
+      <div id="watchoutsList"></div>
+    </div>
+  </div>
+
+  <!-- ZONE F: Sparklines -->
+  <div class="sparklines-row" id="zoneF">
+    <div class="spark-card">
+      <div class="spark-label">Price Growth</div>
+      <div class="spark-current" id="sp-price">—</div>
+      <svg class="spark-svg" id="spark-price" viewBox="0 0 200 48"></svg>
+    </div>
+    <div class="spark-card">
+      <div class="spark-label">Rental Yield</div>
+      <div class="spark-current" id="sp-yield">—</div>
+      <svg class="spark-svg" id="spark-yield" viewBox="0 0 200 48"></svg>
+    </div>
+    <div class="spark-card">
+      <div class="spark-label">Vacancy Rate</div>
+      <div class="spark-current" id="sp-vacancy">—</div>
+      <svg class="spark-svg" id="spark-vacancy" viewBox="0 0 200 48"></svg>
+    </div>
+  </div>
+
+  <!-- ZONE G: Investor Profiles -->
+  <div class="profiles-card" id="zoneG">
+    <div class="zone-title">This suburb may suit investors who are looking for...</div>
+    <div class="profile-tags" id="profileTags"></div>
+  </div>
+
+  <!-- ZONE H: Amenities -->
+  <div class="amenities-card" id="zoneH">
+    <div class="zone-title">Nearby Amenities</div>
+    <div class="amenities-grid" id="amenitiesGrid"></div>
+    <div style="margin-top:0.8rem;font-size:0.68rem;color:rgba(255,255,255,0.2);">Amenity proximity is sourced from public data and may not reflect recent changes. Verify independently.</div>
+  </div>
+
+  <!-- ZONE I: Infrastructure -->
+  <div class="infra-card" id="zoneI">
+    <div class="zone-title">Upcoming Infrastructure & Development</div>
+    <div class="infra-list" id="infraList"></div>
+    <div class="infra-disclaimer">⚠ Infrastructure insights are indicative only. Potential property value and rental demand impacts shown are not guaranteed. Project timelines and outcomes may change. Always verify project status with relevant state and local authorities before making investment decisions. BrickWise accepts no liability for reliance on this information.</div>
+  </div>
+
+  <!-- ZONE J: Action Bar -->
+  <div class="action-bar" id="zoneJ">
+    <div class="action-bar-left">
+      <h3>Ready to run the numbers?</h3>
+      <p id="actionSuburbName">Use Ipswich data in the Deal Analyser</p>
+    </div>
+    <div class="action-bar-right">
+      <button class="btn-action primary" id="dealAnalyserBtn" onclick="goToDealAnalyser()">Run Deal Analyser →</button>
+      <button class="btn-action ghost" onclick="resetSearch()">Search another suburb</button>
+    </div>
+  </div>
+
+</div><!-- /bm-results -->
+
+<!-- ════════════════════════════════════ -->
+<!-- GATE MODAL -->
+<!-- ════════════════════════════════════ -->
+<div class="gate-overlay" id="gateOverlay">
+  <div class="gate-box">
+    <div class="gate-icon">⬡</div>
+    <div class="gate-used">
+      <div class="gate-used-dot"></div>
+      <div class="gate-used-dot"></div>
+      <span style="margin-left:0.3rem;">2 of 2 free searches used</span>
+    </div>
+    <div class="gate-title">You've discovered BrickWise.</div>
+    <div class="gate-sub">Register free to unlock unlimited suburb scores, full insights, and the Deal Analyser with pre-filled data.</div>
+    <div class="gate-form">
+      <input class="gate-input" type="text" id="gateName" placeholder="Your name">
+      <input class="gate-input" type="email" id="gateEmail" placeholder="Your email address">
+      <button class="gate-btn" onclick="submitGate()">Create My Free Account →</button>
+    </div>
+    <div class="gate-note">No credit card. No spam. Unsubscribe anytime.</div>
+  </div>
+</div>
+
+<script>
+// ── SUPABASE ──
+const SB_URL = 'https://cffalqbthxdqhatvfbfp.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmZmFscWJ0aHhkcWhhdHZmYmZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwOTc0ODgsImV4cCI6MjA5MjY3MzQ4OH0.g0MiDWaK9J58zMz2QbP4B0EWUAlC-QLLBnE3ZUwK7cU';
+
+async function sbInsert(table, data) {
+  try {
+    await fetch(`${SB_URL}/rest/v1/${table}`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Prefer':'return=minimal'},
+      body:JSON.stringify(data)
+    });
+  } catch(e){ console.warn('Supabase error',e); }
+}
+
+// ── STATE ──
+let allSuburbs = [];
+let searchCount = parseInt(localStorage.getItem('bw_search_count') || '0');
+let isRegistered = localStorage.getItem('bw_registered') === 'true';
+let currentSuburb = null;
+const FREE_LIMIT = 2;
+
+// ── LOAD DATA ──
+async function loadData() {
+  try {
+    const res = await fetch('data.json?v=' + new Date().toISOString().slice(0,10));
+    const json = await res.json();
+    allSuburbs = json.suburbs || [];
+    document.getElementById('resultsFreshness').textContent = `Data updated ${json.meta?.generated?.slice(0,10) || 'daily'} · Refreshed daily`;
+  } catch(e) {
+    // Fallback inline data
+    allSuburbs = [
+      {name:"Ipswich",state:"QLD",postcode:"4305",medianHouse:580000,medianUnit:380000,grossYield:5.2,vacancyRate:1.0,growth12m:12.4,growth3yr:10.1,growth5yr:8.8,daysOnMarket:18,salesVolume12m:842,demand:"High",brickometer:78,rating:"Strong",summary:"Ipswich is one of south-east Queensland's strongest investment markets right now. Low vacancy, solid rental yields, and a busy infrastructure pipeline are driving both tenant demand and capital growth. Particularly well suited to investors looking for cash flow from day one.",strengths:["Very low vacancy — properties leasing quickly","Strong rental yield above the Queensland average","Significant infrastructure investment across the corridor","Affordable entry price relative to Brisbane"],watchouts:["Some areas near the Bremer River carry flood risk — check individual addresses","New housing supply in outer corridors may soften growth","Rapid price growth may be reducing future affordability upside"],investorProfiles:["Cash Flow Investor","Buy and Hold","First-time Investor"],scoreBreakdown:{yield:85,growth:82,vacancy:100,affordability:80,infrastructure:65,riskPenalty:-5},priceTrend:[{year:"2021",value:380000},{year:"2022",value:435000},{year:"2023",value:490000},{year:"2024",value:516000},{year:"2025",value:580000}],yieldTrend:[{year:"2021",value:4.2},{year:"2022",value:4.5},{year:"2023",value:4.8},{year:"2024",value:5.0},{year:"2025",value:5.2}],vacancyTrend:[{year:"2021",value:2.1},{year:"2022",value:1.6},{year:"2023",value:1.3},{year:"2024",value:1.1},{year:"2025",value:1.0}],amenities:{schools:{count:12,nearest_km:0.4,rating:"Good"},trainStations:{count:3,nearest_km:1.2},shoppingCentres:{count:4,nearest_km:0.8},hospitals:{count:1,nearest_km:2.1},parks:{count:8,nearest_km:0.2},universities:{count:1,nearest_km:3.5}},infrastructure:[{name:"Ipswich Motorway Upgrade — Stage 3",type:"transport",status:"under_construction",completionDate:"2027-Q2",distanceKm:1.4,impact:"positive",impactNote:"Improved travel time to Brisbane CBD expected to support commuter tenant demand and may uplift prices in nearby streets. Indicative only."},{name:"Springfield Town Centre Expansion",type:"commercial",status:"approved",completionDate:"2026-Q4",distanceKm:4.2,impact:"positive",impactNote:"Additional employment and retail amenity in the corridor is expected to sustain tenant demand. Indicative only."},{name:"Ripley Valley Residential Estate",type:"residential",status:"approved",completionDate:"2028-Q1",distanceKm:6.8,impact:"uncertain",impactNote:"Additional housing supply in outer corridor may soften growth in some pockets. Monitor closely. Indicative only."}]},
+      {name:"Baldivis",state:"WA",postcode:"6171",medianHouse:560000,medianUnit:380000,grossYield:5.8,vacancyRate:0.8,growth12m:16.2,growth3yr:12.4,growth5yr:10.1,daysOnMarket:12,salesVolume12m:614,demand:"High",brickometer:83,rating:"Strong",summary:"Baldivis is Perth's southern growth powerhouse — delivering exceptional yields and remarkable capital growth driven by structural undersupply and strong family demand. One of the strongest risk-adjusted opportunities in WA right now.",strengths:["Lowest vacancy rate in our WA dataset — extreme rental demand","6%+ gross yield is rare at any price point","17%+ growth driven by structural undersupply","Affordable sub-$600K entry for strong investor competition"],watchouts:["High investor concentration — ensure tenant quality management","Distance from Perth CBD limits some professional tenant profiles","Rapid growth may be closing the affordability window"],investorProfiles:["Cash Flow Investor","Buy and Hold","Growth Investor"],scoreBreakdown:{yield:95,growth:95,vacancy:100,affordability:82,infrastructure:58,riskPenalty:-3},priceTrend:[{year:"2021",value:350000},{year:"2022",value:390000},{year:"2023",value:430000},{year:"2024",value:482000},{year:"2025",value:560000}],yieldTrend:[{year:"2021",value:4.5},{year:"2022",value:5.0},{year:"2023",value:5.4},{year:"2024",value:5.6},{year:"2025",value:5.8}],vacancyTrend:[{year:"2021",value:2.0},{year:"2022",value:1.4},{year:"2023",value:1.0},{year:"2024",value:0.9},{year:"2025",value:0.8}],amenities:{schools:{count:8,nearest_km:0.6,rating:"Good"},trainStations:{count:1,nearest_km:3.2},shoppingCentres:{count:2,nearest_km:1.1},hospitals:{count:0,nearest_km:8.4},parks:{count:6,nearest_km:0.3},universities:{count:0,nearest_km:22.0}},infrastructure:[{name:"Thornlie-Cockburn Link Rail Extension",type:"transport",status:"under_construction",completionDate:"2026-Q3",distanceKm:8.1,impact:"positive",impactNote:"New rail link connecting southern suburbs to Perth network expected to lift connectivity and commuter tenant demand across the corridor. Indicative only."}]},
+      {name:"Armadale",state:"WA",postcode:"6112",medianHouse:490000,medianUnit:330000,grossYield:6.1,vacancyRate:0.8,growth12m:17.4,growth3yr:13.1,growth5yr:10.6,daysOnMarket:11,salesVolume12m:521,demand:"High",brickometer:82,rating:"Strong",summary:"Armadale delivers the highest Brickometer score in our sub-$500K cohort — combining a 6.1% yield with 17%+ capital growth, driven by Perth's structural undersupply and strong migration inflows. The risk-adjusted case is exceptional at this price point.",strengths:["Highest yield in our dataset at this price point — 6.1%","17.4% capital growth — Perth's fastest-growing southern corridor","Vacancy at 0.8% — near structural minimum","Sub-$500K entry creates very low capital commitment"],watchouts:["Distance from Perth CBD limits premium professional tenant market","Concentration of investor stock in some estates worth monitoring","Entry pricing advantage may narrow quickly given growth trajectory"],investorProfiles:["Cash Flow Investor","Buy and Hold","Growth Investor"],scoreBreakdown:{yield:100,growth:95,vacancy:100,affordability:88,infrastructure:52,riskPenalty:-3},priceTrend:[{year:"2021",value:290000},{year:"2022",value:335000},{year:"2023",value:375000},{year:"2024",value:418000},{year:"2025",value:490000}],yieldTrend:[{year:"2021",value:4.8},{year:"2022",value:5.2},{year:"2023",value:5.6},{year:"2024",value:5.9},{year:"2025",value:6.1}],vacancyTrend:[{year:"2021",value:2.3},{year:"2022",value:1.6},{year:"2023",value:1.1},{year:"2024",value:0.9},{year:"2025",value:0.8}],amenities:{schools:{count:10,nearest_km:0.5,rating:"Good"},trainStations:{count:2,nearest_km:1.8},shoppingCentres:{count:3,nearest_km:0.9},hospitals:{count:1,nearest_km:4.2},parks:{count:9,nearest_km:0.2},universities:{count:0,nearest_km:18.0}},infrastructure:[{name:"Thornlie-Cockburn Link Rail Extension",type:"transport",status:"under_construction",completionDate:"2026-Q3",distanceKm:5.4,impact:"positive",impactNote:"Improved rail connectivity expected to increase tenant demand from commuters. Indicative only."}]},
+      {name:"Tarneit",state:"VIC",postcode:"3029",medianHouse:680000,medianUnit:460000,grossYield:4.2,vacancyRate:1.3,growth12m:6.8,growth3yr:5.9,growth5yr:5.6,daysOnMarket:28,salesVolume12m:892,demand:"High",brickometer:67,rating:"Balanced",summary:"Tarneit is a large, established growth corridor suburb in Melbourne's west with a strong family renter profile. Fundamentals are solid rather than exceptional — yield and growth are moderate, but low entry cost and high rental demand make it a consistent performer for patient investors.",strengths:["High rental demand from growing family demographic","Affordable entry point for Melbourne metropolitan area","Established infrastructure — schools, shopping, public transport","Strong population growth underpinning long-term demand"],watchouts:["Yield of 4.2% is below the threshold for positively geared investing","Large supply of new dwellings constraining price growth","Higher days on market than interstate alternatives"],investorProfiles:["Buy and Hold","Long-term Investor","Family Market"],scoreBreakdown:{yield:62,growth:65,vacancy:80,affordability:72,infrastructure:68,riskPenalty:0},priceTrend:[{year:"2021",value:580000},{year:"2022",value:640000},{year:"2023",value:620000},{year:"2024",value:650000},{year:"2025",value:680000}],yieldTrend:[{year:"2021",value:3.8},{year:"2022",value:4.0},{year:"2023",value:4.1},{year:"2024",value:4.1},{year:"2025",value:4.2}],vacancyTrend:[{year:"2021",value:1.8},{year:"2022",value:1.5},{year:"2023",value:1.4},{year:"2024",value:1.4},{year:"2025",value:1.3}],amenities:{schools:{count:14,nearest_km:0.5,rating:"Good"},trainStations:{count:2,nearest_km:1.4},shoppingCentres:{count:5,nearest_km:0.6},hospitals:{count:0,nearest_km:6.8},parks:{count:11,nearest_km:0.3},universities:{count:0,nearest_km:12.0}},infrastructure:[{name:"Tarneit Station Precinct Development",type:"commercial",status:"approved",completionDate:"2027-Q1",distanceKm:1.6,impact:"positive",impactNote:"Mixed-use development around station precinct expected to add employment and retail amenity. Indicative only."},{name:"Western Ring Road Expansion",type:"transport",status:"proposed",completionDate:"2029-Q4",distanceKm:3.2,impact:"uncertain",impactNote:"Proposed works may reduce travel time to Melbourne CBD if approved. Subject to government confirmation. Indicative only."}]},
+      {name:"Toowoomba",state:"QLD",postcode:"4350",medianHouse:520000,medianUnit:340000,grossYield:5.4,vacancyRate:1.1,growth12m:10.1,growth3yr:8.4,growth5yr:7.5,daysOnMarket:22,salesVolume12m:1024,demand:"High",brickometer:75,rating:"Strong",summary:"Toowoomba's diversified regional economy — spanning agriculture, logistics, healthcare, and education — provides a resilient rental demand base. The Inland Rail project is transforming the city's economic profile, and rising rents are improving yields in real terms.",strengths:["Diversified economy reduces reliance on a single sector","Strong rental yield — consistently above Queensland average","Inland Rail project creating significant new employment","Rising rents improving yield trajectory year on year"],watchouts:["Regional market — lower liquidity than capital cities on resale","Drought cycles can impact agricultural employment","Limited gentrification upside compared to metro suburbs"],investorProfiles:["Cash Flow Investor","Regional Investor","Buy and Hold"],scoreBreakdown:{yield:88,growth:76,vacancy:88,affordability:85,infrastructure:62,riskPenalty:0},priceTrend:[{year:"2021",value:340000},{year:"2022",value:390000},{year:"2023",value:430000},{year:"2024",value:473000},{year:"2025",value:520000}],yieldTrend:[{year:"2021",value:4.6},{year:"2022",value:4.9},{year:"2023",value:5.1},{year:"2024",value:5.2},{year:"2025",value:5.4}],vacancyTrend:[{year:"2021",value:1.8},{year:"2022",value:1.5},{year:"2023",value:1.3},{year:"2024",value:1.2},{year:"2025",value:1.1}],amenities:{schools:{count:18,nearest_km:0.4,rating:"Very Good"},trainStations:{count:1,nearest_km:2.1},shoppingCentres:{count:6,nearest_km:0.5},hospitals:{count:2,nearest_km:1.8},parks:{count:12,nearest_km:0.3},universities:{count:1,nearest_km:1.2}},infrastructure:[{name:"Inland Rail — Toowoomba to Brisbane",type:"transport",status:"under_construction",completionDate:"2027-Q4",distanceKm:4.5,impact:"positive",impactNote:"Transformational freight rail project expected to significantly expand employment and population growth in Toowoomba. Indicative only."}]},
+      {name:"Campbelltown",state:"NSW",postcode:"2560",medianHouse:820000,medianUnit:520000,grossYield:4.5,vacancyRate:1.4,growth12m:8.3,growth3yr:7.1,growth5yr:6.5,daysOnMarket:24,salesVolume12m:768,demand:"High",brickometer:72,rating:"Strong",summary:"Campbelltown sits in the direct beneficiary zone of the Western Sydney Airport development. The Aerotropolis employment precinct is expected to create over 200,000 jobs over the next two decades — making Campbelltown a structural long-term play for patient investors.",strengths:["Western Sydney Airport Aerotropolis — 200K+ jobs forecast","Metro rail extension significantly improving CBD connectivity","Strong tenant pool from health, education and defence sectors","Relative affordability vs inner-Sydney driving sustained demand"],watchouts:["Airport timeline delays could defer key growth catalyst","Vacancy at 1.4% — higher than our preferred threshold","Interest rate sensitivity at $820K price point"],investorProfiles:["Long-term Buy and Hold","Growth Investor","Infrastructure Play"],scoreBreakdown:{yield:70,growth:74,vacancy:72,affordability:65,infrastructure:80,riskPenalty:0},priceTrend:[{year:"2021",value:620000},{year:"2022",value:710000},{year:"2023",value:740000},{year:"2024",value:757000},{year:"2025",value:820000}],yieldTrend:[{year:"2021",value:3.8},{year:"2022",value:4.0},{year:"2023",value:4.2},{year:"2024",value:4.4},{year:"2025",value:4.5}],vacancyTrend:[{year:"2021",value:1.8},{year:"2022",value:1.6},{year:"2023",value:1.5},{year:"2024",value:1.4},{year:"2025",value:1.4}],amenities:{schools:{count:16,nearest_km:0.4,rating:"Good"},trainStations:{count:2,nearest_km:0.9},shoppingCentres:{count:5,nearest_km:0.7},hospitals:{count:1,nearest_km:1.4},parks:{count:9,nearest_km:0.3},universities:{count:1,nearest_km:2.8}},infrastructure:[{name:"Western Sydney Airport — Badgerys Creek",type:"transport",status:"under_construction",completionDate:"2026-Q4",distanceKm:18.2,impact:"positive",impactNote:"International airport and Aerotropolis precinct expected to be transformational for south-west Sydney employment and property demand over a 10–20 year horizon. Indicative only."},{name:"South West Metro Rail Extension",type:"transport",status:"approved",completionDate:"2028-Q2",distanceKm:2.1,impact:"positive",impactNote:"Rail extension to Campbelltown expected to significantly reduce commute times to Sydney CBD, broadening tenant and buyer appeal. Indicative only."}]}
+    ];
+  }
+  updateCounter();
+}
+
+// ── SEARCH COUNTER ──
+function updateCounter() {
+  if(isRegistered) {
+    document.getElementById('searchCounter').innerHTML = '✓ Registered — unlimited searches';
+    return;
+  }
+  const remaining = Math.max(0, FREE_LIMIT - searchCount);
+  document.getElementById('searchCounter').innerHTML =
+    `<span>${remaining}</span> free ${remaining === 1 ? 'search' : 'searches'} remaining`;
+}
+
+// ── AUTOCOMPLETE ──
+function handleInput(val) {
+  const q = val.trim().toLowerCase();
+  const dd = document.getElementById('bmDropdown');
+  if(q.length < 2){ dd.classList.remove('open'); return; }
+  const matches = allSuburbs.filter(s =>
+    s.name.toLowerCase().includes(q) || s.postcode.includes(q)
+  ).slice(0,6);
+  if(matches.length === 0){ dd.classList.remove('open'); return; }
+  dd.innerHTML = matches.map(s => `
+    <div class="bm-drop-item" onclick="selectSuburb('${s.name}','${s.state}','${s.postcode}')">
+      <span class="bm-drop-name">${s.name}</span>
+      <span class="bm-drop-meta">${s.state} · ${s.postcode}</span>
+    </div>`).join('');
+  dd.classList.add('open');
+}
+
+let ddIndex = -1;
+function handleKeydown(e) {
+  const items = document.querySelectorAll('.bm-drop-item');
+  if(e.key==='ArrowDown'){ddIndex=Math.min(ddIndex+1,items.length-1);items.forEach((el,i)=>el.style.background=i===ddIndex?'rgba(255,255,255,0.08)':'');}
+  else if(e.key==='ArrowUp'){ddIndex=Math.max(ddIndex-1,0);items.forEach((el,i)=>el.style.background=i===ddIndex?'rgba(255,255,255,0.08)':'');}
+  else if(e.key==='Enter'){ if(ddIndex>=0&&items[ddIndex]){items[ddIndex].click();}else{triggerSearch();} }
+  else if(e.key==='Escape'){document.getElementById('bmDropdown').classList.remove('open');}
+}
+
+function selectSuburb(name, state, postcode) {
+  document.getElementById('bmInput').value = `${name}, ${state}`;
+  document.getElementById('bmDropdown').classList.remove('open');
+  triggerSearch(name, state, postcode);
+}
+
+function triggerSearch(name, state, postcode) {
+  const q = name || document.getElementById('bmInput').value.trim();
+  if(!q) return;
+
+  // Check gate
+  if(!isRegistered && searchCount >= FREE_LIMIT) {
+    document.getElementById('gateOverlay').classList.add('open');
+    return;
+  }
+
+  // Find suburb
+  let suburb = null;
+  if(name) {
+    suburb = allSuburbs.find(s => s.name === name && s.state === state);
+  } else {
+    const ql = q.toLowerCase();
+    suburb = allSuburbs.find(s =>
+      s.name.toLowerCase() === ql ||
+      s.postcode === q ||
+      `${s.name.toLowerCase()}, ${s.state.toLowerCase()}` === ql
+    ) || allSuburbs.find(s =>
+      s.name.toLowerCase().includes(ql) || s.postcode.includes(q)
+    );
+  }
+
+  document.getElementById('bmDropdown').classList.remove('open');
+
+  if(!suburb) {
+    showNotFound(q);
+    return;
+  }
+
+  // Increment count
+  if(!isRegistered) {
+    searchCount++;
+    localStorage.setItem('bw_search_count', searchCount);
+    updateCounter();
+  }
+
+  showResults(suburb);
+}
+
+// ── SHOW RESULTS ──
+function showResults(s) {
+  currentSuburb = s;
+  document.getElementById('searchZone').style.display = 'none';
+  document.getElementById('notFoundWrap').style.display = 'none';
+
+  // Loading
+  document.getElementById('loadingSuburb').textContent = s.name;
+  document.getElementById('bmLoading').classList.add('show');
+
+  setTimeout(() => {
+    document.getElementById('bmLoading').classList.remove('show');
+    renderResults(s);
+    document.getElementById('bmResults').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }, 900);
+}
+
+function renderResults(s) {
+  const fmt = n => '$' + Math.round(n).toLocaleString('en-AU');
+  const fmtP = n => n.toFixed(1) + '%';
+
+  // Score Hero
+  animateGauge(s.brickometer, s.rating);
+  document.getElementById('heroSuburb').textContent = s.name;
+  document.getElementById('heroState').textContent = `${s.state} · ${s.postcode}`;
+  document.getElementById('heroSummary').textContent = s.summary || 'Summary not available.';
+
+  // Key Stats
+  document.getElementById('s-medHouse').textContent = fmt(s.medianHouse);
+  document.getElementById('s-yield').textContent = fmtP(s.grossYield);
+  document.getElementById('s-growth').textContent = '▲' + fmtP(s.growth12m);
+  document.getElementById('s-vacancy').textContent = fmtP(s.vacancyRate);
+  document.getElementById('s-dom').textContent = s.daysOnMarket ? s.daysOnMarket + ' days' : 'N/A';
+
+  // Score Breakdown
+  const bd = s.scoreBreakdown || {};
+  const dims = [
+    {label:'Rental Income', key:'yield'},
+    {label:'Capital Growth', key:'growth'},
+    {label:'Rental Demand', key:'vacancy'},
+    {label:'Affordability', key:'affordability'},
+    {label:'Infrastructure', key:'infrastructure'},
+  ];
+  const colours = ['#C8F400','#38BDF8','#4ade80','#F5A623','#a78bfa'];
+  document.getElementById('breakdownBars').innerHTML = dims.map((d,i) => {
+    const sc = bd[d.key] || 0;
+    return `<div class="bb-row">
+      <span class="bb-label">${d.label}</span>
+      <div class="bb-track"><div class="bb-fill" style="width:0%;background:${colours[i]};" data-target="${sc}"></div></div>
+      <span class="bb-score">${sc}</span>
+    </div>`;
+  }).join('');
+  setTimeout(() => {
+    document.querySelectorAll('.bb-fill').forEach(el => {
+      el.style.width = el.dataset.target + '%';
+    });
+  }, 100);
+
+  // Strengths & Watchouts
+  document.getElementById('strengthsList').innerHTML = (s.strengths || ['Data not available']).map(str =>
+    `<div class="sw-item"><span class="sw-dot">●</span><span>${str}</span></div>`).join('');
+  document.getElementById('watchoutsList').innerHTML = (s.watchouts || ['Data not available']).map(w =>
+    `<div class="sw-item"><span class="sw-dot">●</span><span>${w}</span></div>`).join('');
+
+  // Sparklines
+  if(s.priceTrend) renderSparkline('spark-price', s.priceTrend.map(d=>d.value), 'sp-price', fmt(s.medianHouse), '#C8F400');
+  if(s.yieldTrend) renderSparkline('spark-yield', s.yieldTrend.map(d=>d.value), 'sp-yield', fmtP(s.grossYield), '#38BDF8');
+  if(s.vacancyTrend) renderSparkline('spark-vacancy', s.vacancyTrend.map(d=>d.value), 'sp-vacancy', fmtP(s.vacancyRate), '#4ade80');
+
+  // Investor Profiles
+  document.getElementById('profileTags').innerHTML = (s.investorProfiles || []).map(p =>
+    `<span class="profile-tag">${p}</span>`).join('');
+
+  // Amenities
+  renderAmenities(s.amenities);
+
+  // Infrastructure
+  renderInfra(s.infrastructure);
+
+  // Action bar
+  document.getElementById('actionSuburbName').textContent = `Use ${s.name} data in the Deal Analyser`;
+  document.getElementById('dealAnalyserBtn').textContent = `Run Deal Analyser for ${s.name} →`;
+}
+
+// ── GAUGE ANIMATION ──
+function animateGauge(score, rating) {
+  const arc = document.getElementById('gaugeArc');
+  const numEl = document.getElementById('gaugeNum');
+  const ratingEl = document.getElementById('gaugeRating');
+  const total = 194.8;
+  const offset = total - (total * (score / 100));
+
+  // Colour by rating
+  const colours = {
+    'Excellent':'#4ade80','Strong':'#C8F400','Balanced':'#F5A623',
+    'Watchlist':'#fb923c','Higher Risk':'#FF5C3A'
+  };
+  const ratingColours = colours;
+  ratingEl.style.color = ratingColours[rating] || '#C8F400';
+  ratingEl.textContent = rating;
+
+  // Animate
+  let n = 0;
+  const step = score / 40;
+  const timer = setInterval(() => {
+    n = Math.min(n + step, score);
+    numEl.textContent = Math.round(n);
+    arc.style.strokeDashoffset = total - (total * (n / 100));
+    if(n >= score) clearInterval(timer);
+  }, 20);
+}
+
+// ── SPARKLINES ──
+function renderSparkline(svgId, values, currentId, currentText, colour) {
+  document.getElementById(currentId).textContent = currentText;
+  const svg = document.getElementById(svgId);
+  const w = 200, h = 48, pad = 4;
+  const mn = Math.min(...values), mx = Math.max(...values);
+  const range = mx - mn || 1;
+  const pts = values.map((v,i) => {
+    const x = pad + (i / (values.length-1)) * (w - pad*2);
+    const y = h - pad - ((v - mn) / range) * (h - pad*2);
+    return `${x},${y}`;
+  });
+  const last = pts[pts.length-1].split(',');
+  svg.innerHTML = `
+    <polyline points="${pts.join(' ')}" fill="none" stroke="${colour}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+    <circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${colour}"/>
+    <text x="${pad}" y="${h}" font-size="9" fill="rgba(255,255,255,0.3)" font-family="DM Mono">${values[0]}</text>
+    <text x="${w-pad}" y="${h}" font-size="9" fill="rgba(255,255,255,0.5)" font-family="DM Mono" text-anchor="end">${values[values.length-1]}</text>
+  `;
+}
+
+// ── AMENITIES ──
+function renderAmenities(am) {
+  if(!am) { document.getElementById('amenitiesGrid').innerHTML = '<div class="dna-box" style="grid-column:1/-1">Data not available for this suburb</div>'; return; }
+  const items = [
+    {icon:'🏫', label:'Schools', data: am.schools ? `${am.schools.count} within area · ${am.schools.nearest_km}km` : null, rating: am.schools?.rating},
+    {icon:'🚉', label:'Train / Metro', data: am.trainStations ? `${am.trainStations.count} station${am.trainStations.count!==1?'s':''} · ${am.trainStations.nearest_km}km` : null},
+    {icon:'🛍️', label:'Shopping', data: am.shoppingCentres ? `${am.shoppingCentres.count} centre${am.shoppingCentres.count!==1?'s':''} · ${am.shoppingCentres.nearest_km}km` : null},
+    {icon:'🏥', label:'Hospital', data: am.hospitals ? (am.hospitals.count > 0 ? `${am.hospitals.count} hospital · ${am.hospitals.nearest_km}km` : null) : null},
+    {icon:'🌿', label:'Parks', data: am.parks ? `${am.parks.count} parks · ${am.parks.nearest_km}km` : null},
+    {icon:'🎓', label:'University', data: am.universities ? (am.universities.count > 0 ? `${am.universities.count} · ${am.universities.nearest_km}km` : null) : null},
+    {icon:'💼', label:'Employment', data: am.employmentHubs ? am.employmentHubs.join(', ') : null},
+    {icon:'🚌', label:'Bus Routes', data: null},
+  ];
+  document.getElementById('amenitiesGrid').innerHTML = items.map(item => `
+    <div class="amenity-item">
+      <div class="amenity-icon">${item.icon}</div>
+      <div class="amenity-name">${item.label}</div>
+      <div class="amenity-detail ${item.data ? 'amenity-good' : 'amenity-na'}">${item.data || 'Data not available'}</div>
+    </div>`).join('');
+}
+
+// ── INFRASTRUCTURE ──
+function renderInfra(infra) {
+  if(!infra || infra.length === 0) {
+    document.getElementById('infraList').innerHTML = '<div class="dna-box">No infrastructure data available for this suburb yet.</div>';
+    return;
+  }
+  const statusClass = {under_construction:'badge-construction',approved:'badge-approved',proposed:'badge-proposed',completed:'badge-completed'};
+  const statusLabel = {under_construction:'Under Construction',approved:'Approved',proposed:'Proposed',completed:'Completed'};
+  const impactClass = {positive:'badge-positive',uncertain:'badge-uncertain',neutral:'badge-neutral'};
+  document.getElementById('infraList').innerHTML = infra.map(p => `
+    <div class="infra-item">
+      <div class="infra-top">
+        <div class="infra-name">${p.name}</div>
+        <div class="infra-badges">
+          <span class="infra-badge ${statusClass[p.status]||'badge-proposed'}">${statusLabel[p.status]||p.status}</span>
+          <span class="infra-badge ${impactClass[p.impact]||'badge-neutral'}">${p.impact}</span>
+        </div>
+      </div>
+      <div class="infra-meta">${p.type} · Est. completion ${p.completionDate} · ${p.distanceKm}km from suburb centre</div>
+      <div class="infra-note">${p.impactNote}</div>
+    </div>`).join('');
+}
+
+// ── NOT FOUND ──
+function showNotFound(q) {
+  document.getElementById('searchZone').style.display = 'none';
+  document.getElementById('bmLoading').classList.remove('show');
+  const nfCard = document.getElementById('notFoundCard');
+  document.getElementById('nfTitle').textContent = `We don't have data on "${q}" yet.`;
+  document.getElementById('nfSuburb').value = q;
+  nfCard.classList.add('show');
+}
+
+async function submitNF() {
+  const name = document.getElementById('nfName').value.trim();
+  const email = document.getElementById('nfEmail').value.trim();
+  const suburb = document.getElementById('nfSuburb').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return;}
+  await sbInsert('leads',{name,email,suburb,investor_type:'suburb_request'});
+  document.getElementById('nfForm').style.display='none';
+  document.getElementById('nfSuccess').style.display='block';
+}
+
+// ── GATE ──
+async function submitGate() {
+  const name = document.getElementById('gateName').value.trim();
+  const email = document.getElementById('gateEmail').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return;}
+  await sbInsert('registrations',{first_name:name,email,investor_type:'brickometer_gate'});
+  isRegistered = true;
+  localStorage.setItem('bw_registered','true');
+  document.getElementById('gateOverlay').classList.remove('open');
+  updateCounter();
+  // Retry the search
+  triggerSearch();
+}
+
+// ── DEAL ANALYSER HANDOFF ──
+function goToDealAnalyser() {
+  if(!currentSuburb) return;
+  const s = currentSuburb;
+  // Store pre-fill data for the deal analyser to pick up
+  const prefill = {
+    suburb: s.name,
+    state: s.state,
+    medianHouse: s.medianHouse,
+    weeklyRent: Math.round((s.medianHouse * (s.grossYield/100)) / 52)
+  };
+  localStorage.setItem('bw_dealanalyser_prefill', JSON.stringify(prefill));
+  // If embedded in main site, switch page; otherwise redirect
+  if(typeof showPage === 'function') {
+    showPage('explore');
+    setTimeout(() => { if(typeof showExplore==='function') showExplore('deal'); }, 100);
+  } else {
+    window.location.href = 'index.html#explore-deal';
+  }
+}
+
+// ── RESET ──
+function resetSearch() {
+  document.getElementById('searchZone').style.display = '';
+  document.getElementById('bmResults').classList.remove('show');
+  document.getElementById('notFoundCard').classList.remove('show');
+  document.getElementById('bmInput').value = '';
+  document.getElementById('bmDropdown').classList.remove('open');
+  currentSuburb = null;
+  window.scrollTo({top:0});
+  if(!isRegistered && searchCount >= FREE_LIMIT) {
+    document.getElementById('gateOverlay').classList.add('open');
+  }
+}
+
+// ── INIT ──
+loadData();
+document.getElementById('gateOverlay').addEventListener('click', function(e){if(e.target===this&&isRegistered)this.classList.remove('open');});
+</script>
+</body>
+</html>

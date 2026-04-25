@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "version": "1.0",
+    "generated": "2026-04-25T00:00:00Z",
+    "refresh_frequency": "daily",
+    "suburb_count": 39,
+    "states": ["NSW", "QLD", "VIC", "WA"]
+  },
+
+  "picks": {
+    "sweet_spot": {
+      "label": "🔥 The Sweet Spot",
+      "range": "$500K – $700K",
+      "description": "Maximum yield. Minimum entry. Best risk-adjusted returns in the current market — ideal for investors who want cash flow from day one without stretching serviceability.",
+      "suburbs": [
+        {
+          "name": "Ipswich",
+          "state": "QLD",
+          "postcode": "4305",
+          "brickometer": 78,
+          "rating": "Strong",
+          "grossYield": 5.2,
+          "growth12m": 12.4,
+          "medianHouse": 580000,
+          "vacancyRate": 1.0,
+          "teaser": "Strong infrastructure pipeline, sub-1% vacancy, and affordable entry make Ipswich the standout pick in this tier. Rental demand driven by south-east QLD population inflow and proximity to Springfield employment hub.",
+          "insight": {
+            "summary": "Ipswich continues to outperform QLD benchmarks driven by significant infrastructure investment across the Ipswich Motorway corridor and the booming Springfield employment precinct. Population inflow from Brisbane is accelerating, creating sustained rental demand with vacancy at structural lows.",
+            "drivers": ["Ipswich Motorway and rail corridor upgrades", "Springfield employment hub driving tenant demand", "Population inflow from Brisbane priced out of inner ring", "Sub-$600K entry price attracting strong investor activity"],
+            "risks": ["Supply pipeline in outer Ipswich corridors to monitor", "Interest rate sensitivity at this price point", "Flood zone considerations in some pockets — check individual properties"],
+            "recommendation": "BUY",
+            "rec_text": "Strong fundamentals across all five Brickometer dimensions. Ideal for buy-and-hold investors seeking positive cash flow from day one with meaningful 5-year equity upside.",
+            "profiles": ["Buy and Hold", "Cash Flow Investor", "First-time Investor"]
+          }
+        },
+        {
+          "name": "Armadale",
+          "state": "WA",
+          "postcode": "6112",
+          "brickometer": 82,
+          "rating": "Strong",
+          "grossYield": 6.1,
+          "growth12m": 17.4,
+          "medianHouse": 490000,
+          "vacancyRate": 0.8,
+          "teaser": "Perth's hottest corridor delivers the highest yield in our dataset alongside 17%+ growth — rare at this price point. Low vacancy reflects structural undersupply across the southern corridor.",
+          "insight": {
+            "summary": "Armadale is experiencing a demand surge driven by Perth's broader affordability crunch pushing buyers south. The Thornlie-Cockburn Link rail extension is transforming connectivity, while population growth from interstate migration is keeping vacancy at record lows. At sub-$500K with a 6%+ yield, the risk-adjusted case is exceptional.",
+            "drivers": ["Thornlie-Cockburn Link rail extension lifting connectivity", "Perth interstate migration driving housing demand", "Sub-$500K entry attracting strong owner-occupier and investor demand", "Record low vacancy reflecting structural undersupply"],
+            "risks": ["Rapid price growth reducing future affordability upside", "Distance from Perth CBD limits some tenant profiles", "Concentration of investor stock in some pockets"],
+            "recommendation": "BUY",
+            "rec_text": "Highest Brickometer score in the sub-$700K tier. The combination of yield, growth, and low vacancy is rare — act before affordability closes the window.",
+            "profiles": ["Buy and Hold", "Cash Flow Investor", "Growth Investor"]
+          }
+        },
+        {
+          "name": "Toowoomba",
+          "state": "QLD",
+          "postcode": "4350",
+          "brickometer": 75,
+          "rating": "Strong",
+          "grossYield": 5.4,
+          "growth12m": 10.1,
+          "medianHouse": 520000,
+          "vacancyRate": 1.1,
+          "teaser": "Regional QLD powerhouse with strong agricultural and logistics employment base. Consistently strong yields, rising rents, and limited new stock create a compelling cash flow case.",
+          "insight": {
+            "summary": "Toowoomba's diversified economy — spanning agriculture, logistics, healthcare, and education — provides a resilient rental demand base that coastal cities can't match. The Inland Rail project is transforming the city's economic profile, and with rents rising faster than purchase prices, yields are improving in real terms.",
+            "drivers": ["Inland Rail project creating significant employment and population growth", "Diversified economy — agriculture, logistics, healthcare, education", "Low new dwelling supply keeping vacancy tight", "Rising rents improving yield trajectory"],
+            "risks": ["Regional market liquidity lower than capital cities", "Drought cycles can impact agricultural employment", "Limited upside from gentrification compared to metro suburbs"],
+            "recommendation": "BUY",
+            "rec_text": "A solid regional play for cash flow focused investors. The Inland Rail catalyst is still underpriced by the market — early movers will benefit most.",
+            "profiles": ["Cash Flow Investor", "Regional Investor", "Buy and Hold"]
+          }
+        }
+      ]
+    },
+    "growth_play": {
+      "label": "📈 The Growth Play",
+      "range": "$700K – $1M",
+      "description": "Balanced growth and yield for the confident investor. These suburbs offer a compelling combination of capital growth trajectory and solid rental returns in the $700K–$1M range.",
+      "suburbs": [
+        {
+          "name": "Ellenbrook",
+          "state": "WA",
+          "postcode": "6069",
+          "brickometer": 81,
+          "rating": "Strong",
+          "grossYield": 5.5,
+          "growth12m": 15.1,
+          "medianHouse": 570000,
+          "vacancyRate": 0.8,
+          "teaser": "Ellenbrook benefits from Perth's northward infrastructure expansion, strong family demand, growing amenity, and a yield profile that punches well above its price point.",
+          "insight": {
+            "summary": "Ellenbrook's transformation from a master-planned community into a fully established suburb with strong amenity is attracting growing owner-occupier demand, while investors benefit from exceptional yields rarely seen at this price point. The northern corridor infrastructure program is accelerating both connectivity and price growth.",
+            "drivers": ["Northern corridor infrastructure investment improving connectivity", "Strong family demographic driving owner-occupier demand", "High amenity levels — schools, retail, parks — supporting sustained tenant demand", "5.5% yield with 15%+ growth is a rare combination in any market"],
+            "risks": ["High investor concentration in some estates", "Distance from Perth CBD limits professional tenant profiles", "Supply of new land still available in outer corridors"],
+            "recommendation": "BUY",
+            "rec_text": "Top pick in the growth play tier. The yield-growth combination at this price point is exceptional and unlikely to persist as the market reprices the corridor.",
+            "profiles": ["Buy and Hold", "Growth Investor", "Cash Flow Investor"]
+          }
+        },
+        {
+          "name": "Campbelltown",
+          "state": "NSW",
+          "postcode": "2560",
+          "brickometer": 72,
+          "rating": "Strong",
+          "grossYield": 4.5,
+          "growth12m": 8.3,
+          "medianHouse": 820000,
+          "vacancyRate": 1.4,
+          "teaser": "Sydney's South West corridor continues to attract strong tenant demand. Western Sydney Airport infrastructure and new employment zones underpin solid long-term growth fundamentals.",
+          "insight": {
+            "summary": "Campbelltown sits in the direct beneficiary zone of the Western Sydney Airport development at Badgerys Creek. The Aerotropolis employment precinct is expected to create over 200,000 jobs over the next two decades, and Campbelltown's affordability relative to inner Sydney makes it a logical destination for workers priced out of closer suburbs.",
+            "drivers": ["Western Sydney Airport Aerotropolis employment precinct — 200K+ jobs forecast", "Metro rail extension improving CBD connectivity", "Relative affordability vs inner-Sydney driving sustained demand", "Large tenant pool from health, education and defence sectors"],
+            "risks": ["Airport timeline delays could defer growth catalyst", "Higher vacancy than other picks — monitor leasing times", "Interest rate sensitivity at $820K price point"],
+            "recommendation": "BUY",
+            "rec_text": "A long-term structural play on Western Sydney's transformation. Best suited to investors with a 7–10 year horizon who want to get ahead of the Aerotropolis employment wave.",
+            "profiles": ["Long-term Buy and Hold", "Growth Investor", "Infrastructure Play"]
+          }
+        },
+        {
+          "name": "Coomera",
+          "state": "QLD",
+          "postcode": "4209",
+          "brickometer": 77,
+          "rating": "Strong",
+          "grossYield": 4.6,
+          "growth12m": 11.4,
+          "medianHouse": 740000,
+          "vacancyRate": 1.0,
+          "teaser": "Gold Coast's northern growth corridor with strong infrastructure investment, population inflow from Brisbane, and a diverse tenant base supporting consistent rental demand.",
+          "insight": {
+            "summary": "Coomera is the fastest-growing suburb on the Gold Coast, benefiting from a perfect storm of affordability (relative to Broadbeach and Surfers), major infrastructure investment, and population inflow from both Brisbane and interstate. The Coomera Town Centre development is transforming local amenity and employment.",
+            "drivers": ["Coomera Town Centre creating 5,000+ local jobs and significant retail amenity", "Population inflow from Brisbane and interstate migrants", "M1 corridor upgrades improving travel time to Brisbane CBD", "Strong school catchment driving family demand"],
+            "risks": ["High new dwelling supply in master-planned estates", "Flood mapping in low-lying areas — check individual properties", "Growth dependent on continued QLD interstate migration"],
+            "recommendation": "BUY",
+            "rec_text": "Strong fundamentals with a clear employment and amenity catalyst. Best suited to investors targeting the family rental market with a 5–7 year hold.",
+            "profiles": ["Buy and Hold", "Family Market", "Growth Investor"]
+          }
+        }
+      ]
+    },
+    "premium": {
+      "label": "💎 Premium Market",
+      "range": "$1M+",
+      "description": "Capital growth and long-term wealth creation for the experienced investor. Premium suburbs with strong owner-occupier appeal, proven infrastructure, and equity track records.",
+      "suburbs": [
+        {
+          "name": "Doncaster",
+          "state": "VIC",
+          "postcode": "3108",
+          "brickometer": 74,
+          "rating": "Strong",
+          "grossYield": 3.4,
+          "growth12m": 7.9,
+          "medianHouse": 1350000,
+          "vacancyRate": 0.9,
+          "teaser": "Melbourne's premium eastern corridor with high owner-occupier demand, excellent school catchments, and proximity to the CBD underpinning strong long-term capital growth.",
+          "insight": {
+            "summary": "Doncaster's investment case rests on scarcity, quality, and institutional demand. The suburb's position within the Doncaster Hill Activity Centre precinct, combined with consistently strong school catchments and sub-1% vacancy, makes it one of Melbourne's most resilient property markets across cycles.",
+            "drivers": ["Doncaster Hill Activity Centre precinct driving density and amenity uplift", "Top-tier school catchments driving persistent owner-occupier demand", "Sub-1% vacancy reflecting genuine housing scarcity", "Premium tenant profile — professionals and families with high income stability"],
+            "risks": ["3.4% yield requires strong borrowing capacity to service", "Entry price of $1.35M limits buyer pool for future resale", "Victoria land tax implications for investors to model carefully"],
+            "recommendation": "HOLD",
+            "rec_text": "A wealth preservation and steady growth play rather than a yield investment. Best suited to experienced investors seeking capital protection with reliable 7–8% annual growth over a long horizon.",
+            "profiles": ["Wealth Preservation", "Long-term Hold", "Experienced Investor"]
+          }
+        },
+        {
+          "name": "Fremantle",
+          "state": "WA",
+          "postcode": "6160",
+          "brickometer": 71,
+          "rating": "Strong",
+          "grossYield": 4.4,
+          "growth12m": 12.8,
+          "medianHouse": 1100000,
+          "vacancyRate": 1.1,
+          "teaser": "Fremantle offers a rare premium combination — lifestyle appeal, above-average yield for its price point, and strong growth driven by Perth's broader market momentum.",
+          "insight": {
+            "summary": "Fremantle is undergoing a significant lifestyle and cultural renaissance, attracting high-income professionals, creative industries, and hospitality workers who are driving rental demand for quality stock. At 4.4% yield for a $1.1M median, the income profile is exceptional for a premium suburb — and Perth's structural undersupply means growth has further to run.",
+            "drivers": ["Cultural and lifestyle renaissance attracting high-income professional tenants", "Perth structural undersupply — building approvals well below population growth", "4.4% yield exceptional for premium price point", "Port expansion and Fremantle waterfront investment lifting profile"],
+            "risks": ["Premium market more sensitive to interest rate movements", "WA economy has commodity cycle exposure", "Some heritage overlay areas restrict renovation and development upside"],
+            "recommendation": "BUY",
+            "rec_text": "The strongest premium pick on both yield and growth metrics. Perth's undersupply story has further to run and Fremantle sits at the lifestyle premium end of that equation.",
+            "profiles": ["Premium Investor", "Growth Investor", "Lifestyle Market"]
+          }
+        },
+        {
+          "name": "Parramatta",
+          "state": "NSW",
+          "postcode": "2150",
+          "brickometer": 68,
+          "rating": "Balanced",
+          "grossYield": 4.1,
+          "growth12m": 6.4,
+          "medianHouse": 1250000,
+          "vacancyRate": 1.5,
+          "teaser": "Sydney's second CBD with significant commercial investment and population density growth. Strong long-term fundamentals though entry price requires solid borrowing capacity.",
+          "insight": {
+            "summary": "Parramatta's long-term investment case is built on its transformation into Sydney's second CBD — a deliberate state government strategy backed by billions in commercial, transport, and cultural infrastructure. However the near-term picture is more nuanced, with elevated vacancy from new apartment supply and slower growth than outer corridors.",
+            "drivers": ["Second CBD commercial investment — banks, government agencies, major corporates", "Parramatta Light Rail Stage 2 improving connectivity across the precinct", "Population density and employment concentration supporting long-term rental demand", "Strong international student and professional tenant pool"],
+            "risks": ["Elevated vacancy from new apartment supply pipeline — buy houses not units", "1.5% vacancy above ideal threshold", "Entry price of $1.25M requires significant borrowing capacity", "Unit oversupply in high-rise zones depressing some rental returns"],
+            "recommendation": "MONITOR",
+            "rec_text": "Sound long-term fundamentals but near-term headwinds from supply. Focus on houses over units and wait for vacancy to tighten before committing — or negotiate hard on price.",
+            "profiles": ["Experienced Investor", "Long-term Hold", "CBD Play"]
+          }
+        }
+      ]
+    }
+  },
+
+  "suburbs": [
+    { "name": "Marsden Park", "state": "NSW", "postcode": "2765", "medianHouse": 870000, "medianUnit": 620000, "grossYield": 3.9, "vacancyRate": 1.1, "growth12m": 9.2, "growth3yr": 7.8, "growth5yr": 7.1, "demand": "High", "brickometer": 71, "rating": "Strong" },
+    { "name": "Riverstone", "state": "NSW", "postcode": "2765", "medianHouse": 920000, "medianUnit": 680000, "grossYield": 3.8, "vacancyRate": 1.0, "growth12m": 8.6, "growth3yr": 7.4, "growth5yr": 6.8, "demand": "High", "brickometer": 69, "rating": "Balanced" },
+    { "name": "Schofields", "state": "NSW", "postcode": "2762", "medianHouse": 1050000, "medianUnit": 740000, "grossYield": 3.6, "vacancyRate": 0.9, "growth12m": 7.8, "growth3yr": 6.9, "growth5yr": 6.4, "demand": "High", "brickometer": 67, "rating": "Balanced" },
+    { "name": "Parramatta", "state": "NSW", "postcode": "2150", "medianHouse": 1250000, "medianUnit": 680000, "grossYield": 4.1, "vacancyRate": 1.5, "growth12m": 6.4, "growth3yr": 5.8, "growth5yr": 6.2, "demand": "High", "brickometer": 68, "rating": "Balanced" },
+    { "name": "Liverpool", "state": "NSW", "postcode": "2170", "medianHouse": 960000, "medianUnit": 590000, "grossYield": 4.2, "vacancyRate": 1.3, "growth12m": 7.1, "growth3yr": 6.4, "growth5yr": 6.0, "demand": "High", "brickometer": 70, "rating": "Strong" },
+    { "name": "Campbelltown", "state": "NSW", "postcode": "2560", "medianHouse": 820000, "medianUnit": 520000, "grossYield": 4.5, "vacancyRate": 1.4, "growth12m": 8.3, "growth3yr": 7.1, "growth5yr": 6.5, "demand": "High", "brickometer": 72, "rating": "Strong" },
+    { "name": "Penrith", "state": "NSW", "postcode": "2750", "medianHouse": 890000, "medianUnit": 580000, "grossYield": 4.3, "vacancyRate": 1.2, "growth12m": 7.9, "growth3yr": 6.8, "growth5yr": 6.3, "demand": "High", "brickometer": 71, "rating": "Strong" },
+    { "name": "Blacktown", "state": "NSW", "postcode": "2148", "medianHouse": 950000, "medianUnit": 610000, "grossYield": 4.0, "vacancyRate": 1.1, "growth12m": 7.5, "growth3yr": 6.5, "growth5yr": 6.1, "demand": "High", "brickometer": 69, "rating": "Balanced" },
+    { "name": "South Wentworthville", "state": "NSW", "postcode": "2145", "medianHouse": 1080000, "medianUnit": 700000, "grossYield": 3.8, "vacancyRate": 1.0, "growth12m": 8.1, "growth3yr": 7.0, "growth5yr": 6.5, "demand": "High", "brickometer": 70, "rating": "Strong" },
+    { "name": "Newcastle", "state": "NSW", "postcode": "2300", "medianHouse": 880000, "medianUnit": 600000, "grossYield": 4.3, "vacancyRate": 1.3, "growth12m": 7.4, "growth3yr": 6.6, "growth5yr": 6.2, "demand": "High", "brickometer": 70, "rating": "Strong" },
+    { "name": "Maitland", "state": "NSW", "postcode": "2320", "medianHouse": 690000, "medianUnit": 460000, "grossYield": 4.8, "vacancyRate": 1.4, "growth12m": 8.0, "growth3yr": 6.8, "growth5yr": 6.1, "demand": "Emerging", "brickometer": 70, "rating": "Strong" },
+    { "name": "Wollongong", "state": "NSW", "postcode": "2500", "medianHouse": 920000, "medianUnit": 640000, "grossYield": 4.1, "vacancyRate": 1.2, "growth12m": 6.8, "growth3yr": 6.0, "growth5yr": 5.8, "demand": "Medium", "brickometer": 67, "rating": "Balanced" },
+    { "name": "Ipswich", "state": "QLD", "postcode": "4305", "medianHouse": 580000, "medianUnit": 380000, "grossYield": 5.2, "vacancyRate": 1.0, "growth12m": 12.4, "growth3yr": 10.1, "growth5yr": 8.8, "demand": "High", "brickometer": 78, "rating": "Strong" },
+    { "name": "Logan", "state": "QLD", "postcode": "4114", "medianHouse": 640000, "medianUnit": 420000, "grossYield": 5.0, "vacancyRate": 1.1, "growth12m": 11.8, "growth3yr": 9.6, "growth5yr": 8.4, "demand": "High", "brickometer": 76, "rating": "Strong" },
+    { "name": "Caboolture", "state": "QLD", "postcode": "4510", "medianHouse": 610000, "medianUnit": 410000, "grossYield": 4.9, "vacancyRate": 1.0, "growth12m": 11.2, "growth3yr": 9.1, "growth5yr": 8.0, "demand": "High", "brickometer": 75, "rating": "Strong" },
+    { "name": "Springfield", "state": "QLD", "postcode": "4300", "medianHouse": 670000, "medianUnit": 450000, "grossYield": 4.8, "vacancyRate": 0.9, "growth12m": 10.5, "growth3yr": 8.8, "growth5yr": 7.9, "demand": "High", "brickometer": 76, "rating": "Strong" },
+    { "name": "Toowoomba", "state": "QLD", "postcode": "4350", "medianHouse": 520000, "medianUnit": 340000, "grossYield": 5.4, "vacancyRate": 1.1, "growth12m": 10.1, "growth3yr": 8.4, "growth5yr": 7.5, "demand": "High", "brickometer": 75, "rating": "Strong" },
+    { "name": "Sunshine Coast", "state": "QLD", "postcode": "4558", "medianHouse": 980000, "medianUnit": 640000, "grossYield": 4.2, "vacancyRate": 1.3, "growth12m": 8.4, "growth3yr": 7.2, "growth5yr": 6.8, "demand": "High", "brickometer": 70, "rating": "Strong" },
+    { "name": "Gold Coast", "state": "QLD", "postcode": "4217", "medianHouse": 1100000, "medianUnit": 720000, "grossYield": 4.0, "vacancyRate": 1.4, "growth12m": 9.1, "growth3yr": 7.8, "growth5yr": 7.1, "demand": "High", "brickometer": 69, "rating": "Balanced" },
+    { "name": "Coomera", "state": "QLD", "postcode": "4209", "medianHouse": 740000, "medianUnit": 490000, "grossYield": 4.6, "vacancyRate": 1.0, "growth12m": 11.4, "growth3yr": 9.2, "growth5yr": 8.1, "demand": "High", "brickometer": 77, "rating": "Strong" },
+    { "name": "North Lakes", "state": "QLD", "postcode": "4509", "medianHouse": 780000, "medianUnit": 520000, "grossYield": 4.5, "vacancyRate": 1.0, "growth12m": 10.2, "growth3yr": 8.6, "growth5yr": 7.7, "demand": "High", "brickometer": 74, "rating": "Strong" },
+    { "name": "Hervey Bay", "state": "QLD", "postcode": "4655", "medianHouse": 560000, "medianUnit": 380000, "grossYield": 5.1, "vacancyRate": 1.3, "growth12m": 9.6, "growth3yr": 7.9, "growth5yr": 7.0, "demand": "Emerging", "brickometer": 72, "rating": "Strong" },
+    { "name": "Tarneit", "state": "VIC", "postcode": "3029", "medianHouse": 680000, "medianUnit": 460000, "grossYield": 4.2, "vacancyRate": 1.3, "growth12m": 6.8, "growth3yr": 5.9, "growth5yr": 5.6, "demand": "High", "brickometer": 67, "rating": "Balanced" },
+    { "name": "Werribee", "state": "VIC", "postcode": "3030", "medianHouse": 660000, "medianUnit": 440000, "grossYield": 4.3, "vacancyRate": 1.2, "growth12m": 7.1, "growth3yr": 6.1, "growth5yr": 5.8, "demand": "High", "brickometer": 68, "rating": "Balanced" },
+    { "name": "Cranbourne", "state": "VIC", "postcode": "3977", "medianHouse": 710000, "medianUnit": 480000, "grossYield": 4.1, "vacancyRate": 1.1, "growth12m": 6.5, "growth3yr": 5.7, "growth5yr": 5.4, "demand": "High", "brickometer": 67, "rating": "Balanced" },
+    { "name": "Doncaster", "state": "VIC", "postcode": "3108", "medianHouse": 1350000, "medianUnit": 820000, "grossYield": 3.4, "vacancyRate": 0.9, "growth12m": 7.9, "growth3yr": 7.0, "growth5yr": 6.6, "demand": "High", "brickometer": 74, "rating": "Strong" },
+    { "name": "Epping", "state": "VIC", "postcode": "3076", "medianHouse": 820000, "medianUnit": 560000, "grossYield": 4.0, "vacancyRate": 1.2, "growth12m": 6.2, "growth3yr": 5.5, "growth5yr": 5.2, "demand": "Medium", "brickometer": 65, "rating": "Balanced" },
+    { "name": "Melton", "state": "VIC", "postcode": "3337", "medianHouse": 580000, "medianUnit": 390000, "grossYield": 4.7, "vacancyRate": 1.1, "growth12m": 7.3, "growth3yr": 6.2, "growth5yr": 5.8, "demand": "Emerging", "brickometer": 69, "rating": "Balanced" },
+    { "name": "Point Cook", "state": "VIC", "postcode": "3030", "medianHouse": 780000, "medianUnit": 530000, "grossYield": 4.0, "vacancyRate": 1.0, "growth12m": 6.7, "growth3yr": 5.9, "growth5yr": 5.6, "demand": "High", "brickometer": 68, "rating": "Balanced" },
+    { "name": "Geelong", "state": "VIC", "postcode": "3220", "medianHouse": 680000, "medianUnit": 460000, "grossYield": 4.5, "vacancyRate": 1.2, "growth12m": 6.1, "growth3yr": 5.5, "growth5yr": 5.3, "demand": "Medium", "brickometer": 67, "rating": "Balanced" },
+    { "name": "Frankston", "state": "VIC", "postcode": "3199", "medianHouse": 720000, "medianUnit": 490000, "grossYield": 4.3, "vacancyRate": 1.3, "growth12m": 5.9, "growth3yr": 5.3, "growth5yr": 5.1, "demand": "Medium", "brickometer": 65, "rating": "Balanced" },
+    { "name": "Baldivis", "state": "WA", "postcode": "6171", "medianHouse": 560000, "medianUnit": 380000, "grossYield": 5.8, "vacancyRate": 0.8, "growth12m": 16.2, "growth3yr": 12.4, "growth5yr": 10.1, "demand": "High", "brickometer": 83, "rating": "Strong" },
+    { "name": "Rockingham", "state": "WA", "postcode": "6168", "medianHouse": 520000, "medianUnit": 360000, "grossYield": 5.9, "vacancyRate": 0.9, "growth12m": 15.4, "growth3yr": 11.8, "growth5yr": 9.6, "demand": "High", "brickometer": 82, "rating": "Strong" },
+    { "name": "Mandurah", "state": "WA", "postcode": "6210", "medianHouse": 490000, "medianUnit": 340000, "grossYield": 6.0, "vacancyRate": 1.0, "growth12m": 14.8, "growth3yr": 11.2, "growth5yr": 9.1, "demand": "High", "brickometer": 81, "rating": "Strong" },
+    { "name": "Armadale", "state": "WA", "postcode": "6112", "medianHouse": 490000, "medianUnit": 330000, "grossYield": 6.1, "vacancyRate": 0.8, "growth12m": 17.4, "growth3yr": 13.1, "growth5yr": 10.6, "demand": "High", "brickometer": 82, "rating": "Strong" },
+    { "name": "Ellenbrook", "state": "WA", "postcode": "6069", "medianHouse": 570000, "medianUnit": 390000, "grossYield": 5.5, "vacancyRate": 0.8, "growth12m": 15.1, "growth3yr": 11.6, "growth5yr": 9.4, "demand": "High", "brickometer": 81, "rating": "Strong" },
+    { "name": "Joondalup", "state": "WA", "postcode": "6027", "medianHouse": 680000, "medianUnit": 460000, "grossYield": 5.2, "vacancyRate": 0.9, "growth12m": 13.6, "growth3yr": 10.4, "growth5yr": 8.6, "demand": "High", "brickometer": 79, "rating": "Strong" },
+    { "name": "Kwinana", "state": "WA", "postcode": "6167", "medianHouse": 470000, "medianUnit": 320000, "grossYield": 6.2, "vacancyRate": 0.9, "growth12m": 16.0, "growth3yr": 12.2, "growth5yr": 9.9, "demand": "High", "brickometer": 82, "rating": "Strong" },
+    { "name": "Wanneroo", "state": "WA", "postcode": "6065", "medianHouse": 620000, "medianUnit": 420000, "grossYield": 5.3, "vacancyRate": 0.8, "growth12m": 15.6, "growth3yr": 11.9, "growth5yr": 9.7, "demand": "High", "brickometer": 81, "rating": "Strong" },
+    { "name": "Gosnells", "state": "WA", "postcode": "6110", "medianHouse": 500000, "medianUnit": 340000, "grossYield": 6.0, "vacancyRate": 0.9, "growth12m": 16.4, "growth3yr": 12.6, "growth5yr": 10.2, "demand": "High", "brickometer": 82, "rating": "Strong" }
+  ]
+}

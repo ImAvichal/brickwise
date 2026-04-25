@@ -1005,49 +1005,43 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 </footer>
 
 <script>
-// ── DATA ──
-const suburbs = [
-  {name:"Marsden Park",state:"NSW",postcode:"2765",medianHouse:870000,grossYield:3.9,vacancyRate:1.1,growth12m:9.2,demand:"High"},
-  {name:"Riverstone",state:"NSW",postcode:"2765",medianHouse:920000,grossYield:3.8,vacancyRate:1.0,growth12m:8.6,demand:"High"},
-  {name:"Schofields",state:"NSW",postcode:"2762",medianHouse:1050000,grossYield:3.6,vacancyRate:0.9,growth12m:7.8,demand:"High"},
-  {name:"Parramatta",state:"NSW",postcode:"2150",medianHouse:1250000,grossYield:4.1,vacancyRate:1.5,growth12m:6.4,demand:"High"},
-  {name:"Liverpool",state:"NSW",postcode:"2170",medianHouse:960000,grossYield:4.2,vacancyRate:1.3,growth12m:7.1,demand:"High"},
-  {name:"Campbelltown",state:"NSW",postcode:"2560",medianHouse:820000,grossYield:4.5,vacancyRate:1.4,growth12m:8.3,demand:"High"},
-  {name:"Penrith",state:"NSW",postcode:"2750",medianHouse:890000,grossYield:4.3,vacancyRate:1.2,growth12m:7.9,demand:"High"},
-  {name:"Blacktown",state:"NSW",postcode:"2148",medianHouse:950000,grossYield:4.0,vacancyRate:1.1,growth12m:7.5,demand:"High"},
-  {name:"South Wentworthville",state:"NSW",postcode:"2145",medianHouse:1080000,grossYield:3.8,vacancyRate:1.0,growth12m:8.1,demand:"High"},
-  {name:"Newcastle",state:"NSW",postcode:"2300",medianHouse:880000,grossYield:4.3,vacancyRate:1.3,growth12m:7.4,demand:"High"},
-  {name:"Maitland",state:"NSW",postcode:"2320",medianHouse:690000,grossYield:4.8,vacancyRate:1.4,growth12m:8.0,demand:"Emerging"},
-  {name:"Wollongong",state:"NSW",postcode:"2500",medianHouse:920000,grossYield:4.1,vacancyRate:1.2,growth12m:6.8,demand:"Medium"},
-  {name:"Ipswich",state:"QLD",postcode:"4305",medianHouse:580000,grossYield:5.2,vacancyRate:1.0,growth12m:12.4,demand:"High"},
-  {name:"Logan",state:"QLD",postcode:"4114",medianHouse:640000,grossYield:5.0,vacancyRate:1.1,growth12m:11.8,demand:"High"},
-  {name:"Caboolture",state:"QLD",postcode:"4510",medianHouse:610000,grossYield:4.9,vacancyRate:1.0,growth12m:11.2,demand:"High"},
-  {name:"Springfield",state:"QLD",postcode:"4300",medianHouse:670000,grossYield:4.8,vacancyRate:0.9,growth12m:10.5,demand:"High"},
-  {name:"Toowoomba",state:"QLD",postcode:"4350",medianHouse:520000,grossYield:5.4,vacancyRate:1.1,growth12m:10.1,demand:"High"},
-  {name:"Sunshine Coast",state:"QLD",postcode:"4558",medianHouse:980000,grossYield:4.2,vacancyRate:1.3,growth12m:8.4,demand:"High"},
-  {name:"Gold Coast",state:"QLD",postcode:"4217",medianHouse:1100000,grossYield:4.0,vacancyRate:1.4,growth12m:9.1,demand:"High"},
-  {name:"Coomera",state:"QLD",postcode:"4209",medianHouse:740000,grossYield:4.6,vacancyRate:1.0,growth12m:11.4,demand:"High"},
-  {name:"North Lakes",state:"QLD",postcode:"4509",medianHouse:780000,grossYield:4.5,vacancyRate:1.0,growth12m:10.2,demand:"High"},
-  {name:"Hervey Bay",state:"QLD",postcode:"4655",medianHouse:560000,grossYield:5.1,vacancyRate:1.3,growth12m:9.6,demand:"Emerging"},
-  {name:"Tarneit",state:"VIC",postcode:"3029",medianHouse:680000,grossYield:4.2,vacancyRate:1.3,growth12m:6.8,demand:"High"},
-  {name:"Werribee",state:"VIC",postcode:"3030",medianHouse:660000,grossYield:4.3,vacancyRate:1.2,growth12m:7.1,demand:"High"},
-  {name:"Cranbourne",state:"VIC",postcode:"3977",medianHouse:710000,grossYield:4.1,vacancyRate:1.1,growth12m:6.5,demand:"High"},
-  {name:"Doncaster",state:"VIC",postcode:"3108",medianHouse:1350000,grossYield:3.4,vacancyRate:0.9,growth12m:7.9,demand:"High"},
-  {name:"Epping",state:"VIC",postcode:"3076",medianHouse:820000,grossYield:4.0,vacancyRate:1.2,growth12m:6.2,demand:"Medium"},
-  {name:"Melton",state:"VIC",postcode:"3337",medianHouse:580000,grossYield:4.7,vacancyRate:1.1,growth12m:7.3,demand:"Emerging"},
-  {name:"Point Cook",state:"VIC",postcode:"3030",medianHouse:780000,grossYield:4.0,vacancyRate:1.0,growth12m:6.7,demand:"High"},
-  {name:"Geelong",state:"VIC",postcode:"3220",medianHouse:680000,grossYield:4.5,vacancyRate:1.2,growth12m:6.1,demand:"Medium"},
-  {name:"Frankston",state:"VIC",postcode:"3199",medianHouse:720000,grossYield:4.3,vacancyRate:1.3,growth12m:5.9,demand:"Medium"},
-  {name:"Baldivis",state:"WA",postcode:"6171",medianHouse:560000,grossYield:5.8,vacancyRate:0.8,growth12m:16.2,demand:"High"},
-  {name:"Rockingham",state:"WA",postcode:"6168",medianHouse:520000,grossYield:5.9,vacancyRate:0.9,growth12m:15.4,demand:"High"},
-  {name:"Mandurah",state:"WA",postcode:"6210",medianHouse:490000,grossYield:6.0,vacancyRate:1.0,growth12m:14.8,demand:"High"},
-  {name:"Armadale",state:"WA",postcode:"6112",medianHouse:490000,grossYield:6.1,vacancyRate:0.8,growth12m:17.4,demand:"High"},
-  {name:"Ellenbrook",state:"WA",postcode:"6069",medianHouse:570000,grossYield:5.5,vacancyRate:0.8,growth12m:15.1,demand:"High"},
-  {name:"Joondalup",state:"WA",postcode:"6027",medianHouse:680000,grossYield:5.2,vacancyRate:0.9,growth12m:13.6,demand:"High"},
-  {name:"Kwinana",state:"WA",postcode:"6167",medianHouse:470000,grossYield:6.2,vacancyRate:0.9,growth12m:16.0,demand:"High"},
-  {name:"Wanneroo",state:"WA",postcode:"6065",medianHouse:620000,grossYield:5.3,vacancyRate:0.8,growth12m:15.6,demand:"High"},
-  {name:"Gosnells",state:"WA",postcode:"6110",medianHouse:500000,grossYield:6.0,vacancyRate:0.9,growth12m:16.4,demand:"High"},
-];
+// ── DATA LAYER — loads from data.json (refreshed daily) ──
+let suburbs = [];
+let picks = {};
+let dataLoaded = false;
+
+async function loadData() {
+  try {
+    const res = await fetch('data.json?v=' + new Date().toISOString().slice(0,10));
+    const json = await res.json();
+    suburbs = json.suburbs;
+    picks = json.picks;
+    dataLoaded = true;
+    renderGrid();
+    renderPicks();
+    console.log(`BrickWise data loaded — ${suburbs.length} suburbs, generated ${json.meta.generated}`);
+  } catch(e) {
+    console.warn('data.json not found — falling back to inline data');
+    loadFallbackData();
+  }
+}
+
+function loadFallbackData() {
+  suburbs = [
+    {name:"Ipswich",state:"QLD",postcode:"4305",medianHouse:580000,medianUnit:380000,grossYield:5.2,vacancyRate:1.0,growth12m:12.4,demand:"High",brickometer:78,rating:"Strong"},
+    {name:"Armadale",state:"WA",postcode:"6112",medianHouse:490000,medianUnit:330000,grossYield:6.1,vacancyRate:0.8,growth12m:17.4,demand:"High",brickometer:82,rating:"Strong"},
+    {name:"Baldivis",state:"WA",postcode:"6171",medianHouse:560000,medianUnit:380000,grossYield:5.8,vacancyRate:0.8,growth12m:16.2,demand:"High",brickometer:83,rating:"Strong"},
+    {name:"Toowoomba",state:"QLD",postcode:"4350",medianHouse:520000,medianUnit:340000,grossYield:5.4,vacancyRate:1.1,growth12m:10.1,demand:"High",brickometer:75,rating:"Strong"},
+    {name:"Ellenbrook",state:"WA",postcode:"6069",medianHouse:570000,medianUnit:390000,grossYield:5.5,vacancyRate:0.8,growth12m:15.1,demand:"High",brickometer:81,rating:"Strong"},
+    {name:"Campbelltown",state:"NSW",postcode:"2560",medianHouse:820000,medianUnit:520000,grossYield:4.5,vacancyRate:1.4,growth12m:8.3,demand:"High",brickometer:72,rating:"Strong"},
+    {name:"Doncaster",state:"VIC",postcode:"3108",medianHouse:1350000,medianUnit:820000,grossYield:3.4,vacancyRate:0.9,growth12m:7.9,demand:"High",brickometer:74,rating:"Strong"},
+    {name:"Tarneit",state:"VIC",postcode:"3029",medianHouse:680000,medianUnit:460000,grossYield:4.2,vacancyRate:1.3,growth12m:6.8,demand:"High",brickometer:67,rating:"Balanced"},
+  ];
+  dataLoaded = true;
+  renderGrid();
+}
+
+loadData();
 
 // ── INSIGHTS DATA ──
 const insights = [
@@ -1307,6 +1301,37 @@ function runBrickometer(){
 
   document.getElementById('bm-placeholder').style.display='none';
   document.getElementById('bm-output').style.display='block';
+}
+
+// ── RENDER PICKS FROM DATA.JSON ──
+function renderPicks() {
+  if(!picks || !picks.sweet_spot) return;
+  const tiers = [
+    {key:'sweet_spot', panelId:'cpanel-0'},
+    {key:'growth_play', panelId:'cpanel-1'},
+    {key:'premium',    panelId:'cpanel-2'}
+  ];
+  tiers.forEach(({key, panelId}) => {
+    const tier = picks[key];
+    const panel = document.getElementById(panelId);
+    if(!panel || !tier) return;
+    const row = panel.querySelector('.ccard-row');
+    if(!row) return;
+    row.innerHTML = tier.suburbs.map((s, i) => `
+      <div class="ccard ${i===0?'featured':''}" onclick="openGate('${s.name}','${s.state} · ${s.postcode}','${s.grossYield}%','▲${s.growth12m}%','$${(s.medianHouse/1000).toFixed(0)}K','${s.brickometer} · ${s.rating}')">
+        <div class="ccard-badge">⬡ ${s.brickometer} · ${s.rating}</div>
+        <div class="ccard-suburb">${s.name}</div>
+        <div class="ccard-state">${s.state} · ${s.postcode}</div>
+        <div class="ccard-metrics">
+          <div class="cm"><div class="cm-val">${s.grossYield}%</div><div class="cm-key">Yield</div></div>
+          <div class="cm"><div class="cm-val" style="color:var(--lime);">▲${s.growth12m}%</div><div class="cm-key">12m Growth</div></div>
+          <div class="cm"><div class="cm-val">$${(s.medianHouse/1000).toFixed(0)}K</div><div class="cm-key">Median</div></div>
+          <div class="cm"><div class="cm-val">${s.vacancyRate}%</div><div class="cm-key">Vacancy</div></div>
+        </div>
+        <div class="ccard-teaser">${s.teaser}</div>
+        <div class="ccard-cta">View Insights →</div>
+      </div>`).join('');
+  });
 }
 
 // ── INSIGHTS ──
