@@ -6,1034 +6,1349 @@
 <title>BrickWise — Property Intelligence for Investors</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --lime: #C8F400;
-    --lime-dark: #a8d000;
-    --ink: #0D0D0D;
-    --ink2: #1a1a1a;
-    --slate: #2a2a2a;
-    --mid: #555;
-    --light: #f5f5f0;
-    --white: #ffffff;
-    --coral: #FF5C3A;
-    --sky: #38BDF8;
-    --gold: #F5A623;
-    --card-bg: #ffffff;
-    --border: #e8e8e0;
-    --shadow: 0 4px 24px rgba(0,0,0,0.08);
-    --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
-  }
+:root {
+  --lime:#C8F400; --lime-dark:#a8d000; --ink:#0D0D0D; --ink2:#1a1a1a;
+  --slate:#2a2a2a; --mid:#666; --light:#f5f5f0; --white:#fff;
+  --coral:#FF5C3A; --sky:#38BDF8; --gold:#F5A623; --border:#e8e8e0;
+  --shadow:0 4px 24px rgba(0,0,0,0.08); --shadow-lg:0 12px 48px rgba(0,0,0,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--ink);overflow-x:hidden;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;background:rgba(245,245,240,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;}
+.nav-logo span{color:var(--lime-dark);}
+.nav-links{display:flex;gap:1.8rem;align-items:center;}
+.nav-links a{font-size:0.88rem;font-weight:500;color:var(--mid);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{background:var(--ink)!important;color:var(--lime)!important;padding:0.5rem 1.2rem;border-radius:100px;font-weight:700!important;font-size:0.82rem!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:68px;left:0;right:0;background:rgba(245,245,240,0.98);border-bottom:1px solid var(--border);padding:1rem 5%;}
+  .nav-links.open{display:flex;}
+  .nav-links a{padding:0.75rem 0;border-bottom:1px solid var(--border);color:var(--ink)!important;}
+  .hamburger{display:flex;}
+}
 
-  html { scroll-behavior: smooth; }
+/* ── TICKER ── */
+.ticker-wrap{margin-top:68px;background:var(--lime);overflow:hidden;padding:0.55rem 0;white-space:nowrap;}
+.ticker{display:inline-flex;gap:3rem;animation:ticker 35s linear infinite;}
+.ticker span{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;color:var(--ink);letter-spacing:0.04em;text-transform:uppercase;}
+.tdot{color:rgba(0,0,0,0.3);}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--light);
-    color: var(--ink);
-    overflow-x: hidden;
-  }
+/* ── PAGE NAV (internal) ── */
+.page-tabs{display:flex;gap:0;background:var(--white);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;position:sticky;top:68px;z-index:100;}
+.page-tabs::-webkit-scrollbar{display:none;}
+.page-tab{padding:0.9rem 1.8rem;font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--mid);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;cursor:pointer;}
+.page-tab:hover,.page-tab.active{color:var(--ink);border-bottom-color:var(--ink);}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
-    height: 68px;
-    background: rgba(245,245,240,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.4rem;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: -0.02em;
-  }
-  .nav-logo span { color: var(--lime-dark); }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
-  .nav-links a {
-    font-size: 0.9rem; font-weight: 500; color: var(--mid);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-cta {
-    background: var(--ink); color: var(--lime) !important;
-    padding: 0.55rem 1.3rem; border-radius: 100px;
-    font-weight: 600 !important; font-size: 0.85rem !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--slate) !important; }
+/* ── PAGES ── */
+.page{display:none;}
+.page.active{display:block;}
 
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.3s; }
+/* ── SHARED ── */
+section{padding:72px 5%;}
+.section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:0.7rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:var(--ink);max-width:560px;}
+.section-sub{font-size:1rem;color:var(--mid);max-width:500px;margin-top:0.8rem;line-height:1.65;font-weight:300;}
+.btn-primary{background:var(--ink);color:var(--lime);padding:0.85rem 2rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;transition:transform 0.2s,box-shadow 0.2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+.btn-ghost{background:transparent;color:var(--ink);padding:0.85rem 2rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:600;font-size:0.9rem;text-decoration:none;border:2px solid var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;}
+.btn-ghost:hover{background:var(--ink);color:var(--lime);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 5% 80px;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(200,244,0,0.18) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 40% at 10% 80%, rgba(56,189,248,0.1) 0%, transparent 60%);
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--lime); color: var(--ink);
-    padding: 0.4rem 1rem; border-radius: 100px;
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
-    text-transform: uppercase; margin-bottom: 1.8rem;
-    width: fit-content; position: relative; z-index: 1;
-    animation: fadeUp 0.6s ease both;
-  }
-  .hero-tag::before { content: '●'; font-size: 0.5rem; color: var(--ink); }
+/* ── HERO ── */
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:80px 5% 72px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 80% 40%,rgba(200,244,0,0.16) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(56,189,248,0.08) 0%,transparent 60%);}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:var(--lime);color:var(--ink);padding:0.35rem 1rem;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.6rem;width:fit-content;position:relative;z-index:1;animation:fadeUp 0.6s ease both;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;color:var(--ink);max-width:760px;position:relative;z-index:1;animation:fadeUp 0.6s 0.1s ease both;}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--lime-dark),#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{font-size:clamp(1rem,1.5vw,1.1rem);color:var(--mid);line-height:1.7;max-width:520px;margin-top:1.3rem;font-weight:300;position:relative;z-index:1;animation:fadeUp 0.6s 0.2s ease both;}
+.hero-actions{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap;position:relative;z-index:1;animation:fadeUp 0.6s 0.3s ease both;}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap;position:relative;z-index:1;animation:fadeUp 0.6s 0.4s ease both;}
+.hero-stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em;}
+.hero-stat-num span{color:var(--lime-dark);}
+.hero-stat-label{font-size:0.8rem;color:var(--mid);margin-top:0.15rem;}
 
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2.8rem, 6vw, 5.2rem);
-    font-weight: 800; line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    max-width: 780px;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
-  .hero h1 em {
-    font-style: normal;
-    background: linear-gradient(135deg, var(--lime-dark), #6ee7b7);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 1.6vw, 1.15rem);
-    color: var(--mid); line-height: 1.65;
-    max-width: 520px; margin-top: 1.4rem;
-    font-weight: 300;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
-  .btn-primary {
-    background: var(--ink); color: var(--lime);
-    padding: 0.85rem 2rem; border-radius: 100px;
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-  .btn-secondary {
-    background: transparent; color: var(--ink);
-    padding: 0.85rem 2rem; border-radius: 100px;
-    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.95rem;
-    text-decoration: none; border: 2px solid var(--ink); cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-  }
-  .btn-secondary:hover { background: var(--ink); color: var(--lime); }
+/* ── BRICKOMETER PREVIEW on HERO ── */
+.brickometer-preview{background:var(--ink);border-radius:20px;padding:1.8rem;max-width:340px;position:relative;z-index:1;animation:fadeUp 0.6s 0.5s ease both;margin-top:2rem;}
+@media(min-width:900px){.hero-inner{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center;} .brickometer-preview{margin-top:0;}}
+.bp-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;}
+.bp-suburb{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.3rem;}
+.bp-state{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;}
+/* Gauge */
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:1.2rem;}
+.gauge-svg{width:160px;height:90px;}
+.gauge-score{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--white);text-align:center;margin-top:-0.5rem;}
+.gauge-rating{font-size:0.75rem;font-weight:700;color:var(--lime);text-align:center;letter-spacing:0.06em;text-transform:uppercase;}
+.bp-bars{display:flex;flex-direction:column;gap:0.55rem;margin-top:1rem;}
+.bp-bar-row{display:flex;align-items:center;gap:0.6rem;}
+.bp-bar-label{font-size:0.68rem;color:rgba(255,255,255,0.45);width:80px;flex-shrink:0;}
+.bp-bar-track{flex:1;height:4px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;}
+.bp-bar-fill{height:100%;border-radius:4px;transition:width 1s ease;}
+.bp-bar-val{font-size:0.68rem;font-weight:700;color:rgba(255,255,255,0.7);width:24px;text-align:right;}
 
-  .hero-stats {
-    display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap;
-    position: relative; z-index: 1;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-  .hero-stat-num {
-    font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
-    color: var(--ink); letter-spacing: -0.02em;
-  }
-  .hero-stat-num span { color: var(--lime-dark); }
-  .hero-stat-label { font-size: 0.82rem; color: var(--mid); margin-top: 0.15rem; font-weight: 400; }
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-top:2.5rem;}
+.feature-card{padding:1.6rem;border-radius:16px;border:1.5px solid var(--border);background:var(--white);transition:border-color 0.2s,transform 0.2s;}
+.feature-card:hover{border-color:var(--lime-dark);transform:translateY(-3px);}
+.feature-icon{font-size:1.5rem;background:var(--lime);width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:0.9rem;}
+.feature-card h3{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;}
+.feature-card p{font-size:0.84rem;color:var(--mid);line-height:1.6;}
 
-  /* ── SECTIONS ── */
-  section { padding: 80px 5%; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--lime-dark);
-    margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
-    color: var(--ink); max-width: 560px;
-  }
-  .section-sub {
-    font-size: 1rem; color: var(--mid); max-width: 500px;
-    margin-top: 0.8rem; line-height: 1.65; font-weight: 300;
-  }
+/* ── HOW IT WORKS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-top:2.5rem;}
+.step-card{background:var(--white);border-radius:16px;padding:1.6rem;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;}
+.step-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.step-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--lime);line-height:1;margin-bottom:0.8rem;}
+.step-card h3{font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;}
+.step-card p{font-size:0.83rem;color:var(--mid);line-height:1.6;}
 
-  /* ── SUBURB SEARCH ── */
-  #search { background: var(--ink); color: var(--white); }
-  #search .section-title { color: var(--white); max-width: 640px; }
-  #search .section-sub { color: rgba(255,255,255,0.55); }
-  #search .section-label { color: var(--lime); }
+/* ── WINNER SUBURBS ── */
+.winner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:2rem;}
+.winner-card{background:var(--ink);border-radius:16px;padding:1.5rem;border:1px solid rgba(255,255,255,0.08);}
+.winner-band{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime);margin-bottom:0.6rem;}
+.winner-suburb{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:var(--white);}
+.winner-state{font-size:0.75rem;color:rgba(255,255,255,0.35);margin-bottom:0.9rem;}
+.winner-score-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;}
+.winner-score{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--lime);}
+.winner-score-label{font-size:0.68rem;color:rgba(255,255,255,0.35);}
+.winner-metrics{display:flex;gap:1rem;flex-wrap:wrap;}
+.wm{font-size:0.75rem;}
+.wm-val{font-weight:700;color:var(--white);}
+.wm-key{color:rgba(255,255,255,0.35);}
 
-  .search-box {
-    margin-top: 2.5rem;
-    display: flex; gap: 0; max-width: 560px;
-    background: var(--ink2); border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.12);
-    overflow: hidden;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .search-box:focus-within {
-    border-color: var(--lime);
-    box-shadow: 0 0 0 3px rgba(200,244,0,0.15);
-  }
-  .search-box input {
-    flex: 1; background: transparent; border: none; outline: none;
-    padding: 1rem 1.2rem; color: var(--white);
-    font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
-  }
-  .search-box input::placeholder { color: rgba(255,255,255,0.3); }
-  .search-box button {
-    background: var(--lime); color: var(--ink);
-    border: none; padding: 0 1.6rem;
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
-    cursor: pointer; transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .search-box button:hover { background: var(--lime-dark); }
+/* ── BRICKOMETER PAGE ── */
+.brickometer-layout{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem;align-items:start;}
+@media(max-width:768px){.brickometer-layout{grid-template-columns:1fr;}}
+.bm-inputs{display:flex;flex-direction:column;gap:0.9rem;}
+.input-section-title{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-top:0.5rem;margin-bottom:0.2rem;}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.ig{display:flex;flex-direction:column;gap:0.35rem;}
+.ig label{font-size:0.75rem;font-weight:600;color:var(--mid);letter-spacing:0.04em;text-transform:uppercase;}
+.ig input,.ig select{background:var(--light);border:1.5px solid var(--border);border-radius:10px;padding:0.7rem 0.9rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;}
+.ig input:focus,.ig select:focus{border-color:var(--lime-dark);}
+.btn-calc{background:var(--ink);color:var(--lime);border:none;padding:1rem 2rem;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;margin-top:0.5rem;transition:transform 0.2s,box-shadow 0.2s;width:100%;}
+.btn-calc:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
 
-  /* Search Results */
-  #search-results {
-    margin-top: 1.5rem; max-width: 900px;
-  }
+/* Results panel */
+.bm-results{background:var(--ink);border-radius:20px;padding:2rem;color:var(--white);}
+.bm-results-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:320px;opacity:0.4;}
+.bm-results-placeholder p{font-size:0.9rem;text-align:center;margin-top:1rem;line-height:1.5;}
+.big-score-wrap{text-align:center;margin-bottom:1.5rem;}
+.big-gauge{width:180px;height:100px;margin:0 auto;}
+.big-score-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--white);line-height:1;}
+.big-score-rating{font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;}
+.rating-excellent{color:#4ade80;}
+.rating-strong{color:var(--lime);}
+.rating-balanced{color:var(--gold);}
+.rating-caution{color:#fb923c;}
+.rating-highrisk{color:var(--coral);}
+.component-bars{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1.5rem;}
+.cb-row{display:flex;align-items:center;gap:0.8rem;}
+.cb-label{font-size:0.72rem;color:rgba(255,255,255,0.5);width:100px;flex-shrink:0;}
+.cb-track{flex:1;height:6px;background:rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;}
+.cb-fill{height:100%;border-radius:6px;background:var(--lime);transition:width 0.8s ease;}
+.cb-val{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.7);width:28px;text-align:right;}
+.strengths-risks{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+.sr-title{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;}
+.sr-green{color:var(--lime);}
+.sr-red{color:var(--coral);}
+.sr-item{font-size:0.78rem;color:rgba(255,255,255,0.6);line-height:1.4;margin-bottom:0.3rem;padding-left:0.8rem;position:relative;}
+.sr-item::before{content:'▸';position:absolute;left:0;font-size:0.6rem;}
+.rec-panel{background:rgba(200,244,0,0.1);border:1px solid rgba(200,244,0,0.25);border-radius:12px;padding:1rem 1.2rem;}
+.rec-panel.caution{background:rgba(245,166,35,0.1);border-color:rgba(245,166,35,0.25);}
+.rec-panel.avoid{background:rgba(255,92,58,0.1);border-color:rgba(255,92,58,0.25);}
+.rec-verdict{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;color:var(--lime);margin-bottom:0.3rem;}
+.rec-panel.caution .rec-verdict{color:var(--gold);}
+.rec-panel.avoid .rec-verdict{color:var(--coral);}
+.rec-text{font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.5;}
+.bm-disclaimer{margin-top:1rem;font-size:0.68rem;color:rgba(255,255,255,0.25);line-height:1.5;border-top:1px solid rgba(255,255,255,0.06);padding-top:1rem;}
 
-  .suburb-card {
-    background: var(--ink2);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px; padding: 1.5rem 1.8rem;
-    margin-bottom: 1rem;
-    animation: fadeUp 0.4s ease both;
-  }
-  .suburb-card-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;
-  }
-  .suburb-name {
-    font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700;
-    color: var(--white);
-  }
-  .suburb-state {
-    font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem;
-  }
-  .growth-badge {
-    background: rgba(200,244,0,0.15); color: var(--lime);
-    padding: 0.35rem 0.9rem; border-radius: 100px;
-    font-size: 0.8rem; font-weight: 600;
-    border: 1px solid rgba(200,244,0,0.3);
-  }
-  .suburb-metrics {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;
-  }
-  .metric { }
-  .metric-val {
-    font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white);
-  }
-  .metric-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
-  .demand-high { color: var(--lime); }
-  .demand-med { color: var(--gold); }
-  .demand-emerging { color: var(--sky); }
+/* ── ABOUT PAGE ── */
+.about-hero{background:var(--ink);padding:80px 5% 72px;color:var(--white);}
+.about-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.05;max-width:640px;}
+.about-hero h1 em{font-style:normal;color:var(--lime);}
+.about-hero p{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin-top:1.2rem;line-height:1.7;font-weight:300;}
+.about-body{padding:72px 5%;background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;}}
+.about-text h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;color:var(--ink);margin-bottom:1rem;}
+.about-text p{font-size:0.95rem;color:var(--mid);line-height:1.75;margin-bottom:1rem;font-weight:300;}
+.about-text p:last-child{margin-bottom:0;}
+.about-values{display:flex;flex-direction:column;gap:1rem;}
+.value-card{background:var(--light);border-radius:14px;padding:1.4rem;border:1px solid var(--border);}
+.value-card h3{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;}
+.value-card p{font-size:0.83rem;color:var(--mid);line-height:1.6;}
+.about-mission{background:var(--ink);border-radius:20px;padding:2rem;margin-top:2rem;}
+.about-mission h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--lime);margin-bottom:0.8rem;}
+.about-mission p{font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7;}
+.formula-box{background:var(--light);border-radius:14px;padding:1.5rem;border:1px solid var(--border);margin-top:1.5rem;}
+.formula-box h4{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:var(--mid);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;}
+.formula-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.85rem;}
+.formula-row:last-child{border-bottom:none;}
+.formula-row span:first-child{color:var(--ink);font-weight:500;}
+.formula-weight{font-family:'Syne',sans-serif;font-weight:700;color:var(--lime-dark);}
 
-  .not-found-card {
-    background: var(--ink2); border: 1px dashed rgba(255,255,255,0.15);
-    border-radius: 16px; padding: 2rem; max-width: 560px;
-    animation: fadeUp 0.4s ease both;
-  }
-  .not-found-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
-    color: var(--white); margin-bottom: 0.5rem;
-  }
-  .not-found-card p { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 1.2rem; }
+/* ── EXPLORE INNER TABS ── */
+.etab{background:transparent;border:none;border-bottom:2px solid transparent;padding:0.9rem 1.8rem;font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.etab:hover{color:rgba(255,255,255,0.7);}
+.etab.active{color:var(--white);border-bottom-color:var(--lime);}
+.epanel{display:none;}
+.epanel.active{display:block;animation:fadeUp 0.3s ease both;}
 
-  .capture-form { display: flex; flex-direction: column; gap: 0.8rem; }
-  .capture-form input {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px; padding: 0.8rem 1rem;
-    color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    outline: none; transition: border-color 0.2s;
-  }
-  .capture-form input:focus { border-color: var(--lime); }
-  .capture-form input::placeholder { color: rgba(255,255,255,0.25); }
-  .capture-form button {
-    background: var(--lime); color: var(--ink);
-    border: none; padding: 0.85rem 1.5rem; border-radius: 10px;
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
-    cursor: pointer; transition: background 0.2s; align-self: flex-start;
-  }
-  .capture-form button:hover { background: var(--lime-dark); }
-  .success-msg {
-    background: rgba(200,244,0,0.12); border: 1px solid rgba(200,244,0,0.3);
-    border-radius: 10px; padding: 1rem 1.2rem;
-    color: var(--lime); font-size: 0.9rem; font-weight: 500;
-    display: none;
-  }
+/* ── CAROUSEL ── */
+.ctab{display:flex;flex-direction:column;align-items:flex-start;padding:1rem 2rem 0.9rem;background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap;gap:0.15rem;}
+.ctab:hover{border-bottom-color:rgba(255,255,255,0.2);}
+.ctab.active{border-bottom-color:var(--lime);}
+.ctab-icon{font-size:1.1rem;}
+.ctab-name{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.45);transition:color 0.2s;}
+.ctab.active .ctab-name{color:var(--white);}
+.ctab-range{font-size:0.7rem;color:rgba(255,255,255,0.3);}
+.ctab.active .ctab-range{color:var(--lime);}
+.cpanel{display:none;padding:2rem 5% 3rem;}
+.cpanel.active{display:block;animation:fadeUp 0.35s ease both;}
+.cpanel-desc{font-size:0.88rem;color:rgba(255,255,255,0.4);max-width:620px;line-height:1.65;margin-bottom:1.8rem;font-weight:300;}
+.ccard-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;}
+.ccard{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.5rem;cursor:pointer;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:0.75rem;}
+.ccard:hover{border-color:var(--lime);transform:translateY(-3px);}
+.ccard.featured{border-color:rgba(200,244,0,0.2);background:rgba(200,244,0,0.03);}
+.ccard-badge{display:inline-flex;background:rgba(200,244,0,0.12);color:var(--lime);border:1px solid rgba(200,244,0,0.25);padding:0.28rem 0.8rem;border-radius:100px;font-size:0.68rem;font-weight:700;width:fit-content;}
+.ccard-suburb{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--white);}
+.ccard-state{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:-0.5rem;}
+.ccard-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0.4rem;}
+.cm-val{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;color:var(--white);}
+.cm-key{font-size:0.63rem;color:rgba(255,255,255,0.3);margin-top:0.1rem;}
+.ccard-teaser{font-size:0.79rem;color:rgba(255,255,255,0.45);line-height:1.65;border-top:1px solid rgba(255,255,255,0.06);padding-top:0.75rem;flex:1;}
+.ccard-cta{font-size:0.76rem;font-weight:700;color:var(--lime);letter-spacing:0.02em;}
 
-  /* Quick suggestions */
-  .quick-suburbs {
-    display: flex; gap: 0.6rem; margin-top: 1.2rem; flex-wrap: wrap;
-  }
-  .quick-tag {
-    background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6);
-    padding: 0.4rem 0.9rem; border-radius: 100px;
-    font-size: 0.78rem; cursor: pointer; border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.2s;
-  }
-  .quick-tag:hover { background: rgba(200,244,0,0.15); color: var(--lime); border-color: rgba(200,244,0,0.3); }
+/* ── INSIGHTS (blog renamed) ── */
+.insights-hero{background:var(--light);padding:60px 5% 40px;}
+.insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;}
+.insight-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;cursor:pointer;}
+.insight-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.insight-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.insight-body{padding:1.4rem;}
+.insight-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:0.5rem;}
+.insight-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:0.5rem;}
+.insight-card p{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+.insight-meta{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;font-size:0.75rem;color:rgba(0,0,0,0.3);}
+.insight-read{color:var(--lime-dark);font-weight:600;font-size:0.78rem;}
 
-  /* ── DEAL ANALYSER ── */
-  #analyser { background: var(--white); }
+/* Category filter */
+.filter-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.5rem;}
+.filter-btn{padding:0.42rem 1rem;border-radius:100px;border:1.5px solid var(--border);background:transparent;font-size:0.78rem;font-weight:600;cursor:pointer;color:var(--mid);transition:all 0.2s;}
+.filter-btn.active,.filter-btn:hover{background:var(--ink);color:var(--lime);border-color:var(--ink);}
 
-  .analyser-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem;
-  }
-  .analyser-inputs { display: flex; flex-direction: column; gap: 1rem; }
-  .input-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .input-group label {
-    font-size: 0.8rem; font-weight: 600; color: var(--mid);
-    letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  .input-group input, .input-group select {
-    background: var(--light); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 0.75rem 1rem;
-    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink);
-    outline: none; transition: border-color 0.2s;
-  }
-  .input-group input:focus, .input-group select:focus { border-color: var(--lime-dark); }
+/* ── REGISTER / LEAD ── */
+.register-hero{background:var(--ink);padding:80px 5% 60px;color:var(--white);}
+.register-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.05;max-width:560px;color:var(--white);}
+.register-hero h1 em{font-style:normal;color:var(--lime);}
+.register-hero p{font-size:1rem;color:rgba(255,255,255,0.5);max-width:480px;margin-top:1rem;line-height:1.65;font-weight:300;}
+.register-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:72px 5%;align-items:start;}
+@media(max-width:768px){.register-layout{grid-template-columns:1fr;gap:2rem;padding:48px 5%;}}
+.reg-form{background:var(--white);border-radius:20px;padding:2rem;border:1px solid var(--border);}
+.reg-form h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:1.5rem;}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.reg-ig{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:0.8rem;}
+.reg-ig label{font-size:0.75rem;font-weight:600;color:var(--mid);letter-spacing:0.04em;text-transform:uppercase;}
+.reg-ig input,.reg-ig select,.reg-ig textarea{background:var(--light);border:1.5px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;width:100%;}
+.reg-ig input:focus,.reg-ig select:focus,.reg-ig textarea:focus{border-color:var(--lime-dark);}
+.reg-ig textarea{resize:vertical;min-height:80px;}
+.btn-register{background:var(--ink);color:var(--lime);border:none;padding:1rem 2rem;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;width:100%;margin-top:0.5rem;transition:transform 0.2s,box-shadow 0.2s;}
+.btn-register:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+.reg-success{display:none;background:rgba(200,244,0,0.12);border:1px solid rgba(200,244,0,0.3);border-radius:12px;padding:1.5rem;text-align:center;}
+.reg-success h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--lime-dark);margin-bottom:0.4rem;}
+.reg-success p{font-size:0.85rem;color:var(--mid);}
+.reg-benefits{display:flex;flex-direction:column;gap:1rem;}
+.reg-benefit{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:rgba(200,244,0,0.06);border:1px solid rgba(200,244,0,0.15);border-radius:14px;}
+.rb-icon{font-size:1.4rem;flex-shrink:0;}
+.rb-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.25rem;}
+.rb-desc{font-size:0.82rem;color:var(--mid);line-height:1.5;}
+.plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+@media(max-width:500px){.plan-cards{grid-template-columns:1fr;}}
+.plan-card{border-radius:14px;padding:1.4rem;border:1.5px solid var(--border);background:var(--white);}
+.plan-card.featured{background:var(--ink);border-color:var(--ink);}
+.plan-name{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:0.5rem;}
+.plan-card.featured .plan-name{color:var(--lime);}
+.plan-price{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;}
+.plan-card.featured .plan-price{color:var(--white);}
+.plan-desc{font-size:0.78rem;color:var(--mid);line-height:1.5;}
+.plan-card.featured .plan-desc{color:rgba(255,255,255,0.45);}
 
-  .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+/* ── SUBURB SEARCH (home) ── */
+.search-section{background:var(--ink);padding:72px 5%;}
+.search-section .section-title{color:var(--white);max-width:600px;}
+.search-section .section-sub{color:rgba(255,255,255,0.45);}
+.search-box{display:flex;max-width:520px;background:var(--ink2);border-radius:14px;border:1.5px solid rgba(255,255,255,0.1);overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s;margin-top:2rem;}
+.search-box:focus-within{border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,244,0,0.12);}
+.search-box input{flex:1;background:transparent;border:none;outline:none;padding:0.9rem 1.2rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;}
+.search-box input::placeholder{color:rgba(255,255,255,0.25);}
+.search-box button{background:var(--lime);color:var(--ink);border:none;padding:0 1.5rem;font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;white-space:nowrap;transition:background 0.2s;}
+.search-box button:hover{background:var(--lime-dark);}
+.quick-pills{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;}
+.pill{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);padding:0.32rem 0.85rem;border-radius:100px;font-size:0.73rem;cursor:pointer;border:1px solid rgba(255,255,255,0.1);transition:all 0.2s;}
+.pill:hover{background:rgba(200,244,0,0.15);color:var(--lime);border-color:rgba(200,244,0,0.3);}
+#search-results{margin-top:1.5rem;max-width:860px;}
+.suburb-card{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.4rem 1.6rem;margin-bottom:1rem;animation:fadeUp 0.4s ease both;}
+.suburb-card-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;}
+.suburb-name{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);}
+.suburb-state{font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:0.15rem;}
+.growth-badge{background:rgba(200,244,0,0.15);color:var(--lime);padding:0.3rem 0.85rem;border-radius:100px;font-size:0.75rem;font-weight:700;border:1px solid rgba(200,244,0,0.3);}
+.suburb-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:0.8rem;}
+.s-metric-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);}
+.s-metric-label{font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.15rem;}
+.demand-high{color:var(--lime);}
+.demand-med{color:var(--gold);}
+.demand-emerging{color:var(--sky);}
+.not-found-card{background:var(--ink2);border:1px dashed rgba(255,255,255,0.15);border-radius:16px;padding:1.8rem;max-width:520px;animation:fadeUp 0.4s ease both;}
+.not-found-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.not-found-card p{font-size:0.85rem;color:rgba(255,255,255,0.45);margin-bottom:1rem;}
+.capture-form{display:flex;flex-direction:column;gap:0.7rem;}
+.capture-form input,.capture-form select{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;}
+.capture-form input:focus{border-color:var(--lime);}
+.capture-form input::placeholder{color:rgba(255,255,255,0.2);}
+.capture-form button{background:var(--lime);color:var(--ink);border:none;padding:0.8rem 1.5rem;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;transition:background 0.2s;align-self:flex-start;}
+.capture-form button:hover{background:var(--lime-dark);}
+.success-msg{background:rgba(200,244,0,0.12);border:1px solid rgba(200,244,0,0.3);border-radius:10px;padding:1rem 1.2rem;color:var(--lime);font-size:0.85rem;font-weight:500;display:none;}
 
-  .btn-calc {
-    background: var(--ink); color: var(--lime);
-    border: none; padding: 1rem 2rem; border-radius: 12px;
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem;
-    cursor: pointer; margin-top: 0.5rem; transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+/* suburb grid */
+.suburbs-outer{background:var(--ink);padding:0 5% 72px;}
+.filter-row-dark{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.filter-btn-dark{padding:0.4rem 1rem;border-radius:100px;border:1px solid rgba(255,255,255,0.15);background:transparent;font-size:0.75rem;font-weight:600;cursor:pointer;color:rgba(255,255,255,0.45);transition:all 0.2s;}
+.filter-btn-dark.active,.filter-btn-dark:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);}
+.suburbs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0.8rem;}
+.suburb-mini{background:var(--ink2);border-radius:13px;padding:1.1rem 1.3rem;border:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:border-color 0.2s,transform 0.2s;}
+.suburb-mini:hover{border-color:var(--lime);transform:translateY(-2px);}
+.sm-name{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--white);}
+.sm-state{font-size:0.68rem;color:rgba(255,255,255,0.3);margin-bottom:0.7rem;}
+.sm-row{display:flex;justify-content:space-between;margin-top:0.35rem;}
+.sm-val{font-size:0.78rem;font-weight:600;color:var(--white);}
+.sm-key{font-size:0.68rem;color:rgba(255,255,255,0.3);}
+.sm-growth{font-size:0.75rem;font-weight:700;color:var(--lime);}
 
-  .results-panel {
-    background: var(--ink); border-radius: 20px; padding: 2rem;
-    color: var(--white); display: flex; flex-direction: column; gap: 1.2rem;
-  }
-  .results-panel h3 {
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase;
-  }
-  .result-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .result-row:last-of-type { border-bottom: none; }
-  .result-label { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
-  .result-val {
-    font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white);
-  }
-  .result-val.positive { color: var(--lime); }
-  .result-val.warning { color: var(--gold); }
-  .result-val.negative { color: var(--coral); }
+/* Deal Analyser */
+.analyser-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem;}
+@media(max-width:768px){.analyser-grid{grid-template-columns:1fr;}}
+.results-panel{background:var(--ink);border-radius:20px;padding:2rem;color:var(--white);display:flex;flex-direction:column;gap:1rem;}
+.results-panel h3{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:0.7rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.result-row:last-of-type{border-bottom:none;}
+.result-label{font-size:0.84rem;color:rgba(255,255,255,0.5);}
+.result-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);}
+.result-val.positive{color:var(--lime);}
+.result-val.warning{color:var(--gold);}
+.result-val.negative{color:var(--coral);}
+.verdict-box{background:rgba(200,244,0,0.1);border:1px solid rgba(200,244,0,0.25);border-radius:12px;padding:1rem 1.2rem;margin-top:0.5rem;}
+.verdict-box.neutral{background:rgba(245,166,35,0.1);border-color:rgba(245,166,35,0.25);}
+.verdict-title{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;color:var(--lime);margin-bottom:0.25rem;}
+.verdict-box.neutral .verdict-title{color:var(--gold);}
+.verdict-text{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5;}
 
-  .verdict-box {
-    background: rgba(200,244,0,0.12); border: 1px solid rgba(200,244,0,0.25);
-    border-radius: 12px; padding: 1rem 1.2rem;
-  }
-  .verdict-box.neutral { background: rgba(245,166,35,0.12); border-color: rgba(245,166,35,0.25); }
-  .verdict-title {
-    font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
-    color: var(--lime); margin-bottom: 0.3rem;
-  }
-  .verdict-box.neutral .verdict-title { color: var(--gold); }
-  .verdict-text { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+/* CTA */
+.cta-section{background:var(--ink);text-align:center;padding:96px 5%;}
+.cta-section .section-title{color:var(--white);max-width:560px;margin:0 auto 1rem;}
+.cta-section .section-sub{color:rgba(255,255,255,0.45);margin:0 auto 2rem;text-align:center;}
+.cta-form{display:flex;gap:0.8rem;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+.cta-form input{flex:1;min-width:200px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:0.85rem 1.4rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+.cta-form input:focus{border-color:var(--lime);}
+.cta-form input::placeholder{color:rgba(255,255,255,0.25);}
+.cta-form button{background:var(--lime);color:var(--ink);border:none;padding:0.85rem 1.8rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.cta-form button:hover{background:var(--lime-dark);}
+.cta-success{color:var(--lime);font-size:0.88rem;font-weight:500;margin-top:1rem;display:none;}
+.cta-note{font-size:0.75rem;color:rgba(255,255,255,0.25);margin-top:1rem;}
 
-  /* ── HOW IT WORKS ── */
-  #how { background: var(--light); }
-  .steps-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem; margin-top: 2.5rem;
-  }
-  .step-card {
-    background: var(--white); border-radius: 16px; padding: 1.8rem;
-    border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-  }
-  .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .step-num {
-    font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
-    color: var(--lime); line-height: 1; margin-bottom: 1rem;
-  }
-  .step-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    color: var(--ink); margin-bottom: 0.5rem;
-  }
-  .step-card p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
-
-  /* ── FEATURES ── */
-  #features { background: var(--white); }
-  .features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem; margin-top: 2.5rem;
-  }
-  .feature-card {
-    padding: 1.8rem; border-radius: 16px;
-    border: 1.5px solid var(--border); background: var(--light);
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .feature-card:hover { border-color: var(--lime-dark); transform: translateY(-3px); }
-  .feature-icon {
-    font-size: 1.8rem; margin-bottom: 1rem;
-    background: var(--lime); width: 48px; height: 48px;
-    border-radius: 12px; display: flex; align-items: center; justify-content: center;
-  }
-  .feature-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    color: var(--ink); margin-bottom: 0.5rem;
-  }
-  .feature-card p { font-size: 0.87rem; color: var(--mid); line-height: 1.6; }
-
-  /* ── CTA ── */
-  #cta {
-    background: var(--ink); text-align: center; padding: 100px 5%;
-  }
-  #cta .section-title { color: var(--white); max-width: 600px; margin: 0 auto 1rem; }
-  #cta .section-sub { color: rgba(255,255,255,0.5); margin: 0 auto 2rem; text-align: center; }
-  .cta-form {
-    display: flex; gap: 0.8rem; max-width: 460px; margin: 0 auto; flex-wrap: wrap;
-    justify-content: center;
-  }
-  .cta-form input {
-    flex: 1; min-width: 220px;
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 100px; padding: 0.85rem 1.4rem;
-    color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
-    outline: none; transition: border-color 0.2s;
-  }
-  .cta-form input:focus { border-color: var(--lime); }
-  .cta-form input::placeholder { color: rgba(255,255,255,0.3); }
-  .cta-form button {
-    background: var(--lime); color: var(--ink);
-    border: none; padding: 0.85rem 1.8rem; border-radius: 100px;
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
-    cursor: pointer; transition: background 0.2s, transform 0.2s;
-    white-space: nowrap;
-  }
-  .cta-form button:hover { background: var(--lime-dark); transform: scale(1.03); }
-  .cta-success {
-    color: var(--lime); font-size: 0.9rem; font-weight: 500;
-    margin-top: 1rem; display: none;
-  }
-  .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 1rem; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink2); padding: 2.5rem 5%;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .footer-logo {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem;
-    color: var(--white); text-decoration: none;
-  }
-  .footer-logo span { color: var(--lime); }
-  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; gap: 0;
-      position: absolute; top: 68px; left: 0; right: 0;
-      background: rgba(245,245,240,0.98); border-bottom: 1px solid var(--border);
-      padding: 1rem 5%;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 0.75rem 0; border-bottom: 1px solid var(--border); color: var(--ink) !important; }
-    .nav-links a:last-child { border-bottom: none; }
-    .hamburger { display: flex; }
-    .hero { padding-top: 100px; }
-    .hero-stats { gap: 1.5rem; }
-    .analyser-grid { grid-template-columns: 1fr; }
-    .input-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
-  }
-
-  /* Ticker */
-  .ticker-wrap {
-    background: var(--lime); overflow: hidden; padding: 0.6rem 0; white-space: nowrap;
-  }
-  .ticker {
-    display: inline-flex; gap: 3rem; animation: ticker 30s linear infinite;
-  }
-  .ticker span {
-    font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
-    color: var(--ink); letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  .ticker-dot { color: rgba(0,0,0,0.3); }
-  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* Suburb badge filter */
-  .filter-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  .filter-btn {
-    padding: 0.45rem 1rem; border-radius: 100px; border: 1.5px solid var(--border);
-    background: transparent; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-    color: var(--mid); transition: all 0.2s;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--ink); color: var(--lime); border-color: var(--ink);
-  }
-
-  .suburbs-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem; margin-top: 1.5rem;
-  }
-  .suburb-mini {
-    background: var(--ink2); border-radius: 14px; padding: 1.2rem 1.4rem;
-    border: 1px solid rgba(255,255,255,0.07); cursor: pointer;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .suburb-mini:hover { border-color: var(--lime); transform: translateY(-2px); }
-  .sm-name { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--white); }
-  .sm-state { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-bottom: 0.8rem; }
-  .sm-row { display: flex; justify-content: space-between; margin-top: 0.4rem; }
-  .sm-val { font-size: 0.82rem; font-weight: 600; color: var(--white); }
-  .sm-key { font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-  .sm-growth { font-size: 0.78rem; font-weight: 700; color: var(--lime); }
+/* Footer */
+footer{background:var(--ink2);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);text-decoration:none;}
+.footer-logo span{color:var(--lime);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.8rem;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:rgba(255,255,255,0.7);}
+footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
+@media(max-width:600px){footer{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">Brick<span>Wise</span></a>
+  <a class="nav-logo" href="#" onclick="showPage('home')">Brick<span>Wise</span></a>
   <div class="nav-links" id="navLinks">
-    <a href="#search">Suburb Search</a>
-    <a href="#analyser">Deal Analyser</a>
-    <a href="#features">Features</a>
-    <a href="#cta" class="nav-cta">Get Early Access</a>
+    <a href="#" onclick="showPage('home');closeNav()">Home</a>
+    <a href="#" onclick="showPage('brickometer');closeNav()">Brickometer</a>
+    <a href="#" onclick="showPage('explore');closeNav()">Explore</a>
+    <a href="#" onclick="showPage('insights');closeNav()">Market Intel</a>
+    <a href="#" onclick="showPage('about');closeNav()">About</a>
+    <a href="#" onclick="showPage('register');closeNav()" class="nav-cta">Get Access</a>
   </div>
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- TICKER -->
-<div style="margin-top:68px;" class="ticker-wrap">
+<div class="ticker-wrap">
   <div class="ticker">
-    <span>Sydney +8.2% <span class="ticker-dot">●</span></span>
-    <span>Brisbane +11.4% <span class="ticker-dot">●</span></span>
-    <span>Perth +14.1% <span class="ticker-dot">●</span></span>
-    <span>Melbourne +5.3% <span class="ticker-dot">●</span></span>
-    <span>Parramatta Yield 4.1% <span class="ticker-dot">●</span></span>
-    <span>Ipswich Yield 5.2% <span class="ticker-dot">●</span></span>
-    <span>Baldivis Yield 5.8% <span class="ticker-dot">●</span></span>
-    <span>Doncaster +7.9% <span class="ticker-dot">●</span></span>
-    <span>Sydney +8.2% <span class="ticker-dot">●</span></span>
-    <span>Brisbane +11.4% <span class="ticker-dot">●</span></span>
-    <span>Perth +14.1% <span class="ticker-dot">●</span></span>
-    <span>Melbourne +5.3% <span class="ticker-dot">●</span></span>
-    <span>Parramatta Yield 4.1% <span class="ticker-dot">●</span></span>
-    <span>Ipswich Yield 5.2% <span class="ticker-dot">●</span></span>
-    <span>Baldivis Yield 5.8% <span class="ticker-dot">●</span></span>
-    <span>Doncaster +7.9% <span class="ticker-dot">●</span></span>
+    <span>Ipswich QLD ▲12.4% <span class="tdot">●</span></span>
+    <span>Baldivis WA ▲16.2% <span class="tdot">●</span></span>
+    <span>Armadale WA ▲17.4% <span class="tdot">●</span></span>
+    <span>Marsden Park NSW ▲9.2% <span class="tdot">●</span></span>
+    <span>Tarneit VIC 4.2% yield <span class="tdot">●</span></span>
+    <span>Toowoomba QLD 5.4% yield <span class="tdot">●</span></span>
+    <span>Kwinana WA ▲16.0% <span class="tdot">●</span></span>
+    <span>Logan QLD ▲11.8% <span class="tdot">●</span></span>
+    <span>Ipswich QLD ▲12.4% <span class="tdot">●</span></span>
+    <span>Baldivis WA ▲16.2% <span class="tdot">●</span></span>
+    <span>Armadale WA ▲17.4% <span class="tdot">●</span></span>
+    <span>Marsden Park NSW ▲9.2% <span class="tdot">●</span></span>
+    <span>Tarneit VIC 4.2% yield <span class="tdot">●</span></span>
+    <span>Toowoomba QLD 5.4% yield <span class="tdot">●</span></span>
+    <span>Kwinana WA ▲16.0% <span class="tdot">●</span></span>
+    <span>Logan QLD ▲11.8% <span class="tdot">●</span></span>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-tag">Australia's Property Intelligence Platform</div>
-  <h1>Invest smarter.<br>Know before<br>you <em>commit.</em></h1>
-  <p class="hero-sub">BrickWise gives property investors instant suburb intelligence, deal analysis, and cash flow projections — all in one place, across NSW, QLD, VIC & WA.</p>
-  <div class="hero-actions">
-    <a href="#search" class="btn-primary">Search a Suburb →</a>
-    <a href="#analyser" class="btn-secondary">Run a Deal Analysis</a>
-  </div>
-  <div class="hero-stats">
-    <div>
-      <div class="hero-stat-num">65<span>+</span></div>
-      <div class="hero-stat-label">High-growth suburbs tracked</div>
+<!-- PAGE TABS -->
+<div class="page-tabs">
+  <span class="page-tab active" id="tab-home" onclick="showPage('home')">Home</span>
+  <span class="page-tab" id="tab-brickometer" onclick="showPage('brickometer')">⬡ Brickometer</span>
+  <span class="page-tab" id="tab-explore" onclick="showPage('explore')">🔍 Explore</span>
+  <span class="page-tab" id="tab-insights" onclick="showPage('insights')">Market Intel</span>
+  <span class="page-tab" id="tab-about" onclick="showPage('about')">About</span>
+  <span class="page-tab" id="tab-register" onclick="showPage('register')">Get Access</span>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- HOME PAGE -->
+<!-- ══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">● Australia's Property Intelligence Platform</div>
+        <h1>Smarter property<br>decisions, powered<br>by <em>data.</em></h1>
+        <p class="hero-sub">BrickWise helps buyers and investors compare suburbs, analyse deals, and identify opportunities using the Brickometer — Australia's first property investment scoring engine.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('brickometer')">Try the Brickometer →</button>
+          <button class="btn-ghost" onclick="document.getElementById('how-section').scrollIntoView({behavior:'smooth'})">How it works</button>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hero-stat-num">65<span>+</span></div><div class="hero-stat-label">Suburbs tracked</div></div>
+          <div><div class="hero-stat-num">4<span> states</span></div><div class="hero-stat-label">NSW · QLD · VIC · WA</div></div>
+          <div><div class="hero-stat-num">6<span> factors</span></div><div class="hero-stat-label">Brickometer score</div></div>
+        </div>
+      </div>
+      <!-- Brickometer Preview Card -->
+      <div class="brickometer-preview">
+        <div class="bp-label">Brickometer Preview</div>
+        <div class="bp-suburb">Ipswich</div>
+        <div class="bp-state">QLD · 4305</div>
+        <div class="gauge-wrap">
+          <svg class="gauge-svg" viewBox="0 0 160 90">
+            <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10" stroke-linecap="round"/>
+            <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="url(#gaugeGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="47"/>
+            <defs><linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#C8F400"/><stop offset="100%" stop-color="#4ade80"/></linearGradient></defs>
+          </svg>
+          <div class="gauge-score">78</div>
+          <div class="gauge-rating">Strong</div>
+        </div>
+        <div class="bp-bars">
+          <div class="bp-bar-row"><span class="bp-bar-label">Yield</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:85%;background:var(--lime);"></div></div><span class="bp-bar-val">85</span></div>
+          <div class="bp-bar-row"><span class="bp-bar-label">Growth</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:80%;background:var(--sky);"></div></div><span class="bp-bar-val">80</span></div>
+          <div class="bp-bar-row"><span class="bp-bar-label">Vacancy</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:100%;background:var(--lime);"></div></div><span class="bp-bar-val">100</span></div>
+          <div class="bp-bar-row"><span class="bp-bar-label">Affordability</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:80%;background:var(--gold);"></div></div><span class="bp-bar-val">80</span></div>
+          <div class="bp-bar-row"><span class="bp-bar-label">Infrastructure</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:65%;background:var(--sky);"></div></div><span class="bp-bar-val">65</span></div>
+        </div>
+      </div>
     </div>
-    <div>
-      <div class="hero-stat-num">4<span> states</span></div>
-      <div class="hero-stat-label">NSW · QLD · VIC · WA</div>
+  </section>
+
+  <!-- ── SUBURB PICKS CAROUSEL ── -->
+  <section style="background:var(--ink);padding:64px 0 0;">
+    <div style="padding:0 5% 2rem;">
+      <div class="section-label" style="color:var(--lime);">BrickWise Picks · Q2 2026</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+        <h2 class="section-title" style="color:var(--white);max-width:480px;">The right suburb<br>for your budget.</h2>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.35);max-width:280px;line-height:1.6;margin-bottom:0.2rem;">Curated picks scored by the Brickometer. Click any card for insights — full reports for registered members.</p>
+      </div>
     </div>
-    <div>
-      <div class="hero-stat-num">Free<span> →</span></div>
-      <div class="hero-stat-label">No credit card required</div>
+    <div style="display:flex;border-bottom:1px solid rgba(255,255,255,0.08);padding:0 5%;overflow-x:auto;">
+      <button class="ctab active" id="ctab-0" onclick="showCarousel(0)"><span class="ctab-icon">🔥</span><span class="ctab-name">The Sweet Spot</span><span class="ctab-range">$500K – $700K</span></button>
+      <button class="ctab" id="ctab-1" onclick="showCarousel(1)"><span class="ctab-icon">📈</span><span class="ctab-name">The Growth Play</span><span class="ctab-range">$700K – $1M</span></button>
+      <button class="ctab" id="ctab-2" onclick="showCarousel(2)"><span class="ctab-icon">💎</span><span class="ctab-name">Premium Market</span><span class="ctab-range">$1M+</span></button>
+    </div>
+
+    <div class="cpanel active" id="cpanel-0">
+      <div class="cpanel-desc">Maximum yield. Minimum entry. Best risk-adjusted returns in the current market — ideal for investors who want cash flow from day one without stretching serviceability.</div>
+      <div class="ccard-row">
+        <div class="ccard featured" onclick="openGate('Ipswich','QLD · 4305','5.2%','▲12.4%','$580K','78 · Strong')"><div class="ccard-badge">⬡ 78 · Strong</div><div class="ccard-suburb">Ipswich</div><div class="ccard-state">QLD · 4305</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.2%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$580K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Strong infrastructure pipeline, sub-1% vacancy, and affordable entry make Ipswich the standout pick in this tier. Rental demand driven by south-east QLD population inflow and proximity to Springfield employment hub.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Armadale','WA · 6112','6.1%','▲17.4%','$490K','82 · Strong')"><div class="ccard-badge">⬡ 82 · Strong</div><div class="ccard-suburb">Armadale</div><div class="ccard-state">WA · 6112</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">6.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲17.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$490K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Perth's hottest corridor delivers the highest yield in our dataset alongside 17%+ growth — rare at this price point. Low vacancy reflects structural undersupply across the southern corridor.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Toowoomba','QLD · 4350','5.4%','▲10.1%','$520K','75 · Strong')"><div class="ccard-badge">⬡ 75 · Strong</div><div class="ccard-suburb">Toowoomba</div><div class="ccard-state">QLD · 4350</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲10.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$520K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Regional QLD powerhouse with strong agricultural and logistics employment base. Consistently strong yields, rising rents, and limited new stock create a compelling cash flow case.</div><div class="ccard-cta">View Insights →</div></div>
+      </div>
+    </div>
+
+    <div class="cpanel" id="cpanel-1">
+      <div class="cpanel-desc">Balanced growth and yield for the confident investor. These suburbs offer a compelling combination of capital growth trajectory and solid rental returns in the $700K–$1M range.</div>
+      <div class="ccard-row">
+        <div class="ccard featured" onclick="openGate('Ellenbrook','WA · 6069','5.5%','▲15.1%','$570K','81 · Strong')"><div class="ccard-badge">⬡ 81 · Strong</div><div class="ccard-suburb">Ellenbrook</div><div class="ccard-state">WA · 6069</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲15.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$570K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Ellenbrook benefits from Perth's northward infrastructure expansion, strong family demand, growing amenity, and a yield profile that punches well above its price point.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Campbelltown','NSW · 2560','4.5%','▲8.3%','$820K','72 · Strong')"><div class="ccard-badge">⬡ 72 · Strong</div><div class="ccard-suburb">Campbelltown</div><div class="ccard-state">NSW · 2560</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲8.3%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$820K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.4%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's South West corridor continues to attract strong tenant demand. Western Sydney Airport infrastructure and new employment zones underpin solid long-term growth fundamentals.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Coomera','QLD · 4209','4.6%','▲11.4%','$740K','77 · Strong')"><div class="ccard-badge">⬡ 77 · Strong</div><div class="ccard-suburb">Coomera</div><div class="ccard-state">QLD · 4209</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.6%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲11.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$740K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Gold Coast's northern growth corridor with strong infrastructure investment, population inflow from Brisbane, and a diverse tenant base supporting consistent rental demand.</div><div class="ccard-cta">View Insights →</div></div>
+      </div>
+    </div>
+
+    <div class="cpanel" id="cpanel-2">
+      <div class="cpanel-desc">Capital growth and long-term wealth creation for the experienced investor. Premium suburbs with strong owner-occupier appeal, proven infrastructure, and equity track records.</div>
+      <div class="ccard-row">
+        <div class="ccard featured" onclick="openGate('Doncaster','VIC · 3108','3.4%','▲7.9%','$1.35M','74 · Strong')"><div class="ccard-badge">⬡ 74 · Strong</div><div class="ccard-suburb">Doncaster</div><div class="ccard-state">VIC · 3108</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">3.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲7.9%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.35M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.9%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Melbourne's premium eastern corridor with high owner-occupier demand, excellent school catchments, and proximity to the CBD underpinning strong long-term capital growth.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Fremantle','WA · 6160','4.4%','▲12.8%','$1.1M','71 · Strong')"><div class="ccard-badge">⬡ 71 · Strong</div><div class="ccard-suburb">Fremantle</div><div class="ccard-state">WA · 6160</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.8%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.1M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Fremantle offers a rare premium combination — lifestyle appeal, above-average yield for its price point, and strong growth driven by Perth's broader market momentum.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Parramatta','NSW · 2150','4.1%','▲6.4%','$1.25M','68 · Balanced')"><div class="ccard-badge">⬡ 68 · Balanced</div><div class="ccard-suburb">Parramatta</div><div class="ccard-state">NSW · 2150</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--gold);">▲6.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.25M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.5%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's second CBD with significant commercial investment and population density growth. Strong long-term fundamentals though entry price requires solid borrowing capacity.</div><div class="ccard-cta">View Insights →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gate Modal -->
+  <div id="gate-overlay" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem;">
+    <div style="background:var(--ink2);border-radius:20px;padding:2rem;max-width:460px;width:100%;border:1px solid rgba(255,255,255,0.1);position:relative;animation:fadeUp 0.3s ease both;">
+      <button onclick="closeGate()" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:none;color:rgba(255,255,255,0.5);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
+      <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--lime);margin-bottom:0.5rem;">Suburb Insights</div>
+      <div id="gate-name" style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:0.2rem;"></div>
+      <div id="gate-state" style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:1.2rem;"></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;background:rgba(255,255,255,0.04);border-radius:12px;padding:1rem;margin-bottom:1.2rem;">
+        <div style="text-align:center;"><div id="gate-yield" style="font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:1rem;"></div><div style="font-size:0.65rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;">Yield</div></div>
+        <div style="text-align:center;"><div id="gate-growth" style="font-family:'Syne',sans-serif;font-weight:700;color:var(--lime);font-size:1rem;"></div><div style="font-size:0.65rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;">12m Growth</div></div>
+        <div style="text-align:center;"><div id="gate-score" style="font-family:'Syne',sans-serif;font-weight:700;color:var(--lime);font-size:1rem;"></div><div style="font-size:0.65rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;">Brickometer</div></div>
+      </div>
+      <div style="position:relative;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.1);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;overflow:hidden;min-height:90px;">
+        <div style="filter:blur(5px);pointer-events:none;font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;">Growth drivers include significant infrastructure investment on the regional transport corridor, population inflow, and a tight rental market driven by undersupply. The risk overlay flags moderate concern around affordability stretch and... Recommended strategy is a 7-year buy-and-hold with...</div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(13,13,13,0.65);border-radius:12px;">
+          <div style="font-size:1.1rem;margin-bottom:0.3rem;">🔒</div>
+          <div style="font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:var(--white);">Full report — members only</div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-top:0.2rem;">Growth drivers · Risk factors · Strategy</div>
+        </div>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;font-size:0.9rem;" onclick="closeGate();showPage('register')">Get Free Access →</button>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:0.8rem;">Free to register · No credit card required</p>
     </div>
   </div>
-</section>
 
-<!-- SUBURB SEARCH -->
-<section id="search">
-  <div class="section-label">Suburb Intelligence</div>
-  <h2 class="section-title">Instant data on the suburbs that matter.</h2>
-  <p class="section-sub">Search any investor-favoured suburb across Australia. Don't see yours? Request a custom report.</p>
+  <!-- Features -->
+  <section style="background:var(--white);">
+    <div class="section-label">What BrickWise Does</div>
+    <h2 class="section-title">Everything the modern investor needs.</h2>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⬡</div><h3>Brickometer Score</h3><p>A single 0–100 score combining yield, growth, vacancy, affordability, and infrastructure across any Australian suburb.</p></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><h3>Suburb Intelligence</h3><p>Median prices, rental yields, growth trends, vacancy rates, and investor demand scores for 65+ high-growth postcodes.</p></div>
+      <div class="feature-card"><div class="feature-icon">🧮</div><h3>Deal Analyser</h3><p>Real-time cash flow modelling, net yield, and 5-year equity projections — with interest-only or P&I options.</p></div>
+      <div class="feature-card"><div class="feature-icon">⚠️</div><h3>Risk Overlay</h3><p>Each score includes a risk penalty assessment across vacancy trends, strata exposure, affordability stretch, and market timing.</p></div>
+      <div class="feature-card"><div class="feature-icon">🏆</div><h3>Winner Suburbs</h3><p>Curated top picks across entry, mid-range, and premium price bands — ranked by Brickometer score and projected ROI.</p></div>
+      <div class="feature-card"><div class="feature-icon">📬</div><h3>Custom Reports</h3><p>Don't see your suburb? Request it. We research and deliver a full data report to your inbox within 48 hours.</p></div>
+    </div>
+  </section>
 
-  <div class="search-box">
-    <input type="text" id="suburbInput" placeholder="e.g. Ipswich, Baldivis, Doncaster..." autocomplete="off" onkeyup="handleKey(event)">
-    <button onclick="searchSuburb()">Search →</button>
+  <!-- How It Works -->
+  <section id="how-section" style="background:var(--white);">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From suburb search to settled deal.</h2>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><h3>Choose a Suburb</h3><p>Search any of our 65+ tracked suburbs or request one we don't have yet.</p></div>
+      <div class="step-card"><div class="step-num">02</div><h3>BrickWise Checks 20+ Parameters</h3><p>Yield, growth, vacancy, affordability, infrastructure, risk — all evaluated automatically.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h3>Brickometer Generates a Score</h3><p>A single 0–100 score with full breakdown, weighted by our proprietary algorithm.</p></div>
+      <div class="step-card"><div class="step-num">04</div><h3>Get Strengths, Risks & Action</h3><p>Clear recommendation: Buy, Hold, or Monitor — with the rationale behind it.</p></div>
+    </div>
+  </section>
+
+  <!-- Suburb Search -->
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-label" style="color:var(--lime);text-align:center;">Early Access</div>
+    <h2 class="section-title">Be first on the platform.</h2>
+    <p class="section-sub">Join the waitlist for free early access when we launch.</p>
+    <div class="cta-form">
+      <input type="email" id="ctaEmail" placeholder="your@email.com">
+      <button onclick="joinWaitlist()">Join Waitlist →</button>
+    </div>
+    <div class="cta-success" id="ctaSuccess">✓ You're on the list! We'll be in touch.</div>
+    <p class="cta-note">brickwise.com.au · No spam. No credit card.</p>
+  </section>
+
+</div><!-- /home -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- EXPLORE PAGE — Suburb Intelligence + Deal Analyser -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-explore">
+
+  <!-- Header -->
+  <section style="background:var(--ink);padding:56px 5% 0;">
+    <div class="section-label" style="color:var(--lime);">Explore</div>
+    <h2 class="section-title" style="color:var(--white);max-width:700px;">Suburb intelligence.<br>Deal analysis. One place.</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.45);">Search any of our 65+ tracked suburbs for instant data — then run the numbers on any deal in seconds.</p>
+
+    <!-- Inner tabs -->
+    <div style="display:flex;gap:0;margin-top:2rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <button class="etab active" id="etab-search" onclick="showExplore('search')">📍 Suburb Intelligence</button>
+      <button class="etab" id="etab-deal" onclick="showExplore('deal')">🧮 Deal Analyser</button>
+    </div>
+  </section>
+
+  <!-- ── SUBURB INTELLIGENCE PANEL ── -->
+  <div class="epanel active" id="epanel-search" style="background:var(--ink);padding:0 5% 72px;">
+
+    <div style="padding-top:2rem;">
+      <div class="search-box" style="max-width:560px;">
+        <input type="text" id="suburbInput" placeholder="e.g. Ipswich, Baldivis, Doncaster..." autocomplete="off" onkeyup="if(event.key==='Enter')searchSuburb()">
+        <button onclick="searchSuburb()">Search →</button>
+      </div>
+      <div class="quick-pills" style="margin-top:1rem;">
+        <span class="pill" onclick="qs('Ipswich')">Ipswich QLD</span>
+        <span class="pill" onclick="qs('Baldivis')">Baldivis WA</span>
+        <span class="pill" onclick="qs('Marsden Park')">Marsden Park NSW</span>
+        <span class="pill" onclick="qs('Tarneit')">Tarneit VIC</span>
+        <span class="pill" onclick="qs('Toowoomba')">Toowoomba QLD</span>
+        <span class="pill" onclick="qs('Rockingham')">Rockingham WA</span>
+        <span class="pill" onclick="qs('Armadale')">Armadale WA</span>
+        <span class="pill" onclick="qs('Logan')">Logan QLD</span>
+      </div>
+      <div id="search-results" style="margin-top:1.5rem;max-width:860px;"></div>
+    </div>
+
+    <!-- State filter + grid -->
+    <div style="margin-top:2.5rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;">All Tracked Suburbs</div>
+      <div class="filter-row-dark">
+        <button class="filter-btn-dark active" onclick="filterSuburbs('all',this)">All States</button>
+        <button class="filter-btn-dark" onclick="filterSuburbs('NSW',this)">NSW</button>
+        <button class="filter-btn-dark" onclick="filterSuburbs('QLD',this)">QLD</button>
+        <button class="filter-btn-dark" onclick="filterSuburbs('VIC',this)">VIC</button>
+        <button class="filter-btn-dark" onclick="filterSuburbs('WA',this)">WA</button>
+      </div>
+      <div class="suburbs-grid" id="suburbsGrid" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- Not in dataset? -->
+    <div style="margin-top:2.5rem;background:rgba(200,244,0,0.06);border:1px solid rgba(200,244,0,0.15);border-radius:16px;padding:1.5rem 2rem;max-width:560px;">
+      <div style="font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--lime);margin-bottom:0.4rem;">Can't find your suburb?</div>
+      <p style="font-size:0.84rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:1rem;">Leave your details and we'll research it and send you a full data report within 48 hours — at no cost.</p>
+      <div class="capture-form" id="captureForm" style="max-width:420px;">
+        <input type="text" id="captureName" placeholder="Your name">
+        <input type="email" id="captureEmail" placeholder="Your email">
+        <input type="text" id="captureSuburb" placeholder="Suburb you're interested in">
+        <button onclick="submitCapture()">Request Suburb Report →</button>
+      </div>
+      <div class="success-msg" id="captureSuccess">✓ Request received! Your suburb report will be in your inbox within 48 hours.</div>
+    </div>
   </div>
 
-  <div class="quick-suburbs">
-    <span class="quick-tag" onclick="quickSearch('Ipswich')">Ipswich QLD</span>
-    <span class="quick-tag" onclick="quickSearch('Baldivis')">Baldivis WA</span>
-    <span class="quick-tag" onclick="quickSearch('Marsden Park')">Marsden Park NSW</span>
-    <span class="quick-tag" onclick="quickSearch('Tarneit')">Tarneit VIC</span>
-    <span class="quick-tag" onclick="quickSearch('Logan')">Logan QLD</span>
-    <span class="quick-tag" onclick="quickSearch('Rockingham')">Rockingham WA</span>
+  <!-- ── DEAL ANALYSER PANEL ── -->
+  <div class="epanel" id="epanel-deal" style="background:var(--light);padding:48px 5% 72px;">
+    <div style="margin-bottom:1.5rem;">
+      <div class="section-label">Deal Analyser</div>
+      <h3 style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;color:var(--ink);">Run the numbers before you buy.</h3>
+      <p style="font-size:0.9rem;color:var(--mid);margin-top:0.5rem;line-height:1.6;">Enter any property details and get instant cash flow, yield, equity, and ROI projections.</p>
+    </div>
+    <div class="analyser-grid">
+      <div style="display:flex;flex-direction:column;gap:0.9rem;">
+        <div class="input-row">
+          <div class="ig"><label>Purchase Price</label><input type="number" id="purchasePrice" value="650000"></div>
+          <div class="ig"><label>Deposit %</label><input type="number" id="deposit" value="20"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Weekly Rent ($)</label><input type="number" id="weeklyRent" value="520"></div>
+          <div class="ig"><label>Interest Rate %</label><input type="number" id="interestRate" value="6.2" step="0.1"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Annual Expenses ($)</label><input type="number" id="expenses" value="8000"></div>
+          <div class="ig"><label>Loan Type</label><select id="loanType"><option value="io">Interest Only</option><option value="pi">Principal & Interest</option></select></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Expected Annual Growth %</label><input type="number" id="growth" value="7" step="0.5"></div>
+          <div class="ig"><label>Holding Period (years)</label><input type="number" id="holdingYears" value="5" min="1" max="30"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Council Rates (annual)</label><input type="number" id="councilRates" value="2000"></div>
+          <div class="ig"><label>Property Management %</label><input type="number" id="pmFee" value="8" step="0.5"></div>
+        </div>
+        <button class="btn-calc" onclick="calcDeal()">Calculate Deal →</button>
+      </div>
+      <div class="results-panel">
+        <h3>Deal Analysis</h3>
+        <div class="result-row"><span class="result-label">Gross Rental Yield</span><span class="result-val" id="r-grossYield">—</span></div>
+        <div class="result-row"><span class="result-label">Net Rental Yield</span><span class="result-val" id="r-netYield">—</span></div>
+        <div class="result-row"><span class="result-label">Annual Rent Income</span><span class="result-val" id="r-annualRent">—</span></div>
+        <div class="result-row"><span class="result-label">Annual Mortgage</span><span class="result-val" id="r-mortgage">—</span></div>
+        <div class="result-row"><span class="result-label">Annual Cash Flow</span><span class="result-val" id="r-cashflow">—</span></div>
+        <div class="result-row"><span class="result-label">Weekly Cash Flow</span><span class="result-val" id="r-weeklyCf">—</span></div>
+        <div class="result-row"><span class="result-label" id="r-proj-label">Projected Value (5yr)</span><span class="result-val" id="r-proj5">—</span></div>
+        <div class="result-row"><span class="result-label" id="r-equity-label">Projected Equity (5yr)</span><span class="result-val positive" id="r-equity5">—</span></div>
+        <div class="result-row"><span class="result-label">Total Return (cash + equity)</span><span class="result-val positive" id="r-totalReturn">—</span></div>
+        <div id="r-verdict"></div>
+      </div>
+    </div>
+    <p style="font-size:0.72rem;color:var(--mid);margin-top:1.5rem;line-height:1.5;max-width:600px;">General information only. Calculations are indicative and based on inputs provided. Not financial advice. Consult a qualified professional before making investment decisions.</p>
   </div>
 
-  <div id="search-results"></div>
+</div><!-- /explore -->
 
-  <div style="margin-top:3rem;">
+
+<!-- ══════════════════════════════════════ -->
+<!-- BRICKOMETER PAGE -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-brickometer">
+  <section style="background:var(--ink);padding:60px 5% 48px;">
+    <div class="section-label" style="color:var(--lime);">Scoring Engine</div>
+    <h2 class="section-title" style="color:var(--white);max-width:640px;">The Brickometer.</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.45);">Enter any suburb and property details. Get a score out of 100, full breakdown, strengths, risks, and a clear recommendation.</p>
+  </section>
+
+  <section style="background:var(--light);padding:48px 5%;">
+    <div class="brickometer-layout">
+      <!-- Inputs -->
+      <div class="bm-inputs">
+        <div class="input-section-title">Suburb Details</div>
+        <div class="input-row">
+          <div class="ig"><label>Suburb</label><input type="text" id="bm-suburb" placeholder="e.g. Ipswich"></div>
+          <div class="ig"><label>State</label><select id="bm-state"><option>QLD</option><option>NSW</option><option>VIC</option><option>WA</option><option>SA</option><option>TAS</option><option>ACT</option></select></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>12m Growth %</label><input type="number" id="bm-growth1" placeholder="10.5" value="10.5" step="0.5"></div>
+          <div class="ig"><label>3yr CAGR %</label><input type="number" id="bm-growth3" placeholder="8.2" value="8.2" step="0.5"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>5yr CAGR %</label><input type="number" id="bm-growth5" placeholder="7.0" value="7.0" step="0.5"></div>
+          <div class="ig"><label>Vacancy Rate %</label><input type="number" id="bm-vacancy" placeholder="1.0" value="1.0" step="0.1"></div>
+        </div>
+
+        <div class="input-section-title">Property Details</div>
+        <div class="input-row">
+          <div class="ig"><label>Purchase Price</label><input type="number" id="bm-price" placeholder="580000" value="580000"></div>
+          <div class="ig"><label>Weekly Rent ($)</label><input type="number" id="bm-rent" placeholder="550" value="550"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Median Suburb Price</label><input type="number" id="bm-medprice" placeholder="580000" value="580000"></div>
+          <div class="ig"><label>Median Household Income</label><input type="number" id="bm-income" placeholder="95000" value="95000"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Infrastructure Score (0–100)</label><input type="number" id="bm-infra" placeholder="65" value="65" min="0" max="100"></div>
+          <div class="ig"><label>Risk Score (1–25)</label><input type="number" id="bm-risk" placeholder="6" value="6" min="1" max="25"></div>
+        </div>
+        <div class="input-row">
+          <div class="ig"><label>Strata / Body Corp (annual)</label><input type="number" id="bm-strata" placeholder="0" value="0"></div>
+          <div class="ig"><label>Property Type</label><select id="bm-proptype"><option>House</option><option>Unit</option><option>Townhouse</option><option>Duplex</option></select></div>
+        </div>
+        <button class="btn-calc" onclick="runBrickometer()">Calculate Brickometer Score →</button>
+      </div>
+
+      <!-- Results -->
+      <div class="bm-results" id="bm-results">
+        <div class="bm-results-placeholder" id="bm-placeholder">
+          <div style="font-size:3rem;">⬡</div>
+          <p>Enter suburb and property details,<br>then click Calculate.</p>
+        </div>
+        <div id="bm-output" style="display:none;">
+          <div class="big-score-wrap">
+            <svg class="big-gauge" viewBox="0 0 180 100">
+              <path d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="12" stroke-linecap="round"/>
+              <path id="bm-gauge-arc" d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="url(#bmGrad)" stroke-width="12" stroke-linecap="round" stroke-dasharray="219.9" stroke-dashoffset="110"/>
+              <defs><linearGradient id="bmGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#C8F400"/><stop offset="100%" stop-color="#4ade80"/></linearGradient></defs>
+            </svg>
+            <div class="big-score-num" id="bm-score-num">—</div>
+            <div class="big-score-rating" id="bm-score-rating">—</div>
+          </div>
+          <div class="component-bars" id="bm-component-bars"></div>
+          <div class="strengths-risks">
+            <div><div class="sr-title sr-green">Strengths</div><div id="bm-strengths"></div></div>
+            <div><div class="sr-title sr-red">Watch-Outs</div><div id="bm-watchouts"></div></div>
+          </div>
+          <div class="rec-panel" id="bm-rec-panel">
+            <div class="rec-verdict" id="bm-rec-verdict">—</div>
+            <div class="rec-text" id="bm-rec-text">—</div>
+          </div>
+          <div class="bm-disclaimer">BrickWise provides general information only. The Brickometer score is an indicative decision-support tool and should not be relied upon as the sole basis for investment decisions. Seek advice from a qualified property professional.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating Guide -->
+    <div style="margin-top:3rem;max-width:600px;">
+      <div class="section-label">Score Guide</div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem;">
+        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(74,222,128,0.1);border-radius:10px;border:1px solid rgba(74,222,128,0.2);">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;color:#4ade80;">85–100</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:#4ade80;">Excellent</span>
+          <span style="font-size:0.8rem;color:var(--mid);">Strong opportunity — proceed to deeper due diligence.</span>
+        </div>
+        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(200,244,0,0.08);border-radius:10px;border:1px solid rgba(200,244,0,0.2);">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--lime-dark);">70–84</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:var(--lime-dark);">Strong</span>
+          <span style="font-size:0.8rem;color:var(--mid);">Attractive — validate assumptions before committing.</span>
+        </div>
+        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(245,166,35,0.08);border-radius:10px;border:1px solid rgba(245,166,35,0.2);">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--gold);">55–69</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:var(--gold);">Balanced</span>
+          <span style="font-size:0.8rem;color:var(--mid);">Mixed — depends on your strategy and entry price.</span>
+        </div>
+        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(251,146,60,0.08);border-radius:10px;border:1px solid rgba(251,146,60,0.2);">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;color:#fb923c;">40–54</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:#fb923c;">Caution</span>
+          <span style="font-size:0.8rem;color:var(--mid);">Several weaknesses — negotiate hard or reassess.</span>
+        </div>
+        <div style="display:grid;grid-template-columns:80px 100px 1fr;gap:1rem;align-items:center;padding:0.6rem 1rem;background:rgba(255,92,58,0.08);border-radius:10px;border:1px solid rgba(255,92,58,0.2);">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;color:var(--coral);">0–39</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;color:var(--coral);">High Risk</span>
+          <span style="font-size:0.8rem;color:var(--mid);">Avoid unless there is a specific strategic reason.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /brickometer -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- MARKET INTEL PAGE (renamed blog) -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-insights">
+  <div class="insights-hero">
+    <div class="section-label">Market Intel</div>
+    <h2 class="section-title">Property intelligence.<br>Investor perspective.</h2>
+    <p class="section-sub">Data-led suburb analysis, market trends, and investment strategy — from the BrickWise research desk.</p>
     <div class="filter-row">
-      <button class="filter-btn active" onclick="filterSuburbs('all', this)">All States</button>
-      <button class="filter-btn" onclick="filterSuburbs('NSW', this)">NSW</button>
-      <button class="filter-btn" onclick="filterSuburbs('QLD', this)">QLD</button>
-      <button class="filter-btn" onclick="filterSuburbs('VIC', this)">VIC</button>
-      <button class="filter-btn" onclick="filterSuburbs('WA', this)">WA</button>
+      <button class="filter-btn active" onclick="filterInsights('all',this)">All</button>
+      <button class="filter-btn" onclick="filterInsights('market',this)">Market Trends</button>
+      <button class="filter-btn" onclick="filterInsights('suburb',this)">Suburb Spotlight</button>
+      <button class="filter-btn" onclick="filterInsights('strategy',this)">Strategy</button>
+      <button class="filter-btn" onclick="filterInsights('data',this)">Data & Research</button>
     </div>
-    <div class="suburbs-grid" id="suburbsGrid"></div>
   </div>
-</section>
+  <section style="padding:48px 5%;background:var(--light);">
+    <div class="insights-grid" id="insightsGrid"></div>
+  </section>
+</div><!-- /insights -->
 
-<!-- DEAL ANALYSER -->
-<section id="analyser">
-  <div class="section-label">Deal Analyser</div>
-  <h2 class="section-title">Run the numbers before you buy.</h2>
-  <p class="section-sub">Enter any property details and get instant cash flow, yield, and ROI calculations.</p>
 
-  <div class="analyser-grid">
-    <div class="analyser-inputs">
-      <div class="input-row">
-        <div class="input-group">
-          <label>Purchase Price</label>
-          <input type="number" id="purchasePrice" placeholder="650000" value="650000">
-        </div>
-        <div class="input-group">
-          <label>Deposit %</label>
-          <input type="number" id="deposit" placeholder="20" value="20">
+<!-- ══════════════════════════════════════ -->
+<!-- ABOUT PAGE -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="section-label" style="color:var(--lime);">About BrickWise</div>
+    <h1>Built for investors<br>who want <em>clarity.</em></h1>
+    <p>Property decisions shouldn't rely on scattered data, sales agent opinions, and gut feel. BrickWise brings it all together into a structured, evidence-based decision engine.</p>
+  </div>
+
+  <div class="about-body">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Why BrickWise exists.</h2>
+        <p>Real estate investment in Australia requires navigating a complex matrix of variables — capital growth, infrastructure expansion, rental demand, crime trends, and economic forecasts. Historically, this process is fragmented. Buyers manually consult CoreLogic, ABS, state planning portals, and local agents before making decisions worth hundreds of thousands of dollars.</p>
+        <p>BrickWise was created to change that. Our mission is to make property decisions clearer, faster, and more evidence-based — giving every investor access to the same quality of intelligence that was previously only available to institutional buyers and well-resourced buyer's agents.</p>
+        <p>The goal is not to replace professional advice, but to give buyers a stronger starting point. BrickWise helps users compare suburbs, understand investment trade-offs, assess financial viability, and identify potential risks before they commit.</p>
+        <div class="about-mission">
+          <h3>Our Mission</h3>
+          <p>To democratise property intelligence in Australia — giving every investor, from first-time buyers to seasoned portfolio holders, the data and decision-support tools they need to invest with confidence.</p>
         </div>
       </div>
-      <div class="input-row">
-        <div class="input-group">
-          <label>Weekly Rent ($)</label>
-          <input type="number" id="weeklyRent" placeholder="520" value="520">
+      <div>
+        <div class="about-values">
+          <div class="value-card"><h3>📊 Data-Led Decisions</h3><p>Every insight on BrickWise is grounded in real data — not opinions, not marketing. We surface the numbers and let you decide.</p></div>
+          <div class="value-card"><h3>🔍 Radical Transparency</h3><p>The Brickometer score is fully explainable. We show you every component, every weighting, and every risk factor. No black boxes.</p></div>
+          <div class="value-card"><h3>⚡ Speed to Insight</h3><p>From suburb search to investment recommendation in seconds — not days. Because good opportunities don't wait.</p></div>
+          <div class="value-card"><h3>🛡 Investor Protection</h3><p>We flag risks clearly and prominently. Our risk overlay ensures high-scoring suburbs are assessed against downside scenarios, not just upside potential.</p></div>
         </div>
-        <div class="input-group">
-          <label>Interest Rate %</label>
-          <input type="number" id="interestRate" placeholder="6.2" value="6.2" step="0.1">
+        <div class="formula-box" style="margin-top:1.5rem;">
+          <h4>Brickometer Formula — MVP Weightings</h4>
+          <div class="formula-row"><span>Rental Yield</span><span class="formula-weight">30%</span></div>
+          <div class="formula-row"><span>Growth / Momentum</span><span class="formula-weight">25%</span></div>
+          <div class="formula-row"><span>Vacancy / Rental Demand</span><span class="formula-weight">20%</span></div>
+          <div class="formula-row"><span>Affordability</span><span class="formula-weight">15%</span></div>
+          <div class="formula-row"><span>Infrastructure / Amenity</span><span class="formula-weight">10%</span></div>
+          <div class="formula-row" style="border-top:2px solid var(--border);margin-top:0.3rem;padding-top:0.5rem;"><span style="font-weight:700;">Total</span><span class="formula-weight">100%</span></div>
         </div>
       </div>
-      <div class="input-row">
-        <div class="input-group">
-          <label>Annual Expenses ($)</label>
-          <input type="number" id="expenses" placeholder="8000" value="8000">
+    </div>
+  </div>
+</div><!-- /about -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!-- REGISTER / LEAD PAGE -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-register">
+  <div class="register-hero">
+    <div class="section-label" style="color:var(--lime);">Get Access</div>
+    <h1>Start investing<br>with <em>intelligence.</em></h1>
+    <p>Register for BrickWise early access and be first to use the full platform — including the Brickometer, suburb comparisons, portfolio dashboard, and AI-powered suburb reports.</p>
+  </div>
+
+  <div class="register-layout">
+    <!-- Form -->
+    <div>
+      <div class="reg-form" id="regForm">
+        <h3>Create your free account</h3>
+        <div class="reg-row">
+          <div class="reg-ig"><label>First Name</label><input type="text" id="reg-firstname" placeholder="Avi"></div>
+          <div class="reg-ig"><label>Last Name</label><input type="text" id="reg-lastname" placeholder="Sharma"></div>
         </div>
-        <div class="input-group">
-          <label>Loan Type</label>
-          <select id="loanType">
-            <option value="io">Interest Only</option>
-            <option value="pi">Principal & Interest</option>
+        <div class="reg-ig"><label>Email Address</label><input type="email" id="reg-email" placeholder="avi@email.com"></div>
+        <div class="reg-ig"><label>Phone (optional)</label><input type="tel" id="reg-phone" placeholder="0400 000 000"></div>
+        <div class="reg-ig"><label>I am a...</label>
+          <select id="reg-type">
+            <option value="">Select investor type</option>
+            <option>First-time property investor</option>
+            <option>Experienced investor (1–3 properties)</option>
+            <option>Portfolio investor (4+ properties)</option>
+            <option>Buyer's agent / Broker</option>
+            <option>Property researcher</option>
           </select>
         </div>
+        <div class="reg-ig"><label>Investment Budget</label>
+          <select id="reg-budget">
+            <option value="">Select budget range</option>
+            <option>Under $500K</option>
+            <option>$500K – $750K</option>
+            <option>$750K – $1M</option>
+            <option>$1M – $1.5M</option>
+            <option>$1.5M+</option>
+          </select>
+        </div>
+        <div class="reg-ig"><label>States of Interest</label>
+          <select id="reg-states">
+            <option value="">Select primary state</option>
+            <option>NSW</option><option>QLD</option><option>VIC</option><option>WA</option>
+            <option>Multiple states</option>
+          </select>
+        </div>
+        <div class="reg-ig"><label>What's your biggest challenge? (optional)</label>
+          <textarea id="reg-challenge" placeholder="e.g. Finding high-yield suburbs, understanding risk, comparing options..."></textarea>
+        </div>
+        <button class="btn-register" onclick="submitRegistration()">Create My Free Account →</button>
+        <p style="font-size:0.72rem;color:var(--mid);margin-top:0.8rem;line-height:1.5;">By registering you agree to receive platform updates from BrickWise. No spam. Unsubscribe any time. We never sell your data.</p>
       </div>
-      <div class="input-group">
-        <label>Expected Annual Growth %</label>
-        <input type="number" id="growth" placeholder="7" value="7" step="0.5">
+      <div class="reg-success" id="regSuccess">
+        <div style="font-size:2.5rem;margin-bottom:0.8rem;">🎉</div>
+        <h4>You're registered!</h4>
+        <p>Welcome to BrickWise. We'll send you an email shortly with your early access details. In the meantime, explore the Brickometer and suburb data above.</p>
+        <button class="btn-primary" style="margin-top:1.2rem;" onclick="showPage('brickometer')">Try the Brickometer →</button>
       </div>
-      <button class="btn-calc" onclick="calcDeal()">Calculate Deal →</button>
     </div>
 
-    <div class="results-panel" id="resultsPanel">
-      <h3>Deal Analysis</h3>
-      <div class="result-row">
-        <span class="result-label">Gross Rental Yield</span>
-        <span class="result-val" id="r-grossYield">—</span>
+    <!-- Benefits -->
+    <div>
+      <div class="reg-benefits">
+        <div class="rb-icon">⬡</div>
+        <div class="rb-benefit">
+          <div class="rb-title">Full Brickometer Access</div>
+          <div class="rb-desc">Score any suburb across Australia with our full 20-parameter model — yield, growth, vacancy, affordability, infrastructure, and risk overlay.</div>
+        </div>
       </div>
-      <div class="result-row">
-        <span class="result-label">Net Rental Yield</span>
-        <span class="result-val" id="r-netYield">—</span>
+      <div class="reg-benefits" style="margin-top:1rem;">
+        <div class="rb-icon">📊</div>
+        <div class="rb-benefit">
+          <div class="rb-title">Suburb Intelligence Reports</div>
+          <div class="rb-desc">Access detailed suburb reports with market narrative, growth drivers, risk factors, and investor recommendations — powered by AI.</div>
+        </div>
       </div>
-      <div class="result-row">
-        <span class="result-label">Annual Rent Income</span>
-        <span class="result-val" id="r-annualRent">—</span>
+      <div class="reg-benefits" style="margin-top:1rem;">
+        <div class="rb-icon">📁</div>
+        <div class="rb-benefit">
+          <div class="rb-title">Portfolio Dashboard</div>
+          <div class="rb-desc">Track all your properties in one place — values, equity, cash flow, and total portfolio performance. Coming in Phase 2.</div>
+        </div>
       </div>
-      <div class="result-row">
-        <span class="result-label">Annual Mortgage Repayment</span>
-        <span class="result-val" id="r-mortgage">—</span>
+      <div class="reg-benefits" style="margin-top:1rem;">
+        <div class="rb-icon">🔔</div>
+        <div class="rb-benefit">
+          <div class="rb-title">Market Intel Alerts</div>
+          <div class="rb-desc">Get notified when suburbs you're watching hit key Brickometer score thresholds or show significant data changes.</div>
+        </div>
       </div>
-      <div class="result-row">
-        <span class="result-label">Annual Cash Flow</span>
-        <span class="result-val" id="r-cashflow">—</span>
-      </div>
-      <div class="result-row">
-        <span class="result-label">Weekly Cash Flow</span>
-        <span class="result-val" id="r-weeklyCf">—</span>
-      </div>
-      <div class="result-row">
-        <span class="result-label">Projected Value (5 yr)</span>
-        <span class="result-val" id="r-proj5">—</span>
-      </div>
-      <div class="result-row">
-        <span class="result-label">Projected Equity (5 yr)</span>
-        <span class="result-val" id="r-equity5">—</span>
-      </div>
-      <div id="r-verdict" style="margin-top:0.5rem;"></div>
-    </div>
-  </div>
-</section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-title">From suburb search to settled deal.</h2>
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">01</div>
-      <h3>Search Your Suburb</h3>
-      <p>Instantly access median prices, rental yields, growth rates and demand scores for 65+ investor-favoured suburbs.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">02</div>
-      <h3>Analyse the Deal</h3>
-      <p>Plug in purchase price, rent, interest rate and expenses. Get cash flow, yield, and 5-year equity projections in seconds.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">03</div>
-      <h3>Request Missing Data</h3>
-      <p>Don't see your suburb? Submit a request. We'll research and deliver a custom suburb report within 48 hours.</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">04</div>
-      <h3>Invest With Confidence</h3>
-      <p>Make offers backed by data — not gut feel. BrickWise puts institutional-grade intelligence in every investor's hands.</p>
+      <!-- Plans -->
+      <div style="margin-top:2rem;">
+        <div class="section-label">Plans</div>
+        <div class="plan-cards">
+          <div class="plan-card">
+            <div class="plan-name">Starter</div>
+            <div class="plan-price">Free</div>
+            <div class="plan-desc">Suburb search, deal analyser, and Brickometer preview. Perfect for getting started.</div>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-name">Pro</div>
+            <div class="plan-price" style="color:var(--lime);">Coming Soon</div>
+            <div class="plan-desc">Full Brickometer, AI reports, portfolio dashboard, and suburb alerts. Register now for early access pricing.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="section-label">Platform Features</div>
-  <h2 class="section-title">Everything the modern investor needs.</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Suburb Intelligence</h3>
-      <p>Median prices, growth trends, vacancy rates, yield data and investor demand scores for high-growth postcodes.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🧮</div>
-      <h3>Deal Analyser</h3>
-      <p>Real-time cash flow modelling, net yield calculations, and 5-year equity projections with interest-only or P&I options.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📁</div>
-      <h3>Portfolio Dashboard</h3>
-      <p>Track all your properties in one view — values, equity, cash flow, and total portfolio performance. Coming soon.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔔</div>
-      <h3>Custom Reports</h3>
-      <p>Don't see your suburb? Request it. We research and deliver a full data report directly to your inbox within 48 hours.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📍</div>
-      <h3>4-State Coverage</h3>
-      <p>NSW, QLD, VIC and WA investor markets tracked and updated with fresh data each quarter.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">⚡</div>
-      <h3>Fast & Mobile-Ready</h3>
-      <p>Built for speed. Use BrickWise on any device — at home, at an open home, or anywhere in between.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="cta">
-  <div class="section-label" style="color:var(--lime);text-align:center;">Early Access</div>
-  <h2 class="section-title">Be first on the platform.</h2>
-  <p class="section-sub">Join the waitlist and get free early access when we launch. No spam. No credit card.</p>
-  <div class="cta-form">
-    <input type="email" id="ctaEmail" placeholder="your@email.com">
-    <button onclick="joinWaitlist()">Join Waitlist →</button>
-  </div>
-  <div class="cta-success" id="ctaSuccess">✓ You're on the list! We'll be in touch shortly.</div>
-  <p class="cta-note">goradie.com · Built for Australian property investors</p>
-</section>
+</div><!-- /register -->
 
 <!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="#">Brick<span>Wise</span></a>
-  <p>© 2025 BrickWise · goradie.com · All rights reserved</p>
-  <p style="font-size:0.75rem;color:rgba(255,255,255,0.2);">Data sourced from public records & proprietary research. Not financial advice.</p>
+  <a class="footer-logo" href="#" onclick="showPage('home')">Brick<span>Wise</span></a>
+  <div class="footer-links">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('brickometer')">Brickometer</a>
+    <a href="#" onclick="showPage('explore')">Explore</a>
+    <a href="#" onclick="showPage('insights')">Market Intel</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('register')">Get Access</a>
+  </div>
+  <p>© 2026 BrickWise · brickwise.com.au</p>
+  <p style="font-size:0.7rem;color:rgba(255,255,255,0.18);width:100%;text-align:center;margin-top:0.3rem;">General information only. Not financial, legal, or investment advice. Always seek professional guidance before making property investment decisions.</p>
 </footer>
 
 <script>
-// ── SUBURB DATASET ──
+// ── DATA ──
 const suburbs = [
-  // NSW
-  { name:"Marsden Park", state:"NSW", postcode:"2765", medianHouse:870000, medianUnit:620000, grossYield:3.9, vacancyRate:1.1, growth12m:9.2, demand:"High" },
-  { name:"Riverstone", state:"NSW", postcode:"2765", medianHouse:920000, medianUnit:680000, grossYield:3.8, vacancyRate:1.0, growth12m:8.6, demand:"High" },
-  { name:"Schofields", state:"NSW", postcode:"2762", medianHouse:1050000, medianUnit:740000, grossYield:3.6, vacancyRate:0.9, growth12m:7.8, demand:"High" },
-  { name:"Parramatta", state:"NSW", postcode:"2150", medianHouse:1250000, medianUnit:680000, grossYield:4.1, vacancyRate:1.5, growth12m:6.4, demand:"High" },
-  { name:"Liverpool", state:"NSW", postcode:"2170", medianHouse:960000, medianUnit:590000, grossYield:4.2, vacancyRate:1.3, growth12m:7.1, demand:"High" },
-  { name:"Campbelltown", state:"NSW", postcode:"2560", medianHouse:820000, medianUnit:520000, grossYield:4.5, vacancyRate:1.4, growth12m:8.3, demand:"High" },
-  { name:"Penrith", state:"NSW", postcode:"2750", medianHouse:890000, medianUnit:580000, grossYield:4.3, vacancyRate:1.2, growth12m:7.9, demand:"High" },
-  { name:"Blacktown", state:"NSW", postcode:"2148", medianHouse:950000, medianUnit:610000, grossYield:4.0, vacancyRate:1.1, growth12m:7.5, demand:"High" },
-  { name:"South Wentworthville", state:"NSW", postcode:"2145", medianHouse:1080000, medianUnit:700000, grossYield:3.8, vacancyRate:1.0, growth12m:8.1, demand:"High" },
-  { name:"Auburn", state:"NSW", postcode:"2144", medianHouse:1150000, medianUnit:720000, grossYield:3.9, vacancyRate:1.2, growth12m:6.9, demand:"Medium" },
-  { name:"Gosford", state:"NSW", postcode:"2250", medianHouse:780000, medianUnit:540000, grossYield:4.4, vacancyRate:1.6, growth12m:6.2, demand:"Medium" },
-  { name:"Wyong", state:"NSW", postcode:"2259", medianHouse:720000, medianUnit:490000, grossYield:4.6, vacancyRate:1.5, growth12m:7.0, demand:"Emerging" },
-  { name:"Newcastle", state:"NSW", postcode:"2300", medianHouse:880000, medianUnit:600000, grossYield:4.3, vacancyRate:1.3, growth12m:7.4, demand:"High" },
-  { name:"Maitland", state:"NSW", postcode:"2320", medianHouse:690000, medianUnit:460000, grossYield:4.8, vacancyRate:1.4, growth12m:8.0, demand:"Emerging" },
-  { name:"Wollongong", state:"NSW", postcode:"2500", medianHouse:920000, medianUnit:640000, grossYield:4.1, vacancyRate:1.2, growth12m:6.8, demand:"Medium" },
-
-  // QLD
-  { name:"Ipswich", state:"QLD", postcode:"4305", medianHouse:580000, medianUnit:380000, grossYield:5.2, vacancyRate:1.0, growth12m:12.4, demand:"High" },
-  { name:"Logan", state:"QLD", postcode:"4114", medianHouse:640000, medianUnit:420000, grossYield:5.0, vacancyRate:1.1, growth12m:11.8, demand:"High" },
-  { name:"Caboolture", state:"QLD", postcode:"4510", medianHouse:610000, medianUnit:410000, grossYield:4.9, vacancyRate:1.0, growth12m:11.2, demand:"High" },
-  { name:"Springfield", state:"QLD", postcode:"4300", medianHouse:670000, medianUnit:450000, grossYield:4.8, vacancyRate:0.9, growth12m:10.5, demand:"High" },
-  { name:"Moreton Bay", state:"QLD", postcode:"4506", medianHouse:720000, medianUnit:480000, grossYield:4.7, vacancyRate:1.0, growth12m:10.9, demand:"High" },
-  { name:"Redcliffe", state:"QLD", postcode:"4020", medianHouse:760000, medianUnit:510000, grossYield:4.5, vacancyRate:1.2, growth12m:9.8, demand:"High" },
-  { name:"Toowoomba", state:"QLD", postcode:"4350", medianHouse:520000, medianUnit:340000, grossYield:5.4, vacancyRate:1.1, growth12m:10.1, demand:"High" },
-  { name:"Sunshine Coast", state:"QLD", postcode:"4558", medianHouse:980000, medianUnit:640000, grossYield:4.2, vacancyRate:1.3, growth12m:8.4, demand:"High" },
-  { name:"Gold Coast", state:"QLD", postcode:"4217", medianHouse:1100000, medianUnit:720000, grossYield:4.0, vacancyRate:1.4, growth12m:9.1, demand:"High" },
-  { name:"Hervey Bay", state:"QLD", postcode:"4655", medianHouse:560000, medianUnit:380000, grossYield:5.1, vacancyRate:1.3, growth12m:9.6, demand:"Emerging" },
-  { name:"Rockhampton", state:"QLD", postcode:"4700", medianHouse:420000, medianUnit:290000, grossYield:5.8, vacancyRate:1.5, growth12m:8.9, demand:"Emerging" },
-  { name:"Townsville", state:"QLD", postcode:"4810", medianHouse:390000, medianUnit:270000, grossYield:6.1, vacancyRate:1.6, growth12m:8.2, demand:"Emerging" },
-  { name:"Coomera", state:"QLD", postcode:"4209", medianHouse:740000, medianUnit:490000, grossYield:4.6, vacancyRate:1.0, growth12m:11.4, demand:"High" },
-  { name:"Pimpama", state:"QLD", postcode:"4209", medianHouse:720000, medianUnit:470000, grossYield:4.7, vacancyRate:0.9, growth12m:11.8, demand:"High" },
-  { name:"North Lakes", state:"QLD", postcode:"4509", medianHouse:780000, medianUnit:520000, grossYield:4.5, vacancyRate:1.0, growth12m:10.2, demand:"High" },
-
-  // VIC
-  { name:"Tarneit", state:"VIC", postcode:"3029", medianHouse:680000, medianUnit:460000, grossYield:4.2, vacancyRate:1.3, growth12m:6.8, demand:"High" },
-  { name:"Werribee", state:"VIC", postcode:"3030", medianHouse:660000, medianUnit:440000, grossYield:4.3, vacancyRate:1.2, growth12m:7.1, demand:"High" },
-  { name:"Cranbourne", state:"VIC", postcode:"3977", medianHouse:710000, medianUnit:480000, grossYield:4.1, vacancyRate:1.1, growth12m:6.5, demand:"High" },
-  { name:"Doncaster", state:"VIC", postcode:"3108", medianHouse:1350000, medianUnit:820000, grossYield:3.4, vacancyRate:0.9, growth12m:7.9, demand:"High" },
-  { name:"Dandenong", state:"VIC", postcode:"3175", medianHouse:780000, medianUnit:520000, grossYield:4.4, vacancyRate:1.4, growth12m:5.8, demand:"Medium" },
-  { name:"Epping", state:"VIC", postcode:"3076", medianHouse:820000, medianUnit:560000, grossYield:4.0, vacancyRate:1.2, growth12m:6.2, demand:"Medium" },
-  { name:"Hoppers Crossing", state:"VIC", postcode:"3029", medianHouse:650000, medianUnit:430000, grossYield:4.5, vacancyRate:1.3, growth12m:6.9, demand:"High" },
-  { name:"Ballarat", state:"VIC", postcode:"3350", medianHouse:510000, medianUnit:340000, grossYield:5.0, vacancyRate:1.4, growth12m:5.4, demand:"Medium" },
-  { name:"Geelong", state:"VIC", postcode:"3220", medianHouse:680000, medianUnit:460000, grossYield:4.5, vacancyRate:1.2, growth12m:6.1, demand:"Medium" },
-  { name:"Melton", state:"VIC", postcode:"3337", medianHouse:580000, medianUnit:390000, grossYield:4.7, vacancyRate:1.1, growth12m:7.3, demand:"Emerging" },
-  { name:"Point Cook", state:"VIC", postcode:"3030", medianHouse:780000, medianUnit:530000, grossYield:4.0, vacancyRate:1.0, growth12m:6.7, demand:"High" },
-  { name:"Wyndham Vale", state:"VIC", postcode:"3024", medianHouse:620000, medianUnit:420000, grossYield:4.6, vacancyRate:1.1, growth12m:7.0, demand:"Emerging" },
-  { name:"Frankston", state:"VIC", postcode:"3199", medianHouse:720000, medianUnit:490000, grossYield:4.3, vacancyRate:1.3, growth12m:5.9, demand:"Medium" },
-  { name:"Bendigo", state:"VIC", postcode:"3550", medianHouse:490000, medianUnit:330000, grossYield:5.1, vacancyRate:1.5, growth12m:5.2, demand:"Emerging" },
-  { name:"Sunbury", state:"VIC", postcode:"3429", medianHouse:630000, medianUnit:430000, grossYield:4.4, vacancyRate:1.2, growth12m:6.4, demand:"Medium" },
-
-  // WA
-  { name:"Baldivis", state:"WA", postcode:"6171", medianHouse:560000, medianUnit:380000, grossYield:5.8, vacancyRate:0.8, growth12m:16.2, demand:"High" },
-  { name:"Rockingham", state:"WA", postcode:"6168", medianHouse:520000, medianUnit:360000, grossYield:5.9, vacancyRate:0.9, growth12m:15.4, demand:"High" },
-  { name:"Mandurah", state:"WA", postcode:"6210", medianHouse:490000, medianUnit:340000, grossYield:6.0, vacancyRate:1.0, growth12m:14.8, demand:"High" },
-  { name:"Joondalup", state:"WA", postcode:"6027", medianHouse:680000, medianUnit:460000, grossYield:5.2, vacancyRate:0.9, growth12m:13.6, demand:"High" },
-  { name:"Armadale", state:"WA", postcode:"6112", medianHouse:490000, medianUnit:330000, grossYield:6.1, vacancyRate:0.8, growth12m:17.4, demand:"High" },
-  { name:"Midland", state:"WA", postcode:"6056", medianHouse:510000, medianUnit:360000, grossYield:5.9, vacancyRate:0.9, growth12m:16.8, demand:"High" },
-  { name:"Ellenbrook", state:"WA", postcode:"6069", medianHouse:570000, medianUnit:390000, grossYield:5.5, vacancyRate:0.8, growth12m:15.1, demand:"High" },
-  { name:"Stirling", state:"WA", postcode:"6021", medianHouse:880000, medianUnit:590000, grossYield:4.8, vacancyRate:0.9, growth12m:14.2, demand:"High" },
-  { name:"Fremantle", state:"WA", postcode:"6160", medianHouse:1100000, medianUnit:720000, grossYield:4.4, vacancyRate:1.1, growth12m:12.8, demand:"High" },
-  { name:"Bunbury", state:"WA", postcode:"6230", medianHouse:460000, medianUnit:310000, grossYield:6.3, vacancyRate:1.2, growth12m:13.5, demand:"Emerging" },
-  { name:"Kwinana", state:"WA", postcode:"6167", medianHouse:470000, medianUnit:320000, grossYield:6.2, vacancyRate:0.9, growth12m:16.0, demand:"High" },
-  { name:"Canning Vale", state:"WA", postcode:"6155", medianHouse:690000, medianUnit:460000, grossYield:5.0, vacancyRate:0.8, growth12m:14.5, demand:"High" },
-  { name:"Kalamunda", state:"WA", postcode:"6076", medianHouse:760000, medianUnit:510000, grossYield:4.8, vacancyRate:0.9, growth12m:13.9, demand:"Medium" },
-  { name:"Wanneroo", state:"WA", postcode:"6065", medianHouse:620000, medianUnit:420000, grossYield:5.3, vacancyRate:0.8, growth12m:15.6, demand:"High" },
-  { name:"Gosnells", state:"WA", postcode:"6110", medianHouse:500000, medianUnit:340000, grossYield:6.0, vacancyRate:0.9, growth12m:16.4, demand:"High" },
+  {name:"Marsden Park",state:"NSW",postcode:"2765",medianHouse:870000,grossYield:3.9,vacancyRate:1.1,growth12m:9.2,demand:"High"},
+  {name:"Riverstone",state:"NSW",postcode:"2765",medianHouse:920000,grossYield:3.8,vacancyRate:1.0,growth12m:8.6,demand:"High"},
+  {name:"Schofields",state:"NSW",postcode:"2762",medianHouse:1050000,grossYield:3.6,vacancyRate:0.9,growth12m:7.8,demand:"High"},
+  {name:"Parramatta",state:"NSW",postcode:"2150",medianHouse:1250000,grossYield:4.1,vacancyRate:1.5,growth12m:6.4,demand:"High"},
+  {name:"Liverpool",state:"NSW",postcode:"2170",medianHouse:960000,grossYield:4.2,vacancyRate:1.3,growth12m:7.1,demand:"High"},
+  {name:"Campbelltown",state:"NSW",postcode:"2560",medianHouse:820000,grossYield:4.5,vacancyRate:1.4,growth12m:8.3,demand:"High"},
+  {name:"Penrith",state:"NSW",postcode:"2750",medianHouse:890000,grossYield:4.3,vacancyRate:1.2,growth12m:7.9,demand:"High"},
+  {name:"Blacktown",state:"NSW",postcode:"2148",medianHouse:950000,grossYield:4.0,vacancyRate:1.1,growth12m:7.5,demand:"High"},
+  {name:"South Wentworthville",state:"NSW",postcode:"2145",medianHouse:1080000,grossYield:3.8,vacancyRate:1.0,growth12m:8.1,demand:"High"},
+  {name:"Newcastle",state:"NSW",postcode:"2300",medianHouse:880000,grossYield:4.3,vacancyRate:1.3,growth12m:7.4,demand:"High"},
+  {name:"Maitland",state:"NSW",postcode:"2320",medianHouse:690000,grossYield:4.8,vacancyRate:1.4,growth12m:8.0,demand:"Emerging"},
+  {name:"Wollongong",state:"NSW",postcode:"2500",medianHouse:920000,grossYield:4.1,vacancyRate:1.2,growth12m:6.8,demand:"Medium"},
+  {name:"Ipswich",state:"QLD",postcode:"4305",medianHouse:580000,grossYield:5.2,vacancyRate:1.0,growth12m:12.4,demand:"High"},
+  {name:"Logan",state:"QLD",postcode:"4114",medianHouse:640000,grossYield:5.0,vacancyRate:1.1,growth12m:11.8,demand:"High"},
+  {name:"Caboolture",state:"QLD",postcode:"4510",medianHouse:610000,grossYield:4.9,vacancyRate:1.0,growth12m:11.2,demand:"High"},
+  {name:"Springfield",state:"QLD",postcode:"4300",medianHouse:670000,grossYield:4.8,vacancyRate:0.9,growth12m:10.5,demand:"High"},
+  {name:"Toowoomba",state:"QLD",postcode:"4350",medianHouse:520000,grossYield:5.4,vacancyRate:1.1,growth12m:10.1,demand:"High"},
+  {name:"Sunshine Coast",state:"QLD",postcode:"4558",medianHouse:980000,grossYield:4.2,vacancyRate:1.3,growth12m:8.4,demand:"High"},
+  {name:"Gold Coast",state:"QLD",postcode:"4217",medianHouse:1100000,grossYield:4.0,vacancyRate:1.4,growth12m:9.1,demand:"High"},
+  {name:"Coomera",state:"QLD",postcode:"4209",medianHouse:740000,grossYield:4.6,vacancyRate:1.0,growth12m:11.4,demand:"High"},
+  {name:"North Lakes",state:"QLD",postcode:"4509",medianHouse:780000,grossYield:4.5,vacancyRate:1.0,growth12m:10.2,demand:"High"},
+  {name:"Hervey Bay",state:"QLD",postcode:"4655",medianHouse:560000,grossYield:5.1,vacancyRate:1.3,growth12m:9.6,demand:"Emerging"},
+  {name:"Tarneit",state:"VIC",postcode:"3029",medianHouse:680000,grossYield:4.2,vacancyRate:1.3,growth12m:6.8,demand:"High"},
+  {name:"Werribee",state:"VIC",postcode:"3030",medianHouse:660000,grossYield:4.3,vacancyRate:1.2,growth12m:7.1,demand:"High"},
+  {name:"Cranbourne",state:"VIC",postcode:"3977",medianHouse:710000,grossYield:4.1,vacancyRate:1.1,growth12m:6.5,demand:"High"},
+  {name:"Doncaster",state:"VIC",postcode:"3108",medianHouse:1350000,grossYield:3.4,vacancyRate:0.9,growth12m:7.9,demand:"High"},
+  {name:"Epping",state:"VIC",postcode:"3076",medianHouse:820000,grossYield:4.0,vacancyRate:1.2,growth12m:6.2,demand:"Medium"},
+  {name:"Melton",state:"VIC",postcode:"3337",medianHouse:580000,grossYield:4.7,vacancyRate:1.1,growth12m:7.3,demand:"Emerging"},
+  {name:"Point Cook",state:"VIC",postcode:"3030",medianHouse:780000,grossYield:4.0,vacancyRate:1.0,growth12m:6.7,demand:"High"},
+  {name:"Geelong",state:"VIC",postcode:"3220",medianHouse:680000,grossYield:4.5,vacancyRate:1.2,growth12m:6.1,demand:"Medium"},
+  {name:"Frankston",state:"VIC",postcode:"3199",medianHouse:720000,grossYield:4.3,vacancyRate:1.3,growth12m:5.9,demand:"Medium"},
+  {name:"Baldivis",state:"WA",postcode:"6171",medianHouse:560000,grossYield:5.8,vacancyRate:0.8,growth12m:16.2,demand:"High"},
+  {name:"Rockingham",state:"WA",postcode:"6168",medianHouse:520000,grossYield:5.9,vacancyRate:0.9,growth12m:15.4,demand:"High"},
+  {name:"Mandurah",state:"WA",postcode:"6210",medianHouse:490000,grossYield:6.0,vacancyRate:1.0,growth12m:14.8,demand:"High"},
+  {name:"Armadale",state:"WA",postcode:"6112",medianHouse:490000,grossYield:6.1,vacancyRate:0.8,growth12m:17.4,demand:"High"},
+  {name:"Ellenbrook",state:"WA",postcode:"6069",medianHouse:570000,grossYield:5.5,vacancyRate:0.8,growth12m:15.1,demand:"High"},
+  {name:"Joondalup",state:"WA",postcode:"6027",medianHouse:680000,grossYield:5.2,vacancyRate:0.9,growth12m:13.6,demand:"High"},
+  {name:"Kwinana",state:"WA",postcode:"6167",medianHouse:470000,grossYield:6.2,vacancyRate:0.9,growth12m:16.0,demand:"High"},
+  {name:"Wanneroo",state:"WA",postcode:"6065",medianHouse:620000,grossYield:5.3,vacancyRate:0.8,growth12m:15.6,demand:"High"},
+  {name:"Gosnells",state:"WA",postcode:"6110",medianHouse:500000,grossYield:6.0,vacancyRate:0.9,growth12m:16.4,demand:"High"},
 ];
 
-// ── FORMAT HELPERS ──
-const fmt = (n) => '$' + n.toLocaleString('en-AU');
-const fmtPct = (n) => n.toFixed(1) + '%';
-const demandClass = (d) => d === 'High' ? 'demand-high' : d === 'Medium' ? 'demand-med' : 'demand-emerging';
+// ── INSIGHTS DATA ──
+const insights = [
+  {cat:'market',emoji:'📈',bg:'#e8f5e9',title:'Why Perth Is Outperforming Every Other Capital City in 2025',date:'Apr 2025',read:'5 min read',desc:'WA suburbs are posting growth rates not seen since the mining boom. We break down what is driving it and how long it can last.'},
+  {cat:'suburb',emoji:'🏘',bg:'#fff8e1',title:'Ipswich Deep Dive: Why This QLD Suburb Scores 78 on the Brickometer',date:'Apr 2025',read:'7 min read',desc:'Infrastructure investment, population inflow, and sub-$600K entry prices — Ipswich ticks all the boxes. Here is the full data picture.'},
+  {cat:'strategy',emoji:'🧮',bg:'#e3f2fd',title:'Positively Geared vs Negatively Geared: What the Numbers Actually Say',date:'Mar 2025',read:'6 min read',desc:'A data-led comparison of cash flow strategies across 20 Australian suburbs, factoring in tax offsets and 5-year equity projections.'},
+  {cat:'data',emoji:'📊',bg:'#f3e5f5',title:'Vacancy Rates Explained: The Most Underrated Metric in Property Investment',date:'Mar 2025',read:'4 min read',desc:'Most investors overlook vacancy rates until they have an empty property. Here is how to use this metric to screen suburbs before you buy.'},
+  {cat:'suburb',emoji:'🌏',bg:'#e8eaf6',title:'Tarneit vs Melton: Which VIC Growth Corridor Wins on the Brickometer?',date:'Feb 2025',read:'6 min read',desc:'Two of Melbourne\'s fastest-growing western suburbs go head to head. Yield, growth, affordability, and infrastructure — all compared.'},
+  {cat:'strategy',emoji:'🎯',bg:'#fce4ec',title:'The 5-Year Equity Play: How to Choose Suburbs That Build Wealth Quietly',date:'Feb 2025',read:'5 min read',desc:'Capital growth investors have a different playbook to yield hunters. We model out what a 7% CAGR actually means for your equity over time.'},
+  {cat:'market',emoji:'🏦',bg:'#e0f7fa',title:'Interest Rate Impact on Property: What Investors Need to Know in 2025',date:'Jan 2025',read:'5 min read',desc:'Rate movements affect borrowing capacity, sentiment, and yield calculations. Here is how smart investors are repositioning their approach.'},
+  {cat:'data',emoji:'🔍',bg:'#f1f8e9',title:'How the Brickometer Score Is Calculated — Full Methodology Explained',date:'Jan 2025',read:'8 min read',desc:'A transparent look at every component, weighting, and threshold behind the Brickometer — so you know exactly what the score means.'},
+];
+
+// ── PAGE NAVIGATION ──
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='explore') renderGrid();
+}
+
+// ── NAV ──
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+function closeNav(){document.getElementById('navLinks').classList.remove('open');}
+
+// ── FORMAT ──
+const fmt = n => '$'+Math.round(n).toLocaleString('en-AU');
+const fmtP = n => n.toFixed(1)+'%';
+const dc = d => d==='High'?'demand-high':d==='Medium'?'demand-med':'demand-emerging';
+
+// ── EXPLORE INNER TABS ──
+function showExplore(tab){
+  document.querySelectorAll('.etab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.epanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('etab-'+tab).classList.add('active');
+  document.getElementById('epanel-'+tab).classList.add('active');
+}
+
+// ── CAROUSEL ──
+function showCarousel(idx){
+  document.querySelectorAll('.ctab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('.cpanel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+// ── GATE MODAL ──
+function openGate(suburb,state,yield_,growth,median,score){
+  document.getElementById('gate-name').textContent=suburb;
+  document.getElementById('gate-state').textContent=state;
+  document.getElementById('gate-yield').textContent=yield_;
+  document.getElementById('gate-growth').textContent=growth;
+  document.getElementById('gate-score').textContent=score;
+  const o=document.getElementById('gate-overlay');
+  o.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeGate(){
+  document.getElementById('gate-overlay').style.display='none';
+  document.body.style.overflow='';
+}
+document.getElementById('gate-overlay').addEventListener('click',function(e){if(e.target===this)closeGate();});
 
 // ── SUBURB SEARCH ──
-function handleKey(e) { if (e.key === 'Enter') searchSuburb(); }
-function quickSearch(name) {
-  document.getElementById('suburbInput').value = name;
-  searchSuburb();
-  document.getElementById('search').scrollIntoView({behavior:'smooth'});
-}
-
-function searchSuburb() {
-  const query = document.getElementById('suburbInput').value.trim().toLowerCase();
-  const container = document.getElementById('search-results');
-  if (!query) { container.innerHTML = ''; return; }
-
-  const matches = suburbs.filter(s => s.name.toLowerCase().includes(query) || s.postcode.includes(query));
-
-  if (matches.length > 0) {
-    container.innerHTML = matches.map(s => `
+function qs(name){document.getElementById('suburbInput').value=name;searchSuburb();}
+function searchSuburb(){
+  const q=document.getElementById('suburbInput').value.trim().toLowerCase();
+  const c=document.getElementById('search-results');
+  if(!q){c.innerHTML='';return;}
+  const matches=suburbs.filter(s=>s.name.toLowerCase().includes(q)||s.postcode.includes(q));
+  if(matches.length>0){
+    c.innerHTML=matches.map(s=>`
       <div class="suburb-card">
         <div class="suburb-card-header">
-          <div>
-            <div class="suburb-name">${s.name}</div>
-            <div class="suburb-state">${s.state} · ${s.postcode}</div>
-          </div>
-          <div class="growth-badge">▲ ${fmtPct(s.growth12m)} 12m</div>
+          <div><div class="suburb-name">${s.name}</div><div class="suburb-state">${s.state} · ${s.postcode}</div></div>
+          <div class="growth-badge">▲${fmtP(s.growth12m)} 12m</div>
         </div>
         <div class="suburb-metrics">
-          <div class="metric">
-            <div class="metric-val">${fmt(s.medianHouse)}</div>
-            <div class="metric-label">Median House</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">${fmt(s.medianUnit)}</div>
-            <div class="metric-label">Median Unit</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">${fmtPct(s.grossYield)}</div>
-            <div class="metric-label">Gross Yield</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">${fmtPct(s.vacancyRate)}</div>
-            <div class="metric-label">Vacancy Rate</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val ${demandClass(s.demand)}">${s.demand}</div>
-            <div class="metric-label">Investor Demand</div>
-          </div>
+          <div><div class="s-metric-val">${fmt(s.medianHouse)}</div><div class="s-metric-label">Median House</div></div>
+          <div><div class="s-metric-val">${fmtP(s.grossYield)}</div><div class="s-metric-label">Gross Yield</div></div>
+          <div><div class="s-metric-val">${fmtP(s.vacancyRate)}</div><div class="s-metric-label">Vacancy</div></div>
+          <div><div class="s-metric-val ${dc(s.demand)}">${s.demand}</div><div class="s-metric-label">Demand</div></div>
         </div>
-      </div>
-    `).join('');
+      </div>`).join('');
   } else {
-    container.innerHTML = `
-      <div class="not-found-card">
-        <h3>📍 "${query.charAt(0).toUpperCase()+query.slice(1)}" isn't in our dataset yet.</h3>
-        <p>Leave your details and we'll research this suburb and send you a full data report within 48 hours — no cost.</p>
-        <div class="capture-form" id="captureForm">
-          <input type="text" id="captureName" placeholder="Your name" required>
-          <input type="email" id="captureEmail" placeholder="Your email address" required>
-          <input type="text" id="captureSuburb" placeholder="Suburb you're interested in" value="${query.charAt(0).toUpperCase()+query.slice(1)}" required>
-          <select id="captureType" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.8rem 1rem;color:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;">
-            <option value="">I'm looking to...</option>
-            <option>Buy an investment property</option>
-            <option>Research the market</option>
-            <option>Compare suburb options</option>
-            <option>Track an existing property</option>
-          </select>
-          <button onclick="submitCapture()">Request My Suburb Report →</button>
-        </div>
-        <div class="success-msg" id="captureSuccess">✓ Request received! Your suburb report will be in your inbox within 48 hours.</div>
-      </div>`;
+    c.innerHTML=`<div class="not-found-card">
+      <h3>📍 "${q.charAt(0).toUpperCase()+q.slice(1)}" isn't in our dataset yet.</h3>
+      <p>Leave your details and we'll research this suburb and send you a full report within 48 hours.</p>
+      <div class="capture-form" id="captureForm">
+        <input type="text" id="captureName" placeholder="Your name">
+        <input type="email" id="captureEmail" placeholder="Your email">
+        <input type="text" id="captureSuburb" value="${q.charAt(0).toUpperCase()+q.slice(1)}" placeholder="Suburb">
+        <button onclick="submitCapture()">Request Suburb Report →</button>
+      </div>
+      <div class="success-msg" id="captureSuccess">✓ Request received! Your suburb report will be in your inbox within 48 hours.</div>
+    </div>`;
   }
 }
-
-function submitCapture() {
-  const name = document.getElementById('captureName').value.trim();
-  const email = document.getElementById('captureEmail').value.trim();
-  if (!name || !email) { alert('Please enter your name and email.'); return; }
-  document.getElementById('captureForm').style.display = 'none';
-  const s = document.getElementById('captureSuccess');
-  s.style.display = 'block';
-  // In production: POST to Supabase or a serverless function
-  console.log('Lead captured:', { name, email, suburb: document.getElementById('captureSuburb').value });
+function submitCapture(){
+  const n=document.getElementById('captureName').value.trim();
+  const e=document.getElementById('captureEmail').value.trim();
+  if(!n||!e){alert('Please enter name and email.');return;}
+  document.getElementById('captureForm').style.display='none';
+  document.getElementById('captureSuccess').style.display='block';
 }
 
-// ── SUBURBS GRID ──
-let activeFilter = 'all';
-function filterSuburbs(state, btn) {
-  activeFilter = state;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderGrid();
-}
-
-function renderGrid() {
-  const data = activeFilter === 'all' ? suburbs : suburbs.filter(s => s.state === activeFilter);
-  document.getElementById('suburbsGrid').innerHTML = data.map(s => `
-    <div class="suburb-mini" onclick="quickSearch('${s.name}')">
+// ── SUBURB GRID ──
+function renderGrid(state='all'){
+  const data=state==='all'?suburbs:suburbs.filter(s=>s.state===state);
+  const grid=document.getElementById('suburbsGrid');
+  if(!grid)return;
+  grid.innerHTML=data.map(s=>`
+    <div class="suburb-mini" onclick="document.getElementById('suburbInput').value='${s.name}';searchSuburb();showExplore('search');">
       <div class="sm-name">${s.name}</div>
       <div class="sm-state">${s.state} · ${s.postcode}</div>
       <div class="sm-row">
         <div><div class="sm-val">${fmt(s.medianHouse)}</div><div class="sm-key">Median</div></div>
-        <div style="text-align:center"><div class="sm-val">${fmtPct(s.grossYield)}</div><div class="sm-key">Yield</div></div>
-        <div style="text-align:right"><div class="sm-growth">▲${fmtPct(s.growth12m)}</div><div class="sm-key">12m growth</div></div>
+        <div style="text-align:center"><div class="sm-val">${fmtP(s.grossYield)}</div><div class="sm-key">Yield</div></div>
+        <div style="text-align:right"><div class="sm-growth">▲${fmtP(s.growth12m)}</div><div class="sm-key">12m</div></div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
-renderGrid();
+function filterSuburbs(state,btn){
+  document.querySelectorAll('.filter-btn-dark').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(state);
+}
 
 // ── DEAL ANALYSER ──
-function calcDeal() {
-  const price = parseFloat(document.getElementById('purchasePrice').value) || 0;
-  const depositPct = parseFloat(document.getElementById('deposit').value) || 20;
-  const weeklyRent = parseFloat(document.getElementById('weeklyRent').value) || 0;
-  const rate = parseFloat(document.getElementById('interestRate').value) || 6.2;
-  const expenses = parseFloat(document.getElementById('expenses').value) || 0;
-  const growthPct = parseFloat(document.getElementById('growth').value) || 7;
-  const loanType = document.getElementById('loanType').value;
-
-  const deposit = price * (depositPct / 100);
-  const loan = price - deposit;
-  const annualRent = weeklyRent * 52;
-  const grossYield = (annualRent / price) * 100;
-  const netRent = annualRent - expenses;
-  const netYield = (netRent / price) * 100;
-
-  let annualMortgage;
-  if (loanType === 'io') {
-    annualMortgage = loan * (rate / 100);
-  } else {
-    const monthlyRate = rate / 100 / 12;
-    const n = 30 * 12;
-    const monthlyPayment = loan * (monthlyRate * Math.pow(1+monthlyRate, n)) / (Math.pow(1+monthlyRate, n) - 1);
-    annualMortgage = monthlyPayment * 12;
-  }
-
-  const annualCashFlow = netRent - annualMortgage;
-  const weeklyCashFlow = annualCashFlow / 52;
-  const proj5 = price * Math.pow(1 + growthPct/100, 5);
-  const equity5 = proj5 - loan;
-
-  const set = (id, val, cls) => {
-    const el = document.getElementById(id);
-    el.textContent = val;
-    el.className = 'result-val' + (cls ? ' ' + cls : '');
-  };
-
-  set('r-grossYield', fmtPct(grossYield), grossYield >= 5 ? 'positive' : grossYield >= 4 ? '' : 'warning');
-  set('r-netYield', fmtPct(netYield), netYield >= 4 ? 'positive' : netYield >= 3 ? '' : 'warning');
-  set('r-annualRent', fmt(Math.round(annualRent)));
-  set('r-mortgage', fmt(Math.round(annualMortgage)));
-  set('r-cashflow', (annualCashFlow >= 0 ? '+' : '') + fmt(Math.round(annualCashFlow)), annualCashFlow >= 0 ? 'positive' : 'negative');
-  set('r-weeklyCf', (weeklyCashFlow >= 0 ? '+$' : '-$') + Math.abs(Math.round(weeklyCashFlow)) + '/wk', weeklyCashFlow >= 0 ? 'positive' : 'negative');
-  set('r-proj5', fmt(Math.round(proj5)));
-  set('r-equity5', fmt(Math.round(equity5)), 'positive');
-
-  const verdict = document.getElementById('r-verdict');
-  if (annualCashFlow >= 0) {
-    verdict.innerHTML = `<div class="verdict-box"><div class="verdict-title">✓ Positively Geared</div><div class="verdict-text">This property generates ${fmt(Math.round(annualCashFlow))} net cash flow per year. Strong yield with projected equity growth of ${fmt(Math.round(proj5 - price))} over 5 years.</div></div>`;
-  } else {
-    verdict.innerHTML = `<div class="verdict-box neutral"><div class="verdict-title">⚡ Negatively Geared</div><div class="verdict-text">Costs ${fmt(Math.abs(Math.round(annualCashFlow)))} per year to hold. Consider tax offsets. Projected equity gain of ${fmt(Math.round(proj5 - price))} over 5 years may offset the shortfall.</div></div>`;
-  }
-}
-calcDeal(); // run on load with defaults
-
-// ── CTA WAITLIST ──
-function joinWaitlist() {
-  const email = document.getElementById('ctaEmail').value.trim();
-  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
-  document.querySelector('.cta-form').style.display = 'none';
-  document.getElementById('ctaSuccess').style.display = 'block';
-  console.log('Waitlist signup:', email);
+function calcDeal(){
+  const price=parseFloat(document.getElementById('purchasePrice').value)||0;
+  const dep=parseFloat(document.getElementById('deposit').value)||20;
+  const rent=parseFloat(document.getElementById('weeklyRent').value)||0;
+  const rate=parseFloat(document.getElementById('interestRate').value)||6.2;
+  const exp=parseFloat(document.getElementById('expenses').value)||0;
+  const gro=parseFloat(document.getElementById('growth').value)||7;
+  const lt=document.getElementById('loanType').value;
+  const yrs=parseFloat(document.getElementById('holdingYears')?.value)||5;
+  const pm=parseFloat(document.getElementById('pmFee')?.value)||8;
+  const loan=price*(1-dep/100);
+  const annRent=rent*52;
+  const pmCost=annRent*(pm/100);
+  const totalExp=exp+pmCost;
+  const gy=(annRent/price)*100;
+  const ny=((annRent-totalExp)/price)*100;
+  let mtg;
+  if(lt==='io'){mtg=loan*(rate/100);}
+  else{const mr=rate/100/12;const n=360;mtg=loan*(mr*Math.pow(1+mr,n))/(Math.pow(1+mr,n)-1)*12;}
+  const cf=annRent-totalExp-mtg;
+  const wcf=cf/52;
+  const projV=price*Math.pow(1+gro/100,yrs);
+  const equity=projV-loan;
+  const totalCashFlow=cf*yrs;
+  const totalReturn=totalCashFlow+(projV-price);
+  const sv=(id,val,cls)=>{const el=document.getElementById(id);if(!el)return;el.textContent=val;el.className='result-val'+(cls?' '+cls:'');};
+  const pl=(id,txt)=>{const el=document.getElementById(id);if(el)el.textContent=txt;};
+  pl('r-proj-label',`Projected Value (${yrs}yr)`);
+  pl('r-equity-label',`Projected Equity (${yrs}yr)`);
+  sv('r-grossYield',fmtP(gy),gy>=5?'positive':gy>=4?'':'warning');
+  sv('r-netYield',fmtP(ny),ny>=4?'positive':ny>=3?'':'warning');
+  sv('r-annualRent',fmt(annRent));
+  sv('r-mortgage',fmt(Math.round(mtg)));
+  sv('r-cashflow',(cf>=0?'+':'')+fmt(Math.round(cf)),cf>=0?'positive':'negative');
+  sv('r-weeklyCf',(wcf>=0?'+$':'-$')+Math.abs(Math.round(wcf))+'/wk',wcf>=0?'positive':'negative');
+  sv('r-proj5',fmt(Math.round(projV)));
+  sv('r-equity5',fmt(Math.round(equity)),'positive');
+  sv('r-totalReturn',fmt(Math.round(totalReturn)),'positive');
+  const vd=document.getElementById('r-verdict');
+  if(vd){vd.innerHTML=cf>=0?`<div class="verdict-box"><div class="verdict-title">✓ Positively Geared</div><div class="verdict-text">Generates ${fmt(Math.round(cf))}/yr net cash flow. Total projected return over ${yrs} years: ${fmt(Math.round(totalReturn))}.</div></div>`:`<div class="verdict-box neutral"><div class="verdict-title">⚡ Negatively Geared</div><div class="verdict-text">Costs ${fmt(Math.abs(Math.round(cf)))}/yr to hold. Projected equity gain of ${fmt(Math.round(projV-price))} over ${yrs} years may offset the shortfall.</div></div>`;}
 }
 
-// ── NAV ──
-function toggleNav() {
-  document.getElementById('navLinks').classList.toggle('open');
+// ── BRICKOMETER ENGINE ──
+const WEIGHTS={yield:0.30,growth:0.25,vacancy:0.20,affordability:0.15,infrastructure:0.10};
+function clamp(v,mn=0,mx=100){return Math.max(mn,Math.min(mx,v));}
+function scoreYield(y){if(y>=6.5)return 100;if(y>=5.5)return 85;if(y>=4.5)return 70;if(y>=3.5)return 50;if(y>=2.5)return 30;return 10;}
+function scoreVacancy(v){if(v<=1.0)return 100;if(v<=1.5)return 90;if(v<=2.0)return 75;if(v<=2.5)return 60;if(v<=3.5)return 40;return 20;}
+function scoreAffordability(r){if(r<5)return 100;if(r<6.5)return 80;if(r<8)return 65;if(r<10)return 45;if(r<12)return 30;return 15;}
+function normGrowth(g){if(g>=10)return 100;if(g>=7)return 85;if(g>=4)return 70;if(g>=1)return 55;if(g>=-2)return 40;return 20;}
+function scoreGrowth(g1,g3,g5){return clamp(normGrowth(g1)*0.35+normGrowth(g3)*0.40+normGrowth(g5)*0.25);}
+function riskPenalty(rs){if(rs>=16)return 15;if(rs>=11)return 8;if(rs>=6)return 3;return 0;}
+function getRating(s){if(s>=85)return['Excellent','rating-excellent'];if(s>=70)return['Strong','rating-strong'];if(s>=55)return['Balanced','rating-balanced'];if(s>=40)return['Caution','rating-caution'];return['High Risk','rating-highrisk'];}
+
+function runBrickometer(){
+  const price=parseFloat(document.getElementById('bm-price').value)||580000;
+  const rent=parseFloat(document.getElementById('bm-rent').value)||550;
+  const medprice=parseFloat(document.getElementById('bm-medprice').value)||580000;
+  const income=parseFloat(document.getElementById('bm-income').value)||95000;
+  const g1=parseFloat(document.getElementById('bm-growth1').value)||10;
+  const g3=parseFloat(document.getElementById('bm-growth3').value)||8;
+  const g5=parseFloat(document.getElementById('bm-growth5').value)||7;
+  const vac=parseFloat(document.getElementById('bm-vacancy').value)||1.0;
+  const infra=parseFloat(document.getElementById('bm-infra').value)||65;
+  const risk=parseFloat(document.getElementById('bm-risk').value)||6;
+  const strata=parseFloat(document.getElementById('bm-strata').value)||0;
+  const suburb=document.getElementById('bm-suburb').value||'Unknown';
+  const state=document.getElementById('bm-state').value;
+
+  const gy=(rent*52/price)*100;
+  const ptr=medprice/income;
+  let yScore=scoreYield(gy);
+  if(strata>5000)yScore=clamp(yScore-10);
+  const gScore=scoreGrowth(g1,g3,g5);
+  const vScore=scoreVacancy(vac);
+  const aScore=scoreAffordability(ptr);
+  const iScore=clamp(infra);
+  const base=yScore*WEIGHTS.yield+gScore*WEIGHTS.growth+vScore*WEIGHTS.vacancy+aScore*WEIGHTS.affordability+iScore*WEIGHTS.infrastructure;
+  const rp=riskPenalty(risk);
+  const final=clamp(Math.round(base-rp));
+  const [rating,ratingClass]=getRating(final);
+
+  // Gauge
+  const arc=document.getElementById('bm-gauge-arc');
+  const dashTotal=219.9;
+  const dashOffset=dashTotal-(dashTotal*(final/100));
+  arc.style.strokeDashoffset=dashOffset;
+
+  document.getElementById('bm-score-num').textContent=final;
+  const ratingEl=document.getElementById('bm-score-rating');
+  ratingEl.textContent=rating;
+  ratingEl.className='big-score-rating '+ratingClass;
+
+  // Bars
+  const comps=[
+    {label:'Yield (30%)',score:Math.round(yScore),weighted:Math.round(yScore*WEIGHTS.yield)},
+    {label:'Growth (25%)',score:Math.round(gScore),weighted:Math.round(gScore*WEIGHTS.growth)},
+    {label:'Vacancy (20%)',score:Math.round(vScore),weighted:Math.round(vScore*WEIGHTS.vacancy)},
+    {label:'Affordability (15%)',score:Math.round(aScore),weighted:Math.round(aScore*WEIGHTS.affordability)},
+    {label:'Infrastructure (10%)',score:Math.round(iScore),weighted:Math.round(iScore*WEIGHTS.infrastructure)},
+  ];
+  document.getElementById('bm-component-bars').innerHTML=comps.map(c=>`
+    <div class="cb-row">
+      <span class="cb-label">${c.label}</span>
+      <div class="cb-track"><div class="cb-fill" style="width:${c.score}%"></div></div>
+      <span class="cb-val">${c.score}</span>
+    </div>`).join('');
+
+  // Strengths / watchouts
+  const strengths=[];const watchouts=[];
+  if(yScore>=70)strengths.push('Strong rental yield relative to purchase price');else watchouts.push('Rental yield below ideal — review holding costs');
+  if(gScore>=70)strengths.push('Solid growth momentum across 1, 3, and 5-year periods');else watchouts.push('Growth momentum is moderate — validate with recent sales data');
+  if(vScore>=80)strengths.push('Very low vacancy rate — strong tenant demand');else if(vScore<60)watchouts.push('Vacancy rate is elevated — leasing risk to monitor');
+  if(aScore>=65)strengths.push('Suburb remains relatively affordable vs household income');else watchouts.push('Affordability is stretched — limits future buyer pool');
+  if(iScore>=60)strengths.push('Infrastructure investment supports long-term demand');else watchouts.push('Infrastructure score is low — limited amenity uplift near-term');
+  if(rp>0)watchouts.push(`Risk penalty applied: -${rp} points (risk score: ${risk})`);
+  if(strata>5000)watchouts.push('Strata/body corporate costs reduce effective net yield');
+
+  document.getElementById('bm-strengths').innerHTML=strengths.map(s=>`<div class="sr-item">${s}</div>`).join('');
+  document.getElementById('bm-watchouts').innerHTML=watchouts.map(w=>`<div class="sr-item">${w}</div>`).join('');
+
+  // Recommendation
+  const rec=document.getElementById('bm-rec-panel');
+  const verdict=document.getElementById('bm-rec-verdict');
+  const recText=document.getElementById('bm-rec-text');
+  if(final>=70){rec.className='rec-panel';verdict.textContent='✓ PROCEED TO DUE DILIGENCE';recText.textContent=`${suburb}, ${state} scores ${final}/100 — a ${rating.toLowerCase()} result. The fundamentals support further investigation. Validate yield assumptions, inspect the property, and compare against 2–3 alternative suburbs before committing.`;}
+  else if(final>=55){rec.className='rec-panel caution';verdict.textContent='⚡ MONITOR CLOSELY';recText.textContent=`${suburb}, ${state} scores ${final}/100 — a balanced result with mixed signals. Consider whether entry price, rental upside, or a specific strategy justifies the trade-offs highlighted above.`;}
+  else{rec.className='rec-panel avoid';verdict.textContent='⚠ REASSESS OR AVOID';recText.textContent=`${suburb}, ${state} scores ${final}/100. Several key metrics are below threshold. Unless you have a specific strategic reason to proceed, consider alternative suburbs with stronger fundamentals.`;}
+
+  document.getElementById('bm-placeholder').style.display='none';
+  document.getElementById('bm-output').style.display='block';
+}
+
+// ── INSIGHTS ──
+function renderInsights(cat){
+  const data=cat==='all'?insights:insights.filter(i=>i.cat===cat);
+  document.getElementById('insightsGrid').innerHTML=data.map(i=>`
+    <div class="insight-card">
+      <div class="insight-img" style="background:${i.bg}">${i.emoji}</div>
+      <div class="insight-body">
+        <div class="insight-tag">${i.cat==='market'?'Market Trends':i.cat==='suburb'?'Suburb Spotlight':i.cat==='strategy'?'Strategy':'Data & Research'}</div>
+        <h3>${i.title}</h3>
+        <p>${i.desc}</p>
+        <div class="insight-meta"><span>${i.date} · ${i.read}</span><span class="insight-read">Read →</span></div>
+      </div>
+    </div>`).join('');
+}
+renderInsights('all');
+function filterInsights(cat,btn){
+  document.querySelectorAll('#page-insights .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderInsights(cat);
+}
+
+// ── REGISTER ──
+function submitRegistration(){
+  const fn=document.getElementById('reg-firstname').value.trim();
+  const em=document.getElementById('reg-email').value.trim();
+  const type=document.getElementById('reg-type').value;
+  if(!fn||!em){alert('Please enter your name and email address.');return;}
+  if(!em.includes('@')){alert('Please enter a valid email address.');return;}
+  if(!type){alert('Please select your investor type.');return;}
+  document.getElementById('regForm').style.display='none';
+  document.getElementById('regSuccess').style.display='block';
+  console.log('Registration:',{fn,em,type});
+}
+
+// ── WAITLIST ──
+function joinWaitlist(){
+  const em=document.getElementById('ctaEmail').value.trim();
+  if(!em||!em.includes('@')){alert('Please enter a valid email.');return;}
+  document.querySelector('.cta-form').style.display='none';
+  document.getElementById('ctaSuccess').style.display='block';
 }
 </script>
 </body>
