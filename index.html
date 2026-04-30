@@ -62,14 +62,18 @@ section{padding:72px 5%;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── HERO ── */
-.hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:44px 5% 36px;position:relative;overflow:hidden;background:var(--light);}
-.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 70% at 85% 30%,rgba(200,244,0,0.13) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 5% 90%,rgba(56,189,248,0.06) 0%,transparent 60%);}
+.hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:22px 5% 20px;position:relative;overflow:hidden;background:var(--light);}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 50% 80% at 95% 50%,rgba(200,244,0,0.09) 0%,transparent 55%);}
 .hero-tag{display:none;}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:800;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);max-width:600px;position:relative;z-index:1;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.05rem,1.8vw,1.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--ink);max-width:520px;position:relative;z-index:1;}
 .hero h1 em{font-style:normal;color:var(--lime-dark);}
-.hero-sub{font-size:0.95rem;color:var(--mid);line-height:1.5;max-width:360px;margin-top:0.6rem;font-weight:300;position:relative;z-index:1;}
-.hero-actions{display:flex;gap:0.7rem;margin-top:1.4rem;flex-wrap:wrap;position:relative;z-index:1;}
-@media(max-width:600px){.hero{padding:32px 5% 28px;}.hero h1{font-size:1.25rem;}.hero-actions{flex-direction:column;gap:0.5rem;}.hero-actions button{width:100%;justify-content:center;}}
+.hero-sub{font-size:0.84rem;color:var(--mid);line-height:1.35;margin-top:0.3rem;font-weight:300;position:relative;z-index:1;}
+.hero-actions{display:flex;gap:0.5rem;margin-top:0.9rem;flex-wrap:wrap;position:relative;z-index:1;}
+.btn-primary{background:var(--ink);color:var(--lime);padding:0.55rem 1.2rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.78rem;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:0.35rem;transition:transform 0.2s,box-shadow 0.2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.2);}
+.btn-ghost{background:transparent;color:var(--ink);padding:0.55rem 1.2rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:600;font-size:0.78rem;text-decoration:none;border:1.5px solid rgba(0,0,0,0.18);cursor:pointer;display:inline-flex;align-items:center;gap:0.35rem;transition:all 0.2s;}
+.btn-ghost:hover{background:var(--ink);color:var(--lime);border-color:var(--ink);}
+@media(max-width:600px){.hero{padding:18px 5% 16px;}.hero h1{font-size:1rem;}.hero-actions{gap:0.4rem;flex-wrap:wrap;}}
 
 /* ── BRICKOMETER PREVIEW on HERO ── */
 .brickometer-preview{background:var(--ink);border-radius:20px;padding:1.8rem;max-width:340px;position:relative;z-index:1;animation:fadeUp 0.6s 0.5s ease both;margin-top:2rem;}
@@ -199,17 +203,24 @@ section{padding:72px 5%;}
 .epanel.active{display:block;animation:fadeUp 0.3s ease both;}
 
 /* ── CAROUSEL ── */
-.ctab{display:flex;flex-direction:column;align-items:flex-start;padding:1rem 2rem 0.9rem;background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap;gap:0.15rem;}
-.ctab:hover{border-bottom-color:rgba(255,255,255,0.2);}
-.ctab.active{border-bottom-color:var(--lime);}
-.ctab-icon{font-size:1.1rem;}
-.ctab-name{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.45);transition:color 0.2s;}
+.ctab{display:flex;flex-direction:column;align-items:flex-start;padding:1.4rem 2.4rem 1.2rem;background:transparent;border:none;border-bottom:3px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap;gap:0.25rem;position:relative;}
+.ctab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:3px;background:transparent;transition:background 0.2s;}
+.ctab:hover{background:rgba(255,255,255,0.04);}
+.ctab:hover .ctab-name{color:rgba(255,255,255,0.85);}
+.ctab.active{background:rgba(200,244,0,0.05);border-bottom-color:var(--lime);}
+.ctab-icon{font-size:1.4rem;margin-bottom:0.2rem;}
+.ctab-name{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:rgba(255,255,255,0.35);transition:color 0.2s;letter-spacing:-0.02em;line-height:1.05;}
 .ctab.active .ctab-name{color:var(--white);}
-.ctab-range{font-size:0.7rem;color:rgba(255,255,255,0.3);}
+.ctab-range{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.2);letter-spacing:0.04em;text-transform:uppercase;}
 .ctab.active .ctab-range{color:var(--lime);}
-.cpanel{display:none;padding:2rem 5% 3rem;}
-.cpanel.active{display:block;animation:fadeUp 0.35s ease both;}
-.cpanel-desc{font-size:0.88rem;color:rgba(255,255,255,0.4);max-width:620px;line-height:1.65;margin-bottom:1.8rem;font-weight:300;}
+@media(max-width:680px){
+  .ctab{padding:1rem 1.3rem 0.9rem;}
+  .ctab-name{font-size:1rem;}
+  .ctab-icon{font-size:1.1rem;}
+}
+.cpanel{display:none;padding:1.4rem 5% 2.2rem;}
+.cpanel.active{display:block;animation:fadeUp 0.3s ease both;}
+.cpanel-desc{font-size:0.83rem;color:rgba(255,255,255,0.32);max-width:560px;line-height:1.6;margin-bottom:1.2rem;font-weight:300;}
 .ccard-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;}
 .ccard{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.5rem;cursor:pointer;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:0.75rem;}
 .ccard:hover{border-color:var(--lime);transform:translateY(-3px);}
@@ -368,8 +379,7 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   <div class="nav-links" id="navLinks">
     <a href="#" onclick="showPage('home');closeNav()">Home</a>
     <a href="#" onclick="showPage('brickometer');closeNav()">Brickometer</a>
-    <a href="#" onclick="showPage('insights');closeNav()">Market Intel</a>
-    <a href="#" onclick="showPage('explore');showExplore('deal');closeNav()">Deal Analyser</a>
+    <a href="#" onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100);closeNav()">Deal Analyser</a>
     <a href="#" onclick="showPage('about');closeNav()">About</a>
     <a href="#" onclick="showPage('register');closeNav()" class="nav-cta">Get Suburb Details</a>
   </div>
@@ -430,12 +440,12 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   </section>
 
   <!-- ── BUDGET CATEGORIES ── -->
-  <section style="background:var(--ink);padding:0;">
-    <div style="padding:2.5rem 5% 1.5rem;">
+  <section style="background:var(--ink);padding:0;border-top:1px solid rgba(0,0,0,0.06);">
+    <div style="padding:1.4rem 5% 0.8rem;">
       <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <div>
-          <div class="section-label" style="color:var(--lime);">BrickWise Picks · Q2 2026</div>
-          <h2 class="section-title" style="color:var(--white);">Explore suburbs by budget.</h2>
+          <div class="section-label" style="color:var(--lime);margin-bottom:0.3rem;">BrickWise Picks · Q2 2026</div>
+          <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-0.025em;color:var(--white);line-height:1.05;">Explore suburbs by budget.</h2>
         </div>
         <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);max-width:260px;line-height:1.6;text-align:right;">Curated picks scored by the Brickometer. Full reports for registered members.</p>
       </div>
@@ -469,7 +479,7 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
         <div class="ccard" onclick="openGate('Parramatta','NSW · 2150','4.1%','▲6.4%','$1.25M','68 · Balanced')"><div class="ccard-badge">⬡ 68 · Balanced</div><div class="ccard-suburb">Parramatta</div><div class="ccard-state">NSW · 2150</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--gold);">▲6.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.25M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.5%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's second CBD. Major corporate relocation driving structural demand growth over a 10+ year horizon.</div><div class="ccard-cta">View Insights →</div></div>
       </div>
     </div>
-    <div style="padding:1.5rem 5% 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="padding:1rem 5% 1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);">
       <span style="font-size:0.8rem;color:rgba(255,255,255,0.3);">35 suburbs tracked · NSW · QLD · VIC · WA</span>
       <button onclick="showPage('explore')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.65);padding:0.55rem 1.3rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.76rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--lime)';this.style.color='var(--lime)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.65)'">View all suburbs →</button>
     </div>
@@ -501,7 +511,7 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   </div>
 
   <!-- ── BRICKOMETER CTA STRIP ── -->
-  <section style="background:var(--lime);padding:3rem 5%;">
+  <section style="background:var(--lime);padding:2.2rem 5%;">
     <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
       <div>
         <div style="font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:0.3rem;">Score any suburb in seconds.</div>
@@ -515,7 +525,7 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   </section>
 
   <!-- ── MARKET INTEL PREVIEWS ── -->
-  <section style="background:var(--light);padding:60px 5%;">
+  <section style="background:var(--light);padding:36px 5% 44px;">
     <div style="max-width:1100px;margin:0 auto;">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
         <div>
@@ -538,9 +548,9 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   </section>
 
   <!-- ── FOOTER ── -->
-  <footer style="background:var(--ink);padding:3rem 5% 2rem;">
+  <footer style="background:var(--ink);padding:2.2rem 5% 1.8rem;">
     <div style="max-width:1100px;margin:0 auto;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);">
         <div>
           <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em;margin-bottom:0.4rem;">Brick<span style="color:var(--lime);">Wise</span></div>
           <div style="font-size:0.8rem;color:rgba(255,255,255,0.3);max-width:240px;line-height:1.6;">Australia's property intelligence platform for investors.</div>
@@ -997,43 +1007,179 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 <!-- ABOUT PAGE -->
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-about">
-  <div class="about-hero">
-    <div class="section-label" style="color:var(--lime);">About BrickWise</div>
-    <h1>Built for investors<br>who want <em>clarity.</em></h1>
-    <p>Property decisions shouldn't rely on scattered data, sales agent opinions, and gut feel. BrickWise brings it all together into a structured, evidence-based decision engine.</p>
+
+  <!-- Mission -->
+  <div style="background:var(--ink);padding:52px 5% 44px;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 85% 40%,rgba(200,244,0,0.07),transparent 60%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(56,189,248,0.04),transparent 55%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;max-width:700px;">
+      <div class="section-label" style="color:var(--lime);margin-bottom:0.6rem;">About BrickWise</div>
+      <h1 style="font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.06;color:var(--white);margin-bottom:0.9rem;">Built for investors<br>who want <span style="color:var(--lime);">clarity.</span></h1>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300;max-width:500px;">Property decisions shouldn't rely on scattered data and gut feel. BrickWise brings it all together — a structured, evidence-based engine that turns complex markets into clear decisions.</p>
+    </div>
   </div>
 
-  <div class="about-body">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>Why BrickWise exists.</h2>
-        <p>Real estate investment in Australia requires navigating a complex matrix of variables — capital growth, infrastructure expansion, rental demand, crime trends, and economic forecasts. Historically, this process is fragmented. Buyers manually consult CoreLogic, ABS, state planning portals, and local agents before making decisions worth hundreds of thousands of dollars.</p>
-        <p>BrickWise was created to change that. Our mission is to make property decisions clearer, faster, and more evidence-based — giving every investor access to the same quality of intelligence that was previously only available to institutional buyers and well-resourced buyer's agents.</p>
-        <p>The goal is not to replace professional advice, but to give buyers a stronger starting point. BrickWise helps users compare suburbs, understand investment trade-offs, assess financial viability, and identify potential risks before they commit.</p>
-        <div class="about-mission">
-          <h3>Our Mission</h3>
-          <p>To democratise property intelligence in Australia — giving every investor, from first-time buyers to seasoned portfolio holders, the data and decision-support tools they need to invest with confidence.</p>
+  <!-- Principles -->
+  <div style="background:var(--light);padding:44px 5% 40px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label" style="margin-bottom:0.4rem;">Our Principles</div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:800;letter-spacing:-0.02em;color:var(--ink);margin-bottom:1.6rem;">What we believe about investing.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0.9rem;">
+        <!-- Principle cards -->
+        <div style="background:var(--white);border-radius:14px;padding:1.3rem 1.4rem;border:1.5px solid var(--border);transition:border-color 0.2s,transform 0.2s;cursor:default;" onmouseover="this.style.borderColor='var(--lime-dark)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+          <div style="width:36px;height:36px;background:var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:0.7rem;">📊</div>
+          <div style="font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">Data over hype</div>
+          <div style="font-size:0.78rem;color:var(--mid);line-height:1.6;">Every insight grounded in verified data — not opinions, forecasts, or agent pitches.</div>
         </div>
-      </div>
-      <div>
-        <div class="about-values">
-          <div class="value-card"><h3>📊 Data-Led Decisions</h3><p>Every insight on BrickWise is grounded in real data — not opinions, not marketing. We surface the numbers and let you decide.</p></div>
-          <div class="value-card"><h3>🔍 Radical Transparency</h3><p>The Brickometer score is fully explainable. We show you every component, every weighting, and every risk factor. No black boxes.</p></div>
-          <div class="value-card"><h3>⚡ Speed to Insight</h3><p>From suburb search to investment recommendation in seconds — not days. Because good opportunities don't wait.</p></div>
-          <div class="value-card"><h3>🛡 Investor Protection</h3><p>We flag risks clearly and prominently. Our risk overlay ensures high-scoring suburbs are assessed against downside scenarios, not just upside potential.</p></div>
+        <div style="background:var(--white);border-radius:14px;padding:1.3rem 1.4rem;border:1.5px solid var(--border);transition:border-color 0.2s,transform 0.2s;cursor:default;" onmouseover="this.style.borderColor='var(--lime-dark)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+          <div style="width:36px;height:36px;background:var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:0.7rem;">🧭</div>
+          <div style="font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">Long-term thinking</div>
+          <div style="font-size:0.78rem;color:var(--mid);line-height:1.6;">The best decisions use a 5–10 year horizon — not this quarter's headlines.</div>
         </div>
-        <div class="formula-box" style="margin-top:1.5rem;">
-          <h4>Brickometer Formula — MVP Weightings</h4>
-          <div class="formula-row"><span>Rental Yield</span><span class="formula-weight">30%</span></div>
-          <div class="formula-row"><span>Growth / Momentum</span><span class="formula-weight">25%</span></div>
-          <div class="formula-row"><span>Vacancy / Rental Demand</span><span class="formula-weight">20%</span></div>
-          <div class="formula-row"><span>Affordability</span><span class="formula-weight">15%</span></div>
-          <div class="formula-row"><span>Infrastructure / Amenity</span><span class="formula-weight">10%</span></div>
-          <div class="formula-row" style="border-top:2px solid var(--border);margin-top:0.3rem;padding-top:0.5rem;"><span style="font-weight:700;">Total</span><span class="formula-weight">100%</span></div>
+        <div style="background:var(--white);border-radius:14px;padding:1.3rem 1.4rem;border:1.5px solid var(--border);transition:border-color 0.2s,transform 0.2s;cursor:default;" onmouseover="this.style.borderColor='var(--lime-dark)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+          <div style="width:36px;height:36px;background:var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:0.7rem;">⚡</div>
+          <div style="font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">Simplicity over complexity</div>
+          <div style="font-size:0.78rem;color:var(--mid);line-height:1.6;">20+ variables condensed into one explainable score. Clarity creates better decisions.</div>
+        </div>
+        <div style="background:var(--white);border-radius:14px;padding:1.3rem 1.4rem;border:1.5px solid var(--border);transition:border-color 0.2s,transform 0.2s;cursor:default;" onmouseover="this.style.borderColor='var(--lime-dark)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+          <div style="width:36px;height:36px;background:var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:0.7rem;">🔍</div>
+          <div style="font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">Transparent scoring</div>
+          <div style="font-size:0.78rem;color:var(--mid);line-height:1.6;">No black boxes. Every Brickometer component is visible, weighted, and explained.</div>
+        </div>
+        <div style="background:var(--white);border-radius:14px;padding:1.3rem 1.4rem;border:1.5px solid var(--border);transition:border-color 0.2s,transform 0.2s;cursor:default;" onmouseover="this.style.borderColor='var(--lime-dark)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform=''">
+          <div style="width:36px;height:36px;background:var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:0.7rem;">🛡</div>
+          <div style="font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:var(--ink);margin-bottom:0.3rem;">Smarter suburb selection</div>
+          <div style="font-size:0.78rem;color:var(--mid);line-height:1.6;">The right suburb matters more than the right property. We help you find it first.</div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Brickometer Formula — Premium Visual Section -->
+  <div style="background:var(--ink);padding:52px 5%;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="section-label" style="color:var(--lime);margin-bottom:0.4rem;">The Methodology</div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:800;letter-spacing:-0.02em;color:var(--white);margin-bottom:0.4rem;">How the Brickometer score is calculated.</h2>
+      <p style="font-size:0.84rem;color:rgba(255,255,255,0.3);line-height:1.65;margin-bottom:2rem;max-width:480px;font-weight:300;">Five dimensions independently scored and weighted. A risk penalty is applied from verified risk signals. One number you can act on.</p>
+
+      <!-- Formula visual rows -->
+      <div style="display:flex;flex-direction:column;gap:0;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);">
+
+        <!-- Row: Rental Income -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 1.5rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(200,244,0,0.05)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'">
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.18);">+</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--white);">Rental Income</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.28);margin-top:0.1rem;">Gross yield relative to purchase price</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--lime);line-height:1;text-align:right;margin-right:1.2rem;">30</div>
+          <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:5px;overflow:hidden;"><div style="width:30%;height:100%;background:var(--lime);border-radius:5px;"></div></div>
+        </div>
+
+        <!-- Row: Growth Potential -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 1.5rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(56,189,248,0.05)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'">
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.18);">+</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--white);">Growth Potential</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.28);margin-top:0.1rem;">12m, 3yr, and 5yr capital growth momentum</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--sky);line-height:1;text-align:right;margin-right:1.2rem;">25</div>
+          <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:5px;overflow:hidden;"><div style="width:25%;height:100%;background:var(--sky);border-radius:5px;"></div></div>
+        </div>
+
+        <!-- Row: Rental Demand -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 1.5rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(74,222,128,0.05)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'">
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.18);">+</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--white);">Rental Demand</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.28);margin-top:0.1rem;">Vacancy rate and rental market tightness</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#4ade80;line-height:1;text-align:right;margin-right:1.2rem;">20</div>
+          <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:5px;overflow:hidden;"><div style="width:20%;height:100%;background:#4ade80;border-radius:5px;"></div></div>
+        </div>
+
+        <!-- Row: Affordability -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 1.5rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(245,166,35,0.05)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'">
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.18);">+</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--white);">Affordability</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.28);margin-top:0.1rem;">Price-to-income ratio and entry accessibility</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--gold);line-height:1;text-align:right;margin-right:1.2rem;">15</div>
+          <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:5px;overflow:hidden;"><div style="width:15%;height:100%;background:var(--gold);border-radius:5px;"></div></div>
+        </div>
+
+        <!-- Row: Infrastructure -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 1.5rem;transition:background 0.2s;" onmouseover="this.style.background='rgba(167,139,250,0.05)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'">
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,0.18);">+</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--white);">Infrastructure & Liveability</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.28);margin-top:0.1rem;">Schools, transport, employment hubs, amenity proximity</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#a78bfa;line-height:1;text-align:right;margin-right:1.2rem;">10</div>
+          <div style="height:5px;background:rgba(255,255,255,0.07);border-radius:5px;overflow:hidden;"><div style="width:10%;height:100%;background:#a78bfa;border-radius:5px;"></div></div>
+        </div>
+
+        <!-- Row: Risk deduction -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(255,92,58,0.04);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 1.5rem;">
+          <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--coral);">−</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:var(--white);">Risk Penalty</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.28);margin-top:0.1rem;">Flood, bushfire, vacancy trend, overvaluation signals</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--coral);line-height:1;text-align:right;margin-right:1.2rem;">0–15</div>
+          <div style="height:5px;background:rgba(255,92,58,0.15);border-radius:5px;"></div>
+        </div>
+
+        <!-- Row: Result -->
+        <div style="display:grid;grid-template-columns:48px 1fr auto 120px;align-items:center;gap:0;background:rgba(200,244,0,0.06);padding:1.2rem 1.5rem;border-top:2px solid rgba(200,244,0,0.18);">
+          <div style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--lime);">=</div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--white);">Brickometer Score</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.1rem;">A single number from 0–100. The higher, the stronger the investment case.</div>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--lime);line-height:1;text-align:right;margin-right:1.2rem;">0–100</div>
+          <div></div>
+        </div>
+      </div>
+
+      <!-- Rating scale -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;margin-top:1.2rem;">
+        <div style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);border-radius:10px;padding:0.65rem 0.8rem;text-align:center;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;color:#4ade80;">85–100</div>
+          <div style="font-size:0.62rem;color:rgba(255,255,255,0.3);margin-top:0.18rem;text-transform:uppercase;letter-spacing:0.05em;">Excellent</div>
+        </div>
+        <div style="background:rgba(200,244,0,0.1);border:1px solid rgba(200,244,0,0.2);border-radius:10px;padding:0.65rem 0.8rem;text-align:center;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;color:var(--lime);">70–84</div>
+          <div style="font-size:0.62rem;color:rgba(255,255,255,0.3);margin-top:0.18rem;text-transform:uppercase;letter-spacing:0.05em;">Strong</div>
+        </div>
+        <div style="background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:0.65rem 0.8rem;text-align:center;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;color:var(--gold);">55–69</div>
+          <div style="font-size:0.62rem;color:rgba(255,255,255,0.3);margin-top:0.18rem;text-transform:uppercase;letter-spacing:0.05em;">Balanced</div>
+        </div>
+        <div style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.2);border-radius:10px;padding:0.65rem 0.8rem;text-align:center;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;color:#fb923c;">40–54</div>
+          <div style="font-size:0.62rem;color:rgba(255,255,255,0.3);margin-top:0.18rem;text-transform:uppercase;letter-spacing:0.05em;">Watchlist</div>
+        </div>
+        <div style="background:rgba(255,92,58,0.1);border:1px solid rgba(255,92,58,0.2);border-radius:10px;padding:0.65rem 0.8rem;text-align:center;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;color:var(--coral);">0–39</div>
+          <div style="font-size:0.62rem;color:rgba(255,255,255,0.3);margin-top:0.18rem;text-transform:uppercase;letter-spacing:0.05em;">Higher Risk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing CTA -->
+  <div style="background:var(--light);padding:44px 5%;">
+    <div style="max-width:560px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Syne',sans-serif;font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:800;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.5rem;">Ready to score your first suburb?</div>
+      <p style="font-size:0.88rem;color:var(--mid);line-height:1.65;margin-bottom:1.5rem;">Enter any suburb or postcode. The Brickometer does the rest.</p>
+      <div style="display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="showPage('brickometer')">Try the Brickometer →</button>
+        <button class="btn-ghost" onclick="showPage('register')">Get Suburb Details</button>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /about -->
 
 
