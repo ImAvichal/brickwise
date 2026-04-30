@@ -62,17 +62,14 @@ section{padding:72px 5%;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── HERO ── */
-.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:80px 5% 72px;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 80% 40%,rgba(200,244,0,0.16) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(56,189,248,0.08) 0%,transparent 60%);}
-.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:var(--lime);color:var(--ink);padding:0.35rem 1rem;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.6rem;width:fit-content;position:relative;z-index:1;animation:fadeUp 0.6s ease both;}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;color:var(--ink);max-width:760px;position:relative;z-index:1;animation:fadeUp 0.6s 0.1s ease both;}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--lime-dark),#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-sub{font-size:clamp(1rem,1.5vw,1.1rem);color:var(--mid);line-height:1.7;max-width:520px;margin-top:1.3rem;font-weight:300;position:relative;z-index:1;animation:fadeUp 0.6s 0.2s ease both;}
-.hero-actions{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap;position:relative;z-index:1;animation:fadeUp 0.6s 0.3s ease both;}
-.hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap;position:relative;z-index:1;animation:fadeUp 0.6s 0.4s ease both;}
-.hero-stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em;}
-.hero-stat-num span{color:var(--lime-dark);}
-.hero-stat-label{font-size:0.8rem;color:var(--mid);margin-top:0.15rem;}
+.hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:44px 5% 36px;position:relative;overflow:hidden;background:var(--light);}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 70% at 85% 30%,rgba(200,244,0,0.13) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 5% 90%,rgba(56,189,248,0.06) 0%,transparent 60%);}
+.hero-tag{display:none;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:800;line-height:1.1;letter-spacing:-0.025em;color:var(--ink);max-width:600px;position:relative;z-index:1;}
+.hero h1 em{font-style:normal;color:var(--lime-dark);}
+.hero-sub{font-size:0.95rem;color:var(--mid);line-height:1.5;max-width:360px;margin-top:0.6rem;font-weight:300;position:relative;z-index:1;}
+.hero-actions{display:flex;gap:0.7rem;margin-top:1.4rem;flex-wrap:wrap;position:relative;z-index:1;}
+@media(max-width:600px){.hero{padding:32px 5% 28px;}.hero h1{font-size:1.25rem;}.hero-actions{flex-direction:column;gap:0.5rem;}.hero-actions button{width:100%;justify-content:center;}}
 
 /* ── BRICKOMETER PREVIEW on HERO ── */
 .brickometer-preview{background:var(--ink);border-radius:20px;padding:1.8rem;max-width:340px;position:relative;z-index:1;animation:fadeUp 0.6s 0.5s ease both;margin-top:2rem;}
@@ -245,12 +242,7 @@ section{padding:72px 5%;}
 .filter-btn.active,.filter-btn:hover{background:var(--ink);color:var(--lime);border-color:var(--ink);}
 
 /* ── REGISTER / LEAD ── */
-.register-hero{background:var(--ink);padding:80px 5% 60px;color:var(--white);}
-.register-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.05;max-width:560px;color:var(--white);}
-.register-hero h1 em{font-style:normal;color:var(--lime);}
-.register-hero p{font-size:1rem;color:rgba(255,255,255,0.5);max-width:480px;margin-top:1rem;line-height:1.65;font-weight:300;}
-.register-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:72px 5%;align-items:start;}
-@media(max-width:768px){.register-layout{grid-template-columns:1fr;gap:2rem;padding:48px 5%;}}
+
 .reg-form{background:var(--white);border-radius:20px;padding:2rem;border:1px solid var(--border);}
 .reg-form h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:1.5rem;}
 .reg-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
@@ -259,18 +251,13 @@ section{padding:72px 5%;}
 .reg-ig input,.reg-ig select,.reg-ig textarea{background:var(--light);border:1.5px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;width:100%;}
 .reg-ig input:focus,.reg-ig select:focus,.reg-ig textarea:focus{border-color:var(--lime-dark);}
 .reg-ig textarea{resize:vertical;min-height:80px;}
-.btn-register{background:var(--ink);color:var(--lime);border:none;padding:1rem 2rem;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;width:100%;margin-top:0.5rem;transition:transform 0.2s,box-shadow 0.2s;}
-.btn-register:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
 .reg-success{display:none;background:rgba(200,244,0,0.12);border:1px solid rgba(200,244,0,0.3);border-radius:12px;padding:1.5rem;text-align:center;}
 .reg-success h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--lime-dark);margin-bottom:0.4rem;}
 .reg-success p{font-size:0.85rem;color:var(--mid);}
-.reg-benefits{display:flex;flex-direction:column;gap:1rem;}
 .reg-benefit{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:rgba(200,244,0,0.06);border:1px solid rgba(200,244,0,0.15);border-radius:14px;}
 .rb-icon{font-size:1.4rem;flex-shrink:0;}
 .rb-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.25rem;}
 .rb-desc{font-size:0.82rem;color:var(--mid);line-height:1.5;}
-.plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
-@media(max-width:500px){.plan-cards{grid-template-columns:1fr;}}
 .plan-card{border-radius:14px;padding:1.4rem;border:1.5px solid var(--border);background:var(--white);}
 .plan-card.featured{background:var(--ink);border-color:var(--ink);}
 .plan-name{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:0.5rem;}
@@ -381,10 +368,10 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   <div class="nav-links" id="navLinks">
     <a href="#" onclick="showPage('home');closeNav()">Home</a>
     <a href="#" onclick="showPage('brickometer');closeNav()">Brickometer</a>
-    <a href="#" onclick="showPage('explore');closeNav()">Explore</a>
     <a href="#" onclick="showPage('insights');closeNav()">Market Intel</a>
+    <a href="#" onclick="showPage('explore');showExplore('deal');closeNav()">Deal Analyser</a>
     <a href="#" onclick="showPage('about');closeNav()">About</a>
-    <a href="#" onclick="showPage('register');closeNav()" class="nav-cta">Get Access</a>
+    <a href="#" onclick="showPage('register');closeNav()" class="nav-cta">Get Suburb Details</a>
   </div>
   <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
@@ -411,14 +398,14 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
   </div>
 </div>
 
-<!-- PAGE TABS -->
-<div class="page-tabs">
-  <span class="page-tab active" id="tab-home" onclick="showPage('home')">Home</span>
-  <span class="page-tab" id="tab-brickometer" onclick="showPage('brickometer')">⬡ Brickometer</span>
-  <span class="page-tab" id="tab-explore" onclick="showPage('explore')">🔍 Explore</span>
-  <span class="page-tab" id="tab-insights" onclick="showPage('insights')">Market Intel</span>
-  <span class="page-tab" id="tab-about" onclick="showPage('about')">About</span>
-  <span class="page-tab" id="tab-register" onclick="showPage('register')">Get Access</span>
+<!-- HIDDEN PAGE TABS (preserve IDs for JS, but visually hidden) -->
+<div style="display:none;">
+  <span id="tab-home"></span>
+  <span id="tab-brickometer"></span>
+  <span id="tab-explore"></span>
+  <span id="tab-insights"></span>
+  <span id="tab-about"></span>
+  <span id="tab-register"></span>
 </div>
 
 <!-- ══════════════════════════════════════ -->
@@ -426,89 +413,65 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 <!-- ══════════════════════════════════════ -->
 <div class="page active" id="page-home">
 
-  <!-- Hero -->
+  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-inner">
       <div>
-        <div class="hero-tag">● Australia's Property Intelligence Platform</div>
-        <h1>Smarter property<br>decisions, powered<br>by <em>data.</em></h1>
-        <p class="hero-sub">BrickWise helps buyers and investors compare suburbs, analyse deals, and identify opportunities using the Brickometer — Australia's first property investment scoring engine.</p>
+        <h1>Simple advice for<br>property investments<br>with <em>limitless potential.</em></h1>
+        <p class="hero-sub">We make building wealth effortless.</p>
         <div class="hero-actions">
-          <button class="btn-primary" onclick="showPage('brickometer')">Try the Brickometer →</button>
-          <button class="btn-ghost" onclick="document.getElementById('how-section').scrollIntoView({behavior:'smooth'})">How it works</button>
-        </div>
-        <div class="hero-stats">
-          <div><div class="hero-stat-num">65<span>+</span></div><div class="hero-stat-label">Suburbs tracked</div></div>
-          <div><div class="hero-stat-num">4<span> states</span></div><div class="hero-stat-label">NSW · QLD · VIC · WA</div></div>
-          <div><div class="hero-stat-num">6<span> factors</span></div><div class="hero-stat-label">Brickometer score</div></div>
-        </div>
-      </div>
-      <!-- Brickometer Preview Card -->
-      <div class="brickometer-preview">
-        <div class="bp-label">Brickometer Preview</div>
-        <div class="bp-suburb">Ipswich</div>
-        <div class="bp-state">QLD · 4305</div>
-        <div class="gauge-wrap">
-          <svg class="gauge-svg" viewBox="0 0 160 90">
-            <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10" stroke-linecap="round"/>
-            <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="url(#gaugeGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="47"/>
-            <defs><linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#C8F400"/><stop offset="100%" stop-color="#4ade80"/></linearGradient></defs>
-          </svg>
-          <div class="gauge-score">78</div>
-          <div class="gauge-rating">Strong</div>
-        </div>
-        <div class="bp-bars">
-          <div class="bp-bar-row"><span class="bp-bar-label">Yield</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:85%;background:var(--lime);"></div></div><span class="bp-bar-val">85</span></div>
-          <div class="bp-bar-row"><span class="bp-bar-label">Growth</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:80%;background:var(--sky);"></div></div><span class="bp-bar-val">80</span></div>
-          <div class="bp-bar-row"><span class="bp-bar-label">Vacancy</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:100%;background:var(--lime);"></div></div><span class="bp-bar-val">100</span></div>
-          <div class="bp-bar-row"><span class="bp-bar-label">Affordability</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:80%;background:var(--gold);"></div></div><span class="bp-bar-val">80</span></div>
-          <div class="bp-bar-row"><span class="bp-bar-label">Infrastructure</span><div class="bp-bar-track"><div class="bp-bar-fill" style="width:65%;background:var(--sky);"></div></div><span class="bp-bar-val">65</span></div>
+          <button class="btn-primary" onclick="showPage('explore')">Explore Suburbs</button>
+          <button class="btn-ghost" onclick="showPage('brickometer')">Use Brickometer</button>
+          <button class="btn-ghost" onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100)">Run the Numbers</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── SUBURB PICKS CAROUSEL ── -->
-  <section style="background:var(--ink);padding:64px 0 0;">
-    <div style="padding:0 5% 2rem;">
-      <div class="section-label" style="color:var(--lime);">BrickWise Picks · Q2 2026</div>
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
-        <h2 class="section-title" style="color:var(--white);max-width:480px;">The right suburb<br>for your budget.</h2>
-        <p style="font-size:0.82rem;color:rgba(255,255,255,0.35);max-width:280px;line-height:1.6;margin-bottom:0.2rem;">Curated picks scored by the Brickometer. Click any card for insights — full reports for registered members.</p>
+  <!-- ── BUDGET CATEGORIES ── -->
+  <section style="background:var(--ink);padding:0;">
+    <div style="padding:2.5rem 5% 1.5rem;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <div class="section-label" style="color:var(--lime);">BrickWise Picks · Q2 2026</div>
+          <h2 class="section-title" style="color:var(--white);">Explore suburbs by budget.</h2>
+        </div>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);max-width:260px;line-height:1.6;text-align:right;">Curated picks scored by the Brickometer. Full reports for registered members.</p>
       </div>
     </div>
-    <div style="display:flex;border-bottom:1px solid rgba(255,255,255,0.08);padding:0 5%;overflow-x:auto;">
-      <button class="ctab active" id="ctab-0" onclick="showCarousel(0)"><span class="ctab-icon">🔥</span><span class="ctab-name">The Sweet Spot</span><span class="ctab-range">$500K – $700K</span></button>
-      <button class="ctab" id="ctab-1" onclick="showCarousel(1)"><span class="ctab-icon">📈</span><span class="ctab-name">The Growth Play</span><span class="ctab-range">$700K – $1M</span></button>
-      <button class="ctab" id="ctab-2" onclick="showCarousel(2)"><span class="ctab-icon">💎</span><span class="ctab-name">Premium Market</span><span class="ctab-range">$1M+</span></button>
+    <div style="display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.08);padding:0 5%;overflow-x:auto;scrollbar-width:none;">
+      <button class="ctab active" id="ctab-0" onclick="showCarousel(0)"><span class="ctab-icon">🔥</span><span class="ctab-name">Under $700K</span><span class="ctab-range">Sweet Spot</span></button>
+      <button class="ctab" id="ctab-1" onclick="showCarousel(1)"><span class="ctab-icon">📈</span><span class="ctab-name">$700K – $1M</span><span class="ctab-range">Growth Play</span></button>
+      <button class="ctab" id="ctab-2" onclick="showCarousel(2)"><span class="ctab-icon">💎</span><span class="ctab-name">$1M+</span><span class="ctab-range">Premium Market</span></button>
     </div>
-
     <div class="cpanel active" id="cpanel-0">
-      <div class="cpanel-desc">Maximum yield. Minimum entry. Best risk-adjusted returns in the current market — ideal for investors who want cash flow from day one without stretching serviceability.</div>
+      <div class="cpanel-desc">Maximum yield. Minimum entry. Best risk-adjusted returns in the current market — ideal for investors who want cash flow from day one.</div>
       <div class="ccard-row">
-        <div class="ccard featured" onclick="openGate('Ipswich','QLD · 4305','5.2%','▲12.4%','$580K','78 · Strong')"><div class="ccard-badge">⬡ 78 · Strong</div><div class="ccard-suburb">Ipswich</div><div class="ccard-state">QLD · 4305</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.2%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$580K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Strong infrastructure pipeline, sub-1% vacancy, and affordable entry make Ipswich the standout pick in this tier. Rental demand driven by south-east QLD population inflow and proximity to Springfield employment hub.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Armadale','WA · 6112','6.1%','▲17.4%','$490K','82 · Strong')"><div class="ccard-badge">⬡ 82 · Strong</div><div class="ccard-suburb">Armadale</div><div class="ccard-state">WA · 6112</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">6.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲17.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$490K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Perth's hottest corridor delivers the highest yield in our dataset alongside 17%+ growth — rare at this price point. Low vacancy reflects structural undersupply across the southern corridor.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Toowoomba','QLD · 4350','5.4%','▲10.1%','$520K','75 · Strong')"><div class="ccard-badge">⬡ 75 · Strong</div><div class="ccard-suburb">Toowoomba</div><div class="ccard-state">QLD · 4350</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲10.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$520K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Regional QLD powerhouse with strong agricultural and logistics employment base. Consistently strong yields, rising rents, and limited new stock create a compelling cash flow case.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard featured" onclick="openGate('Ipswich','QLD · 4305','5.2%','▲12.4%','$580K','78 · Strong')"><div class="ccard-badge">⬡ 78 · Strong</div><div class="ccard-suburb">Ipswich</div><div class="ccard-state">QLD · 4305</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.2%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$580K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Strong infrastructure pipeline, sub-1% vacancy, and affordable entry. Rental demand driven by SEQ population inflow and Springfield employment hub.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Armadale','WA · 6112','6.1%','▲17.4%','$490K','82 · Strong')"><div class="ccard-badge">⬡ 82 · Strong</div><div class="ccard-suburb">Armadale</div><div class="ccard-state">WA · 6112</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">6.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲17.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$490K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Perth's hottest corridor. Highest yield in our dataset alongside 17%+ growth — rare at this price point.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Toowoomba','QLD · 4350','5.4%','▲10.1%','$520K','75 · Strong')"><div class="ccard-badge">⬡ 75 · Strong</div><div class="ccard-suburb">Toowoomba</div><div class="ccard-state">QLD · 4350</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲10.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$520K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Regional QLD powerhouse. Diversified economy, Inland Rail tailwind, consistently strong yields.</div><div class="ccard-cta">View Insights →</div></div>
       </div>
     </div>
-
     <div class="cpanel" id="cpanel-1">
-      <div class="cpanel-desc">Balanced growth and yield for the confident investor. These suburbs offer a compelling combination of capital growth trajectory and solid rental returns in the $700K–$1M range.</div>
+      <div class="cpanel-desc">Balanced growth and yield. A compelling combination of capital growth trajectory and solid rental returns for the confident investor.</div>
       <div class="ccard-row">
-        <div class="ccard featured" onclick="openGate('Ellenbrook','WA · 6069','5.5%','▲15.1%','$570K','81 · Strong')"><div class="ccard-badge">⬡ 81 · Strong</div><div class="ccard-suburb">Ellenbrook</div><div class="ccard-state">WA · 6069</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲15.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$570K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Ellenbrook benefits from Perth's northward infrastructure expansion, strong family demand, growing amenity, and a yield profile that punches well above its price point.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Campbelltown','NSW · 2560','4.5%','▲8.3%','$820K','72 · Strong')"><div class="ccard-badge">⬡ 72 · Strong</div><div class="ccard-suburb">Campbelltown</div><div class="ccard-state">NSW · 2560</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲8.3%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$820K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.4%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's South West corridor continues to attract strong tenant demand. Western Sydney Airport infrastructure and new employment zones underpin solid long-term growth fundamentals.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Coomera','QLD · 4209','4.6%','▲11.4%','$740K','77 · Strong')"><div class="ccard-badge">⬡ 77 · Strong</div><div class="ccard-suburb">Coomera</div><div class="ccard-state">QLD · 4209</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.6%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲11.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$740K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Gold Coast's northern growth corridor with strong infrastructure investment, population inflow from Brisbane, and a diverse tenant base supporting consistent rental demand.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard featured" onclick="openGate('Ellenbrook','WA · 6069','5.5%','▲15.1%','$570K','81 · Strong')"><div class="ccard-badge">⬡ 81 · Strong</div><div class="ccard-suburb">Ellenbrook</div><div class="ccard-state">WA · 6069</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲15.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$570K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Perth's northward expansion play. Ellenbrook Rail approved and funded — transformational on completion.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Campbelltown','NSW · 2560','4.5%','▲8.3%','$820K','72 · Strong')"><div class="ccard-badge">⬡ 72 · Strong</div><div class="ccard-suburb">Campbelltown</div><div class="ccard-state">NSW · 2560</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲8.3%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$820K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.4%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Direct Aerotropolis beneficiary. 200,000+ jobs forecast in the corridor over 20 years.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Coomera','QLD · 4209','4.6%','▲11.4%','$740K','77 · Strong')"><div class="ccard-badge">⬡ 77 · Strong</div><div class="ccard-suburb">Coomera</div><div class="ccard-state">QLD · 4209</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.6%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲11.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$740K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Gold Coast's northern growth corridor. Major Town Centre transformation underway, strong Brisbane migration inflow.</div><div class="ccard-cta">View Insights →</div></div>
       </div>
     </div>
-
     <div class="cpanel" id="cpanel-2">
-      <div class="cpanel-desc">Capital growth and long-term wealth creation for the experienced investor. Premium suburbs with strong owner-occupier appeal, proven infrastructure, and equity track records.</div>
+      <div class="cpanel-desc">Capital growth and long-term wealth creation. Premium suburbs with proven equity track records and strong owner-occupier appeal.</div>
       <div class="ccard-row">
-        <div class="ccard featured" onclick="openGate('Doncaster','VIC · 3108','3.4%','▲7.9%','$1.35M','74 · Strong')"><div class="ccard-badge">⬡ 74 · Strong</div><div class="ccard-suburb">Doncaster</div><div class="ccard-state">VIC · 3108</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">3.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲7.9%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.35M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.9%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Melbourne's premium eastern corridor with high owner-occupier demand, excellent school catchments, and proximity to the CBD underpinning strong long-term capital growth.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Fremantle','WA · 6160','4.4%','▲12.8%','$1.1M','71 · Strong')"><div class="ccard-badge">⬡ 71 · Strong</div><div class="ccard-suburb">Fremantle</div><div class="ccard-state">WA · 6160</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.8%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.1M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Fremantle offers a rare premium combination — lifestyle appeal, above-average yield for its price point, and strong growth driven by Perth's broader market momentum.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Parramatta','NSW · 2150','4.1%','▲6.4%','$1.25M','68 · Balanced')"><div class="ccard-badge">⬡ 68 · Balanced</div><div class="ccard-suburb">Parramatta</div><div class="ccard-state">NSW · 2150</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--gold);">▲6.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.25M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.5%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's second CBD with significant commercial investment and population density growth. Strong long-term fundamentals though entry price requires solid borrowing capacity.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard featured" onclick="openGate('Doncaster','VIC · 3108','3.4%','▲7.9%','$1.35M','74 · Strong')"><div class="ccard-badge">⬡ 74 · Strong</div><div class="ccard-suburb">Doncaster</div><div class="ccard-state">VIC · 3108</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">3.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲7.9%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.35M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.9%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Melbourne's premium eastern corridor. Sub-1% vacancy and elite school catchments make this recession-resilient.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Fremantle','WA · 6160','4.4%','▲12.8%','$1.1M','71 · Strong')"><div class="ccard-badge">⬡ 71 · Strong</div><div class="ccard-suburb">Fremantle</div><div class="ccard-state">WA · 6160</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.8%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.1M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Lifestyle meets investment. Above-average yield at premium price point, strong growth from Perth's market tailwind.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard" onclick="openGate('Parramatta','NSW · 2150','4.1%','▲6.4%','$1.25M','68 · Balanced')"><div class="ccard-badge">⬡ 68 · Balanced</div><div class="ccard-suburb">Parramatta</div><div class="ccard-state">NSW · 2150</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--gold);">▲6.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.25M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.5%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's second CBD. Major corporate relocation driving structural demand growth over a 10+ year horizon.</div><div class="ccard-cta">View Insights →</div></div>
       </div>
+    </div>
+    <div style="padding:1.5rem 5% 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);">
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.3);">35 suburbs tracked · NSW · QLD · VIC · WA</span>
+      <button onclick="showPage('explore')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.65);padding:0.55rem 1.3rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.76rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--lime)';this.style.color='var(--lime)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.65)'">View all suburbs →</button>
     </div>
   </section>
 
@@ -525,57 +488,88 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
         <div style="text-align:center;"><div id="gate-score" style="font-family:'Syne',sans-serif;font-weight:700;color:var(--lime);font-size:1rem;"></div><div style="font-size:0.65rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;">Brickometer</div></div>
       </div>
       <div style="position:relative;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.1);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;overflow:hidden;min-height:90px;">
-        <div style="filter:blur(5px);pointer-events:none;font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;">Growth drivers include significant infrastructure investment on the regional transport corridor, population inflow, and a tight rental market driven by undersupply. The risk overlay flags moderate concern around affordability stretch and... Recommended strategy is a 7-year buy-and-hold with...</div>
+        <div style="filter:blur(5px);pointer-events:none;font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;">Growth drivers include significant infrastructure investment, population inflow, and a tight rental market driven by undersupply. Recommended strategy is a 7-year buy-and-hold with...</div>
         <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(13,13,13,0.65);border-radius:12px;">
           <div style="font-size:1.1rem;margin-bottom:0.3rem;">🔒</div>
           <div style="font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:var(--white);">Full report — members only</div>
           <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-top:0.2rem;">Growth drivers · Risk factors · Strategy</div>
         </div>
       </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;font-size:0.9rem;" onclick="closeGate();showPage('register')">Get Free Access →</button>
+      <button class="btn-primary" style="width:100%;justify-content:center;font-size:0.9rem;" onclick="closeGate();showPage('register')">Get Suburb Details →</button>
       <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:0.8rem;">Free to register · No credit card required</p>
     </div>
   </div>
 
-  <!-- Features -->
-  <section style="background:var(--white);">
-    <div class="section-label">What BrickWise Does</div>
-    <h2 class="section-title">Everything the modern investor needs.</h2>
-    <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">⬡</div><h3>Brickometer Score</h3><p>A single 0–100 score combining yield, growth, vacancy, affordability, and infrastructure across any Australian suburb.</p></div>
-      <div class="feature-card"><div class="feature-icon">📊</div><h3>Suburb Intelligence</h3><p>Median prices, rental yields, growth trends, vacancy rates, and investor demand scores for 65+ high-growth postcodes.</p></div>
-      <div class="feature-card"><div class="feature-icon">🧮</div><h3>Deal Analyser</h3><p>Real-time cash flow modelling, net yield, and 5-year equity projections — with interest-only or P&I options.</p></div>
-      <div class="feature-card"><div class="feature-icon">⚠️</div><h3>Risk Overlay</h3><p>Each score includes a risk penalty assessment across vacancy trends, strata exposure, affordability stretch, and market timing.</p></div>
-      <div class="feature-card"><div class="feature-icon">🏆</div><h3>Winner Suburbs</h3><p>Curated top picks across entry, mid-range, and premium price bands — ranked by Brickometer score and projected ROI.</p></div>
-      <div class="feature-card"><div class="feature-icon">📬</div><h3>Custom Reports</h3><p>Don't see your suburb? Request it. We research and deliver a full data report to your inbox within 48 hours.</p></div>
+  <!-- ── BRICKOMETER CTA STRIP ── -->
+  <section style="background:var(--lime);padding:3rem 5%;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:0.3rem;">Score any suburb in seconds.</div>
+        <div style="font-size:0.92rem;color:rgba(0,0,0,0.5);font-weight:300;">Enter a suburb or postcode. Get a full investment score, strengths, risks, and 5-year trends.</div>
+      </div>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+        <button onclick="showPage('brickometer')" style="background:var(--ink);color:var(--lime);border:none;padding:0.8rem 1.6rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Try the Brickometer →</button>
+        <button onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100)" style="background:transparent;color:var(--ink);border:2px solid rgba(0,0,0,0.2);padding:0.8rem 1.6rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.08)'" onmouseout="this.style.background='transparent'">Run Deal Analyser</button>
+      </div>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section id="how-section" style="background:var(--white);">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">From suburb search to settled deal.</h2>
-    <div class="steps-grid">
-      <div class="step-card"><div class="step-num">01</div><h3>Choose a Suburb</h3><p>Search any of our 65+ tracked suburbs or request one we don't have yet.</p></div>
-      <div class="step-card"><div class="step-num">02</div><h3>BrickWise Checks 20+ Parameters</h3><p>Yield, growth, vacancy, affordability, infrastructure, risk — all evaluated automatically.</p></div>
-      <div class="step-card"><div class="step-num">03</div><h3>Brickometer Generates a Score</h3><p>A single 0–100 score with full breakdown, weighted by our proprietary algorithm.</p></div>
-      <div class="step-card"><div class="step-num">04</div><h3>Get Strengths, Risks & Action</h3><p>Clear recommendation: Buy, Hold, or Monitor — with the rationale behind it.</p></div>
+  <!-- ── MARKET INTEL PREVIEWS ── -->
+  <section style="background:var(--light);padding:60px 5%;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <div class="section-label">Market Intel</div>
+          <h2 class="section-title">From the research desk.</h2>
+        </div>
+        <button onclick="showPage('insights')" style="background:transparent;border:1.5px solid var(--border);color:var(--mid);padding:0.5rem 1.2rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--ink)';this.style.color='var(--ink)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'">All articles →</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+        <div onclick="showPage('insights');setTimeout(()=>openArticle('professionals'),150)" style="background:var(--white);border-radius:16px;overflow:hidden;border:1.5px solid var(--border);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.09)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="height:130px;background:linear-gradient(135deg,#0D0D0D,#2a2a2a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,244,0,0.15),transparent 60%);"></div><span style="font-size:2.6rem;position:relative;z-index:1;">🤝</span><span style="position:absolute;top:0.7rem;left:0.7rem;background:rgba(200,244,0,0.15);color:var(--lime);border:1px solid rgba(200,244,0,0.3);padding:0.2rem 0.55rem;border-radius:100px;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Strategy</span></div>
+          <div style="padding:1.1rem;flex:1;display:flex;flex-direction:column;"><div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:0.4rem;">The 3 Key Professionals Every Property Investor Needs</div><p style="font-size:0.78rem;color:var(--mid);line-height:1.6;flex:1;">Your accountant, financial adviser, and mortgage broker aren't just individual advisors — they're a team.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.8rem;"><span style="font-size:0.65rem;color:rgba(0,0,0,0.3);">Apr 2026 · 7 min</span><span style="font-size:0.72rem;font-weight:700;color:var(--lime-dark);">Read →</span></div></div>
+        </div>
+        <div onclick="showPage('insights');setTimeout(()=>openArticle('global'),150)" style="background:var(--white);border-radius:16px;overflow:hidden;border:1.5px solid var(--border);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.09)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="height:130px;background:linear-gradient(135deg,#0a1628,#0f2d5e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(56,189,248,0.2),transparent 60%);"></div><span style="font-size:2.6rem;position:relative;z-index:1;">🌏</span><span style="position:absolute;top:0.7rem;left:0.7rem;background:rgba(56,189,248,0.15);color:var(--sky);border:1px solid rgba(56,189,248,0.3);padding:0.2rem 0.55rem;border-radius:100px;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Market Trends</span></div>
+          <div style="padding:1.1rem;flex:1;display:flex;flex-direction:column;"><div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:800;color:var(--ink);line-height:1.3;margin-bottom:0.4rem;">How Global Events Are Shaping the Australian Property Market in 2026</div><p style="font-size:0.78rem;color:var(--mid);line-height:1.6;flex:1;">From US trade policy to Chinese capital flows — the forces reshaping Australian property prices.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.8rem;"><span style="font-size:0.65rem;color:rgba(0,0,0,0.3);">Apr 2026 · 8 min</span><span style="font-size:0.72rem;font-weight:700;color:var(--lime-dark);">Read →</span></div></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Suburb Search -->
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="section-label" style="color:var(--lime);text-align:center;">Early Access</div>
-    <h2 class="section-title">Be first on the platform.</h2>
-    <p class="section-sub">Join the waitlist for free early access when we launch.</p>
-    <div class="cta-form">
-      <input type="email" id="ctaEmail" placeholder="your@email.com">
-      <button onclick="joinWaitlist()">Join Waitlist →</button>
+  <!-- ── FOOTER ── -->
+  <footer style="background:var(--ink);padding:3rem 5% 2rem;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em;margin-bottom:0.4rem;">Brick<span style="color:var(--lime);">Wise</span></div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.3);max-width:240px;line-height:1.6;">Australia's property intelligence platform for investors.</div>
+        </div>
+        <div style="display:flex;gap:3rem;flex-wrap:wrap;">
+          <div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.8rem;">Platform</div>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <a href="#" onclick="showPage('brickometer')" style="font-size:0.8rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Brickometer</a>
+              <a href="#" onclick="showPage('explore')" style="font-size:0.8rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Explore Suburbs</a>
+              <a href="#" onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100)" style="font-size:0.8rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Deal Analyser</a>
+              <a href="#" onclick="showPage('insights')" style="font-size:0.8rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Market Intel</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.8rem;">Company</div>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <a href="#" onclick="showPage('about')" style="font-size:0.8rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">About</a>
+              <a href="#" onclick="showPage('register')" style="font-size:0.8rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Get Suburb Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;flex-wrap:wrap;gap:0.8rem;">
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.2);">© 2026 BrickWise. General information only — not financial advice.</div>
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.2);">brickwise.com.au</div>
+      </div>
     </div>
-    <div class="cta-success" id="ctaSuccess">✓ You're on the list! We'll be in touch.</div>
-    <p class="cta-note">brickwise.com.au · No spam. No credit card.</p>
-  </section>
+  </footer>
 
 </div><!-- /home -->
 
@@ -924,7 +918,7 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border-light);">
         <div style="background:var(--ink);border-radius:16px;padding:2rem;text-align:center;">
           <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.4rem;">Want to score this suburb yourself?</div>
-          <div style="font-size:0.85rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;">Run any suburb through the Brickometer — free for registered members.</div>
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.45);margin-bottom:1.2rem;">Enter any suburb or postcode for a full investment score and insights.</div>
           <button onclick="closeArticle();showPage('brickometer')" style="background:var(--lime);color:var(--ink);border:none;padding:0.75rem 1.8rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;">Try the Brickometer →</button>
         </div>
       </div>
@@ -1047,35 +1041,48 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 <!-- REGISTER / LEAD PAGE -->
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-register">
-  <div class="register-hero">
-    <div class="section-label" style="color:var(--lime);">Get Access</div>
-    <h1>Start investing<br>with <em>intelligence.</em></h1>
-    <p>Register for BrickWise early access and be first to use the full platform — including the Brickometer, suburb comparisons, portfolio dashboard, and AI-powered suburb reports.</p>
-  </div>
+  <div style="min-height:100vh;background:var(--light);display:flex;align-items:flex-start;justify-content:center;padding:80px 5% 80px;">
+    <div style="width:100%;max-width:520px;">
 
-  <div class="register-layout">
-    <!-- Form -->
-    <div>
-      <div class="reg-form" id="regForm">
-        <h3>Create your free account</h3>
-        <div class="reg-row">
-          <div class="reg-ig"><label>First Name</label><input type="text" id="reg-firstname" placeholder="e.g. Sarah"></div>
-          <div class="reg-ig"><label>Last Name</label><input type="text" id="reg-lastname" placeholder="e.g. Thompson"></div>
+      <!-- Heading -->
+      <div style="margin-bottom:2.5rem;">
+        <div class="section-label" style="margin-bottom:0.5rem;">Get Suburb Details</div>
+        <h1 style="font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.025em;line-height:1.08;color:var(--ink);margin-bottom:0.8rem;">Tell us what you're<br>looking for.</h1>
+        <p style="font-size:0.95rem;color:var(--mid);line-height:1.65;font-weight:300;max-width:420px;">Tell us what suburb or postcode you're exploring and we'll provide deeper insights.</p>
+      </div>
+
+      <!-- Form -->
+      <div id="regForm" style="display:flex;flex-direction:column;gap:1rem;">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+          <div>
+            <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">First Name</label>
+            <input type="text" id="reg-firstname" placeholder="e.g. Sarah" style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
+          <div>
+            <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">Last Name</label>
+            <input type="text" id="reg-lastname" placeholder="e.g. Thompson" style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'">
+          </div>
         </div>
-        <div class="reg-ig"><label>Email Address</label><input type="email" id="reg-email" placeholder="your@email.com"></div>
-        <div class="reg-ig"><label>Phone (optional)</label><input type="tel" id="reg-phone" placeholder="0400 000 000"></div>
-        <div class="reg-ig"><label>I am a...</label>
-          <select id="reg-type">
-            <option value="">Select investor type</option>
-            <option>First-time property investor</option>
-            <option>Experienced investor (1–3 properties)</option>
-            <option>Portfolio investor (4+ properties)</option>
-            <option>Buyer's agent / Broker</option>
-            <option>Property researcher</option>
-          </select>
+
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">Email Address</label>
+          <input type="email" id="reg-email" placeholder="your@email.com" style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'">
         </div>
-        <div class="reg-ig"><label>Investment Budget</label>
-          <select id="reg-budget">
+
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <input type="tel" id="reg-phone" placeholder="0400 000 000" style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">Suburb or Postcode</label>
+          <input type="text" id="reg-suburb-query" placeholder="e.g. Ipswich, Baldivis, 4305..." style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">Investment Budget</label>
+          <select id="reg-budget" style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;appearance:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'">
             <option value="">Select budget range</option>
             <option>Under $500K</option>
             <option>$500K – $750K</option>
@@ -1084,74 +1091,29 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
             <option>$1.5M+</option>
           </select>
         </div>
-        <div class="reg-ig"><label>States of Interest</label>
-          <select id="reg-states">
-            <option value="">Select primary state</option>
-            <option>NSW</option><option>QLD</option><option>VIC</option><option>WA</option>
-            <option>Multiple states</option>
-          </select>
-        </div>
-        <div class="reg-ig"><label>What's your biggest challenge? (optional)</label>
-          <textarea id="reg-challenge" placeholder="e.g. Finding high-yield suburbs, understanding risk, comparing options..."></textarea>
-        </div>
-        <button class="btn-register" onclick="submitRegistration()">Create My Free Account →</button>
-        <p style="font-size:0.72rem;color:var(--mid);margin-top:0.8rem;line-height:1.5;">By registering you agree to receive platform updates from BrickWise. No spam. Unsubscribe any time. We never sell your data.</p>
-      </div>
-      <div class="reg-success" id="regSuccess">
-        <div style="font-size:2.5rem;margin-bottom:0.8rem;">🎉</div>
-        <h4>You're registered!</h4>
-        <p>Welcome to BrickWise. We'll send you an email shortly with your early access details. In the meantime, explore the Brickometer and suburb data above.</p>
-        <button class="btn-primary" style="margin-top:1.2rem;" onclick="showPage('brickometer')">Try the Brickometer →</button>
-      </div>
-    </div>
 
-    <!-- Benefits -->
-    <div>
-      <div class="reg-benefits">
-        <div class="rb-icon">⬡</div>
-        <div class="rb-benefit">
-          <div class="rb-title">Full Brickometer Access</div>
-          <div class="rb-desc">Score any suburb across Australia with our full 20-parameter model — yield, growth, vacancy, affordability, infrastructure, and risk overlay.</div>
+        <div>
+          <label style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:0.4rem;">Anything specific you want to know? <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea id="reg-challenge" placeholder="e.g. rental yield, infrastructure, vacancy rates, flood risk..." rows="3" style="width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--ink)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         </div>
-      </div>
-      <div class="reg-benefits" style="margin-top:1rem;">
-        <div class="rb-icon">📊</div>
-        <div class="rb-benefit">
-          <div class="rb-title">Suburb Intelligence Reports</div>
-          <div class="rb-desc">Access detailed suburb reports with market narrative, growth drivers, risk factors, and investor recommendations — powered by AI.</div>
-        </div>
-      </div>
-      <div class="reg-benefits" style="margin-top:1rem;">
-        <div class="rb-icon">📁</div>
-        <div class="rb-benefit">
-          <div class="rb-title">Portfolio Dashboard</div>
-          <div class="rb-desc">Track all your properties in one place — values, equity, cash flow, and total portfolio performance. Coming in Phase 2.</div>
-        </div>
-      </div>
-      <div class="reg-benefits" style="margin-top:1rem;">
-        <div class="rb-icon">🔔</div>
-        <div class="rb-benefit">
-          <div class="rb-title">Market Intel Alerts</div>
-          <div class="rb-desc">Get notified when suburbs you're watching hit key Brickometer score thresholds or show significant data changes.</div>
-        </div>
+
+        <!-- Hidden fields for submitRegistration() compatibility -->
+        <input type="hidden" id="reg-type" value="suburb_enquiry">
+        <input type="hidden" id="reg-states" value="">
+
+        <button onclick="submitRegistration()" style="background:var(--ink);color:var(--lime);border:none;padding:1rem;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;margin-top:0.3rem;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">Send My Request →</button>
+
+        <p style="font-size:0.7rem;color:rgba(0,0,0,0.3);text-align:center;line-height:1.6;">No spam. We'll only use this to prepare your suburb report.</p>
       </div>
 
-      <!-- Plans -->
-      <div style="margin-top:2rem;">
-        <div class="section-label">Plans</div>
-        <div class="plan-cards">
-          <div class="plan-card">
-            <div class="plan-name">Starter</div>
-            <div class="plan-price">Free</div>
-            <div class="plan-desc">Suburb search, deal analyser, and Brickometer preview. Perfect for getting started.</div>
-          </div>
-          <div class="plan-card featured">
-            <div class="plan-name">Pro</div>
-            <div class="plan-price" style="color:var(--lime);">Coming Soon</div>
-            <div class="plan-desc">Full Brickometer, AI reports, portfolio dashboard, and suburb alerts. Register now for early access pricing.</div>
-          </div>
-        </div>
+      <!-- Success -->
+      <div id="regSuccess" style="display:none;text-align:center;padding:3rem 0;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">✓</div>
+        <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--ink);margin-bottom:0.5rem;">Request received.</div>
+        <p style="font-size:0.9rem;color:var(--mid);line-height:1.65;">We'll be in touch with suburb insights shortly. In the meantime, explore the Brickometer.</p>
+        <button class="btn-primary" style="margin-top:1.5rem;" onclick="showPage('brickometer')">Try the Brickometer →</button>
       </div>
+
     </div>
   </div>
 </div><!-- /register -->
@@ -1877,39 +1839,30 @@ async function submitRegistration(){
   const ln = document.getElementById('reg-lastname').value.trim();
   const em = document.getElementById('reg-email').value.trim();
   const ph = document.getElementById('reg-phone').value.trim();
-  const type = document.getElementById('reg-type').value;
+  const suburbQuery = (document.getElementById('reg-suburb-query') || {value:''}).value.trim();
   const budget = document.getElementById('reg-budget').value;
-  const states = document.getElementById('reg-states').value;
   const challenge = document.getElementById('reg-challenge').value.trim();
 
   if(!fn || !em){ alert('Please enter your name and email address.'); return; }
   if(!em.includes('@')){ alert('Please enter a valid email address.'); return; }
-  if(!type){ alert('Please select your investor type.'); return; }
 
-  const btn = document.querySelector('.btn-register');
-  btn.textContent = 'Saving...';
-  btn.disabled = true;
+  const submitBtn = document.querySelector('#regForm button[onclick="submitRegistration()"]');
+  if(submitBtn){ submitBtn.textContent = 'Sending...'; submitBtn.disabled = true; }
 
   const ok = await sbInsert('registrations', {
     first_name: fn,
     last_name: ln,
     email: em,
     phone: ph,
-    investor_type: type,
+    investor_type: 'suburb_enquiry',
     budget: budget,
-    states: states,
-    challenge: challenge
+    states: suburbQuery,
+    challenge: challenge || suburbQuery
   });
 
-  if(ok){
-    document.getElementById('regForm').style.display = 'none';
-    document.getElementById('regSuccess').style.display = 'block';
-  } else {
-    // Still show success to user — log failure silently
-    document.getElementById('regForm').style.display = 'none';
-    document.getElementById('regSuccess').style.display = 'block';
-    console.warn('Supabase insert failed — check RLS policies');
-  }
+  document.getElementById('regForm').style.display = 'none';
+  document.getElementById('regSuccess').style.display = 'block';
+  if(!ok) console.warn('Supabase insert failed — check RLS policies');
 }
 
 // ── WAITLIST ──
