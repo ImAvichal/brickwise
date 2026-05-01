@@ -369,6 +369,85 @@ footer{background:var(--ink2);padding:2.5rem 5%;display:flex;justify-content:spa
 .footer-links a:hover{color:rgba(255,255,255,0.7);}
 footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 @media(max-width:600px){footer{flex-direction:column;text-align:center;}.footer-links{flex-wrap:wrap;justify-content:center;}}
+
+/* ══ HERO-BUDGET UNIFIED BLOCK ══ */
+.hero-budget-block{background:var(--ink);position:relative;overflow:hidden;padding:0;}
+.hb-noise{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.02;}
+.hb-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 70% at 92% 20%,rgba(200,244,0,0.07) 0%,transparent 60%),radial-gradient(ellipse 35% 40% at 5% 90%,rgba(56,189,248,0.04) 0%,transparent 55%);}
+.hb-top{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;padding:1.5rem 5% 1rem;}
+@media(max-width:860px){.hb-top{grid-template-columns:1fr;gap:1rem;padding:1.2rem 5% 0.8rem;}}
+.hb-kicker{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
+.hb-kicker::before{content:'';width:16px;height:1.5px;background:var(--lime);border-radius:2px;}
+.hb-h1{font-family:'Syne',sans-serif;font-size:clamp(1.05rem,1.9vw,1.55rem);font-weight:800;line-height:1.12;letter-spacing:-0.025em;color:var(--white);max-width:500px;}
+.hb-h1 em{font-style:normal;color:var(--lime);}
+.hb-sub{font-size:0.8rem;color:rgba(255,255,255,0.35);margin-top:0.25rem;font-weight:300;}
+.hb-actions{display:flex;gap:0.4rem;margin-top:0.85rem;flex-wrap:wrap;align-items:center;}
+.hb-cta-primary{background:var(--lime)!important;color:var(--ink)!important;padding:0.55rem 1.2rem!important;font-size:0.78rem!important;box-shadow:0 0 18px rgba(200,244,0,0.18);}
+.hb-cta-primary:hover{box-shadow:0 0 28px rgba(200,244,0,0.32)!important;transform:translateY(-2px)!important;}
+.hb-cta-secondary{border-color:rgba(255,255,255,0.18)!important;color:rgba(255,255,255,0.65)!important;font-size:0.78rem!important;padding:0.55rem 1.2rem!important;}
+.hb-cta-secondary:hover{background:rgba(255,255,255,0.05)!important;border-color:rgba(255,255,255,0.35)!important;color:var(--white)!important;}
+.hb-cta-tertiary{background:transparent;border:none;color:rgba(255,255,255,0.35);font-family:'Syne',sans-serif;font-weight:600;font-size:0.73rem;cursor:pointer;padding:0.55rem 0.3rem;transition:color 0.2s;}
+.hb-cta-tertiary:hover{color:rgba(255,255,255,0.65);}
+.hb-widgets{display:flex;gap:0.6rem;flex-shrink:0;}
+@media(max-width:860px){.hb-widgets{display:grid;grid-template-columns:repeat(3,1fr);}}
+@media(max-width:480px){.hb-widgets{grid-template-columns:repeat(3,1fr);gap:0.4rem;}}
+.hb-widget{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:0.7rem 0.85rem;min-width:120px;transition:border-color 0.2s,background 0.2s;}
+.hb-widget:hover{background:rgba(255,255,255,0.055);border-color:rgba(200,244,0,0.22);}
+.hb-widget-label{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.3rem;}
+.hb-widget-value{font-family:'Syne',sans-serif;font-size:0.84rem;font-weight:800;color:var(--white);margin-bottom:0.25rem;line-height:1.2;}
+.hb-widget-meta{font-size:0.67rem;color:rgba(255,255,255,0.32);line-height:1.45;}
+.hb-green{color:var(--lime);font-weight:700;}
+@media(max-width:480px){.hb-widget{min-width:0;padding:0.55rem 0.6rem;}.hb-widget-value{font-size:0.75rem;}}
+.hb-section-label{position:relative;z-index:1;padding:0.5rem 5% 0.1rem;display:flex;align-items:center;gap:0.5rem;font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+.hb-section-label::before{content:'';width:16px;height:1.5px;background:var(--lime);border-radius:2px;flex-shrink:0;}
+.hb-section-sub{color:rgba(255,255,255,0.15);font-weight:400;}
+.hb-tabs{position:relative;z-index:1;display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.07);padding:0 5%;overflow-x:auto;scrollbar-width:none;}
+.hb-tabs::-webkit-scrollbar{display:none;}
+.hb-footer-row{position:relative;z-index:1;padding:0.85rem 5% 1.3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;border-top:1px solid rgba(255,255,255,0.05);}
+.hb-footer-row span{font-size:0.73rem;color:rgba(255,255,255,0.22);}
+.hb-view-all{background:transparent;border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.5);padding:0.42rem 1rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.7rem;cursor:pointer;transition:all 0.2s;}
+.hb-view-all:hover{border-color:var(--lime);color:var(--lime);}
+
+/* ══ UPGRADED SUBURB CARDS ══ */
+.ccard{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:1.1rem 1.2rem;cursor:pointer;transition:border-color 0.25s,transform 0.2s,background 0.2s,box-shadow 0.25s;display:flex;flex-direction:column;gap:0.6rem;position:relative;overflow:hidden;}
+.ccard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,244,0,0.025) 0%,transparent 50%);opacity:0;transition:opacity 0.3s;pointer-events:none;border-radius:14px;}
+.ccard:hover{border-color:rgba(200,244,0,0.4);background:rgba(255,255,255,0.045);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.45),0 0 0 1px rgba(200,244,0,0.08);}
+.ccard:hover::before{opacity:1;}
+.ccard.featured{border-color:rgba(200,244,0,0.16);background:rgba(200,244,0,0.02);}
+.ccard.featured:hover{border-color:rgba(200,244,0,0.5);box-shadow:0 20px 48px rgba(0,0,0,0.45),0 0 24px rgba(200,244,0,0.07);}
+.ccard-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:0.4rem;}
+.ccard-ring{width:38px;height:38px;flex-shrink:0;transition:filter 0.2s;}
+.ccard:hover .ccard-ring{filter:drop-shadow(0 0 5px rgba(200,244,0,0.4));}
+.ccard-spark{width:100%;height:28px;display:block;opacity:0.55;margin:-0.1rem 0;transition:opacity 0.2s;}
+.ccard:hover .ccard-spark{opacity:0.85;}
+
+/* ══ FORMULA STRIP ══ */
+.formula-strip{background:var(--ink2);border-top:1px solid rgba(255,255,255,0.055);border-bottom:1px solid rgba(255,255,255,0.055);padding:1.1rem 5%;overflow:hidden;}
+.formula-strip-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
+.fs-label{font-family:'Syne',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);flex-shrink:0;white-space:nowrap;}
+.fs-equation{display:flex;align-items:center;gap:0.35rem;flex-wrap:wrap;flex:1;}
+.fs-term{display:flex;flex-direction:column;align-items:center;gap:0.12rem;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.065);border-radius:9px;padding:0.45rem 0.6rem;transition:background 0.2s,border-color 0.2s;cursor:default;min-width:52px;}
+.fs-term:hover{background:rgba(255,255,255,0.06);}
+.fs-term.positive:hover{border-color:rgba(200,244,0,0.28);}
+.fs-term.negative:hover{border-color:rgba(255,92,58,0.28);}
+.fs-term.result{background:rgba(200,244,0,0.07);border-color:rgba(200,244,0,0.22);}
+.fs-icon{font-size:0.85rem;line-height:1;}
+.fs-name{font-size:0.6rem;font-weight:600;color:rgba(255,255,255,0.4);white-space:nowrap;}
+.fs-weight{font-family:'Syne',sans-serif;font-size:0.58rem;font-weight:700;color:var(--lime);letter-spacing:0.03em;}
+.fs-score{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:800;color:var(--lime);line-height:1;}
+.fs-op{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:rgba(255,255,255,0.18);padding:0 0.05rem;flex-shrink:0;}
+.fs-op.minus{color:rgba(255,92,58,0.45);}
+.fs-cta{background:transparent;border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.45);padding:0.45rem 1rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.7rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;flex-shrink:0;}
+.fs-cta:hover{border-color:var(--lime);color:var(--lime);}
+@media(max-width:680px){.formula-strip-inner{flex-direction:column;align-items:flex-start;gap:0.9rem;}.fs-name{display:none;}.fs-term{min-width:36px;padding:0.4rem 0.45rem;}}
+
+/* ══ MOBILE BOTTOM NAV ══ */
+.mobile-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.07);padding:0.45rem 0 calc(0.45rem + env(safe-area-inset-bottom));justify-content:space-around;align-items:center;}
+@media(max-width:640px){.mobile-bottom-nav{display:flex;}body{padding-bottom:68px;}}
+.mbn-item{display:flex;flex-direction:column;align-items:center;gap:0.22rem;background:transparent;border:none;cursor:pointer;color:rgba(255,255,255,0.35);font-family:'DM Sans',sans-serif;font-size:0.6rem;font-weight:500;padding:0.35rem 1rem;border-radius:9px;transition:color 0.2s,background 0.2s;flex:1;}
+.mbn-item:hover,.mbn-item.active{color:var(--lime);}
+.mbn-item.active{background:rgba(200,244,0,0.05);}
+
 </style>
 </head>
 <body>
@@ -423,34 +502,53 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
 <!-- ══════════════════════════════════════ -->
 <div class="page active" id="page-home">
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <div>
-        <h1>Simple advice for<br>property investments<br>with <em>limitless potential.</em></h1>
-        <p class="hero-sub">We make building wealth effortless.</p>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="showPage('explore')">Explore Suburbs</button>
-          <button class="btn-ghost" onclick="showPage('brickometer')">Use Brickometer</button>
-          <button class="btn-ghost" onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100)">Run the Numbers</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ── HERO + BUDGET unified dark block ── -->
+  <section class="hero-budget-block">
+    <div class="hb-noise"></div>
+    <div class="hb-glow"></div>
 
-  <!-- ── BUDGET CATEGORIES ── -->
-  <section style="background:var(--ink);padding:0;border-top:1px solid rgba(0,0,0,0.06);">
-    <div style="padding:1.4rem 5% 0.8rem;">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-        <div>
-          <div class="section-label" style="color:var(--lime);margin-bottom:0.3rem;">BrickWise Picks · Q2 2026</div>
-          <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-0.025em;color:var(--white);line-height:1.05;">Explore suburbs by budget.</h2>
+    <!-- Headline + Intelligence Widgets -->
+    <div class="hb-top">
+      <div class="hb-headline">
+        <p class="hb-kicker">Q2 2026 · 35 suburbs tracked</p>
+        <h1 class="hb-h1">Simple advice for property<br>investments with <em>limitless potential.</em></h1>
+        <p class="hb-sub">We make building wealth effortless.</p>
+        <div class="hb-actions">
+          <button class="btn-primary hb-cta-primary" onclick="showPage('explore')">Explore Suburbs</button>
+          <button class="btn-ghost hb-cta-secondary" onclick="showPage('brickometer')">Use Brickometer</button>
+          <button class="hb-cta-tertiary" onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100)">Run the Numbers →</button>
         </div>
-        <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);max-width:260px;line-height:1.6;text-align:right;">Curated picks scored by the Brickometer. Full reports for registered members.</p>
+      </div>
+      <div class="hb-widgets">
+        <div class="hb-widget">
+          <div class="hb-widget-label">Top Segment</div>
+          <div class="hb-widget-value">Under $700K</div>
+          <div class="hb-widget-meta"><span class="hb-green">▲14.2%</span> avg growth</div>
+          <div class="hb-widget-meta"><span class="hb-green">4.9%</span> avg yield</div>
+        </div>
+        <div class="hb-widget">
+          <div class="hb-widget-label">Tightest Vacancy</div>
+          <div class="hb-widget-value">Armadale WA</div>
+          <div class="hb-widget-meta"><span class="hb-green">0.8%</span> vacancy</div>
+          <div class="hb-widget-meta"><span class="hb-green">⬡ 82</span> Brickometer</div>
+        </div>
+        <div class="hb-widget">
+          <div class="hb-widget-label">Highest Growth</div>
+          <div class="hb-widget-value">Perth South</div>
+          <div class="hb-widget-meta"><span class="hb-green">▲17.4%</span> 12m</div>
+          <div class="hb-widget-meta">WA corridor</div>
+        </div>
       </div>
     </div>
-    <div style="display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.08);padding:0 5%;overflow-x:auto;scrollbar-width:none;">
+
+    <!-- Section label -->
+    <div class="hb-section-label">
+      <span>Explore suburbs by budget</span>
+      <span class="hb-section-sub">· Scored by Brickometer · Full reports for members</span>
+    </div>
+
+    <!-- Budget tabs -->
+    <div class="hb-tabs">
       <button class="ctab active" id="ctab-0" onclick="showCarousel(0)"><span class="ctab-icon">🔥</span><span class="ctab-name">Under $700K</span><span class="ctab-range">Sweet Spot</span></button>
       <button class="ctab" id="ctab-1" onclick="showCarousel(1)"><span class="ctab-icon">📈</span><span class="ctab-name">$700K – $1M</span><span class="ctab-range">Growth Play</span></button>
       <button class="ctab" id="ctab-2" onclick="showCarousel(2)"><span class="ctab-icon">💎</span><span class="ctab-name">$1M+</span><span class="ctab-range">Premium Market</span></button>
@@ -458,30 +556,192 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
     <div class="cpanel active" id="cpanel-0">
       <div class="cpanel-desc">Maximum yield. Minimum entry. Best risk-adjusted returns in the current market — ideal for investors who want cash flow from day one.</div>
       <div class="ccard-row">
-        <div class="ccard featured" onclick="openGate('Ipswich','QLD · 4305','5.2%','▲12.4%','$580K','78 · Strong')"><div class="ccard-badge">⬡ 78 · Strong</div><div class="ccard-suburb">Ipswich</div><div class="ccard-state">QLD · 4305</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.2%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$580K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Strong infrastructure pipeline, sub-1% vacancy, and affordable entry. Rental demand driven by SEQ population inflow and Springfield employment hub.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Armadale','WA · 6112','6.1%','▲17.4%','$490K','82 · Strong')"><div class="ccard-badge">⬡ 82 · Strong</div><div class="ccard-suburb">Armadale</div><div class="ccard-state">WA · 6112</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">6.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲17.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$490K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Perth's hottest corridor. Highest yield in our dataset alongside 17%+ growth — rare at this price point.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Toowoomba','QLD · 4350','5.4%','▲10.1%','$520K','75 · Strong')"><div class="ccard-badge">⬡ 75 · Strong</div><div class="ccard-suburb">Toowoomba</div><div class="ccard-state">QLD · 4350</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲10.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$520K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Regional QLD powerhouse. Diversified economy, Inland Rail tailwind, consistently strong yields.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard featured" onclick="openGate('Ipswich','QLD · 4305','5.2%','▲12.4%','$580K','78 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 78 · Strong</div>
+              <div class="ccard-suburb">Ipswich</div>
+              <div class="ccard-state">QLD · 4305</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="88.2 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">78</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">5.2%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.4%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$580K</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,32 44,24 66,28 88,14 110,18 132,8 154,12 176,4 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,32 44,24 66,28 88,14 110,18 132,8 154,12 176,4 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Strong infrastructure pipeline, sub-1% vacancy, and affordable entry. SEQ population inflow and Springfield employment hub.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
+        <div class="ccard" onclick="openGate('Armadale','WA · 6112','6.1%','▲17.4%','$490K','82 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 82 · Strong</div>
+              <div class="ccard-suburb">Armadale</div>
+              <div class="ccard-state">WA · 6112</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="92.7 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">82</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">6.1%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲17.4%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$490K</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,37 44,31 66,26 88,20 110,16 132,12 154,9 176,6 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,37 44,31 66,26 88,20 110,16 132,12 154,9 176,6 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Perth's hottest corridor. Highest yield alongside 17%+ growth — rare at this price point.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
+        <div class="ccard" onclick="openGate('Toowoomba','QLD · 4350','5.4%','▲10.1%','$520K','75 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 75 · Strong</div>
+              <div class="ccard-suburb">Toowoomba</div>
+              <div class="ccard-state">QLD · 4350</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="84.8 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">75</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">5.4%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲10.1%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$520K</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,33 44,26 66,28 88,22 110,19 132,13 154,15 176,8 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,33 44,26 66,28 88,22 110,19 132,13 154,15 176,8 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Regional QLD powerhouse. Diversified economy, Inland Rail tailwind, consistently strong yields.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
       </div>
     </div>
     <div class="cpanel" id="cpanel-1">
       <div class="cpanel-desc">Balanced growth and yield. A compelling combination of capital growth trajectory and solid rental returns for the confident investor.</div>
       <div class="ccard-row">
-        <div class="ccard featured" onclick="openGate('Ellenbrook','WA · 6069','5.5%','▲15.1%','$570K','81 · Strong')"><div class="ccard-badge">⬡ 81 · Strong</div><div class="ccard-suburb">Ellenbrook</div><div class="ccard-state">WA · 6069</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">5.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲15.1%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$570K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Perth's northward expansion play. Ellenbrook Rail approved and funded — transformational on completion.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Campbelltown','NSW · 2560','4.5%','▲8.3%','$820K','72 · Strong')"><div class="ccard-badge">⬡ 72 · Strong</div><div class="ccard-suburb">Campbelltown</div><div class="ccard-state">NSW · 2560</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.5%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲8.3%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$820K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.4%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Direct Aerotropolis beneficiary. 200,000+ jobs forecast in the corridor over 20 years.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Coomera','QLD · 4209','4.6%','▲11.4%','$740K','77 · Strong')"><div class="ccard-badge">⬡ 77 · Strong</div><div class="ccard-suburb">Coomera</div><div class="ccard-state">QLD · 4209</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.6%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲11.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$740K</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Gold Coast's northern growth corridor. Major Town Centre transformation underway, strong Brisbane migration inflow.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard featured" onclick="openGate('Ellenbrook','WA · 6069','5.5%','▲15.1%','$570K','81 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 81 · Strong</div>
+              <div class="ccard-suburb">Ellenbrook</div>
+              <div class="ccard-state">WA · 6069</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="91.6 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">81</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">5.5%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲15.1%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$570K</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">0.8%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,33 44,27 66,24 88,19 110,16 132,11 154,8 176,7 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,33 44,27 66,24 88,19 110,16 132,11 154,8 176,7 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Perth's northward expansion play. Ellenbrook Rail approved and funded — transformational on completion.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
+        <div class="ccard" onclick="openGate('Campbelltown','NSW · 2560','4.5%','▲8.3%','$820K','72 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 72 · Strong</div>
+              <div class="ccard-suburb">Campbelltown</div>
+              <div class="ccard-state">NSW · 2560</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="81.4 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">72</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">4.5%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲8.3%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$820K</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">1.4%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,33 44,26 66,30 88,20 110,23 132,13 154,10 176,7 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,33 44,26 66,30 88,20 110,23 132,13 154,10 176,7 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Direct Aerotropolis beneficiary. 200,000+ jobs forecast in the corridor over 20 years.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
+        <div class="ccard" onclick="openGate('Coomera','QLD · 4209','4.6%','▲11.4%','$740K','77 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 77 · Strong</div>
+              <div class="ccard-suburb">Coomera</div>
+              <div class="ccard-state">QLD · 4209</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="87.1 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">77</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">4.6%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲11.4%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$740K</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">1.0%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,34 44,28 66,24 88,20 110,16 132,14 154,10 176,8 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,34 44,28 66,24 88,20 110,16 132,14 154,10 176,8 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Gold Coast's northern growth corridor. Major Town Centre transformation underway.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
       </div>
     </div>
     <div class="cpanel" id="cpanel-2">
       <div class="cpanel-desc">Capital growth and long-term wealth creation. Premium suburbs with proven equity track records and strong owner-occupier appeal.</div>
       <div class="ccard-row">
-        <div class="ccard featured" onclick="openGate('Doncaster','VIC · 3108','3.4%','▲7.9%','$1.35M','74 · Strong')"><div class="ccard-badge">⬡ 74 · Strong</div><div class="ccard-suburb">Doncaster</div><div class="ccard-state">VIC · 3108</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">3.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲7.9%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.35M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">0.9%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Melbourne's premium eastern corridor. Sub-1% vacancy and elite school catchments make this recession-resilient.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Fremantle','WA · 6160','4.4%','▲12.8%','$1.1M','71 · Strong')"><div class="ccard-badge">⬡ 71 · Strong</div><div class="ccard-suburb">Fremantle</div><div class="ccard-state">WA · 6160</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.4%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.8%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.1M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Lifestyle meets investment. Above-average yield at premium price point, strong growth from Perth's market tailwind.</div><div class="ccard-cta">View Insights →</div></div>
-        <div class="ccard" onclick="openGate('Parramatta','NSW · 2150','4.1%','▲6.4%','$1.25M','68 · Balanced')"><div class="ccard-badge">⬡ 68 · Balanced</div><div class="ccard-suburb">Parramatta</div><div class="ccard-state">NSW · 2150</div><div class="ccard-metrics"><div class="cm"><div class="cm-val">4.1%</div><div class="cm-key">Yield</div></div><div class="cm"><div class="cm-val" style="color:var(--gold);">▲6.4%</div><div class="cm-key">12m Growth</div></div><div class="cm"><div class="cm-val">$1.25M</div><div class="cm-key">Median</div></div><div class="cm"><div class="cm-val">1.5%</div><div class="cm-key">Vacancy</div></div></div><div class="ccard-teaser">Sydney's second CBD. Major corporate relocation driving structural demand growth over a 10+ year horizon.</div><div class="ccard-cta">View Insights →</div></div>
+        <div class="ccard featured" onclick="openGate('Doncaster','VIC · 3108','3.4%','▲7.9%','$1.35M','74 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 74 · Strong</div>
+              <div class="ccard-suburb">Doncaster</div>
+              <div class="ccard-state">VIC · 3108</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="83.7 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">74</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">3.4%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--gold);">▲7.9%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$1.35M</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">0.9%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,32 44,29 66,25 88,22 110,18 132,14 154,11 176,7 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,32 44,29 66,25 88,22 110,18 132,14 154,11 176,7 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Melbourne's premium eastern corridor. Sub-1% vacancy and elite school catchments.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
+        <div class="ccard" onclick="openGate('Fremantle','WA · 6160','4.4%','▲12.8%','$1.1M','71 · Strong')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 71 · Strong</div>
+              <div class="ccard-suburb">Fremantle</div>
+              <div class="ccard-state">WA · 6160</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="80.3 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">71</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">4.4%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">▲12.8%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$1.1M</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">1.1%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,34 44,28 66,26 88,20 110,17 132,15 154,12 176,6 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,34 44,28 66,26 88,20 110,17 132,15 154,12 176,6 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Lifestyle meets investment. Above-average yield, strong growth from Perth market tailwind.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
+        <div class="ccard" onclick="openGate('Parramatta','NSW · 2150','4.1%','▲6.4%','$1.25M','68 · Balanced')">
+          <div class="ccard-top-row">
+            <div>
+              <div class="ccard-badge">⬡ 68 · Balanced</div>
+              <div class="ccard-suburb">Parramatta</div>
+              <div class="ccard-state">NSW · 2150</div>
+            </div>
+            <svg class="ccard-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="3"/><circle cx="20" cy="20" r="18" fill="none" stroke="var(--lime)" stroke-width="3" stroke-dasharray="76.9 113.1" stroke-dashoffset="28.3" stroke-linecap="round"/><text x="20" y="24" text-anchor="middle" font-family="Syne,sans-serif" font-size="9" font-weight="800" fill="white">68</text></svg>
+          </div>
+          <div class="ccard-metrics">
+            <div class="cm"><div class="cm-val" style="color:var(--lime);">4.1%</div><div class="cm-key">Yield</div></div>
+            <div class="cm"><div class="cm-val" style="color:var(--gold);">▲6.4%</div><div class="cm-key">12m Growth</div></div>
+            <div class="cm"><div class="cm-val">$1.25M</div><div class="cm-key">Median</div></div>
+            <div class="cm"><div class="cm-val">1.5%</div><div class="cm-key">Vacancy</div></div>
+          </div>
+          <svg class="ccard-spark" viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 22,34 44,28 66,34 88,22 110,28 132,16 154,22 176,10 198,4" fill="none" stroke="rgba(200,244,0,0.4)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><polyline points="0,40 22,34 44,28 66,34 88,22 110,28 132,16 154,22 176,10 198,4" fill="none" stroke="rgba(200,244,0,0.12)" stroke-width="4" stroke-linejoin="round"/></svg>
+          <div class="ccard-teaser">Sydney's second CBD. Major corporate relocation driving structural demand growth.</div>
+          <div class="ccard-cta">View Insights →</div>
+        </div>
       </div>
     </div>
-    <div style="padding:1rem 5% 1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06);">
-      <span style="font-size:0.8rem;color:rgba(255,255,255,0.3);">35 suburbs tracked · NSW · QLD · VIC · WA</span>
-      <button onclick="showPage('explore')" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.65);padding:0.55rem 1.3rem;border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.76rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--lime)';this.style.color='var(--lime)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.65)'">View all suburbs →</button>
+    <div class="hb-footer-row">
+      <span>35 suburbs · NSW · QLD · VIC · WA</span>
+      <button onclick="showPage('explore')" class="hb-view-all">View all suburbs →</button>
     </div>
   </section>
 
@@ -523,6 +783,29 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.2);}
       </div>
     </div>
   </section>
+
+  <!-- ── MINI BRICKOMETER FORMULA STRIP ── -->
+  <div class="formula-strip">
+    <div class="formula-strip-inner">
+      <div class="fs-label">How Brickometer works</div>
+      <div class="fs-equation">
+        <div class="fs-term positive"><span class="fs-icon">📈</span><span class="fs-name">Growth</span><span class="fs-weight">30</span></div>
+        <div class="fs-op">+</div>
+        <div class="fs-term positive"><span class="fs-icon">🏠</span><span class="fs-name">Yield</span><span class="fs-weight">25</span></div>
+        <div class="fs-op">+</div>
+        <div class="fs-term positive"><span class="fs-icon">📍</span><span class="fs-name">Demand</span><span class="fs-weight">20</span></div>
+        <div class="fs-op">+</div>
+        <div class="fs-term positive"><span class="fs-icon">⚡</span><span class="fs-name">Infra</span><span class="fs-weight">15</span></div>
+        <div class="fs-op">+</div>
+        <div class="fs-term positive"><span class="fs-icon">💰</span><span class="fs-name">Affordability</span><span class="fs-weight">10</span></div>
+        <div class="fs-op minus">−</div>
+        <div class="fs-term negative"><span class="fs-icon">⚠️</span><span class="fs-name">Risk</span><span class="fs-weight">0–15</span></div>
+        <div class="fs-op">=</div>
+        <div class="fs-term result"><span class="fs-score">0–100</span><span class="fs-name">Score</span></div>
+      </div>
+      <button onclick="showPage('brickometer')" class="fs-cta">Try it →</button>
+    </div>
+  </div>
 
   <!-- ── MARKET INTEL PREVIEWS ── -->
   <section style="background:var(--light);padding:36px 5% 44px;">
@@ -2051,5 +2334,19 @@ async function submitCapture(){
   document.getElementById('captureSuccess').style.display = 'block';
 }
 </script>
+  <nav class="mobile-bottom-nav" id="mobileNav">
+    <button onclick="showPage('explore')" class="mbn-item" id="mbn-explore">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Explore</span>
+    </button>
+    <button onclick="showPage('brickometer')" class="mbn-item" id="mbn-brickometer">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z" stroke="currentColor" stroke-width="1.5"/><path d="M10 10l-3-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="10" r="1.5" fill="currentColor"/></svg>
+      <span>Brickometer</span>
+    </button>
+    <button onclick="showPage('explore');setTimeout(()=>showExplore('deal'),100)" class="mbn-item" id="mbn-deal">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9h6M7 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Deal Analyser</span>
+    </button>
+  </nav>
 </body>
 </html>
